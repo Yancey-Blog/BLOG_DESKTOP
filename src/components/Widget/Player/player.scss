@@ -1,0 +1,13 @@
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  opacity: 1;
+  overflow: visible;
+  height: auto !important;
+  min-height: 17px;
+  font-size: 16px;
+  color: #FE9600;
+  text-shadow: none;
+}
+
+.aplayer.aplayer-fixed .aplayer-lrc {
+  bottom: .9rem !important;
+}

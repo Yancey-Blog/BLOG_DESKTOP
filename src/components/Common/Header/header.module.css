@@ -1,0 +1,125 @@
+.yancey-common-header {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: all .4s ease; }
+  .yancey-common-header .yancey-logo {
+    background: url("../../../assets/image/yancey-official-blog-logo.png") no-repeat center top;
+    width: 210px;
+    height: 43px;
+    background-size: cover;
+    text-indent: -99999px; }
+  .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item {
+    display: inline-block;
+    margin-right: 1.4rem; }
+    .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a {
+      font-size: .8rem;
+      color: #666; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a .header-icon {
+        width: .8rem;
+        height: .8rem;
+        vertical-align: middle;
+        fill: #666;
+        margin-right: .4rem; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a .header-icon.icon-blog {
+        width: .7rem !important;
+        height: .7rem !important; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a .header-icon.icon-music {
+        width: .7rem !important;
+        height: .7rem !important; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a .menu-name {
+        vertical-align: middle; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover {
+        color: #ffA500; }
+        .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon {
+          fill: #ffA500; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-home :global {
+        animation: horizontal 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-blog :global {
+        animation: wrench 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-archive :global {
+        animation: vertical 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-music :global {
+        animation: tada 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-photo :global {
+        animation: pulse 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-resume :global {
+        animation: horizontal 2s ease infinite; }
+
+@keyframes :global(horizontal) {
+  0% {
+    transform: translate(0, 0); }
+  6% {
+    transform: translate(5px, 0); }
+  12% {
+    transform: translate(0, 0); }
+  18% {
+    transform: translate(5px, 0); }
+  24% {
+    transform: translate(0, 0); }
+  30% {
+    transform: translate(5px, 0); }
+  100%, 36% {
+    transform: translate(0, 0); } }
+@keyframes :global(wrench) {
+  0% {
+    transform: rotate(-12deg); }
+  8% {
+    transform: rotate(12deg); }
+  10% {
+    transform: rotate(24deg); }
+  18%, 20% {
+    transform: rotate(-24deg); }
+  28%, 30% {
+    transform: rotate(24deg); }
+  38%, 40% {
+    transform: rotate(-24deg); }
+  48%, 50% {
+    transform: rotate(24deg); }
+  58%, 60% {
+    transform: rotate(-24deg); }
+  68% {
+    transform: rotate(24deg); }
+  100%, 75% {
+    transform: rotate(0); } }
+@keyframes :global(vertical) {
+  0% {
+    transform: translate(0, -3px); }
+  4% {
+    transform: translate(0, 3px); }
+  8% {
+    transform: translate(0, -3px); }
+  12% {
+    transform: translate(0, 3px); }
+  16% {
+    transform: translate(0, -3px); }
+  20% {
+    transform: translate(0, 3px); }
+  100%, 22% {
+    transform: translate(0, 0); } }
+@keyframes :global(tada) {
+  0% {
+    transform: scale(1); }
+  10%, 20% {
+    transform: scale(0.9) rotate(-8deg); }
+  30%, 50%, 70% {
+    transform: scale(1.3) rotate(8deg); }
+  40%, 60% {
+    transform: scale(1.3) rotate(-8deg); }
+  100%, 80% {
+    transform: scale(1) rotate(0); } }
+@keyframes :global(pulse) {
+  0% {
+    transform: scale(1.1); }
+  50% {
+    transform: scale(0.8); }
+  100% {
+    transform: scale(1.1); } }
+
+/*# sourceMappingURL=header.module.css.map */

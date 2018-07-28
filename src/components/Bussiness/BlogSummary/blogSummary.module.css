@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans");
+.blog-summary-wrapper {
+  max-width: 40rem;
+  width: 40rem;
+  margin: 0 auto; }
+  .blog-summary-wrapper .blog-summary-content {
+    display: flex;
+    text-align: right;
+    box-shadow: 0 1px 20px -8px rgba(0, 0, 0, 0.5);
+    height: 15rem;
+    border-radius: .5rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden; }
+    .blog-summary-wrapper .blog-summary-content .blog-thumb-wrapper {
+      overflow: hidden;
+      max-width: 22rem;
+      width: 22rem;
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem; }
+      .blog-summary-wrapper .blog-summary-content .blog-thumb-wrapper .blog-thumb {
+        height: 100%;
+        background: url("https://static.2heng.xin/wp-content/uploads//2018/05/IMG_20180311_181107-1024x768.jpg") no-repeat center top;
+        background-size: cover;
+        transition: all 500ms linear; }
+        .blog-summary-wrapper .blog-summary-content .blog-thumb-wrapper .blog-thumb:hover {
+          transform: scale(1.1);
+          transition: all 500ms linear; }
+    .blog-summary-wrapper .blog-summary-content .blog-info {
+      max-width: 14rem;
+      width: 16rem;
+      padding: 1rem 2rem; }
+      .blog-summary-wrapper .blog-summary-content .blog-info .publish-date {
+        font-size: .6rem;
+        color: #888;
+        margin: 0; }
+      .blog-summary-wrapper .blog-summary-content .blog-info .title {
+        color: #504e4e;
+        font-size: .9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .blog-summary-wrapper .blog-summary-content .blog-info .extra-info {
+        display: flex;
+        justify-content: space-between;
+        width: 13rem;
+        margin-left: 1rem;
+        font-size: .6rem;
+        color: #888; }
+        .blog-summary-wrapper .blog-summary-content .blog-info .extra-info a {
+          color: #888; }
+      .blog-summary-wrapper .blog-summary-content .blog-info .summary-content {
+        text-align: right;
+        font-size: .75rem;
+        margin-bottom: 9.6px;
+        margin-top: .9rem;
+        line-height: 1.6;
+        height: 5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4; }
+      .blog-summary-wrapper .blog-summary-content .blog-info svg {
+        width: .7rem;
+        height: .7rem;
+        position: relative;
+        top: .15rem;
+        margin-right: .4rem; }
+      .blog-summary-wrapper .blog-summary-content .blog-info .more-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-right: 0;
+        fill: #888; }
+
+/*# sourceMappingURL=blogSummary.module.css.map */

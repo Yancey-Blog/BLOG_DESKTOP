@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,2CAA4C;EAC1C,OAAO,EAAE,CAAC;EACV,QAAQ,EAAE,OAAO;EACjB,MAAM,EAAE,eAAe;EACvB,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,IAAI;;AAGnB,mCAAoC;EAClC,MAAM,EAAE,gBAAgB",
+"sources": ["player.scss"],
+"names": [],
+"file": "player.css"
+}

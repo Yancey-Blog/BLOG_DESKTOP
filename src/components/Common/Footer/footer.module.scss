@@ -1,0 +1,44 @@
+.yancey-common-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  margin: 10rem auto .2rem;
+  .copyright-motto-wrapper {
+    text-align: center;
+    .copyright {
+      font-size: .8rem;
+    }
+    .motto {
+      font-size: .6rem;
+      color: #8a9399;
+    }
+  }
+  .footer-social-media-wrapper {
+    margin-top: 1.2rem;
+    .footer-social-media-item {
+      list-style: none;
+      display: inline-block;
+      .footer-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-right: 1rem;
+        transition: 400ms all linear;
+        &:hover {
+          transition: 400ms all linear;
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
