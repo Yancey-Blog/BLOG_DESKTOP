@@ -10,6 +10,7 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="https://api.leoyancey.com/api/waifu.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -36,5 +37,13 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://api.leoyancey.com/api/live2d.min.js"></script>
+    <script src="https://api.leoyancey.com/api/waifu-tips.js"></script>
+    <script>
+      window.onload = function () {
+        initWidget("https://api.leoyancey.com/api/", "https://api.fghrsh.net/live2d");
+      }
+    </script>
   </body>
 </html>

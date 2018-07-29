@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
 
+$small_text: #888;
+
 .blog-summary-wrapper {
   max-width: 40rem;
   width: 40rem;
   margin: 0 auto;
   .blog-summary-content {
-    display: flex;
-    text-align: right;
-    box-shadow: 0 1px 20px -8px rgba(#000, .5);
-    height: 15rem;
-    border-radius: .5rem;
     font-family: 'Merriweather Sans', sans-serif;
+    display: flex;
+    height: 15rem;
+    margin-bottom: 2rem;
+    text-align: right;
+    border-radius: .5rem;
+    box-shadow: 0 1px 20px -8px rgba(#000, .5);
     text-shadow: 0 0 1px rgba(0, 0, 0, .1);
     overflow: hidden;
     .blog-thumb-wrapper {
       overflow: hidden;
       max-width: 22rem;
       width: 22rem;
-      border-top-left-radius: .5rem;
-      border-bottom-left-radius: .5rem;
       .blog-thumb {
         height: 100%;
         background: url("https://static.2heng.xin/wp-content/uploads//2018/05/IMG_20180311_181107-1024x768.jpg") no-repeat center top;
@@ -31,13 +32,20 @@
       }
     }
     .blog-info {
-      max-width: 14rem;
-      width: 16rem;
-      padding: 1rem 2rem;
+      max-width: 18rem;
+      width: 18rem;
+      padding: 1rem 1.8rem;
+      svg {
+        width: .7rem;
+        height: .7rem;
+        position: relative;
+        top: .15rem;
+        margin-right: .4rem;
+        fill: $small_text;
+      }
       .publish-date {
         font-size: .6rem;
-        color: #888;
-        margin: 0;
+        color: $small_text;
       }
       .title {
         color: #504e4e;
@@ -45,44 +53,44 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        margin: 1rem 0;
       }
       .extra-info {
         display: flex;
         justify-content: space-between;
-        width: 13rem;
-        margin-left: 1rem;
+        width: 100%;
         font-size: .6rem;
-        color: #888;
+        color: $small_text;
         a {
-          color: #888;
+          color: $small_text;
         }
       }
       .summary-content {
-        text-align: right;
+        color: rgba(#000, .66);
+        text-shadow: 0 0 1px rgba(#000, .1);
         font-size: .75rem;
-        margin-bottom: 9.6px;
-        margin-top: .9rem;
-        line-height: 1.6;
-        height: 5rem;
+        margin-top: 1rem;
+        line-height: 1.5;
+        height: 6rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
       }
-      svg {
-        width: .7rem;
-        height: .7rem;
-        position: relative;
-        top: .15rem;
-        margin-right: .4rem;
-      }
-      .more-icon {
-        width: 1.4rem;
-        height: 1.4rem;
-        margin-right: 0;
-        fill: #888;
+      .show-detail-wrapper {
+        .icon-more {
+          width: 1.4rem;
+          height: 1.4rem;
+          margin-right: 0;
+        }
       }
     }
   }
+  .reverse {
+    flex-direction: row-reverse;
+    text-align: left;
+  }
 }
+
+

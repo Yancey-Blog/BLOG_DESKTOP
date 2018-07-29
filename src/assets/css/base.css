@@ -1,13 +1,13 @@
-html {
-  font-size: 20px !important; }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
+html {
+  font-size: 20px !important; }
+
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: relative; }
 
 .App {

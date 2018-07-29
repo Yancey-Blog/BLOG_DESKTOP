@@ -1,103 +1,247 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:700');
 
 .yancey-blog-home {
-    .home-imax {
+  color: #666;
+  .home-imax {
+    position: relative;
+    width: 100%;
+    animation: header 1s;
+    background: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.8/cover/gallary/%E6%B5%B7%E3%81%AE%E8%A6%8B%E3%81%88%E3%82%8B%E8%A1%97(795807)_by_%E3%82%86%E3%81%8D%E3%81%BE%E3%82%93.jpg") no-repeat fixed top center;
+    background-size: cover;
+    &::after {
+      content: '';
+      background: url("../../assets/image/dot.gif") 0 0 fixed;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .glitch {
       position: relative;
-      width: 100%;
-      animation: header 1s;
-      background: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.8/cover/gallary/%E6%B5%B7%E3%81%AE%E8%A6%8B%E3%81%88%E3%82%8B%E8%A1%97(795807)_by_%E3%82%86%E3%81%8D%E3%81%BE%E3%82%93.jpg") no-repeat fixed top center;
-      background-size: cover;
-      &::after {
-        content: '';
-        background: url("../../assets/image/dot.gif") 0 0 fixed;
+      color: #fff;
+      font-size: 80px;
+      z-index: 1;
+      user-select: none;
+      top: 34%;
+      transition: all 400ms ease;
+      max-width: 100%;
+      text-align: center;
+      &::before, &::after {
+        content: attr(data-value);
         position: absolute;
         top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0);
+        clip: rect(0, 0, 0, 0)
       }
-      .glitch {
-        position: relative;
-        color: #fff;
-        font-size: 80px;
-        z-index: 1;
-        user-select: none;
-        top: 34%;
-        transition: all 400ms ease;
-        max-width: 100%;
+      &::before {
+        left: -1px;
+        text-shadow: 1px 0 #ff3f1a
+      }
+      &::after {
+        left: 1px;
+        text-shadow: -1px 0 #00a7e0
+      }
+      &:hover::before {
+        text-shadow: 4px 0 #ff3f1a;
+        animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
+      }
+      &:hover::after {
+        text-shadow: -5px 0 #00a7e0;
+        animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
+      }
+    }
+    .social-media-container {
+      position: relative;
+      z-index: 1;
+      max-width: 550px;
+      margin: 0 auto;
+      background: rgba(#000, .5);
+      padding: 1rem;
+      border-radius: 10px;
+      top: 38%;
+      .social-media-motto {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-size: .8rem;
+        color: #eaeadf;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .social-media-list {
         text-align: center;
-        &::before, &::after {
-          content: attr(data-value);
-          position: absolute;
-          top: 0;
-          width: 100%;
-          background: rgba(0, 0, 0, 0);
-          clip: rect(0, 0, 0, 0)
+        .social-media-item:last-child {
+          margin-right: 0;
         }
-        &::before {
-          left: -1px;
-          text-shadow: 1px 0 #ff3f1a
-        }
-        &::after {
-          left: 1px;
-          text-shadow: -1px 0 #00a7e0
-        }
-        &:hover::before {
-          text-shadow: 4px 0 #ff3f1a;
-          animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
-        }
-        &:hover::after {
-          text-shadow: -5px 0 #00a7e0;
-          animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
-        }
-      }
-      .social-media-container {
-        position: relative;
-        z-index: 1;
-        max-width: 550px;
-        margin: 0 auto;
-        background: rgba(#000, .5);
-        padding: 1rem;
-        border-radius: 10px;
-        top: 38%;
-        .social-media-motto {
-          font-family: "Ubuntu", sans-serif;
-          font-weight: 700;
-          font-size: .8rem;
-          color: #eaeadf;
-          display: flex;
-          justify-content: center;
-          margin-bottom: 1rem;
-        }
-        .social-media-list {
-          text-align: center;
-          .social-media-item:last-child {
-            margin-right: 0;
+        .social-media-item {
+          position: relative;
+          display: inline-block;
+          margin-right: 20px;
+          svg {
+            width: 22px;
+            height: 22px;
           }
-          .social-media-item {
-            display: inline-block;
-            margin-right: 20px;
-            svg {
-              width: 22px;
-              height: 22px;
-              &:before {
-                animation: effect_dylan 0.8s ease-out;
-              }
-            }
+        }
+        .messenger-qr-code {
+          &::after {
+            background: rgba(0, 0, 0, .5) url("./messager-qr-code.jpeg") no-repeat center top;
           }
-          svg.arrow {
-            width: 20px;
-            height: 20px;
-            position: relative;
-            top: -1px;
-            &:hover {
-              cursor: pointer;
-            }
+        }
+        .wechat-qr-code {
+          &::after {
+            background: rgba(0, 0, 0, .5) url("./wechat-qr-code.jpg") no-repeat center top;
+          }
+        }
+        .qr-code {
+          cursor: pointer;
+          &::after, &::before {
+            position: absolute;
+            content: '';
+            opacity: 0;
+            visibility: hidden;
+            transform: translate3d(0, 16px, 0);
+            transition: 700ms all ease;
+          }
+          &::after {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border-radius: 12px;
+            background-size: cover;
+            background-origin: content-box;
+            top: 62px;
+            left: -48px;
+          }
+          &::before {
+            width: 0;
+            height: 0;
+            border: 16px solid transparent;
+            border-bottom-color: rgba(0, 0, 0, 0.5);
+            top: 30px;
+            left: -4px;
+          }
+          &:hover::after, &:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translate3d(0, 0, 0);
+            transition: 700ms all ease;
+          }
+        }
+        svg.arrow {
+          width: 20px;
+          height: 20px;
+          position: relative;
+          top: -1px;
+          &:hover {
+            cursor: pointer;
           }
         }
       }
     }
   }
+  .content {
+    max-width: 40rem;
+    margin: 3rem auto 1rem;
+    .announcement-wrapper {
+      border: 1px dashed #e6e6e6;
+      color: #969696;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: .8rem;
+      background: #fbfbfb;
+    }
+    .new-release-container {
+      display: flex;
+      justify-content: space-around;
+      .new-release {
+        overflow: hidden;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+        border-radius: 10px;
+        .new-release-content {
+          position: relative;
+          width: 13rem;
+          height: 8rem;
+          background: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png") no-repeat center top;
+          background-size: cover;
+          transition: all 400ms linear;
+          &:hover {
+            .overlay {
+              visibility: visible;
+              opacity: 1;
+              transition: all 400ms linear;
+            }
+          }
+          &:hover::before {
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+          }
+          &:hover::after {
+            left: 0;
+          }
+          &::after {
+            position: absolute;
+            content: attr(data-title);
+            left: 13rem;
+            background: #000;
+            color: #fff;
+            width: 100%;
+            margin-top: 1.4rem;
+            padding: .5rem 0;
+            text-align: center;
+            font-size: .9rem;
+            transition: all 400ms linear;
+          }
+          &::before {
+            position: absolute;
+            content: attr(data-intro);
+            bottom: 1rem;
+            left: -50%;
+            transform: translate3d(-50%, -50%, 0);
+            color: #bbb;
+            font-size: .6rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            z-index: 2;
+            transition: all 400ms linear;
+          }
+          .overlay {
+            visibility: hidden;
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: rgba(#000, .6);
+            transition: all 400ms linear;
+          }
+        }
+      }
+    }
+  }
+
+  .blog-summary-tips, .new-release-tips {
+    color: #666;
+    font-size: .9rem;
+    font-weight: 400;
+    padding-bottom: .4rem;
+    border-bottom: 1px dashed #ececec;
+    width: 40rem;
+    margin: 4rem auto 2rem;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: .6rem;
+    position: relative;
+    top: 4px;
+  }
+
+}
 
 .clear-navbar-bg {
   box-shadow: none;
@@ -107,10 +251,6 @@
     background: rgba(#fff, .95);
     box-shadow: 0 1px 40px -8px rgba(#000, .5);
   }
-}
-
-.empty {
-  height: 200px;
 }
 
 @keyframes header {

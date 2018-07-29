@@ -35,9 +35,9 @@ class Footer extends Component {
               </a>
             </li>
             <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.googlePlus.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-google-plus')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.googlePlus.icon}`} />
+              <a href={socialMedia.weibo.url} target="_blank" rel="noopener noreferrer">
+                <svg className={cs(styles['footer-icon'], 'icon-weibo')}>
+                  <use xlinkHref={`${svgIcons}${socialMedia.weibo.icon}`} />
                 </svg>
               </a>
             </li>

@@ -1,6 +1,7 @@
-html {
-  font-size: 20px !important;
-}
+// gray
+$w: #ececec;
+$small_text: #888;
+
 
 * {
   margin: 0;
@@ -8,8 +9,12 @@ html {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px !important;
+}
+
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: relative;
 }
 

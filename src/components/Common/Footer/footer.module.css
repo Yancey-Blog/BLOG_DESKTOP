@@ -7,23 +7,22 @@
   .yancey-common-footer .copyright-motto-wrapper {
     text-align: center; }
     .yancey-common-footer .copyright-motto-wrapper .copyright {
-      font-size: .8rem; }
+      font-size: .8rem;
+      margin-bottom: .6rem; }
     .yancey-common-footer .copyright-motto-wrapper .motto {
       font-size: .6rem;
       color: #8a9399; }
-  .yancey-common-footer .footer-social-media-wrapper {
-    margin-top: 1.2rem; }
-    .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item {
-      list-style: none;
-      display: inline-block; }
-      .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item .footer-icon {
-        width: 1.4rem;
-        height: 1.4rem;
-        margin-right: 1rem;
-        transition: 400ms all linear; }
-        .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item .footer-icon:hover {
-          transition: 400ms all linear;
-          transform: rotate(360deg); }
+  .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item {
+    list-style: none;
+    display: inline-block; }
+    .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item .footer-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 1rem;
+      transition: 400ms all linear; }
+      .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item .footer-icon:hover {
+        transition: 400ms all linear;
+        transform: rotate(360deg); }
 
 @keyframes rotation {
   0% {

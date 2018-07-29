@@ -3,10 +3,6 @@ const socialMedia = {
     url: 'https://github.com/yanceyleo/',
     icon: '#github',
   },
-  googlePlus: {
-    url: 'https://plus.google.com/114913948151946075303',
-    icon: '#google-plus',
-  },
   twitter: {
     url: 'https://twitter.com/YanceyOfficial/',
     icon: '#twitter',
@@ -42,6 +38,10 @@ const socialMedia = {
   wechat: {
     url: '',
     icon: '#wechat',
+  },
+  messenger: {
+    url: '',
+    icon: '#messenger',
   },
 };
 
