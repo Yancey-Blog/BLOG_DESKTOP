@@ -104,7 +104,7 @@ class Header extends Component {
                 <svg className={cs(styles['header-icon'], styles['icon-archive'])}>
                   <use xlinkHref={`${svgIcons}${navbarInfo.archive.icon}`} />
                 </svg>
-                <span>
+                <span className={styles['menu-name']}>
                   {navbarInfo.archive.language.en}
                 </span>
               </a>

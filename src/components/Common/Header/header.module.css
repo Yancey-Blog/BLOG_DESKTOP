@@ -16,8 +16,21 @@
     background-size: cover;
     text-indent: -99999px; }
   .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item {
+    position: relative;
     display: inline-block;
     margin-right: 1.4rem; }
+    .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 4px;
+      background: #ffA500;
+      top: 40px;
+      left: 0;
+      transition: all 300ms ease; }
+    .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item:hover::after {
+      width: 100%;
+      transition: all 300ms ease; }
     .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a {
       font-size: .8rem;
       color: #666; }
