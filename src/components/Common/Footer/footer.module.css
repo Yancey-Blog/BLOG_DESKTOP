@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   width: 95%;
-  margin: 10rem auto .2rem; }
+  margin: 10rem auto .4rem; }
   .yancey-common-footer .copyright-motto-wrapper {
     text-align: center; }
     .yancey-common-footer .copyright-motto-wrapper .copyright {
@@ -12,22 +12,26 @@
     .yancey-common-footer .copyright-motto-wrapper .motto {
       font-size: .6rem;
       color: #8a9399; }
-  .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item {
-    list-style: none;
-    display: inline-block; }
-    .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item .footer-icon {
-      width: 1.4rem;
-      height: 1.4rem;
-      margin-right: 1rem;
-      transition: 400ms all linear; }
-      .yancey-common-footer .footer-social-media-wrapper .footer-social-media-item .footer-icon:hover {
-        transition: 400ms all linear;
-        transform: rotate(360deg); }
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
+  .yancey-common-footer .blog-info-wrapper {
+    font-size: .6rem; }
+    .yancey-common-footer .blog-info-wrapper .blog-info-list {
+      display: inline-block; }
+      .yancey-common-footer .blog-info-wrapper .blog-info-list .blog-info-item {
+        color: #555;
+        border-right: 1px solid #d6d6d6;
+        margin-right: .4rem;
+        padding-right: .4rem;
+        margin-top: .4rem; }
+        .yancey-common-footer .blog-info-wrapper .blog-info-list .blog-info-item:last-child {
+          border: none;
+          margin: 0;
+          padding: 0; }
+    .yancey-common-footer .blog-info-wrapper .switch-language {
+      display: inline-block; }
+      .yancey-common-footer .blog-info-wrapper .switch-language .english {
+        margin-left: 1rem;
+        margin-right: .2rem;
+        padding-right: .2rem;
+        border-right: 1px solid #d6d6d6; }
 
 /*# sourceMappingURL=footer.module.css.map */

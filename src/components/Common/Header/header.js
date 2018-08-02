@@ -10,7 +10,6 @@ const navbarInfo = {
     language: {
       en: 'HOME',
       ja: 'ホーム',
-      zh_cn: '主頁',
     },
   },
   blog: {
@@ -19,7 +18,6 @@ const navbarInfo = {
     language: {
       en: 'BLOG',
       ja: 'ブログ',
-      zh_cn: '博客',
     },
   },
   archive: {
@@ -28,7 +26,6 @@ const navbarInfo = {
     language: {
       en: 'ARCHIVE',
       ja: 'アーカイブ',
-      zh_cn: '歸檔',
     },
   },
   music: {
@@ -37,25 +34,6 @@ const navbarInfo = {
     language: {
       en: 'MUSIC',
       ja: 'ミュージック',
-      zh_cn: '音樂',
-    },
-  },
-  photo: {
-    url: '/photo',
-    icon: '#photo-camera',
-    language: {
-      en: 'PHOTO',
-      ja: '写真',
-      zh_cn: '寫真',
-    },
-  },
-  resume: {
-    url: '/resume',
-    icon: '#curriculum-vitae',
-    language: {
-      en: 'RESUME',
-      ja: '履歴書',
-      zh_cn: '簡歷',
     },
   },
   client: {
@@ -64,7 +42,22 @@ const navbarInfo = {
     language: {
       en: 'CLIENT',
       ja: 'クライアント',
-      zh_cn: '客戶端',
+    },
+  },
+  photo: {
+    url: '/photo',
+    icon: '#photo-camera',
+    language: {
+      en: 'PHOTO',
+      ja: '写真',
+    },
+  },
+  resume: {
+    url: '/resume',
+    icon: '#curriculum-vitae',
+    language: {
+      en: 'RESUME',
+      ja: '履歴書',
     },
   },
   rss: {
@@ -73,7 +66,6 @@ const navbarInfo = {
     language: {
       en: 'RSS',
       ja: 'RSS',
-      zh_cn: 'RSS',
     },
   },
 };
@@ -82,7 +74,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lang: 'en',
+      lang: 'ja',
     };
   }
 
@@ -91,10 +83,6 @@ class Header extends Component {
 
   componentDidMount() {
   }
-
-  getlang = () => {
-    this.setState({ lang: 'ja' });
-  };
 
   render() {
     const { lang } = this.state;
@@ -120,9 +108,6 @@ class Header extends Component {
               ))
             }
           </ul>
-          <button onClick={this.getlang}>
-            cccc
-          </button>
         </nav>
       </header>
     );

@@ -19,7 +19,8 @@
   .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item {
     position: relative;
     display: inline-block;
-    margin-right: 1.4rem; }
+    margin-right: 1.4rem;
+    padding-right: .2rem; }
     .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item::after {
       position: absolute;
       content: '';
@@ -65,6 +66,10 @@
         animation: pulse 2s ease infinite; }
       .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-resume :global {
         animation: horizontal 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-apps :global {
+        animation: wrench 2s ease infinite; }
+      .yancey-common-header .yancey-navbar-wrapper .yancey-navbar-item a:hover > .header-icon.icon-rss :global {
+        animation: vertical 2s ease infinite; }
 
 @keyframes :global(horizontal) {
   0% {

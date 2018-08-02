@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
-import cs from 'classnames';
 import styles from './footer.module.css';
-import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
-import socialMedia from '../../../utils/socialMedia';
+
+const blogInfo = {
+  aboutMe: {
+    url: '/',
+    lang: {
+      en: 'About Me',
+      ja: 'ヤンシーについて',
+    },
+  },
+  privacyPolicy: {
+    url: '/',
+    lang: {
+      en: 'Privacy Policy',
+      ja: 'プライバシーポリシー',
+    },
+  },
+  client: {
+    url: '/client',
+    lang: {
+      en: 'Client',
+      ja: 'クライアント',
+    },
+  },
+};
 
 class Footer extends Component {
   constructor(props) {
@@ -17,7 +38,7 @@ class Footer extends Component {
           <p className={styles.copyright}>
             Copyright &copy;
             {' '}
-            { new Date().getFullYear() }
+            {new Date().getFullYear()}
             {' '}
             Yancey Inc. All rights reserved.
           </p>
@@ -25,65 +46,31 @@ class Footer extends Component {
             死は生の対極としてではなく、その一部として存在している。
           </p>
         </div>
-        <div className={styles['footer-social-media-wrapper']}>
-          <ul>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.github.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-github')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.github.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.weibo.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-weibo')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.weibo.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.twitter.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-twitter')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.twitter.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.instagram.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-instagram')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.instagram.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.facebook.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-facebook')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.facebook.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.soundCloud.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-soundcloud')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.soundCloud.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.reddit.url} target="_blank" rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-reddit')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.reddit.icon}`} />
-                </svg>
-              </a>
-            </li>
-            <li className={styles['footer-social-media-item']}>
-              <a href={socialMedia.email.url} rel="noopener noreferrer">
-                <svg className={cs(styles['footer-icon'], 'icon-email')}>
-                  <use xlinkHref={`${svgIcons}${socialMedia.email.icon}`} />
-                </svg>
-              </a>
-            </li>
-          </ul>
+        <div className={styles['blog-info-wrapper']}>
+          <div className={styles['blog-info-list']}>
+            {
+              Object.keys(blogInfo)
+                .map(key => (
+                  <a
+                    href={blogInfo[key].url}
+                    className={styles['blog-info-item']}
+                    key={key}
+                  >
+                    <span>
+                      {blogInfo[key].lang.ja}
+                    </span>
+                  </a>
+                ))
+            }
+          </div>
+          <div className={styles['switch-language']}>
+            <span className={styles.english}>
+              English
+            </span>
+            <span className="japanese">
+              日本語
+            </span>
+          </div>
         </div>
       </footer>
     );
