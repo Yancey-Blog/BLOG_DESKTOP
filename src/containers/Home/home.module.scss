@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:700');
+//@import url('https://fonts.googleapis.com/css?family=Ubuntu:700');
 
 .yancey-blog-home {
   color: #666;
@@ -62,7 +62,7 @@
       border-radius: 10px;
       top: 38%;
       .social-media-motto {
-        font-family: "Ubuntu", sans-serif;
+        font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
         font-size: .8rem;
         color: #eaeadf;
@@ -105,14 +105,14 @@
             transition: 700ms all ease;
           }
           &::after {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             padding: 10px;
             border-radius: 12px;
             background-size: cover;
             background-origin: content-box;
             top: 62px;
-            left: -48px;
+            left: -58px;
           }
           &::before {
             width: 0;

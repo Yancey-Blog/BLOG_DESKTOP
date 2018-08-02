@@ -3,10 +3,10 @@ import { observable, configure, action } from 'mobx';
 import { observer } from 'mobx-react';
 import cs from 'classnames';
 import $ from 'jquery';
-import { Timeline } from 'react-twitter-widgets';
 import styles from './home.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/Bussiness/BlogSummary/blogSummary';
+import socialMedia from '../../utils/socialMedia';
 
 configure({ enforceActions: true });
 
@@ -78,17 +78,6 @@ export default class Home extends Component {
   }
 
   render() {
-    const socialMediaURL = {
-      github: 'https://github.com/yanceyleo/',
-      twitter: 'https://twitter.com/YanceyOfficial/',
-      instagram: 'https://www.instagram.com/yancey_leo/',
-      facebook: 'https://www.facebook.com/yanceyleo/',
-      soundCloud: 'https://soundcloud.com/yancey-leo/',
-      reddit: 'https://www.reddit.com/user/yanceyleo/',
-      email: 'mailto:hi@yanceyleo.com',
-      wechat: '',
-      paypal: 'https://www.paypal.me/yanceyleo/10usd',
-    };
     return (
       <main className={styles['yancey-blog-home']}>
         <section className="home-imax-wrapper">
@@ -111,63 +100,61 @@ export default class Home extends Component {
                   </svg>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.github} target="_blank" rel="noopener noreferrer">
+                  <a href={socialMedia.github.url} target="_blank" rel="noopener noreferrer">
                     <svg className="">
-                      <use xlinkHref={`${svgIcons}#github`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.github.icon}`} />
                     </svg>
                   </a>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.twitter} target="_blank" rel="noopener noreferrer">
+                  <a href={socialMedia.twitter.url} target="_blank" rel="noopener noreferrer">
                     <svg className="">
-                      <use xlinkHref={`${svgIcons}#twitter`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.twitter.icon}`} />
                     </svg>
                   </a>
                 </li>
                 <li className={cs(styles['social-media-item'], styles['qr-code'], styles['messenger-qr-code'])}>
                   <svg className="">
-                    <use xlinkHref={`${svgIcons}#messenger`} />
+                    <use xlinkHref={`${svgIcons}${socialMedia.messenger.icon}`} />
                   </svg>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.instagram} target="_blank" rel="noopener noreferrer">
+                  <a href={socialMedia.instagram.url} target="_blank" rel="noopener noreferrer">
                     <svg className="">
-                      <use xlinkHref={`${svgIcons}#instagram`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.instagram.icon}`} />
                     </svg>
                   </a>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.facebook} target="_blank" rel="noopener noreferrer">
+                  <a href={socialMedia.facebook.url} target="_blank" rel="noopener noreferrer">
                     <svg className="">
-                      <use xlinkHref={`${svgIcons}#facebook`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.facebook.icon}`} />
                     </svg>
                   </a>
                 </li>
                 <li className={cs(styles['social-media-item'], styles['qr-code'], styles['wechat-qr-code'])}>
-                  <a href={socialMediaURL.wechat} target="_blank" rel="noopener noreferrer">
-                    <svg className={styles['icon-wechat']}>
-                      <use xlinkHref={`${svgIcons}#wechat`} />
-                    </svg>
-                  </a>
+                  <svg className={styles['icon-wechat']}>
+                    <use xlinkHref={`${svgIcons}${socialMedia.wechat.icon}`} />
+                  </svg>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.paypal} target="_blank" rel="noopener noreferrer">
+                  <a href={socialMedia.paypal.url} target="_blank" rel="noopener noreferrer">
                     <svg className={styles.arrow}>
-                      <use xlinkHref={`${svgIcons}#paypal`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.paypal.icon}`} />
                     </svg>
                   </a>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.soundCloud} target="_blank" rel="noopener noreferrer">
+                  <a href={socialMedia.soundCloud.url} target="_blank" rel="noopener noreferrer">
                     <svg className="">
-                      <use xlinkHref={`${svgIcons}#soundcloud`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.soundCloud.icon}`} />
                     </svg>
                   </a>
                 </li>
                 <li className={styles['social-media-item']}>
-                  <a href={socialMediaURL.email} rel="noopener noreferrer">
+                  <a href={socialMedia.email.url} rel="noopener noreferrer">
                     <svg className="">
-                      <use xlinkHref={`${svgIcons}#note`} />
+                      <use xlinkHref={`${svgIcons}${socialMedia.email.icon}`} />
                     </svg>
                   </a>
                 </li>
@@ -183,7 +170,7 @@ export default class Home extends Component {
         <section className={styles.content}>
           <section className={styles['announcement-wrapper']}>
             <svg className={styles.icon}>
-              <use xlinkHref={`${svgIcons}#megaphone-1`} />
+              <use xlinkHref={`${svgIcons}#megaphone`} />
             </svg>
             <span className="announcement-content">
             主题已经开源，客户端也上线啦~

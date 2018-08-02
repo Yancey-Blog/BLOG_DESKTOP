@@ -1,7 +1,17 @@
-// gray
-$w: #ececec;
-$small_text: #888;
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url("../../assets/fonts/Ubuntu-Bold.ttf");
+}
 
+@font-face {
+  font-family: 'Ubuntu';
+  src: url("../../assets/fonts/Ubuntu-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Operator Mono";
+  src: url("../../assets/fonts/Operator-Mono-Book-Regular.otf");
+}
 
 * {
   margin: 0;

@@ -24,7 +24,7 @@ const socialMedia = {
     icon: '#reddit',
   },
   email: {
-    url: 'mailto:hi@yanceyleo.com',
+    url: 'mailto:team@yanceyleo.com',
     icon: '#note',
   },
   paypal: {
