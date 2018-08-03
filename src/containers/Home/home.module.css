@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     animation: header 1s;
-    background: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.8/cover/gallary/%E6%B5%B7%E3%81%AE%E8%A6%8B%E3%81%88%E3%82%8B%E8%A1%97(795807)_by_%E3%82%86%E3%81%8D%E3%81%BE%E3%82%93.jpg") no-repeat fixed top center;
+    background: url("https://api.leoyancey.com/api/sayaka.jpg") no-repeat fixed top center;
     background-size: cover; }
     .yancey-blog-home .home-imax::after {
       content: '';

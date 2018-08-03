@@ -16,7 +16,8 @@
     .blog-summary-wrapper .blog-summary-content .blog-thumb-wrapper {
       overflow: hidden;
       max-width: 22rem;
-      width: 22rem; }
+      width: 22rem;
+      cursor: pointer; }
       .blog-summary-wrapper .blog-summary-content .blog-thumb-wrapper .blog-thumb {
         height: 100%;
         background: url("https://static.2heng.xin/wp-content/uploads//2018/05/IMG_20180311_181107-1024x768.jpg") no-repeat center top;

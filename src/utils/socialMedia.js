@@ -43,6 +43,10 @@ const socialMedia = {
     url: '',
     icon: '#messenger',
   },
+  telegram: {
+    url: 'https://t.me/YanceyOfficial',
+    icon: '#telegram',
+  },
 };
 
 export default socialMedia;

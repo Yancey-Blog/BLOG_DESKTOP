@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 95%;
+  width: 90%;
   margin: 10rem auto .4rem;
   .copyright-motto-wrapper {
     text-align: center;
@@ -17,7 +17,7 @@
   }
   .blog-info-wrapper {
     font-size: .6rem;
-    .blog-info-list{
+    .blog-info-list {
       display: inline-block;
       .blog-info-item {
         color: #555;
@@ -30,18 +30,36 @@
           margin: 0;
           padding: 0;
         }
+        span {
+          outline: none;
+        }
       }
     }
     .switch-language {
       display: inline-block;
-      .english {
-        margin-left: 1rem;
-        margin-right: .2rem;
-        padding-right: .2rem;
-        border-right: 1px solid #d6d6d6;
+      padding-left: 3rem;
+      .language {
+        outline: none;
+        cursor: pointer;
+        .language-icon{
+          width: 1rem;
+          height: 1rem;
+          margin-right: .4rem;
+        }
       }
     }
   }
 }
 
+.fuck {
+  animation: fuck 1s;
+}
 
+@keyframes fuck {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

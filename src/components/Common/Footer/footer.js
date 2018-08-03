@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import cs from 'classnames';
 import styles from './footer.module.css';
+import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
 
 const blogInfo = {
   aboutMe: {
@@ -31,9 +33,13 @@ class Footer extends Component {
     this.state = {};
   }
 
+  handleKeyDown = () => {
+  };
+
   render() {
+    const { msg, switchLang } = this.props;
     return (
-      <footer className={styles['yancey-common-footer']}>
+      <footer className={cs(styles['yancey-common-footer'], 'no-user-select')}>
         <div className={styles['copyright-motto-wrapper']}>
           <p className={styles.copyright}>
             Copyright &copy;
@@ -56,19 +62,36 @@ class Footer extends Component {
                     className={styles['blog-info-item']}
                     key={key}
                   >
-                    <span>
-                      {blogInfo[key].lang.ja}
+                    <span className={msg === 'ja' ? styles.fuck : ''}>
+                      {blogInfo[key].lang[msg]}
                     </span>
                   </a>
                 ))
             }
           </div>
           <div className={styles['switch-language']}>
-            <span className={styles.english}>
-              English
+            <span
+              role="link"
+              tabIndex="0"
+              className={cs(styles.language, 'english')}
+              onClick={() => switchLang('en')}
+              onKeyDown={this.handleKeyDown}
+
+            >
+              <svg className={styles['language-icon']}>
+                <use xlinkHref={`${svgIcons}#united-kingdom`} />
+              </svg>
             </span>
-            <span className="japanese">
-              日本語
+            <span
+              role="link"
+              tabIndex="0"
+              className={cs(styles.language, 'japanese')}
+              onClick={() => switchLang('ja')}
+              onKeyDown={this.handleKeyDown}
+            >
+                    <svg className={styles['language-icon']}>
+                <use xlinkHref={`${svgIcons}#japan`} />
+              </svg>
             </span>
           </div>
         </div>

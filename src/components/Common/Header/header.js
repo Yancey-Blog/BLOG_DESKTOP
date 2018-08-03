@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { observable, configure, action } from 'mobx';
+import { observer } from 'mobx-react';
 import cs from 'classnames';
 import styles from './header.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
+
+configure({ enforceActions: true });
 
 const navbarInfo = {
   home: {
@@ -70,12 +74,11 @@ const navbarInfo = {
   },
 };
 
+@observer
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      lang: 'ja',
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -85,7 +88,7 @@ class Header extends Component {
   }
 
   render() {
-    const { lang } = this.state;
+    const { msg } = this.props;
     return (
       <header className={cs(styles['yancey-common-header'], 'no-user-select')}>
         <a href="/" className={styles['yancey-logo']}>
@@ -101,7 +104,7 @@ class Header extends Component {
                       <use xlinkHref={`${svgIcons}${navbarInfo[key].icon}`} />
                     </svg>
                     <span className={styles['menu-name']}>
-                      {navbarInfo[key].language[lang]}
+                      {navbarInfo[key].language[msg]}
                     </span>
                   </a>
                 </li>

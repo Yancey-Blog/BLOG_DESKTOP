@@ -10,18 +10,30 @@ import BlogDetail from './containers/BlogDetail/BlogDetail';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      msg: 'en',
+    };
+  }
+
+  switchLang(msg) {
+    this.setState({
+      msg,
+    });
   }
 
   render() {
+    const {msg} = this.state;
     return (
       <div className="App">
-        <Header />
-        <ScrollProgress />
-        <Home />
-        <BackToTop />
-        <Player />
-        <Footer />
+        <Header msg={msg}/>
+        <ScrollProgress/>
+        <Home/>
+        <BackToTop/>
+        <Player/>
+        <Footer
+          msg={msg}
+          switchLang={lang => this.switchLang(lang)}
+        />
       </div>
     );
   }
