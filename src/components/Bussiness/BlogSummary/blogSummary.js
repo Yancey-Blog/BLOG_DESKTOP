@@ -19,115 +19,72 @@ class blogSummary extends Component {
   }
 
   render() {
+    const { data } = this.props;
+    const list = data.list;
     return (
-      <section className={styles['blog-summary-wrapper']}>
-        <ul className="blog-summary-list">
-          <li className="blog-summary-item">
-            <article className={styles['blog-summary-content']}>
-              <div className={styles['blog-thumb-wrapper']}>
-                <figure className={styles['blog-thumb']} />
-              </div>
-              <div className={styles['blog-info']}>
-                <p className={styles['publish-date']}>
-                  <svg className="icon-time">
-                    <use xlinkHref={`${svgIcons}#time`} />
-                  </svg>
-                  发布于 2018-06-20
-                </p>
+      Object.keys(list)
+        .map((item, key) => (
+          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '')} key={list[key].id}>
+            <div className={styles['blog-thumb-wrapper']}>
+              <a href={list[key].url} title={list[key].title}>
+                <figure className={styles['blog-thumb']}>
+                  <img src={list[key].thumb} alt={list[key].title} />
+                </figure>
+              </a>
+            </div>
+            <div className={styles['blog-info']}>
+              <p className={styles['publish-date']}>
+                <svg className="icon-time">
+                  <use xlinkHref={`${svgIcons}#time`} />
+                </svg>
+                发布于
+                {' '}
+                {list[key].publishDate}
+              </p>
+              <a href={list[key].url} title={list[key].title}>
                 <h3 className={styles.title}>
-                  Cookies Version Controller
+                  {list[key].title}
                 </h3>
-                <div className={styles['extra-info']}>
-                  <span className="click-num">
-                    <svg className={styles['icon-eye']}>
-                      <use xlinkHref={`${svgIcons}#eye`} />
-                    </svg>
-                    546热度
-                  </span>
-                  <span className="comment-num">
-                    <svg className="icon-comment">
-                      <use xlinkHref={`${svgIcons}#multimedia`} />
-                    </svg>
-                    <a href="https://www.yanceyleo.com/">
-                      754条评论
-                    </a>
-                  </span>
-                  <span className="category">
-                    <svg className="icon-folder">
-                      <use xlinkHref={`${svgIcons}#folder`} />
-                    </svg>
-                    <a href="https://www.yanceyleo.com/">
-                      JavaScript
-                    </a>
-                  </span>
-                </div>
-                <p className={styles['summary-content']}>
-                 When adding some new features to my JavaScript, I find the remaining cookies are pretty hard to deal with.
-                </p>
-                <div className={styles['show-detail-wrapper']}>
-                  <a href="https://www.yanceyleo.com">
-                    <svg className={styles['icon-more']}>
-                      <use xlinkHref={`${svgIcons}#more`} />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </li>
-          <li className="blog-summary-item">
-            <article className={cs(styles['blog-summary-content'], styles.reverse)}>
-              <div className={styles['blog-thumb-wrapper']}>
-                <figure className={styles['blog-thumb']} />
-              </div>
-              <div className={styles['blog-info']}>
-                <p className={styles['publish-date']}>
-                  <svg className="icon-time">
-                    <use xlinkHref={`${svgIcons}#time`} />
+              </a>
+              <div className={styles['extra-info']}>
+                <span className="click-num">
+                  <svg className={styles['icon-eye']}>
+                    <use xlinkHref={`${svgIcons}#eye`} />
                   </svg>
-                  发布于 2018-06-20
-                </p>
-                <h3 className={styles.title}>
-                  Cookies Version Controller
-                </h3>
-                <div className={styles['extra-info']}>
-                  <span className="click-num">
-                    <svg className="icon-eye">
-                      <use xlinkHref={`${svgIcons}#eye`} />
-                    </svg>
-                    546热度
-                  </span>
-                  <span className="comment-num">
-                    <svg className="icon-comment">
-                      <use xlinkHref={`${svgIcons}#multimedia`} />
-                    </svg>
-                    <a href="https://www.yanceyleo.com/">
-                      754条评论
-                    </a>
-                  </span>
-                  <span className="category">
-                    <svg className="icon-folder">
-                      <use xlinkHref={`${svgIcons}#folder`} />
-                    </svg>
-                    <a href="https://www.yanceyleo.com/">
-                      JavaScript
-                    </a>
-                  </span>
-                </div>
-                <p className={styles['summary-content']}>
-                  When adding some new features to my JavaScript, I find the remaining cookies are pretty hard to deal with.
-                </p>
-                <div className={styles['show-detail-wrapper']}>
-                  <a href="https://www.yanceyleo.com">
-                    <svg className={styles['icon-more']}>
-                      <use xlinkHref={`${svgIcons}#more`} />
-                    </svg>
+                  {list[key].like}
+                  热度
+                </span>
+                <span className="comment-num">
+                  <svg className="icon-comment">
+                    <use xlinkHref={`${svgIcons}#multimedia`} />
+                  </svg>
+                  <a href={`${list[key].url}#comment`}>
+                    {list[key].comment}
+                    条评论
                   </a>
-                </div>
+                </span>
+                <span className="category">
+                  <svg className="icon-folder">
+                    <use xlinkHref={`${svgIcons}#folder`} />
+                  </svg>
+                  <a href={`/${list[key].category}`} title={`This article belong to ${list[key].category}`}>
+                    {list[key].category}
+                  </a>
+                </span>
               </div>
-            </article>
-          </li>
-        </ul>
-      </section>
+              <p className={styles['summary-content']}>
+                {list[key].summary}
+              </p>
+              <div className={styles['show-detail-wrapper']}>
+                <a href={list[key].url} title="show the detail">
+                  <svg className={styles['icon-more']}>
+                    <use xlinkHref={`${svgIcons}#more`} />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
     );
   }
 }

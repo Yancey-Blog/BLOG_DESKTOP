@@ -3,12 +3,12 @@ import cs from 'classnames';
 import styles from './footer.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
 
-const blogInfo = {
-  aboutMe: {
+const copyright = {
+  about: {
     url: '/',
     lang: {
-      en: 'About Me',
-      ja: 'ヤンシーについて',
+      en: 'About',
+      ja: 'Yanceyについて',
     },
   },
   privacyPolicy: {
@@ -18,11 +18,25 @@ const blogInfo = {
       ja: 'プライバシーポリシー',
     },
   },
-  client: {
-    url: '/client',
+  apps: {
+    url: '/apps',
     lang: {
-      en: 'Client',
+      en: 'Apps',
       ja: 'クライアント',
+    },
+  },
+  contact: {
+    url: 'mailto:team@yanceyleo.com',
+    lang: {
+      en: 'Contact',
+      ja: 'メール',
+    },
+  },
+  sayaka: {
+    url: 'http://www.yamamotosayaka.jp/',
+    lang: {
+      en: 'Sayaka',
+      ja: 'さやか',
     },
   },
 };
@@ -33,14 +47,20 @@ class Footer extends Component {
     this.state = {};
   }
 
-  handleKeyDown = () => {
-  };
-
   render() {
-    const { msg, switchLang } = this.props;
     return (
       <footer className={cs(styles['yancey-common-footer'], 'no-user-select')}>
-        <div className={styles['copyright-motto-wrapper']}>
+        <section className="creator-wrapper">
+          <p className={styles.creator}>
+            Brought to you with
+            <svg className={styles['icon-heart']}>
+              <use xlinkHref={`${svgIcons}#heart`} />
+            </svg>
+            by Yancey
+          </p>
+        </section>
+        <hr className={styles['dot-split']} />
+        <section className={styles['copyright-wrapper']}>
           <p className={styles.copyright}>
             Copyright &copy;
             {' '}
@@ -48,53 +68,18 @@ class Footer extends Component {
             {' '}
             Yancey Inc. All rights reserved.
           </p>
-          <p className={styles.motto}>
-            死は生の対極としてではなく、その一部として存在している。
-          </p>
-        </div>
-        <div className={styles['blog-info-wrapper']}>
-          <div className={styles['blog-info-list']}>
+          <ul className="copyright-list">
             {
-              Object.keys(blogInfo)
-                .map(key => (
-                  <a
-                    href={blogInfo[key].url}
-                    className={styles['blog-info-item']}
-                    key={key}
-                  >
-                    <span className={msg === 'ja' ? styles.fuck : ''}>
-                      {blogInfo[key].lang[msg]}
-                    </span>
+              Object.keys(copyright).map(key => (
+                <li className={styles['copyright-item']} key={key}>
+                  <a href={copyright[key].url}>
+                    {copyright[key].lang.en}
                   </a>
-                ))
+                </li>
+              ))
             }
-          </div>
-          <div className={styles['switch-language']}>
-            <span
-              role="link"
-              tabIndex="0"
-              className={cs(styles.language, 'english')}
-              onClick={() => switchLang('en')}
-              onKeyDown={this.handleKeyDown}
-
-            >
-              <svg className={styles['language-icon']}>
-                <use xlinkHref={`${svgIcons}#united-kingdom`} />
-              </svg>
-            </span>
-            <span
-              role="link"
-              tabIndex="0"
-              className={cs(styles.language, 'japanese')}
-              onClick={() => switchLang('ja')}
-              onKeyDown={this.handleKeyDown}
-            >
-                    <svg className={styles['language-icon']}>
-                <use xlinkHref={`${svgIcons}#japan`} />
-              </svg>
-            </span>
-          </div>
-        </div>
+          </ul>
+        </section>
       </footer>
     );
   }

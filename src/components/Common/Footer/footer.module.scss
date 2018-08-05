@@ -1,65 +1,59 @@
 .yancey-common-footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 90%;
-  margin: 10rem auto .4rem;
-  .copyright-motto-wrapper {
-    text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  width: 40rem;
+  max-width: 40rem;
+  margin: 4rem auto 4rem;
+  letter-spacing: .025rem;
+  .creator {
+    margin-bottom: .3rem;
+    font-size: .75rem;
+    font-weight: bold;
+    color: #2c2e2f;
+    .icon-heart {
+      width: .9rem;
+      height: .9rem;
+      position: relative;
+      top: .2rem;
+      margin: 0 .2rem;
+    }
+  }
+  .dot-split {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #b7bcbf 50%, rgba(255, 255, 255, 0) 40%) repeat-x top;
+    background-size: 3px 1px;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    border-bottom: 0;
+    box-sizing: content-box;
+  }
+  .copyright-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    font-size: .65rem;
+    color: #6c7378;
     .copyright {
-      font-size: .8rem;
-      margin-bottom: .6rem;
+      text-shadow: 0 0 1px rgba(0, 0, 0, .1);
     }
-    .motto {
-      font-size: .6rem;
-      color: #8a9399;
-    }
-  }
-  .blog-info-wrapper {
-    font-size: .6rem;
-    .blog-info-list {
-      display: inline-block;
-      .blog-info-item {
-        color: #555;
-        border-right: 1px solid #d6d6d6;
-        margin-right: .4rem;
+      .copyright-item{
+        display: inline-block;
+        // margin-left: .8rem;
+        margin-left: .4rem;
         padding-right: .4rem;
-        margin-top: .4rem;
-        &:last-child {
-          border: none;
-          margin: 0;
-          padding: 0;
+        border-right: 1px solid #d9d9d9;
+        &:last-child{
+          border-right: none;
+          padding-right: 0;
         }
-        span {
-          outline: none;
+        a{
+          color: #6c7378;
         }
-      }
-    }
-    .switch-language {
-      display: inline-block;
-      padding-left: 3rem;
-      .language {
-        outline: none;
-        cursor: pointer;
-        .language-icon{
-          width: 1rem;
-          height: 1rem;
-          margin-right: .4rem;
+        .icon-uk, .icon-japan{
+          width: .9rem;
+          height: .9rem;
         }
       }
-    }
-  }
-}
-
-.fuck {
-  animation: fuck 1s;
-}
-
-@keyframes fuck {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }

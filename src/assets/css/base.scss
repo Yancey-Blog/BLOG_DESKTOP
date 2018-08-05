@@ -1,13 +1,16 @@
+// home motto
 @font-face {
   font-family: 'Ubuntu Bold';
   src: url("../../assets/fonts/Ubuntu-Bold.ttf");
 }
 
+// header nav
 @font-face {
   font-family: 'Ubuntu';
   src: url("../../assets/fonts/Ubuntu-Regular.ttf");
 }
 
+// code tag
 @font-face {
   font-family: "Operator Mono";
   src: url("../../assets/fonts/Operator-Mono-Book-Regular.otf");
@@ -65,26 +68,15 @@ a {
   left: 80px;
 }
 
-//@media screen and (max-width: 1920px) {
-//  html {
-//    font-size: 20px !important;
-//  }
-//}
-//
-//@media screen and (max-width: 1680px) {
-//  html {
-//    font-size: 18px !important;
-//  }
-//}
-//
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1920px) {
   html {
-    font-size: 18px !important;
+    font-size: 20px;
   }
 }
-//
-//@media screen and (max-width: 1280px) {
-//  html {
-//    font-size: 14px !important;
-//  }
-//}
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 18px;
+  }
+}
+

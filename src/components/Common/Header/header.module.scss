@@ -3,17 +3,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-size: .8rem;
   font-family: "Ubuntu", sans-serif;
   width: 100%;
-  height: 65px;
+  height: 3.25rem;
   background: rgba(#fff, .95);
   box-shadow: 0 1px 40px -8px rgba(#000, .5);
   z-index: 2;
   transition: all .4s ease;
   .yancey-logo {
     background: url("../../../assets/image/yancey-official-blog-logo.png") no-repeat center top;
-    width: 210px;
-    height: 43px;
+    width: 11rem;
+    height: 2.2rem;
     background-size: cover;
     text-indent: -99999px;
   }
@@ -23,13 +24,14 @@
       display: inline-block;
       margin-right: 1.4rem;
       padding-right: .2rem;
+      line-height: 3.25rem;
       &::after {
         position: absolute;
         content: '';
         width: 0;
         height: 4px;
         background: #ffA500;
-        top: 41px;
+        bottom: 0;
         left: 0;
         transition: all 300ms ease;
       }
@@ -38,26 +40,20 @@
         transition: all 300ms ease;
       }
       a {
-        font-size: .8rem;
         color: #666;
         .header-icon {
+          position: relative;
+          top: .1rem;
           width: .8rem;
           height: .8rem;
-          vertical-align: middle;
           fill: #666;
           margin-right: .4rem;
         }
-        .header-icon.icon-blog {
-          width: .7rem !important;
-          height: .7rem !important;
-        }
-
-        .header-icon.icon-music {
+        .icon-music, .icon-archive, .icon-blog, .icon-rss {
           width: .7rem !important;
           height: .7rem !important;
         }
         .menu-name {
-          vertical-align: middle;
           transition: all 500ms linear;
         }
         &:hover {
@@ -86,24 +82,29 @@
             animation: tada 2s ease infinite;
           }
         }
-        &:hover > .header-icon.icon-photo {
+        &:hover > .header-icon.icon-client {
           :global {
             animation: pulse 2s ease infinite;
           }
         }
-        &:hover > .header-icon.icon-resume {
+        &:hover > .header-icon.icon-photo {
           :global {
             animation: horizontal 2s ease infinite;
           }
         }
-        &:hover > .header-icon.icon-apps {
+        &:hover > .header-icon.icon-resume {
           :global {
             animation: wrench 2s ease infinite;
           }
         }
-        &:hover > .header-icon.icon-rss {
+        &:hover > .header-icon.icon-apps {
           :global {
             animation: vertical 2s ease infinite;
+          }
+        }
+        &:hover > .header-icon.icon-rss {
+          :global {
+            animation: tada 2s ease infinite;
           }
         }
       }

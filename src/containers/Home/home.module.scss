@@ -1,5 +1,3 @@
-//@import url('https://fonts.googleapis.com/css?family=Ubuntu:700');
-
 .yancey-blog-home {
   color: #666;
   .home-imax {
@@ -20,7 +18,7 @@
     .glitch {
       position: relative;
       color: #fff;
-      font-size: 80px;
+      font-size: 4rem;
       z-index: 1;
       user-select: none;
       top: 34%;
@@ -105,14 +103,14 @@
             transition: 700ms all ease;
           }
           &::after {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             padding: 10px;
             border-radius: 12px;
             background-size: cover;
             background-origin: content-box;
             top: 62px;
-            left: -58px;
+            left: -48px;
           }
           &::before {
             width: 0;

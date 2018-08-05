@@ -15,21 +15,36 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.devToolsWarning();
+  }
+
   switchLang(msg) {
     this.setState({
       msg,
     });
   }
 
+  devToolsWarning() {
+    const re = /x/;
+    console.log(re);
+    re.toString = () => {
+      console.log('%cDANGER!', 'color:red;font-size:64px;font-weight:bold');
+      console.log('This browser feature is for developers only. Please do not copy-paste any code or run any scripts here. It may increase the risk of %c sudden death!!!', 'color:red;font-size:18px');
+      console.log('For more information, http://en.wikipedia.org/wiki/Self-XSS');
+      return '';
+    };
+  }
+
   render() {
-    const {msg} = this.state;
+    const { msg } = this.state;
     return (
       <div className="App">
-        <Header msg={msg}/>
-        <ScrollProgress/>
-        <Home/>
-        <BackToTop/>
-        <Player/>
+        <Header msg={msg} />
+        <ScrollProgress />
+        <Home />
+        <BackToTop />
+        <Player />
         <Footer
           msg={msg}
           switchLang={lang => this.switchLang(lang)}

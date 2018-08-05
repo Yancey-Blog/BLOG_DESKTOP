@@ -12,7 +12,7 @@ const navbarInfo = {
     url: '/',
     icon: '#home',
     language: {
-      en: 'HOME',
+      en: 'Home',
       ja: 'ホーム',
     },
   },
@@ -20,7 +20,7 @@ const navbarInfo = {
     url: '/blog',
     icon: '#blogger-letter-logotype',
     language: {
-      en: 'BLOG',
+      en: 'Blog',
       ja: 'ブログ',
     },
   },
@@ -28,7 +28,7 @@ const navbarInfo = {
     url: '/archive',
     icon: '#archive-black-box',
     language: {
-      en: 'ARCHIVE',
+      en: 'Archive',
       ja: 'アーカイブ',
     },
   },
@@ -36,23 +36,23 @@ const navbarInfo = {
     url: '/music',
     icon: '#music-player',
     language: {
-      en: 'MUSIC',
+      en: 'Music',
       ja: 'ミュージック',
     },
   },
   client: {
-    url: '/client',
+    url: '/apps',
     icon: '#app-store-apple-symbol',
     language: {
-      en: 'CLIENT',
-      ja: 'クライアント',
+      en: 'Apps',
+      ja: 'APPS',
     },
   },
   photo: {
     url: '/photo',
     icon: '#photo-camera',
     language: {
-      en: 'PHOTO',
+      en: 'Photo',
       ja: '写真',
     },
   },
@@ -60,7 +60,7 @@ const navbarInfo = {
     url: '/resume',
     icon: '#curriculum-vitae',
     language: {
-      en: 'RESUME',
+      en: 'Resume',
       ja: '履歴書',
     },
   },

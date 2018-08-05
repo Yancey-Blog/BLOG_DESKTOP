@@ -8,6 +8,8 @@ import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/Bussiness/BlogSummary/blogSummary';
 import socialMedia from '../../utils/socialMedia';
 
+const Mock = require('mockjs');
+
 configure({ enforceActions: true });
 
 class Store {
@@ -31,10 +33,13 @@ const store = new Store();
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: [],
+    };
   }
 
   componentWillMount() {
+    this.fakeDate();
   }
 
   componentDidMount() {
@@ -77,6 +82,42 @@ export default class Home extends Component {
       });
   }
 
+  fakeDate() {
+    const data = Mock.mock({
+      'list|10': [{
+        'id|+1': 1,
+        url: [
+          'https://www.yanceyleo.com/blog/@word(4, 12)',
+        ],
+        thumb: [
+          '@image(\'500x500\', \'@color()\')',
+        ],
+        publishDate: [
+          '@date()',
+        ],
+        lastModifiedDate: [
+          '@date()',
+        ],
+        title: [
+          '@ctitle(6, 18)',
+        ],
+        summary: [
+          '@cparagraph(3, 6)',
+        ],
+        like: [
+          '@integer(0, 500)',
+        ],
+        comment: [
+          '@integer(0, 500)',
+        ],
+        category: [
+          '@word(4, 12)',
+        ],
+      }],
+    });
+    this.state.data = JSON.parse(JSON.stringify(data));
+  }
+
   render() {
     return (
       <main className={styles['yancey-blog-home']}>
@@ -103,6 +144,13 @@ export default class Home extends Component {
                   <a href={socialMedia.github.url} target="_blank" rel="noopener noreferrer">
                     <svg className="">
                       <use xlinkHref={`${svgIcons}${socialMedia.github.icon}`} />
+                    </svg>
+                  </a>
+                </li>
+                <li className={styles['social-media-item']}>
+                  <a href={socialMedia.telegram.url} target="_blank" rel="noopener noreferrer">
+                    <svg className="">
+                      <use xlinkHref={`${svgIcons}${socialMedia.telegram.icon}`} />
                     </svg>
                   </a>
                 </li>
@@ -167,62 +215,64 @@ export default class Home extends Component {
             </div>
           </figure>
         </section>
-        <section className={styles.content}>
-          <section className={styles['announcement-wrapper']}>
-            <svg className={styles.icon}>
-              <use xlinkHref={`${svgIcons}#megaphone`} />
-            </svg>
-            <span className="announcement-content">
+        <div className={styles.wrapper}>
+          <article className={styles.content}>
+            <section className={styles['announcement-wrapper']}>
+              <svg className={styles.icon}>
+                <use xlinkHref={`${svgIcons}#megaphone`} />
+              </svg>
+              <span className="announcement-content">
             主题已经开源，客户端也上线啦~
-            </span>
-          </section>
-          <section className={styles['new-release-wrapper']}>
-            <h2 className={styles['new-release-tips']}>
-              <svg className={styles.icon}>
-                <use xlinkHref={`${svgIcons}#flame`} />
-              </svg>
-              New Release!
-            </h2>
-            <div className={styles['new-release-container']}>
-              <div className={styles['new-release']}>
-                <figure
-                  className={styles['new-release-content']}
-                  data-title="SAKURA"
-                  data-intro="本站Wordpress主题"
-                >
-                  <div className={styles.overlay} />
-                </figure>
+              </span>
+            </section>
+            <section className={styles['new-release-wrapper']}>
+              <h2 className={styles['new-release-tips']}>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${svgIcons}#flame`} />
+                </svg>
+                New Release!
+              </h2>
+              <div className={styles['new-release-container']}>
+                <div className={styles['new-release']}>
+                  <figure
+                    className={styles['new-release-content']}
+                    data-title="SAKURA"
+                    data-intro="本站Wordpress主题"
+                  >
+                    <div className={styles.overlay} />
+                  </figure>
+                </div>
+                <div className={styles['new-release']}>
+                  <figure
+                    className={styles['new-release-content']}
+                    data-title="SAKURA"
+                    data-intro="本站Wordpress主题"
+                  >
+                    <div className={styles.overlay} />
+                  </figure>
+                </div>
+                <div className={styles['new-release']}>
+                  <figure
+                    className={styles['new-release-content']}
+                    data-title="SAKURA"
+                    data-intro="本站Wordpress主题"
+                  >
+                    <div className={styles.overlay} />
+                  </figure>
+                </div>
               </div>
-              <div className={styles['new-release']}>
-                <figure
-                  className={styles['new-release-content']}
-                  data-title="SAKURA"
-                  data-intro="本站Wordpress主题"
-                >
-                  <div className={styles.overlay} />
-                </figure>
-              </div>
-              <div className={styles['new-release']}>
-                <figure
-                  className={styles['new-release-content']}
-                  data-title="SAKURA"
-                  data-intro="本站Wordpress主题"
-                >
-                  <div className={styles.overlay} />
-                </figure>
-              </div>
-            </div>
-          </section>
-          <section className={styles['blog-summary-wrapper']}>
-            <h2 className={styles['blog-summary-tips']}>
-              <svg className={styles.icon}>
-                <use xlinkHref={`${svgIcons}#new`} />
-              </svg>
-              The Latest!
-            </h2>
-            <BlogSummary />
-          </section>
-        </section>
+            </section>
+            <section className={styles['blog-summary-wrapper']}>
+              <h2 className={styles['blog-summary-tips']}>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${svgIcons}#new`} />
+                </svg>
+                The Latest!
+              </h2>
+              <BlogSummary data={this.state.data} />
+            </section>
+          </article>
+        </div>
       </main>
     );
   }
