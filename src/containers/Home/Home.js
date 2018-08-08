@@ -39,7 +39,7 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
-    this.fakeDate();
+    this.fakeData();
   }
 
   componentDidMount() {
@@ -82,37 +82,19 @@ export default class Home extends Component {
       });
   }
 
-  fakeDate() {
+  fakeData() {
     const data = Mock.mock({
-      'list|10': [{
+      'data|10': [{
         'id|+1': 1,
-        url: [
-          'https://www.yanceyleo.com/blog/@word(4, 12)',
-        ],
-        thumb: [
-          '@image(\'500x500\', \'@color()\')',
-        ],
-        publishDate: [
-          '@date()',
-        ],
-        lastModifiedDate: [
-          '@date()',
-        ],
-        title: [
-          '@ctitle(6, 18)',
-        ],
-        summary: [
-          '@cparagraph(3, 6)',
-        ],
-        like: [
-          '@integer(0, 500)',
-        ],
-        comment: [
-          '@integer(0, 500)',
-        ],
-        category: [
-          '@word(4, 12)',
-        ],
+        url: 'https://www.yanceyleo.com/blog/@word(4, 12)',
+        poster: '@image(\'500x500\', \'@color()\')',
+        publish_date: '@date()',
+        last_modified_date: '@date()',
+        title: '@ctitle(6, 18)',
+        summary: '@cparagraph(3, 7)',
+        like_num: '@integer(0, 500)',
+        comment_num: '@integer(0, 500)',
+        category: '@word(4, 12)',
       }],
     });
     this.state.data = JSON.parse(JSON.stringify(data));

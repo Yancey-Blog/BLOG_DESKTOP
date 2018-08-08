@@ -20,15 +20,15 @@ class blogSummary extends Component {
 
   render() {
     const { data } = this.props;
-    const list = data.list;
+    const datas = data.data;
     return (
-      Object.keys(list)
+      Object.keys(datas)
         .map((item, key) => (
-          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '')} key={list[key].id}>
+          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '')} key={datas[key].id}>
             <div className={styles['blog-thumb-wrapper']}>
-              <a href={list[key].url} title={list[key].title}>
+              <a href={datas[key].url} title={datas[key].title}>
                 <figure className={styles['blog-thumb']}>
-                  <img src={list[key].thumb} alt={list[key].title} />
+                  <img src={datas[key].poster} alt={datas[key].title} />
                 </figure>
               </a>
             </div>
@@ -39,11 +39,11 @@ class blogSummary extends Component {
                 </svg>
                 发布于
                 {' '}
-                {list[key].publishDate}
+                {datas[key].publish_date}
               </p>
-              <a href={list[key].url} title={list[key].title}>
+              <a href={datas[key].url} title={datas[key].title}>
                 <h3 className={styles.title}>
-                  {list[key].title}
+                  {datas[key].title}
                 </h3>
               </a>
               <div className={styles['extra-info']}>
@@ -51,15 +51,15 @@ class blogSummary extends Component {
                   <svg className={styles['icon-eye']}>
                     <use xlinkHref={`${svgIcons}#eye`} />
                   </svg>
-                  {list[key].like}
+                  {datas[key].like_num}
                   热度
                 </span>
                 <span className="comment-num">
                   <svg className="icon-comment">
                     <use xlinkHref={`${svgIcons}#multimedia`} />
                   </svg>
-                  <a href={`${list[key].url}#comment`}>
-                    {list[key].comment}
+                  <a href={`${datas[key].url}#comment`}>
+                    {datas[key].comment_num}
                     条评论
                   </a>
                 </span>
@@ -67,16 +67,16 @@ class blogSummary extends Component {
                   <svg className="icon-folder">
                     <use xlinkHref={`${svgIcons}#folder`} />
                   </svg>
-                  <a href={`/${list[key].category}`} title={`This article belong to ${list[key].category}`}>
-                    {list[key].category}
+                  <a href={`/${datas[key].category}`} title={`This article belong to ${datas[key].category}`}>
+                    {datas[key].category}
                   </a>
                 </span>
               </div>
               <p className={styles['summary-content']}>
-                {list[key].summary}
+                {datas[key].summary}
               </p>
               <div className={styles['show-detail-wrapper']}>
-                <a href={list[key].url} title="show the detail">
+                <a href={datas[key].url} title="show the detail">
                   <svg className={styles['icon-more']}>
                     <use xlinkHref={`${svgIcons}#more`} />
                   </svg>

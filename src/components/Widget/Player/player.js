@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './player.css';
 import 'aplayer/dist/APlayer.min.css';
 import APlayer from 'aplayer';
-import { GET } from '../../../https/axios';
+import { GET, POST } from '../../../https/axios';
 
 class Player extends Component {
   constructor(props) {
@@ -17,7 +17,8 @@ class Player extends Component {
   }
 
   componentDidMount() {
-    this.initAPlayer();
+    // this.initAPlayer();
+    this.addBlog();
   }
 
   componentWillUnmount() {
@@ -38,6 +39,23 @@ class Player extends Component {
       ap.lrc.show();
     }).catch((error) => {
       // todo
+    });
+  }
+
+  addBlog() {
+    const params = {
+      url: 'https://git.yancey.app/',
+      poster: 'https://api.leoyancey.com/api/sayaka.jpg',
+      publish_date: '2018-08-08',
+      last_modified_date: '2018-08-08',
+      title: 'bulid_git_server_on_CentOS',
+      summary: 'bulid_git_server_on_CentOSbulid_git_server_on_CentOSbulid_git_server_on_CentOSbulid_git_server_on_CentOS',
+      like_num: 100,
+      comment_num: 100,
+      category: 'Linux',
+    };
+    POST('/blog', params).then((res) => {
+      console.log(res);
     });
   }
 
