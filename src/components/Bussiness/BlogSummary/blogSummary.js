@@ -52,7 +52,8 @@ class blogSummary extends Component {
                     <use xlinkHref={`${svgIcons}#eye`} />
                   </svg>
                   {datas[key].like_num}
-                  热度
+                  {' '}
+                  PV
                 </span>
                 <span className="comment-num">
                   <svg className="icon-comment">
@@ -60,7 +61,8 @@ class blogSummary extends Component {
                   </svg>
                   <a href={`${datas[key].url}#comment`}>
                     {datas[key].comment_num}
-                    条评论
+                    {' '}
+                    Comment
                   </a>
                 </span>
                 <span className="category">

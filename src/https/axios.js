@@ -80,3 +80,17 @@ export function PUT(url, params) {
       });
   });
 }
+
+// DELETE
+export function DELETE(url, params) {
+  return new Promise((resolve, reject) => {
+    axios
+      .delete(url, params)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+}
