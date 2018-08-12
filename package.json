@@ -15,6 +15,7 @@
     "mobx-react": "^5.2.3",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.2",
+    "parallax-js": "^3.1.0",
     "postcss-cssnext": "^3.1.0",
     "react": "^16.4.1",
     "react-app-rewire-mobx": "^1.0.8",

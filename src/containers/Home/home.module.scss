@@ -1,5 +1,6 @@
 .yancey-blog-home {
   color: #666;
+  position: relative;
   .home-imax {
     position: relative;
     width: 100%;
@@ -17,11 +18,12 @@
     }
     .glitch {
       position: relative;
+      font-family: "Ubuntu Bold", sans-serif;
       color: #fff;
       font-size: 4rem;
       z-index: 1;
       user-select: none;
-      top: 34%;
+      top: 38%;
       transition: all 400ms ease;
       max-width: 100%;
       text-align: center;
@@ -53,12 +55,12 @@
     .social-media-container {
       position: relative;
       z-index: 1;
-      max-width: 550px;
+      max-width: 28.5rem;
       margin: 0 auto;
       background: rgba(#000, .5);
       padding: 1rem;
       border-radius: 10px;
-      top: 38%;
+      top: 42%;
       .social-media-motto {
         font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
@@ -76,7 +78,7 @@
         .social-media-item {
           position: relative;
           display: inline-block;
-          margin-right: 20px;
+          margin-right: 1.2rem;
           svg {
             width: 22px;
             height: 22px;
@@ -84,12 +86,17 @@
         }
         .messenger-qr-code {
           &::after {
-            background: rgba(0, 0, 0, .5) url("./messager-qr-code.jpeg") no-repeat center top;
+            background: rgba(0, 0, 0, .5) url("./image/messager-qr-code.jpg") no-repeat center top;
           }
         }
         .wechat-qr-code {
           &::after {
-            background: rgba(0, 0, 0, .5) url("./wechat-qr-code.jpg") no-repeat center top;
+            background: rgba(0, 0, 0, .5) url("./image/wechat-qr-code.jpg") no-repeat center top;
+          }
+        }
+        .twitter-qr-code {
+          &::after {
+            background: rgba(0, 0, 0, .5) url("./image/twitter-qr-code.jpg") no-repeat center top;
           }
         }
         .qr-code {
@@ -103,14 +110,14 @@
             transition: 700ms all ease;
           }
           &::after {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             padding: 10px;
             border-radius: 12px;
             background-size: cover;
             background-origin: content-box;
             top: 62px;
-            left: -48px;
+            left: -58px;
           }
           &::before {
             width: 0;
@@ -161,7 +168,7 @@
           position: relative;
           width: 13rem;
           height: 8rem;
-          background: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png") no-repeat center top;
+          background: no-repeat center top;
           background-size: cover;
           transition: all 400ms linear;
           &:hover {
@@ -220,7 +227,22 @@
       }
     }
   }
-
+  .show-more-btn-wrapper{
+    text-align: center;
+    margin-top: 4rem;
+    a{
+      padding: .5rem 2.75rem;
+      border: 1px solid #d6d6d6;
+      border-radius: 1.75rem;
+      color: #adadad;
+      transition: 400ms all ease;
+      &:hover{
+        border-color: #FE9600;
+        color: #FE9600;
+        box-shadow: 0 0 4px rgba(255,165,0,.85);
+      }
+    }
+  }
   .blog-summary-tips, .new-release-tips {
     color: #666;
     font-size: .9rem;
@@ -238,7 +260,6 @@
     position: relative;
     top: 4px;
   }
-
 }
 
 .clear-navbar-bg {
@@ -250,7 +271,10 @@
     box-shadow: 0 1px 40px -8px rgba(#000, .5);
   }
 }
-
+#aaaa{
+  position: absolute;
+  top: 0;
+}
 @keyframes header {
   0% {
     opacity: 0;

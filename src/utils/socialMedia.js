@@ -11,41 +11,29 @@ const socialMedia = {
     url: 'https://www.instagram.com/yancey_leo/',
     icon: '#instagram',
   },
-  facebook: {
-    url: 'https://www.facebook.com/yanceyleo/',
-    icon: '#facebook',
+  messenger: {
+    url: 'https://www.messenger.com/t/yanceyleo',
+    icon: '#messenger',
   },
   soundCloud: {
     url: 'https://soundcloud.com/yancey-leo/',
     icon: '#soundcloud',
   },
-  reddit: {
-    url: 'https://www.reddit.com/user/yanceyleo/',
-    icon: '#reddit',
-  },
-  email: {
-    url: 'mailto:team@yanceyleo.com',
-    icon: '#note',
+  telegram: {
+    url: 'https://t.me/YanceyOfficial',
+    icon: '#telegram',
   },
   paypal: {
     url: 'https://www.paypal.me/yanceyleo/10usd',
     icon: '#paypal',
   },
-  weibo: {
-    url: 'https://weibo.com/Yanceymusic',
-    icon: '#weibo',
-  },
   wechat: {
-    url: '',
+    url: '/',
     icon: '#wechat',
   },
-  messenger: {
-    url: '',
-    icon: '#messenger',
-  },
-  telegram: {
-    url: 'https://t.me/YanceyOfficial',
-    icon: '#telegram',
+  email: {
+    url: 'mailto:team@yanceyleo.com',
+    icon: '#mail',
   },
 };
 

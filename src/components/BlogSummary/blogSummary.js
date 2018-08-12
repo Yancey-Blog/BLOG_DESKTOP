@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
 import styles from './blogSummary.module.css';
-import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
+import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
 class blogSummary extends Component {
   constructor(props) {

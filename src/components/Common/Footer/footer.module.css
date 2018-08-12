@@ -42,7 +42,10 @@
         border-right: none;
         padding-right: 0; }
       .yancey-common-footer .copyright-wrapper .copyright-item a {
-        color: #6c7378; }
+        color: #6c7378;
+        transition: all 300ms linear; }
+        .yancey-common-footer .copyright-wrapper .copyright-item a:hover {
+          color: #000; }
       .yancey-common-footer .copyright-wrapper .copyright-item .icon-uk, .yancey-common-footer .copyright-wrapper .copyright-item .icon-japan {
         width: .9rem;
         height: .9rem; }

@@ -10,19 +10,11 @@ import BlogDetail from './containers/BlogDetail/BlogDetail';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      msg: 'en',
-    };
+    this.state = {};
   }
 
   componentDidMount() {
     this.devToolsWarning();
-  }
-
-  switchLang(msg) {
-    this.setState({
-      msg,
-    });
   }
 
   devToolsWarning() {
@@ -45,10 +37,7 @@ class App extends Component {
         <Home />
         <BackToTop />
         <Player />
-        <Footer
-          msg={msg}
-          switchLang={lang => this.switchLang(lang)}
-        />
+        <Footer />
       </div>
     );
   }

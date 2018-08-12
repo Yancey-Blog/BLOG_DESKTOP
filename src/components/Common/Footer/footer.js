@@ -6,38 +6,19 @@ import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
 const copyright = {
   about: {
     url: '/',
-    lang: {
-      en: 'About',
-      ja: 'Yanceyについて',
-    },
+    name: 'About',
   },
   privacyPolicy: {
     url: '/',
-    lang: {
-      en: 'Privacy Policy',
-      ja: 'プライバシーポリシー',
-    },
+    name: 'Privacy Policy',
   },
   apps: {
     url: '/apps',
-    lang: {
-      en: 'Apps',
-      ja: 'クライアント',
-    },
+    name: 'Apps',
   },
   contact: {
     url: 'mailto:team@yanceyleo.com',
-    lang: {
-      en: 'Contact',
-      ja: 'メール',
-    },
-  },
-  sayaka: {
-    url: 'http://www.yamamotosayaka.jp/',
-    lang: {
-      en: 'Sayaka',
-      ja: 'さやか',
-    },
+    name: 'Contact',
   },
 };
 
@@ -73,7 +54,7 @@ class Footer extends Component {
               Object.keys(copyright).map(key => (
                 <li className={styles['copyright-item']} key={key}>
                   <a href={copyright[key].url}>
-                    {copyright[key].lang.en}
+                    {copyright[key].name}
                   </a>
                 </li>
               ))

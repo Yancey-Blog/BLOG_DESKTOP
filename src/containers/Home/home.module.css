@@ -1,5 +1,6 @@
 .yancey-blog-home {
-  color: #666; }
+  color: #666;
+  position: relative; }
   .yancey-blog-home .home-imax {
     position: relative;
     width: 100%;
@@ -16,11 +17,12 @@
       left: 0; }
     .yancey-blog-home .home-imax .glitch {
       position: relative;
+      font-family: "Ubuntu Bold", sans-serif;
       color: #fff;
       font-size: 4rem;
       z-index: 1;
       user-select: none;
-      top: 34%;
+      top: 38%;
       transition: all 400ms ease;
       max-width: 100%;
       text-align: center; }
@@ -46,12 +48,12 @@
     .yancey-blog-home .home-imax .social-media-container {
       position: relative;
       z-index: 1;
-      max-width: 550px;
+      max-width: 28.5rem;
       margin: 0 auto;
       background: rgba(0, 0, 0, 0.5);
       padding: 1rem;
       border-radius: 10px;
-      top: 38%; }
+      top: 42%; }
       .yancey-blog-home .home-imax .social-media-container .social-media-motto {
         font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
@@ -67,14 +69,16 @@
         .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item {
           position: relative;
           display: inline-block;
-          margin-right: 20px; }
+          margin-right: 1.2rem; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item svg {
             width: 22px;
             height: 22px; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .messenger-qr-code::after {
-          background: rgba(0, 0, 0, 0.5) url("./messager-qr-code.jpeg") no-repeat center top; }
+          background: rgba(0, 0, 0, 0.5) url("./image/messager-qr-code.jpg") no-repeat center top; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .wechat-qr-code::after {
-          background: rgba(0, 0, 0, 0.5) url("./wechat-qr-code.jpg") no-repeat center top; }
+          background: rgba(0, 0, 0, 0.5) url("./image/wechat-qr-code.jpg") no-repeat center top; }
+        .yancey-blog-home .home-imax .social-media-container .social-media-list .twitter-qr-code::after {
+          background: rgba(0, 0, 0, 0.5) url("./image/twitter-qr-code.jpg") no-repeat center top; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code {
           cursor: pointer; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::after, .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::before {
@@ -85,14 +89,14 @@
             transform: translate3d(0, 16px, 0);
             transition: 700ms all ease; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::after {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             padding: 10px;
             border-radius: 12px;
             background-size: cover;
             background-origin: content-box;
             top: 62px;
-            left: -48px; }
+            left: -58px; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::before {
             width: 0;
             height: 0;
@@ -133,7 +137,7 @@
           position: relative;
           width: 13rem;
           height: 8rem;
-          background: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png") no-repeat center top;
+          background: no-repeat center top;
           background-size: cover;
           transition: all 400ms linear; }
           .yancey-blog-home .content .new-release-container .new-release .new-release-content:hover .overlay {
@@ -180,6 +184,19 @@
             margin: auto;
             background: rgba(0, 0, 0, 0.6);
             transition: all 400ms linear; }
+  .yancey-blog-home .show-more-btn-wrapper {
+    text-align: center;
+    margin-top: 4rem; }
+    .yancey-blog-home .show-more-btn-wrapper a {
+      padding: .5rem 2.75rem;
+      border: 1px solid #d6d6d6;
+      border-radius: 1.75rem;
+      color: #adadad;
+      transition: 400ms all ease; }
+      .yancey-blog-home .show-more-btn-wrapper a:hover {
+        border-color: #FE9600;
+        color: #FE9600;
+        box-shadow: 0 0 4px rgba(255, 165, 0, 0.85); }
   .yancey-blog-home .blog-summary-tips, .yancey-blog-home .new-release-tips {
     color: #666;
     font-size: .9rem;
@@ -202,6 +219,10 @@
   .clear-navbar-bg:hover {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5); }
+
+#aaaa {
+  position: absolute;
+  top: 0; }
 
 @keyframes header {
   0% {
