@@ -5,7 +5,8 @@
     position: relative;
     width: 100%;
     animation: header 1s;
-    background: url("https://api.leoyancey.com/api/sayaka.jpg") no-repeat fixed top center;
+    transition: 1s all linear;
+    background: no-repeat fixed center top;
     background-size: cover; }
     .yancey-blog-home .home-imax::after {
       content: '';
@@ -61,15 +62,29 @@
         color: #eaeadf;
         display: flex;
         justify-content: center;
-        margin-bottom: 1rem; }
+        margin-bottom: 1.2rem;
+        max-height: .9rem; }
+        .yancey-blog-home .home-imax .social-media-container .social-media-motto .left-quote, .yancey-blog-home .home-imax .social-media-container .social-media-motto .right-quote {
+          position: relative;
+          width: .9rem;
+          height: .9rem;
+          fill: #fff;
+          fill-opacity: .6;
+          top: 1px; }
+        .yancey-blog-home .home-imax .social-media-container .social-media-motto .left-quote {
+          margin-right: .4rem; }
+        .yancey-blog-home .home-imax .social-media-container .social-media-motto .right-quote {
+          margin-right: 0;
+          margin-left: .4rem; }
       .yancey-blog-home .home-imax .social-media-container .social-media-list {
         text-align: center; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item:last-child {
           margin-right: 0; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item {
+          outline: none;
           position: relative;
           display: inline-block;
-          margin-right: 1.2rem; }
+          margin-right: 1.1rem; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item svg {
             width: 22px;
             height: 22px; }
@@ -188,6 +203,7 @@
     text-align: center;
     margin-top: 4rem; }
     .yancey-blog-home .show-more-btn-wrapper a {
+      font-family: "Ubuntu", sans-serif;
       padding: .5rem 2.75rem;
       border: 1px solid #d6d6d6;
       border-radius: 1.75rem;

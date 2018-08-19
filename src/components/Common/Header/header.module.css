@@ -1,7 +1,7 @@
 .yancey-common-header {
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 3.25rem;
@@ -11,9 +11,10 @@
   z-index: 2;
   transition: all 500ms ease; }
   .yancey-common-header .yancey-logo {
-    background: url("./yancey-official-blog-logo.png") no-repeat center top;
     width: 11rem;
     height: 2.2rem;
+    margin-left: 1.5rem;
+    background: url("./yancey-official-blog-logo.png") no-repeat center top;
     background-size: cover;
     text-indent: -99999px; }
 
@@ -59,14 +60,12 @@
       animation: vertical 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-music :global {
       animation: tada 2s ease infinite; }
-    .yancey-nav-item a:hover > .icon-client :global {
-      animation: pulse 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-photo :global {
       animation: horizontal 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-resume :global {
       animation: wrench 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-apps :global {
-      animation: vertical 2s ease infinite; }
+      animation: pulse 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-RSS :global {
       animation: tada 2s ease infinite; }
 

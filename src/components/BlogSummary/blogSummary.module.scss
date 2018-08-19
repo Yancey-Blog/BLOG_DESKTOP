@@ -19,8 +19,8 @@ $small_text: #888;
     cursor: pointer;
     .blog-thumb {
       height: 100%;
-      background: rgba(0, 0, 0, .5) no-repeat center top;
-      background-size: cover;
+      background: url("./loading.gif") no-repeat center center;
+      background-size: 50%;
       transition: all 500ms linear;
       &:hover {
         transform: scale(1.1);
@@ -58,6 +58,15 @@ $small_text: #888;
       width: 100%;
       font-size: .6rem;
       color: $small_text;
+      .category {
+        a {
+          display: inline-block;
+          max-width: 3rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
       a {
         color: $small_text;
       }
@@ -69,6 +78,10 @@ $small_text: #888;
       margin-top: 1rem;
       line-height: 1.5;
       height: 5.6rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
       overflow: hidden;
     }
     .show-detail-wrapper {
@@ -86,4 +99,30 @@ $small_text: #888;
   text-align: left;
 }
 
+:global(.lazyload.lazyload1),
+:global(.lazyloading.lazyload1) {
+}
+
+:global(.lazyloaded.lazyload1) {
+  animation: main 600ms;
+}
+
+:global(.lazyload.lazyload2),
+:global(.lazyloading.lazyload2) {
+  opacity: 0;
+}
+
+:global(.lazyloaded.lazyload2) {
+  opacity: 1;
+  transition: all 600ms linear;
+}
+
+@keyframes main {
+  0% {
+    transform: translateY(4rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 

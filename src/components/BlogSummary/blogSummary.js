@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
+import lazysizes from 'lazysizes';
 import styles from './blogSummary.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -18,17 +19,21 @@ class blogSummary extends Component {
   componentWillUnmount() {
   }
 
+  aa(){
+
+  }
+
   render() {
     const { data } = this.props;
     const datas = data.data;
     return (
       Object.keys(datas)
         .map((item, key) => (
-          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '')} key={datas[key].id}>
+          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={datas[key].id}>
             <div className={styles['blog-thumb-wrapper']}>
               <a href={datas[key].url} title={datas[key].title}>
                 <figure className={styles['blog-thumb']}>
-                  <img src={datas[key].poster} alt={datas[key].title} />
+                  <img className={cs('lazyload', 'lazyload2')} src={`${datas[key].poster}#lazyload-blur`} data-src={datas[key].poster} alt={datas[key].title} />
                 </figure>
               </a>
             </div>
@@ -37,7 +42,7 @@ class blogSummary extends Component {
                 <svg className="icon-time">
                   <use xlinkHref={`${svgIcons}#time`} />
                 </svg>
-                发布于
+                Released
                 {' '}
                 {datas[key].publish_date}
               </p>
@@ -65,7 +70,7 @@ class blogSummary extends Component {
                     Comment
                   </a>
                 </span>
-                <span className="category">
+                <span className={styles.category}>
                   <svg className="icon-folder">
                     <use xlinkHref={`${svgIcons}#folder`} />
                   </svg>

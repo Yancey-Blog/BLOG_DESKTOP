@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
 import $ from 'jquery';
-import Parallax from 'parallax-js';
 import styles from './home.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/BlogSummary/blogSummary';
@@ -21,16 +20,14 @@ export default class Home extends Component {
     wechat.classList.add(styles['qr-code'], styles['wechat-qr-code']);
   }
 
-  static parallax() {
-    const scene = document.getElementById('aaaa');
-    const parallaxInstance = new Parallax(scene);
-  }
-
   constructor(props) {
     super(props);
     this.state = {
       data: [],
       newReleaseData: [],
+      coverUrl: '',
+      curCoverId: '',
+      motto: '',
     };
   }
 
@@ -41,25 +38,75 @@ export default class Home extends Component {
   componentDidMount() {
     this.handleBigBannerHeight();
     this.switchNavbarBackgroundColor();
-    Home.parallax();
     Home.addQrCode();
     this.getNewReleaseData();
+    this.getCoverData();
+    this.getMottoData();
   }
 
   componentWillUnmount() {
   }
 
-  getNewReleaseData() {
-    GET('/projects', {}).then((res) => {
-      this.setState({
-        newReleaseData: res.data,
+  getMottoData = () => {
+    GET('/mottoes', {})
+      .then((res) => {
+        this.setState({
+          motto: res.data.content,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
-    }).catch((error) => {
-      console.log(error.message);
-    });
-  }
+  };
 
-  fakeData() {
+  getCoverData = () => {
+    const params = {
+      _id: window.localStorage.cover_id ? window.localStorage.cover_id : '',
+    };
+    GET('/covers', params)
+      .then((res) => {
+        this.setState({
+          coverUrl: res.data.url,
+          curCoverId: res.data._id, // eslint-disable-line
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  getNewReleaseData = () => {
+    GET('/projects', {})
+      .then((res) => {
+        this.setState({
+          newReleaseData: res.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  switchCover = (position, id) => {
+    const params = {
+      position,
+    };
+    GET(`/covers/${id}`, params)
+      .then((res) => {
+        this.setState({
+          coverUrl: res.data.url,
+          curCoverId: res.data._id, // eslint-disable-line
+        });
+        window.localStorage.setItem('cover_id', res.data._id); // eslint-disable-line
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  handleKeyDown = () => {}
+
+  fakeData = () => {
     const data = Mock.mock({
       'data|10': [{
         'id|+1': 1,
@@ -75,9 +122,9 @@ export default class Home extends Component {
       }],
     });
     this.state.data = JSON.parse(JSON.stringify(data));
-  }
+  };
 
-  handleBigBannerHeight() {
+  handleBigBannerHeight = () => {
     const viewPortInit = $(window)
       .height();
     const homeBg = $('.home-big');
@@ -87,9 +134,9 @@ export default class Home extends Component {
         homeBg.css('height', `${$(this)
           .height()}px`);
       });
-  }
+  };
 
-  switchNavbarBackgroundColor() {
+  switchNavbarBackgroundColor = () => {
     if ($(window)
       .scrollTop() === 0) {
       $('header')
@@ -106,14 +153,19 @@ export default class Home extends Component {
             .removeClass(styles['clear-navbar-bg']);
         }
       });
-  }
+  };
 
   render() {
-    const { newReleaseData } = this.state;
+    const {
+      newReleaseData, coverUrl, curCoverId, motto,
+    } = this.state;
     return (
       <main className={styles['yancey-blog-home']}>
         <section className="home-imax-wrapper">
-          <figure className={cs([styles['home-imax']], 'home-big')}>
+          <figure
+            className={cs([styles['home-imax']], 'home-big')}
+            style={{ backgroundImage: `url(${coverUrl})` }}
+          >
             <h1
               className={styles.glitch}
               data-value="Hi, Yanceyです!"
@@ -123,10 +175,22 @@ export default class Home extends Component {
             <div className={styles['social-media-container']}>
               <div className="up-triangle" />
               <p className={cs(styles['social-media-motto'], 'no-user-select')}>
-                「 You got to put the past behind you before you can move on. 」
+                <svg className={cs(styles.icon, styles['left-quote'])}>
+                  <use xlinkHref={`${svgIcons}#left-quote`} />
+                </svg>
+                {motto}
+                <svg className={cs(styles.icon, styles['right-quote'])}>
+                  <use xlinkHref={`${svgIcons}#right-quote`} />
+                </svg>
               </p>
               <ul className={styles['social-media-list']}>
-                <li className={styles['social-media-item']}>
+                <li
+                  className={styles['social-media-item']}
+                  onClick={() => this.switchCover('prev', curCoverId)}
+                  onKeyDown={this.handleKeyDown}
+                  role="tab"
+                  tabIndex="0"
+                >
                   <svg className={styles.arrow}>
                     <use xlinkHref={`${svgIcons}#left-arrow`} />
                   </svg>
@@ -143,7 +207,13 @@ export default class Home extends Component {
                       </li>
                     ))
                 }
-                <li className={styles['social-media-item']}>
+                <li
+                  className={styles['social-media-item']}
+                  onClick={() => this.switchCover('next', curCoverId)}
+                  onKeyDown={this.handleKeyDown}
+                  role="tab"
+                  tabIndex="-1"
+                >
                   <svg className={styles.arrow}>
                     <use xlinkHref={`${svgIcons}#right-arrow`} />
                   </svg>
@@ -166,22 +236,23 @@ export default class Home extends Component {
               <svg className={styles.icon}>
                 <use xlinkHref={`${svgIcons}#flame`} />
               </svg>
-                New Release!
+              New Release!
             </h2>
             <div className={styles['new-release-container']}>
               {
-                Object.keys(newReleaseData).map(key => (
-                  <div className={styles['new-release']} key={key}>
-                    <figure
-                      className={styles['new-release-content']}
-                      style={{ backgroundImage: `url(${newReleaseData[key].poster})` }}
-                      data-title={newReleaseData[key].title}
-                      data-intro={newReleaseData[key].introduction}
-                    >
-                      <div className={styles.overlay} />
-                    </figure>
-                  </div>
-                ))
+                Object.keys(newReleaseData)
+                  .map(key => (
+                    <div className={styles['new-release']} key={key}>
+                      <figure
+                        className={styles['new-release-content']}
+                        style={{ backgroundImage: `url(${newReleaseData[key].poster})` }}
+                        data-title={newReleaseData[key].title}
+                        data-intro={newReleaseData[key].introduction}
+                      >
+                        <div className={styles.overlay} />
+                      </figure>
+                    </div>
+                  ))
               }
             </div>
           </article>
@@ -190,7 +261,7 @@ export default class Home extends Component {
               <svg className={styles.icon}>
                 <use xlinkHref={`${svgIcons}#new`} />
               </svg>
-                The Latest!
+              The Latest!
             </h2>
             <BlogSummary data={this.state.data} />
           </article>
@@ -199,11 +270,6 @@ export default class Home extends Component {
               More
             </a>
           </article>
-        </section>
-        <section id="aaaa" data-depth="1.00" style={{ position: 'absolute', top: 0, zIndex: -1 }}>
-          <figure data-depth="1.00">
-            <img src="http://bnsh.bandainamcoasia.com/pc/Public/imgs/bg_icon.png" alt="n" />
-          </figure>
         </section>
       </main>
     );

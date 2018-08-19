@@ -5,7 +5,8 @@
     position: relative;
     width: 100%;
     animation: header 1s;
-    background: url("https://api.leoyancey.com/api/sayaka.jpg") no-repeat fixed top center;
+    transition: 1s all linear;
+    background: no-repeat fixed center top;
     background-size: cover;
     &::after {
       content: '';
@@ -68,7 +69,23 @@
         color: #eaeadf;
         display: flex;
         justify-content: center;
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
+        max-height: .9rem;
+        .left-quote, .right-quote {
+          position: relative;
+          width: .9rem;
+          height: .9rem;
+          fill: #fff;
+          fill-opacity: .6;
+          top: 1px;
+        }
+        .left-quote{
+          margin-right: .4rem;
+        }
+        .right-quote{
+          margin-right: 0;
+          margin-left: .4rem;
+        }
       }
       .social-media-list {
         text-align: center;
@@ -76,9 +93,10 @@
           margin-right: 0;
         }
         .social-media-item {
+          outline: none;
           position: relative;
           display: inline-block;
-          margin-right: 1.2rem;
+          margin-right: 1.1rem;
           svg {
             width: 22px;
             height: 22px;
@@ -227,19 +245,20 @@
       }
     }
   }
-  .show-more-btn-wrapper{
+  .show-more-btn-wrapper {
     text-align: center;
     margin-top: 4rem;
-    a{
+    a {
+      font-family: "Ubuntu", sans-serif;
       padding: .5rem 2.75rem;
       border: 1px solid #d6d6d6;
       border-radius: 1.75rem;
       color: #adadad;
       transition: 400ms all ease;
-      &:hover{
+      &:hover {
         border-color: #FE9600;
         color: #FE9600;
-        box-shadow: 0 0 4px rgba(255,165,0,.85);
+        box-shadow: 0 0 4px rgba(255, 165, 0, .85);
       }
     }
   }
@@ -271,10 +290,12 @@
     box-shadow: 0 1px 40px -8px rgba(#000, .5);
   }
 }
-#aaaa{
+
+#aaaa {
   position: absolute;
   top: 0;
 }
+
 @keyframes header {
   0% {
     opacity: 0;
@@ -344,3 +365,4 @@
     clip: rect(31px, 9999px, 149px, 0)
   }
 }
+

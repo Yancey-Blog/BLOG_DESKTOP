@@ -14,7 +14,8 @@
       height: .9rem;
       position: relative;
       top: .2rem;
-      margin: 0 .2rem; }
+      margin: 0 .2rem;
+      animation: pluse 1500ms infinite linear; }
   .yancey-common-footer .dot-split {
     width: 100%;
     height: 1px;
@@ -49,5 +50,13 @@
       .yancey-common-footer .copyright-wrapper .copyright-item .icon-uk, .yancey-common-footer .copyright-wrapper .copyright-item .icon-japan {
         width: .9rem;
         height: .9rem; }
+
+@keyframes pluse {
+  0% {
+    transform: scale(1.1); }
+  50% {
+    transform: scale(0.8); }
+  100% {
+    transform: scale(1.1); } }
 
 /*# sourceMappingURL=footer.module.css.map */

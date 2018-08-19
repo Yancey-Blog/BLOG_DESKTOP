@@ -15,6 +15,7 @@
       position: relative;
       top: .2rem;
       margin: 0 .2rem;
+      animation: pluse 1500ms infinite linear;
     }
   }
   .dot-split {
@@ -58,5 +59,17 @@
         height: .9rem;
       }
     }
+  }
+}
+
+@keyframes pluse {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.1);
   }
 }
