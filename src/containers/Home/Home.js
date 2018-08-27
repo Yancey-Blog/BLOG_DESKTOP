@@ -61,7 +61,7 @@ export default class Home extends Component {
 
   getCoverData = () => {
     const params = {
-      _id: window.localStorage.cover_id ? window.localStorage.cover_id : '',
+      _id: window.localStorage.cover_id,
     };
     GET('/covers', params)
       .then((res) => {
@@ -69,6 +69,7 @@ export default class Home extends Component {
           coverUrl: res.data.url,
           curCoverId: res.data._id, // eslint-disable-line
         });
+        window.localStorage.setItem('cover_id', res.data._id); // eslint-disable-line
       })
       .catch((error) => {
         console.log(error.message);
@@ -104,7 +105,8 @@ export default class Home extends Component {
       });
   };
 
-  handleKeyDown = () => {}
+  handleKeyDown = () => {
+  };
 
   fakeData = () => {
     const data = Mock.mock({
@@ -212,7 +214,7 @@ export default class Home extends Component {
                   onClick={() => this.switchCover('next', curCoverId)}
                   onKeyDown={this.handleKeyDown}
                   role="tab"
-                  tabIndex="-1"
+                  tabIndex="0"
                 >
                   <svg className={styles.arrow}>
                     <use xlinkHref={`${svgIcons}#right-arrow`} />

@@ -31,12 +31,25 @@ axios.interceptors.response.use(
   err => Promise.reject(err),
 );
 
-
-// POST
-export function POST(url, params) {
+// GET
+export function GET(url, params) {
   return new Promise((resolve, reject) => {
     axios
-      .post(url, params)
+      .get(url, { params })
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+}
+
+// POST
+export function POST(url, params, config) {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(url, params, config)
       .then(
         (res) => {
           resolve(res);
@@ -45,22 +58,6 @@ export function POST(url, params) {
           reject(err);
         },
       )
-      .catch((err) => {
-        reject(err);
-      });
-  });
-}
-
-// GET
-export function GET(url, params) {
-  return new Promise((resolve, reject) => {
-    axios
-      .get(url, {
-        params,
-      })
-      .then((res) => {
-        resolve(res);
-      })
       .catch((err) => {
         reject(err);
       });
@@ -85,7 +82,7 @@ export function PUT(url, params) {
 export function DELETE(url, params) {
   return new Promise((resolve, reject) => {
     axios
-      .delete(url, params)
+      .delete(url, { data: params })
       .then((res) => {
         resolve(res);
       })
