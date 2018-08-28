@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import styles from './footer.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
 
 const copyright = {
   about: {
-    url: '/',
+    url: '/about',
     name: 'About',
   },
   privacyPolicy: {
-    url: '/',
+    url: '/privacy-policy',
     name: 'Privacy Policy',
   },
   apps: {
@@ -53,9 +54,9 @@ class Footer extends Component {
             {
               Object.keys(copyright).map(key => (
                 <li className={styles['copyright-item']} key={key}>
-                  <a href={copyright[key].url}>
+                  <Link to={copyright[key].url}>
                     {copyright[key].name}
-                  </a>
+                  </Link>
                 </li>
               ))
             }

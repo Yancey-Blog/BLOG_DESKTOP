@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import styles from './header.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
@@ -61,14 +62,14 @@ class Header extends Component {
             {
               Object.keys(navInfo).map(key => (
                 <li className={styles['yancey-nav-item']} key={key}>
-                  <a href={navInfo[key].url}>
+                  <Link to={navInfo[key].url}>
                     <svg className={cs(styles['header-icon'], styles[`icon-${key}`])}>
                       <use xlinkHref={`${svgIcons}${navInfo[key].icon}`} />
                     </svg>
                     <span className={styles['menu-name']}>
                       {key}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))
             }
