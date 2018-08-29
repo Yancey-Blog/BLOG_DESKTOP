@@ -236,9 +236,15 @@
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5); }
 
-#aaaa {
-  position: absolute;
-  top: 0; }
+:global(.bubbly) {
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh; }
 
 @keyframes header {
   0% {

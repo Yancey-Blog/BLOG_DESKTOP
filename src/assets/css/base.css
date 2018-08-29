@@ -19,6 +19,9 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   position: relative; }
 
+html, body {
+  cursor: url("../image/cursor.ico"), auto; }
+
 .App {
   overflow: hidden; }
 
@@ -47,6 +50,12 @@ a {
   border-bottom-color: rgba(0, 0, 0, 0.5);
   top: -36px;
   left: 80px; }
+
+.target-fix {
+  display: block;
+  height: 3.25rem;
+  margin-top: -3.25rem;
+  visibility: hidden; }
 
 @media screen and (max-width: 1920px) {
   html {

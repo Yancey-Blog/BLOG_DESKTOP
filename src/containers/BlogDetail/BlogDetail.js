@@ -29,7 +29,7 @@ class BlogDetail extends Component {
   }
 
   getData() {
-    GET('/article.json', {}).then((res) => {
+    GET('https://api.leoyancey.com/api/article.json', {}).then((res) => {
       this.setState({
         blogContent: res.data.content,
       });

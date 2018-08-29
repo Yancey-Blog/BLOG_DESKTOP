@@ -1,14 +1,25 @@
+.bg_img {
+  width: 100%;
+  height: 16rem;
+  background: url("./header_background.jpg") no-repeat center top;
+  background-size: cover;
+  margin-top: 3.25rem;
+}
+
 .privacy_policy_container {
-  margin: 6rem 20% 0;
+  margin: 3rem 20% 0;
   font-family: Roboto, "Microsoft YaHei", sans-serif;
   color: #2c2e2f;
   .anchor {
+    margin-left: 0;
     margin-bottom: 3rem;
-    a {
-      display: block;
-      font-size: .9rem;
-      color: #0070ba;
+    li {
+      list-style-type: none;
       margin: .9rem 0;
+      a {
+        font-size: .9rem;
+        color: #0070ba;
+      }
     }
   }
   ul {
@@ -26,9 +37,6 @@
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 400;
-    &:target {
-      padding-top: 3.25rem;
-    }
   }
   h3 {
     font-size: .9rem;

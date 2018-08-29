@@ -1,0 +1,18 @@
+.blog_wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 60rem;
+  margin: 10rem auto 0; }
+
+.summary_pagination_container {
+  font-family: "Operator Mono", sans-serif; }
+
+:global(.bubbly) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -1; }
+
+/*# sourceMappingURL=blog.module.css.map */

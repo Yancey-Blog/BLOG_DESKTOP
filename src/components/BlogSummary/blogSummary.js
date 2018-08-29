@@ -19,21 +19,16 @@ class blogSummary extends Component {
   componentWillUnmount() {
   }
 
-  aa(){
-
-  }
-
   render() {
     const { data } = this.props;
-    const datas = data.data;
     return (
-      Object.keys(datas)
+      Object.keys(data)
         .map((item, key) => (
-          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={datas[key].id}>
+          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={data[key]._id}>
             <div className={styles['blog-thumb-wrapper']}>
-              <a href={datas[key].url} title={datas[key].title}>
+              <a href={data[key].url} title={data[key].title}>
                 <figure className={styles['blog-thumb']}>
-                  <img className={cs('lazyload', 'lazyload2')} src={`${datas[key].poster}#lazyload-blur`} data-src={datas[key].poster} alt={datas[key].title} />
+                  <img className={cs('lazyload', 'lazyload2')} src={`${data[key].poster}#lazyload-blur`} data-src={data[key].poster} alt={data[key].title} />
                 </figure>
               </a>
             </div>
@@ -44,11 +39,11 @@ class blogSummary extends Component {
                 </svg>
                 Released
                 {' '}
-                {datas[key].publish_date}
+                {data[key].publish_date}
               </p>
-              <a href={datas[key].url} title={datas[key].title}>
+              <a href={data[key].url} title={data[key].title}>
                 <h3 className={styles.title}>
-                  {datas[key].title}
+                  {data[key].title}
                 </h3>
               </a>
               <div className={styles['extra-info']}>
@@ -56,7 +51,7 @@ class blogSummary extends Component {
                   <svg className={styles['icon-eye']}>
                     <use xlinkHref={`${svgIcons}#eye`} />
                   </svg>
-                  {datas[key].like_num}
+                  {data[key].like_count}
                   {' '}
                   PV
                 </span>
@@ -64,8 +59,8 @@ class blogSummary extends Component {
                   <svg className="icon-comment">
                     <use xlinkHref={`${svgIcons}#multimedia`} />
                   </svg>
-                  <a href={`${datas[key].url}#comment`}>
-                    {datas[key].comment_num}
+                  <a href={`${data[key].url}#comment`}>
+                    {data[key].comment_count}
                     {' '}
                     Comment
                   </a>
@@ -74,16 +69,16 @@ class blogSummary extends Component {
                   <svg className="icon-folder">
                     <use xlinkHref={`${svgIcons}#folder`} />
                   </svg>
-                  <a href={`/${datas[key].category}`} title={`This article belong to ${datas[key].category}`}>
-                    {datas[key].category}
+                  <a href={`/${data[key].category}`} title={`This article belong to ${data[key].category}`}>
+                    {data[key].category}
                   </a>
                 </span>
               </div>
               <p className={styles['summary-content']}>
-                {datas[key].summary}
+                {data[key].summary}
               </p>
               <div className={styles['show-detail-wrapper']}>
-                <a href={datas[key].url} title="show the detail">
+                <a href={data[key].url} title="show the detail">
                   <svg className={styles['icon-more']}>
                     <use xlinkHref={`${svgIcons}#more`} />
                   </svg>

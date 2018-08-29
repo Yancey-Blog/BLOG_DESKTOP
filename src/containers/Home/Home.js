@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import $ from 'jquery';
 import styles from './home.module.css';
@@ -6,8 +7,6 @@ import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/BlogSummary/blogSummary';
 import socialMedia from '../../utils/socialMedia';
 import { GET } from '../../https/axios';
-
-const Mock = require('mockjs');
 
 
 export default class Home extends Component {
@@ -31,9 +30,7 @@ export default class Home extends Component {
     };
   }
 
-  componentWillMount() {
-    this.fakeData();
-  }
+  componentWillMount() {}
 
   componentDidMount() {
     this.handleBigBannerHeight();
@@ -42,6 +39,7 @@ export default class Home extends Component {
     this.getNewReleaseData();
     this.getCoverData();
     this.getMottoData();
+    this.getData();
   }
 
   componentWillUnmount() {
@@ -88,43 +86,17 @@ export default class Home extends Component {
       });
   };
 
-  switchCover = (position, id) => {
-    const params = {
-      position,
-    };
-    GET(`/covers/${id}`, params)
+  getData() {
+    GET('/articles', {})
       .then((res) => {
         this.setState({
-          coverUrl: res.data.url,
-          curCoverId: res.data._id, // eslint-disable-line
+          data: res.data,
         });
-        window.localStorage.setItem('cover_id', res.data._id); // eslint-disable-line
       })
       .catch((error) => {
         console.log(error.message);
       });
-  };
-
-  handleKeyDown = () => {
-  };
-
-  fakeData = () => {
-    const data = Mock.mock({
-      'data|10': [{
-        'id|+1': 1,
-        url: 'https://www.yanceyleo.com/blog/@word(4, 12)',
-        poster: '@image(\'500x500\', \'@color()\')',
-        publish_date: '@date()',
-        last_modified_date: '@date()',
-        title: '@ctitle(6, 18)',
-        summary: '@cparagraph(3, 7)',
-        like_num: '@integer(0, 500)',
-        comment_num: '@integer(0, 500)',
-        category: '@word(4, 12)',
-      }],
-    });
-    this.state.data = JSON.parse(JSON.stringify(data));
-  };
+  }
 
   handleBigBannerHeight = () => {
     const viewPortInit = $(window)
@@ -157,9 +129,28 @@ export default class Home extends Component {
       });
   };
 
+  handleKeyDown = () => {};
+
+  switchCover = (position, id) => {
+    const params = {
+      position,
+    };
+    GET(`/covers/${id}`, params)
+      .then((res) => {
+        this.setState({
+          coverUrl: res.data.url,
+          curCoverId: res.data._id, // eslint-disable-line
+        });
+        window.localStorage.setItem('cover_id', res.data._id); // eslint-disable-line
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   render() {
     const {
-      newReleaseData, coverUrl, curCoverId, motto,
+      newReleaseData, coverUrl, curCoverId, motto, data,
     } = this.state;
     return (
       <main className={styles['yancey-blog-home']}>
@@ -265,12 +256,12 @@ export default class Home extends Component {
               </svg>
               The Latest!
             </h2>
-            <BlogSummary data={this.state.data} />
+            <BlogSummary data={data} />
           </article>
           <article className={styles['show-more-btn-wrapper']}>
-            <a href="/blog">
+            <Link to="/blog">
               More
-            </a>
+            </Link>
           </article>
         </section>
       </main>

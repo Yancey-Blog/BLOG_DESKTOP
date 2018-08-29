@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
@@ -7,7 +7,9 @@ import BackToTop from './components/Widget/BackToTop/backToTop';
 import ScrollProgress from './components/Widget/ScrollProgress/scrollProgress';
 import Player from './components/Widget/Player/player';
 import Home from './containers/Home/Home';
+import Blog from './containers/Blog/Blog';
 import BlogDetail from './containers/BlogDetail/BlogDetail';
+import Archive from './containers/Archive/Archive';
 import PrivacyPolicy from './containers/PrivacyPolicy/PrivacyPolicy';
 
 class App extends Component {
@@ -41,8 +43,11 @@ class App extends Component {
           atActive={{ opacity: 1 }}
           className="switch-wrapper"
         >
-            <Route path="/" exact component={Home} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/" exact component={Home} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/post/:id" component={BlogDetail} />
+          <Route path="/archive" component={Archive} />
         </AnimatedSwitch>
         <ScrollProgress />
         <BackToTop />
