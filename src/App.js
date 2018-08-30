@@ -10,6 +10,7 @@ import Home from './containers/Home/Home';
 import Blog from './containers/Blog/Blog';
 import BlogDetail from './containers/BlogDetail/BlogDetail';
 import Archive from './containers/Archive/Archive';
+import Apps from './containers/Apps/Apps';
 import PrivacyPolicy from './containers/PrivacyPolicy/PrivacyPolicy';
 
 class App extends Component {
@@ -48,6 +49,7 @@ class App extends Component {
           <Route path="/blog" component={Blog} />
           <Route path="/post/:id" component={BlogDetail} />
           <Route path="/archive" component={Archive} />
+          <Route path="/apps" component={Apps} />
         </AnimatedSwitch>
         <ScrollProgress />
         <BackToTop />

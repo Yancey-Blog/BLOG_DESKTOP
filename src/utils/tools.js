@@ -16,6 +16,7 @@ export function setCopy() {
   }, 0);
 }
 
-export function f() {
-  // todo
+export function monthToEN(monthNum) {
+  const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return monthList[monthNum - 1];
 }

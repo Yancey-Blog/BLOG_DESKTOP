@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
-
 $small_text: #888;
 
 .blog-summary-content {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Merriweather', sans-serif;
   display: flex;
   max-width: 40rem;
   height: 15rem;
@@ -26,6 +24,11 @@ $small_text: #888;
       &:hover {
         transform: scale(1.1);
         transition: all 500ms linear;
+      }
+      .img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

@@ -7,6 +7,9 @@
 @font-face {
   font-family: "Operator Mono";
   src: url("../../assets/fonts/Operator-Mono-Book-Regular.otf"); }
+@font-face {
+  font-family: "Merriweather";
+  src: url("../../assets/fonts/Merriweather-Regular.ttf"); }
 * {
   margin: 0;
   padding: 0;

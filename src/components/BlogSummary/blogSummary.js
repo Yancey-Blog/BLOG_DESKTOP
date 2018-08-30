@@ -28,7 +28,7 @@ class blogSummary extends Component {
             <div className={styles['blog-thumb-wrapper']}>
               <a href={data[key].url} title={data[key].title}>
                 <figure className={styles['blog-thumb']}>
-                  <img className={cs('lazyload', 'lazyload2')} src={`${data[key].poster}#lazyload-blur`} data-src={data[key].poster} alt={data[key].title} />
+                  <img className={cs('lazyload', 'lazyload2', styles.img)} src={`${data[key].poster}#lazyload-blur`} data-src={data[key].poster} alt={data[key].title} />
                 </figure>
               </a>
             </div>

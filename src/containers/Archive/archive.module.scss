@@ -5,17 +5,96 @@ $circle: #00bbff;
 $shadow: #bbb;
 $white: #fff;
 $black: #000;
+$orange: #ffa500;
+$btn_gray: #e0e1e2;
+$btn_green: #21ba45;
+$btn_gray_hover: #cacbcd;
+$btn_green_hover: #13ae38;
+$text: #504e4e;
 
 .archive_wrapper {
-  margin: 10rem auto 0;
+  margin: 6rem auto 0;
   max-width: 40rem;
   font-size: .8rem;
+  font-family: "Merriweather", sans-serif;
+  .archive_title {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #676767;
+  }
+}
+
+.fold_unfold_wrapper {
+  display: flex;
+  width: 8rem;
+  margin: 2rem 32rem 0;
+  .btn {
+    padding: 0 1rem;
+    height: 1.8rem;
+    font-size: .7rem;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  .left_btn {
+    background: $btn_gray;
+    color: rgba(#000, .6);
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+    transition: all .2s linear;
+    &:hover {
+      color: rgba(#000, .8);
+      background: $btn_gray_hover;
+      transition: all .2s linear;
+    }
+  }
+  .right_btn {
+    background: $btn_green;
+    color: $white;
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+    transition: all .2s linear;
+    &:hover {
+      background: $btn_green_hover;
+      transition: all .2s linear;
+    }
+  }
+  .or {
+    position: relative;
+    width: .2rem;
+    height: 1.8rem;
+    &::before {
+      position: absolute;
+      text-align: center;
+      border-radius: 50%;
+      content: 'or';
+      top: 50%;
+      left: 50%;
+      background-color: #fff;
+      text-shadow: none;
+      margin-top: -.6rem;
+      margin-left: -.6rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      line-height: 1.2rem;
+      color: rgba(0, 0, 0, .4);
+      font-style: normal;
+      font-weight: 700;
+      box-shadow: 0 0 0 1px transparent inset;
+    }
+  }
+}
+
+.archive_list_wrapper {
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .year {
   font-size: 1rem;
   font-weight: bold;
-  margin-left: 5.7rem;
+  margin-left: 6rem;
 }
 
 .year_list_wrapper {
@@ -34,6 +113,7 @@ $black: #000;
   .month {
     position: relative;
     display: block;
+    line-height: 1.8;
     &::after {
       position: absolute;
       content: '';
@@ -44,7 +124,7 @@ $black: #000;
       background: $white;
       border-radius: 50%;
       box-shadow: 1px 1px 1px #bbb;
-      z-index: 1;
+      z-index: 0;
     }
     &::before {
       position: absolute;
@@ -55,13 +135,12 @@ $black: #000;
       height: .6rem;
       background: $circle;
       border-radius: 50%;
-      z-index: 2;
+      z-index: 1;
     }
   }
 
   .day_list_container {
     padding-left: 8.2rem;
-    /*   */
     max-height: 0;
     overflow: hidden;
     transition: all 500ms linear;
@@ -78,12 +157,12 @@ $black: #000;
 
   input:checked ~ .day_list_container {
     max-height: 20rem;
-    transition: all 1s linear;
+    transition: all .2s linear;
   }
 
   .day_item {
     position: relative;
-    line-height: 1.8;
+    line-height: 2;
     &::after {
       position: absolute;
       content: '';
@@ -94,7 +173,7 @@ $black: #000;
       background: $white;
       border-radius: 50%;
       box-shadow: 1px 1px 1px #bbb;
-      z-index: 1;
+      z-index: 0;
     }
     &::before {
       position: absolute;
@@ -105,13 +184,19 @@ $black: #000;
       height: .4rem;
       background: $circle;
       border-radius: 50%;
-      z-index: 2;
+      z-index: 1;
     }
     .day {
       color: $circle;
     }
     a {
-      color: $black;
+      font-size: .75rem;
+      color: $text;
+      transition: all 200ms linear;
+      &:hover {
+        color: $orange;
+        transition: all 200ms linear;
+      }
     }
   }
 
