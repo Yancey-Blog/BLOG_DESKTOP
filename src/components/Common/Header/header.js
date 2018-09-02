@@ -29,8 +29,8 @@ const navInfo = {
     url: '/photo',
     icon: '#photo-camera',
   },
-  resume: {
-    url: '/resume',
+  CV: {
+    url: '/cv',
     icon: '#curriculum-vitae',
   },
   RSS: {

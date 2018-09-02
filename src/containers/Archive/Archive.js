@@ -117,7 +117,7 @@ class Archive extends Component {
                                 .map($key => (
                                   <li className={styles.day_item} key={$key}>
                                     <span className={styles.day}>
-                                      {data[key].data[key1].days[$key].day}
+                                      {data[key].data[key1].days[$key].day < 10 ? `0${data[key].data[key1].days[$key].day}` : data[key].data[key1].days[$key].day}
                                       {': '}
                                     </span>
                                     <a href={data[key].data[key1].days[$key].url}>

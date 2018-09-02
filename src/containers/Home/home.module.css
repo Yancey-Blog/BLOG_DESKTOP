@@ -203,16 +203,20 @@
     text-align: center;
     margin-top: 4rem; }
     .yancey-blog-home .show-more-btn-wrapper a {
+      display: inline-block;
       font-family: "Ubuntu", sans-serif;
       padding: .5rem 2.75rem;
-      border: 1px solid #d6d6d6;
+      border: 2px solid #F12742;
       border-radius: 1.75rem;
-      color: #adadad;
-      transition: 400ms all ease; }
+      color: #F12742;
+      transition-property: transform, opacity, visibility;
+      transition-duration: 0.25s, 0.15s, 0s;
+      transition-timing-function: cubic-bezier(0.31, 0.32, 0.38, 2), linear, linear;
+      transition-delay: 0s, 0s, 0.15s;
+      transform: scale3d(1, 1, 1); }
       .yancey-blog-home .show-more-btn-wrapper a:hover {
-        border-color: #FE9600;
-        color: #FE9600;
-        box-shadow: 0 0 4px rgba(255, 165, 0, 0.85); }
+        box-shadow: 0 0 4px rgba(241, 39, 66, 0.85);
+        transform: scale3d(1.05, 1.05, 1); }
   .yancey-blog-home .blog-summary-tips, .yancey-blog-home .new-release-tips {
     color: #666;
     font-size: .9rem;

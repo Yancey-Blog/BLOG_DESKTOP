@@ -655,7 +655,7 @@ class PrivacyPolicy extends Component {
           </p>
           <hr />
           <p className={styles.update_date}>
-            Latest update: August 28, 2018
+            Date of last revision: Tuesday, August 28, 2018
           </p>
         </article>
       </section>

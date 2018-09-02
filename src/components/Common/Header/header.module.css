@@ -62,7 +62,7 @@
       animation: tada 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-photo :global {
       animation: horizontal 2s ease infinite; }
-    .yancey-nav-item a:hover > .icon-resume :global {
+    .yancey-nav-item a:hover > .icon-CV :global {
       animation: wrench 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-apps :global {
       animation: pulse 2s ease infinite; }
