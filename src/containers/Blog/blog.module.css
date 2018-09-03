@@ -54,5 +54,7 @@
     .aside_wrapper .search_container input:focus {
       color: #111;
       transition: all 100ms linear; }
+.aside_wrapper .tags_container {
+  margin-top: 4rem; }
 
 /*# sourceMappingURL=blog.module.css.map */

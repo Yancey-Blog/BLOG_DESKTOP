@@ -3,12 +3,13 @@
   grid-template-columns: 1fr 2fr;
   grid-column-gap: 2rem;
   width: 60rem;
-  margin: 4rem auto 0;
+  margin: 5rem auto 0;
   // font-family: "Ubuntu", sans-serif;
 }
 
 .cv_basic_container {
   width: 100%;
+  background: #354B6F;
   box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
   border-radius: .5rem;
   .avatar {
@@ -19,7 +20,6 @@
     border-top-right-radius: .5rem;
   }
   .cv_basic {
-    background: #354B6F;
     padding-top: 1rem;
     text-align: center;
     color: #fff;
@@ -34,16 +34,16 @@
       font-weight: bold;
       margin-bottom: 1rem;
     }
-    .email {
+    .media {
       a {
         text-decoration: none;
         color: #fff;
         border-bottom: 1px solid #fff;
       }
     }
-    .introduction_wrapper {
+    .self_introduction {
       padding: 1rem;
-      p {
+      .self_introduction_content {
         margin-bottom: 1rem;
         font-size: .8rem;
         text-align: left;
@@ -57,22 +57,47 @@
 }
 
 .cv_detail_container {
-  .work_experience_wrapper {
+  .cv_detail_item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    &:first-child{
+      margin-top: 0;
+    }
+    .item_icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: rgba(0, 0, 0, .54);
+    }
+    .item_name {
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: rgba(0, 0, 0, .54);
+    }
+  }
+  .detail_wrapper {
+    margin: 0 0 .8rem;
+    padding: 1.2rem;
+    box-shadow: rgba(#000, .16) 0 3px 10px, rgba(#000, 0.23) 0 3px 10px;
+    border-radius: .5rem;
     color: rgba(#000, 0.87);
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
-    border-radius: .5rem;
-    margin: .8rem 0;
-    padding: 1.2rem;
-    .work_experience_container {
+    &:last-child{
+      margin-bottom: 0;
+    }
+    .summary {
       display: flex;
       padding: .8rem;
-      .company_logo {
+      &:last-child{
+        padding: 0 .8rem;
+      }
+      .logo {
         width: 3.2rem;
         height: 3.2rem;
-        background: url("./licaifan.jpg") no-repeat center top;
-        background-size: cover;
         margin-right: 1rem;
+        background: url("./logo.jpg") no-repeat center top;
+        background-size: cover;
       }
       .company_name {
         font-size: .75rem;
@@ -88,10 +113,19 @@
     }
     .work_content {
       font-size: .7rem;
-      color: rgba(#000, 0.87);
       text-shadow: 0 0 1px rgba(0, 0, 0, .1);
       line-height: 1.8;
+      padding: 0 .8rem .8rem;
+      .work_content_detail {
+        color: rgba(#000, 0.87);
+      }
+      .technology_stack {
+        margin-top: .8rem;
+        font-weight: bold;
+        color: #5DA4D9;
+      }
     }
+
   }
 }
 

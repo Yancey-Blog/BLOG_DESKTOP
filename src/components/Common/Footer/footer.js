@@ -17,10 +17,6 @@ const copyright = {
     url: '/apps',
     name: 'Apps',
   },
-  contact: {
-    url: 'mailto:team@yanceyleo.com',
-    name: 'Contact',
-  },
 };
 
 class Footer extends Component {
@@ -60,6 +56,11 @@ class Footer extends Component {
                 </li>
               ))
             }
+            <li className={styles['copyright-item']}>
+              <a href="mailto:team@yanceyleo.com">
+                Contact
+              </a>
+            </li>
           </ul>
         </section>
       </footer>

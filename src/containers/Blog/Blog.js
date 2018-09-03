@@ -3,6 +3,7 @@ import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import styles from './blog.module.css';
 import BlogSummary from '../../components/BlogSummary/blogSummary';
+import Tag from '../../components/Tag/Tag';
 import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -108,6 +109,9 @@ class Blog extends Component {
             <label htmlFor="search">
               <input type="text" id="search" placeholder="Search..." />
             </label>
+          </section>
+          <section className={styles.tags_container}>
+            <Tag />
           </section>
         </aside>
       </main>
