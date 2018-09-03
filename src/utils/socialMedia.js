@@ -11,10 +11,6 @@ const socialMedia = {
     url: 'https://www.instagram.com/yancey_leo/',
     icon: '#instagram',
   },
-  messenger: {
-    url: 'https://www.messenger.com/t/yanceyleo',
-    icon: '#messenger',
-  },
   soundCloud: {
     url: 'https://soundcloud.com/yancey-leo/',
     icon: '#soundcloud',

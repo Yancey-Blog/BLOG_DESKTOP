@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { AnimatedSwitch } from 'react-router-transition';
+import { Route, Switch } from 'react-router-dom';
+import { Transition } from 'react-transition-group';
 import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
@@ -36,23 +36,29 @@ class App extends Component {
   }
 
   render() {
+    const duration = 300;
+
+    const defaultStyle = {
+      transition: `opacity ${duration}ms ease-in-out`,
+      opacity: 0,
+    }
+
+    const transitionStyles = {
+      entering: { opacity: 0 },
+      entered: { opacity: 1 },
+    };
     return (
       <div className="App">
         <Header />
-        <AnimatedSwitch
-          atEnter={{ opacity: 0 }}
-          atLeave={{ opacity: 0 }}
-          atActive={{ opacity: 1 }}
-          className="switch-wrapper"
-        >
-          <Route path="/" exact component={Home} />
-          <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/post/:id" component={BlogDetail} />
-          <Route path="/archive" component={Archive} />
-          <Route path="/cv" component={CV} />
-          <Route path="/apps" component={Apps} />
-        </AnimatedSwitch>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/privacy-policy" component={PrivacyPolicy} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/post/:id" component={BlogDetail} />
+            <Route path="/archive" component={Archive} />
+            <Route path="/cv" component={CV} />
+            <Route path="/apps" component={Apps} />
+          </Switch>
         <ScrollProgress />
         <BackToTop />
         <Player />

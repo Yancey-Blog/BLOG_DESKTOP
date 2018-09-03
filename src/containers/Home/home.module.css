@@ -84,12 +84,10 @@
           outline: none;
           position: relative;
           display: inline-block;
-          margin-right: 1.1rem; }
+          margin-right: 1.4rem; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item svg {
             width: 22px;
             height: 22px; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list .messenger-qr-code::after {
-          background: rgba(0, 0, 0, 0.5) url("./image/messager-qr-code.jpg") no-repeat center top; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .wechat-qr-code::after {
           background: rgba(0, 0, 0, 0.5) url("./image/wechat-qr-code.jpg") no-repeat center top; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .twitter-qr-code::after {

@@ -96,15 +96,10 @@
           outline: none;
           position: relative;
           display: inline-block;
-          margin-right: 1.1rem;
+          margin-right: 1.4rem;
           svg {
             width: 22px;
             height: 22px;
-          }
-        }
-        .messenger-qr-code {
-          &::after {
-            background: rgba(0, 0, 0, .5) url("./image/messager-qr-code.jpg") no-repeat center top;
           }
         }
         .wechat-qr-code {

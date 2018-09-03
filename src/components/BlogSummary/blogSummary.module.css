@@ -16,8 +16,7 @@
     cursor: pointer; }
     .blog-summary-content .blog-thumb-wrapper .blog-thumb {
       height: 100%;
-      background: url("./loading.gif") no-repeat center center;
-      background-size: 50%;
+      background-color: rgba(245, 245, 245, 0.88);
       transition: all 500ms linear; }
       .blog-summary-content .blog-thumb-wrapper .blog-thumb:hover {
         transform: scale(1.1);

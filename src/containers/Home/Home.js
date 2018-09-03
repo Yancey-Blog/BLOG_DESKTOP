@@ -12,10 +12,8 @@ import { GET } from '../../https/axios';
 export default class Home extends Component {
   static addQrCode() {
     const twitter = document.getElementsByClassName('twitter')[0];
-    const messenger = document.getElementsByClassName('messenger')[0];
     const wechat = document.getElementsByClassName('wechat')[0];
     twitter.classList.add(styles['qr-code'], styles['twitter-qr-code']);
-    messenger.classList.add(styles['qr-code'], styles['messenger-qr-code']);
     wechat.classList.add(styles['qr-code'], styles['wechat-qr-code']);
   }
 
