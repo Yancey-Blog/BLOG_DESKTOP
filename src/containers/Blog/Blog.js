@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './blog.module.css';
 import BlogSummary from '../../components/BlogSummary/blogSummary';
 import Tag from '../../components/Tag/Tag';
+import LinkCard from '../../components/LinkCard/LinkCard';
 import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -112,6 +113,9 @@ class Blog extends Component {
           </section>
           <section className={styles.tags_container}>
             <Tag />
+          </section>
+          <section className={styles.card_container}>
+            <LinkCard data={data} />
           </section>
         </aside>
       </main>

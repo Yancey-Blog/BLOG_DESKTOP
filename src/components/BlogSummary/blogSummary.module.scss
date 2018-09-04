@@ -102,22 +102,24 @@ $small_text: #888;
   text-align: left;
 }
 
-:global(.lazyload.lazyload1),
-:global(.lazyloading.lazyload1) {
-}
 
 :global(.lazyloaded.lazyload1) {
   animation: main 600ms;
+  will-change: tranform;
 }
 
 :global(.lazyload.lazyload2),
 :global(.lazyloading.lazyload2) {
-  opacity: 0;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 400ms, -webkit-filter 400ms;
+  will-change: tranform;
 }
 
 :global(.lazyloaded.lazyload2) {
-  opacity: 1;
-  transition: all 600ms linear;
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  will-change: tranform;
 }
 
 @keyframes main {

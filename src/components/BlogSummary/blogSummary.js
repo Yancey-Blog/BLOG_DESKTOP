@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
 import lazysizes from 'lazysizes';
+import { checkWebp } from '../../utils/tools';
 import styles from './blogSummary.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -28,7 +29,12 @@ class blogSummary extends Component {
             <div className={styles['blog-thumb-wrapper']}>
               <a href={data[key].url} title={data[key].title}>
                 <figure className={styles['blog-thumb']}>
-                  <img className={cs('lazyload', 'lazyload2', styles.img)} src={`${data[key].poster}#lazyload-blur`} data-src={data[key].poster} alt={data[key].title} />
+                  <img
+                    className={cs('lazyload', 'lazyload2', styles.img)}
+                    src={`${data[key].poster}?x-oss-process=image/resize,w_120/quality,Q_90`}
+                    data-src={checkWebp() ? `${data[key].poster}?x-oss-process=image/format,webp` : data[key].poster}
+                    alt={data[key].title}
+                  />
                 </figure>
               </a>
             </div>

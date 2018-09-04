@@ -36,14 +36,14 @@
   position: relative; }
   .aside_wrapper .search_container .search_icon {
     position: absolute;
-    top: .8rem;
+    top: .5rem;
     right: .8rem;
     fill: #B5B5B5;
     width: 1.6rem;
     height: 1.6rem; }
   .aside_wrapper .search_container input {
     width: 100%;
-    padding: .8rem 3.2rem .8rem 1.2rem;
+    padding: .5rem 3.2rem .5rem 1.2rem;
     color: #b5b5b5;
     font-family: "Merriweather Sans", sans-serif;
     font-size: 1rem;

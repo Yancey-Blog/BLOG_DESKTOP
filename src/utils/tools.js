@@ -20,3 +20,9 @@ export function monthToEN(monthNum) {
   const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   return monthList[monthNum - 1];
 }
+
+export function checkWebp() {
+  return (document.createElement('canvas')
+    .toDataURL('image/webp')
+    .indexOf('data:image/webp') === 0);
+}

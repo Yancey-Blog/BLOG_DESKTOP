@@ -155,7 +155,7 @@ export default class Home extends Component {
         <section className="home-imax-wrapper">
           <figure
             className={cs([styles['home-imax']], 'home-big')}
-            style={{ backgroundImage: `url(${coverUrl})` }}
+            style={{ backgroundImage: `url(${coverUrl}?x-oss-process=image/format,webp)` }}
           >
             <h1
               className={styles.glitch}
@@ -164,7 +164,7 @@ export default class Home extends Component {
               Hi, Yanceyです!
             </h1>
             <div className={styles['social-media-container']}>
-              <div className="up-triangle" />
+              <div className={styles['up-triangle']} />
               <p className={cs(styles['social-media-motto'], 'no-user-select')}>
                 <svg className={cs(styles.icon, styles['left-quote'])}>
                   <use xlinkHref={`${svgIcons}#left-quote`} />
@@ -236,7 +236,7 @@ export default class Home extends Component {
                     <div className={styles['new-release']} key={key}>
                       <figure
                         className={styles['new-release-content']}
-                        style={{ backgroundImage: `url(${newReleaseData[key].poster})` }}
+                        style={{ backgroundImage: `url(${newReleaseData[key].poster}?x-oss-process=image/format,webp)` }}
                         data-title={newReleaseData[key].title}
                         data-intro={newReleaseData[key].introduction}
                       >

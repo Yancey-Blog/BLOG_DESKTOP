@@ -1,47 +1,52 @@
+$green: #00b5ad;
+$green_hover: #009c95;
+$white: #fff;
+
 .tags li, .tags a {
   display: inline-block;
-  height: 24px;
-  line-height: 24px;
+  height: 28px;
+  line-height: 28px;
   position: relative;
   font-size: 11px;
+  margin-bottom: .7rem;
 }
 
 .tags a {
   margin-left: 20px;
   padding: 0 10px 0 12px;
-  background: #0089e0;
-  color: #fff;
+  background: $green;
+  color: $white;
   text-decoration: none;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px;
 }
 
-.tags a:before {
+.tags a::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -12px;
-  border-color: transparent #0089e0 transparent transparent;
+  left: -14px;
+  border-color: transparent $green transparent transparent;
   border-style: solid;
-  border-width: 12px 12px 12px 0;
+  border-width: 14px 14px 14px 0;
 }
 
-.tags a:after {
+.tags a::after {
   content: "";
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 0;
-  width: 4px;
-  height: 4px;
-  border-radius: 2px;
-  background: #fff;
-  box-shadow: -1px -1px 2px #004977;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $white;
+  box-shadow: -1px -1px 1px 0 rgba(#000,.3);;
 }
 
 .tags a:hover {
-  background: #555;
+  background: $green_hover;
 }
 
-.tags a:hover:before {
-  border-color: transparent #555 transparent transparent;
+.tags a:hover::before {
+  border-color: transparent $green_hover transparent transparent;
 }

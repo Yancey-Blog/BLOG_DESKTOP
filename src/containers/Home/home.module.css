@@ -7,7 +7,8 @@
     animation: header 1s;
     transition: 1s all linear;
     background: no-repeat fixed center top;
-    background-size: cover; }
+    background-size: cover;
+    will-change: transform; }
     .yancey-blog-home .home-imax::after {
       content: '';
       background: url("../../assets/image/dot.gif") 0 0 fixed;
@@ -15,7 +16,8 @@
       top: 0;
       right: 0;
       bottom: 0;
-      left: 0; }
+      left: 0;
+      will-change: transform; }
     .yancey-blog-home .home-imax .glitch {
       position: relative;
       font-family: "Ubuntu Bold", sans-serif;
@@ -238,15 +240,14 @@
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5); }
 
-:global(.bubbly) {
-  position: fixed;
-  z-index: -1;
-  left: 0;
-  top: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  width: 100vw;
-  height: 100vh; }
+.up-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 18px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  top: -36px;
+  left: 80px; }
 
 @keyframes header {
   0% {

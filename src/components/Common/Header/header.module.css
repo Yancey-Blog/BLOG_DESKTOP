@@ -29,7 +29,6 @@
     width: 0;
     height: 4px;
     background: #ffA500;
-    top: 1.9rem;
     bottom: 0;
     left: 0;
     transition: all 300ms ease; }
@@ -37,6 +36,9 @@
     width: 100%;
     transition: all 300ms ease; }
   .yancey-nav-item a {
+    display: block;
+    height: 3.25rem;
+    line-height: 3.25rem;
     color: #666; }
     .yancey-nav-item a .header-icon {
       position: relative;
