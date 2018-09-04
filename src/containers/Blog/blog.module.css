@@ -3,7 +3,7 @@
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 2rem;
   width: 62rem;
-  margin: 10rem auto 0; }
+  margin: 6rem auto 0; }
 
 .summary_container {
   font-family: "Operator Mono", sans-serif; }
@@ -55,6 +55,6 @@
       color: #111;
       transition: all 100ms linear; }
 .aside_wrapper .tags_container {
-  margin-top: 4rem; }
+  margin: 3rem 0 calc(3rem - 14px); }
 
 /*# sourceMappingURL=blog.module.css.map */

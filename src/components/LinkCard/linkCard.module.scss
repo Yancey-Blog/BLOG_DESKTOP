@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: space-between;
     padding: .6rem;
-    background-color: hsla(0, 0%, 96%, .88);
+    background-color: hsla(0, 0%, 96%, .8);
     .card_title {
       font-size: .8rem;
       font-weight: 500;
@@ -36,16 +36,20 @@
     }
     .card_url {
       display: block;
-      margin-top: .2rem;
+      margin-top: .5rem;
       font-size: .7rem;
       line-height: 1.25;
       color: #999;
     }
     .card_img_cell {
       margin-left: .4rem;
+      width: 4rem;
+      height: 4rem;
       border-radius: .3rem;
       img {
         width: 4rem;
+        height: 4rem;
+        object-fit: cover;
         border-radius: inherit;
       }
     }

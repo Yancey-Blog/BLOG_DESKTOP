@@ -3,7 +3,7 @@
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 2rem;
   width: 62rem;
-  margin: 10rem auto 0;
+  margin: 6rem auto 0;
 }
 
 .summary_container {
@@ -66,7 +66,7 @@
       }
     }
   }
-  .tags_container{
-    margin-top: 4rem;
+  .tags_container {
+    margin:  3rem 0 calc(3rem - 14px);
   }
 }

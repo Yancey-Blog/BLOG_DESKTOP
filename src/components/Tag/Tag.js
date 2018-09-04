@@ -6,7 +6,7 @@ class Tag extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ['JavaScript', '山本彩', '卒業おめてとう', 'Yancey', 'CSS3', 'React', 'ゆく年、くる年'],
+      data: ['JavaScript', '山本彩', 'requestAnimationFrame', 'Yancey', 'CSS3', 'React', 'ゆく年、くる年', 'Mobx', 'We Are X', '卒業おめてとう', 'Vue', 'Front End', '平成最後の夏はもう終わりました'],
     };
   }
 
@@ -24,13 +24,14 @@ class Tag extends Component {
     return (
       <ul className={styles.tags}>
         {
-          Object.keys(data).map(key => (
-            <li key={key}>
-              <Link to="/blog">
-                {data[key]}
-              </Link>
-            </li>
-          ))
+          Object.keys(data)
+            .map(key => (
+              <li key={key}>
+                <Link to="/blog">
+                  {data[key]}
+                </Link>
+              </li>
+            ))
         }
       </ul>
     );

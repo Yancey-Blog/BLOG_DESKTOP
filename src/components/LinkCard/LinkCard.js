@@ -28,7 +28,7 @@ class LinkCard extends Component {
                 <Link to={`/p/${data[key]._id}`}> {/*eslint-disable-line*/}
                   <span
                     className={styles.card_bg}
-                    style={{ backgroundImage: `url(${data[key].poster}?x-oss-process=image/resize,w_120)` }}
+                    style={{ backgroundImage: `url(${data[key].poster}?x-oss-process=image/resize,w_360/quality,Q_90)` }}
                   />
                   <span className={styles.card_content}>
                     <span>
@@ -40,7 +40,7 @@ class LinkCard extends Component {
                       </span>
                     </span>
                     <span className={styles.card_img_cell}>
-                      <img src={`${data[key].poster}?x-oss-process=image/resize,w_120`} alt={data[key].title} />
+                      <img src={`${data[key].poster}?x-oss-process=image/resize,w_360/quality,Q_90`} alt={data[key].title} />
                     </span>
                   </span>
                 </Link>

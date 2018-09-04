@@ -3,13 +3,13 @@
   height: 28px;
   line-height: 28px;
   position: relative;
-  font-size: 11px;
+  font-size: 14px;
   margin-bottom: .7rem; }
 
 .tags a {
   margin-left: 20px;
   padding: 0 10px 0 12px;
-  background: #00b5ad;
+  background: #535953;
   color: #fff;
   text-decoration: none;
   border-bottom-right-radius: 4px;
@@ -20,7 +20,7 @@
   position: absolute;
   top: 0;
   left: -14px;
-  border-color: transparent #00b5ad transparent transparent;
+  border-color: transparent #535953 transparent transparent;
   border-style: solid;
   border-width: 14px 14px 14px 0; }
 
@@ -36,9 +36,17 @@
   box-shadow: -1px -1px 1px 0 rgba(0, 0, 0, 0.3); }
 
 .tags a:hover {
-  background: #009c95; }
+  background: #373C38; }
+  .tags a:hover :global {
+    animation: twitch 100ms linear infinite; }
 
 .tags a:hover::before {
-  border-color: transparent #009c95 transparent transparent; }
+  border-color: transparent #373C38 transparent transparent; }
+
+@keyframes :global(twitch) {
+  0% {
+    transform: rotate(-2deg); }
+  100% {
+    transform: rotate(2deg); } }
 
 /*# sourceMappingURL=tag.module.css.map */

@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: space-between;
     padding: .6rem;
-    background-color: rgba(245, 245, 245, 0.88); }
+    background-color: rgba(245, 245, 245, 0.8); }
     .card_item .card_content .card_title {
       font-size: .8rem;
       font-weight: 500;
@@ -32,15 +32,19 @@
       color: #1a1a1a; }
     .card_item .card_content .card_url {
       display: block;
-      margin-top: .2rem;
+      margin-top: .5rem;
       font-size: .7rem;
       line-height: 1.25;
       color: #999; }
     .card_item .card_content .card_img_cell {
       margin-left: .4rem;
+      width: 4rem;
+      height: 4rem;
       border-radius: .3rem; }
       .card_item .card_content .card_img_cell img {
         width: 4rem;
+        height: 4rem;
+        object-fit: cover;
         border-radius: inherit; }
 
 /*# sourceMappingURL=linkCard.module.css.map */

@@ -1,5 +1,5 @@
-$green: #00b5ad;
-$green_hover: #009c95;
+$gray: #535953;
+$gray_hover: #373C38;
 $white: #fff;
 
 .tags li, .tags a {
@@ -7,14 +7,14 @@ $white: #fff;
   height: 28px;
   line-height: 28px;
   position: relative;
-  font-size: 11px;
+  font-size: 14px;
   margin-bottom: .7rem;
 }
 
 .tags a {
   margin-left: 20px;
   padding: 0 10px 0 12px;
-  background: $green;
+  background: $gray;
   color: $white;
   text-decoration: none;
   border-bottom-right-radius: 4px;
@@ -26,7 +26,7 @@ $white: #fff;
   position: absolute;
   top: 0;
   left: -14px;
-  border-color: transparent $green transparent transparent;
+  border-color: transparent $gray transparent transparent;
   border-style: solid;
   border-width: 14px 14px 14px 0;
 }
@@ -40,13 +40,26 @@ $white: #fff;
   height: 6px;
   border-radius: 50%;
   background: $white;
-  box-shadow: -1px -1px 1px 0 rgba(#000,.3);;
+  box-shadow: -1px -1px 1px 0 rgba(#000, .3);;
 }
 
 .tags a:hover {
-  background: $green_hover;
+  background: $gray_hover;
+  :global {
+    animation: twitch 100ms linear infinite;
+  }
 }
 
 .tags a:hover::before {
-  border-color: transparent $green_hover transparent transparent;
+  border-color: transparent $gray_hover transparent transparent;
+}
+
+@keyframes:global(twitch) {
+  0% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
 }
