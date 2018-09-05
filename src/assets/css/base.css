@@ -10,6 +10,9 @@
 @font-face {
   font-family: "Merriweather Sans";
   src: url("../../assets/fonts/MerriweatherSans-Regular.ttf"); }
+@font-face {
+  font-family: "Brandon Light";
+  src: url("../../assets/fonts/Brandon-Light.otf"); }
 * {
   margin: 0;
   padding: 0;

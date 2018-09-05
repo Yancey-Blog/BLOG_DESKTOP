@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "add": "^2.0.6",
     "aplayer": "^1.10.1",
     "axios": "^0.18.0",
     "babel-eslint": "^8.2.5",
@@ -16,6 +17,7 @@
     "mobx-react": "^5.2.3",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.2",
+    "nuka-carousel": "^4.3.7",
     "postcss-cssnext": "^3.1.0",
     "react": "^16.4.1",
     "react-app-rewire-mobx": "^1.0.8",
@@ -23,7 +25,6 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "sass-loader": "^7.0.3",
-    "swiper": "^4.3.5",
     "tocbot": "^4.3.2",
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8"

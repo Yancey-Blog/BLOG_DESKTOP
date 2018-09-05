@@ -18,6 +18,7 @@ class Blog extends Component {
   }
 
   componentWillMount() {
+    window.scrollTo(0, 0);
   }
 
   componentDidMount() {
@@ -49,7 +50,7 @@ class Blog extends Component {
           style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}?x-oss-process=image/format,webp` : bgUrl})` }}
         >
           <span>
-            Code, Music, Soccer with Life.
+            Code, Music and Life.
           </span>
         </figure>
         <div className={styles.main_content}>

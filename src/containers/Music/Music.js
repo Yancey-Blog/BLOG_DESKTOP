@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
-import Swiper from 'swiper';
-import 'swiper/dist/css/swiper.min.css';
+import Carousel from 'nuka-carousel';
 import styles from './music.module.css';
 import { GET } from '../../https/axios';
 import { checkWebp } from '../../utils/tools';
@@ -16,11 +15,11 @@ class Music extends Component {
   }
 
   componentWillMount() {
+    this.getData();
   }
 
   componentDidMount() {
-    this.getData();
-    this.configSwiper();
+
   }
 
   componentWillUnmount() {
@@ -38,39 +37,50 @@ class Music extends Component {
       });
   };
 
-  configSwiper = () => {
-    const swiper = new Swiper('.swiper-container', {
-      // effect: 'fade',
-      // loop: true,
-      // autoplay: true,
-    });
+  _handleLoadImage = () => {
+    this.carousel.setDimensions();
   };
 
   render() {
     const { data } = this.state;
     return (
       <main className={styles.music_wrapper}>
-        <figure className={styles.bg_cover} />
+        <figure className={styles.bg_cover}/>
         <div className={styles.live_tours_wrapper}>
-          <section className={styles.swiper_wrapper}>
+          <section className={styles.slider_wrapper}>
             <h1 className={styles.title}>
               LIVE TOUR
             </h1>
-            <div className={cs(styles.swiper, 'swiper-container')}>
-              <div className="swiper-wrapper">
+            <div className={styles.slider_container}>
+              <Carousel
+                ref={c => this.carousel = c} /* eslint-disable-line */
+                autoplay
+                autoplayInterval={2000}
+                transitionMode="fade"
+                wrapAround
+              >
                 {
                   Object.keys(data)
                     .map(key => (
-                      <div
-                        key={key}
-                        className="swiper-slide"
-                        style={{ background: `url(${checkWebp() ? `${data[key].poster}?x-oss-process=image/format,webp` : data[key].poster})` }}
-                      />
+                      <div>
+                        <img
+                          key={key}
+                          src={checkWebp() ? `${data[key].poster}` : data[key].poster}
+                          onLoad={this._handleLoadImage} /* eslint-disable-line */
+                          alt={data[key].title}
+                        />
+                        <div className={styles.live_tour_meta}>
+                          <time className={styles.live_tour_date}>
+                            {data[key].publish_date}
+                          </time>
+                          <p className={styles.live_tour_title}>
+                            {data[key].title}
+                          </p>
+                        </div>
+                      </div>
                     ))
                 }
-              </div>
-              <div className="swiper-button-prev" />
-              <div className="swiper-button-next" />
+              </Carousel>
             </div>
           </section>
           <section className={styles.artists_wrapper}>

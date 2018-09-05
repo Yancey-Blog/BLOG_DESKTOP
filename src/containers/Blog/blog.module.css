@@ -1,7 +1,7 @@
 .bg_header {
   display: flex;
   justify-content: center;
-  padding-top: 18rem;
+  padding-top: 16rem;
   width: 100%;
   height: 24rem;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 2rem;
   width: 62rem;
-  margin: 2rem auto 0; }
+  margin: 3rem auto 0; }
 
 .pagination_list {
   display: flex;
@@ -68,7 +68,7 @@
         color: #111;
         transition: all 100ms linear; }
   .aside_wrapper .tags_container {
-    margin: 4rem 0 calc(4rem - 14px); }
+    margin: 4rem 0 3rem; }
 
 .aside_title {
   display: flex;
