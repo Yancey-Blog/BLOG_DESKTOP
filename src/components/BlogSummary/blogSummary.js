@@ -31,7 +31,7 @@ class blogSummary extends Component {
                 <figure className={styles['blog-thumb']}>
                   <img
                     className={cs('lazyload', 'lazyload2', styles.img)}
-                    src={`${data[key].poster}?x-oss-process=image/resize,w_360/quality,Q_90`}
+                    src={`${data[key].poster}?x-oss-process=image/resize,w_120/quality,Q_90`}
                     data-src={checkWebp() ? `${data[key].poster}?x-oss-process=image/format,webp` : data[key].poster}
                     alt={data[key].title}
                   />

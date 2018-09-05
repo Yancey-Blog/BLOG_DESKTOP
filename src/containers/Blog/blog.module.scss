@@ -1,46 +1,60 @@
-.blog_wrapper {
+.bg_header {
+  display: flex;
+  justify-content: center;
+  padding-top: 18rem;
+  width: 100%;
+  height: 24rem;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  span {
+    font-size: 2.4rem;
+    color: rgba(#fff, .9);
+  }
+}
+
+.main_content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-column-gap: 2rem;
   width: 62rem;
-  margin: 6rem auto 0;
+  margin: 2rem auto 0;
+
 }
 
-.summary_container {
-  font-family: "Operator Mono", sans-serif;
-  .pagination_list {
-    display: flex;
-    justify-content: space-around;
-    width: 32rem;
-    margin: 0 auto;
-    .pagination_item {
-      display: inline-block;
-      width: 2.2rem;
-      height: 2.2rem;
-      border: 1px solid #8f8f8f;
-      border-radius: 50%;
-      text-align: center;
+.pagination_list {
+  display: flex;
+  justify-content: space-around;
+  width: 32rem;
+  margin: 0 auto;
+  .pagination_item {
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #8f8f8f;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 100ms linear;
+    &:hover {
+      border: 1px solid #ffA500;
       transition: all 100ms linear;
-      &:hover {
-        border: 1px solid #ffA500;
-        transition: all 100ms linear;
-      }
-      &:hover a {
-        color: #ffA500;
-      }
-      a {
-        display: inline-block;
-        width: 100%;
-        color: #8f8f8f;
-        line-height: 2.2rem;
-        text-align: center;
-      }
+    }
+    &:hover a {
+      color: #ffA500;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      color: #8f8f8f;
+      line-height: 2.2rem;
+      text-align: center;
     }
   }
 }
 
 .aside_wrapper {
-  .search_container {
+  margin-top: .2rem;
+  .search_cell {
     position: relative;
     .search_icon {
       position: absolute;
@@ -67,6 +81,26 @@
     }
   }
   .tags_container {
-    margin:  3rem 0 calc(3rem - 14px);
+    margin: 4rem 0 calc(4rem - 14px);
+  }
+}
+
+.aside_title {
+  display: flex;
+  align-items: center;
+  width: 12rem;
+  margin-bottom: .8rem;
+  padding-left: .2rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px dashed #e6e6e6;
+  .title_icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .title_name {
+    margin-left: .6rem;
+    font-size: .9rem;
+    font-weight: 400;
+    color: #666;
   }
 }

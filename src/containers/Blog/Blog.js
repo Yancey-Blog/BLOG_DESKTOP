@@ -5,6 +5,7 @@ import styles from './blog.module.css';
 import BlogSummary from '../../components/BlogSummary/blogSummary';
 import Tag from '../../components/Tag/Tag';
 import LinkCard from '../../components/LinkCard/LinkCard';
+import { checkWebp } from '../../utils/tools';
 import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -40,84 +41,121 @@ class Blog extends Component {
 
   render() {
     const { data } = this.state;
+    const bgUrl = 'https://yancey-assets.oss-cn-beijing.aliyuncs.com/static/blog-header.jpg';
     return (
-      <main className={styles.blog_wrapper}>
-        <section className={styles.summary_container}>
-          <BlogSummary data={data} />
-          <ul className={styles.pagination_list}>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+      <main className="blog_wrapper">
+        <figure
+          className={cs(styles.bg_header, 'no-user-select')}
+          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}?x-oss-process=image/format,webp` : bgUrl})` }}
+        >
+          <span>
+            Code, Music, Soccer with Life.
+          </span>
+        </figure>
+        <div className={styles.main_content}>
+          <section>
+            <BlogSummary data={data} />
+            <ul className={styles.pagination_list}>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 &lt;
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 1
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 2
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 3
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 4
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog" onClick={e => e.preventDefault()}>
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog" onClick={e => e.preventDefault()}>
                 ···
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 6
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 7
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 8
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 9
-              </Link>
-            </li>
-            <li className={styles.pagination_item}>
-              <Link to="blog">
+                </Link>
+              </li>
+              <li className={styles.pagination_item}>
+                <Link to="blog">
                 &gt;
-              </Link>
-            </li>
-          </ul>
-        </section>
-        <aside className={styles.aside_wrapper}>
-          <section className={styles.search_container}>
-            <svg className={styles.search_icon}>
-              <use xlinkHref={`${svgIcons}#magnifying-glass`} />
-            </svg>
-            <label htmlFor="search">
-              <input type="text" id="search" placeholder="Search..." />
-            </label>
+                </Link>
+              </li>
+            </ul>
           </section>
-          <section className={styles.tags_container}>
-            <Tag />
-          </section>
-          <section className={styles.card_container}>
-            <LinkCard data={data} />
-          </section>
-        </aside>
+          <aside className={styles.aside_wrapper}>
+            <section>
+              <h1 className={styles.aside_title}>
+                <svg className={styles.title_icon}>
+                  <use xlinkHref={`${svgIcons}#search`} />
+                </svg>
+                <span className={styles.title_name}>
+                Find
+                </span>
+              </h1>
+              <div className={styles.search_cell}>
+                <svg className={styles.search_icon}>
+                  <use xlinkHref={`${svgIcons}#magnifying-glass`} />
+                </svg>
+                <label htmlFor="search">
+                  <input type="text" id="search" placeholder="Search..." />
+                </label>
+              </div>
+            </section>
+            <section className={styles.tags_container}>
+              <h1 className={styles.aside_title}>
+                <svg className={styles.title_icon}>
+                  <use xlinkHref={`${svgIcons}#price-tag-1`} />
+                </svg>
+                <span className={styles.title_name}>
+                Tags
+                </span>
+              </h1>
+              <Tag />
+            </section>
+            <section>
+              <h1 className={styles.aside_title}>
+                <svg className={styles.title_icon}>
+                  <use xlinkHref={`${svgIcons}#placeholder`} />
+                </svg>
+                <span className={styles.title_name}>
+                Top 10
+                </span>
+              </h1>
+              <LinkCard data={data} />
+            </section>
+          </aside>
+        </div>
       </main>
     );
   }

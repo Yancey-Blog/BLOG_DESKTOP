@@ -20,7 +20,7 @@ class LinkCard extends Component {
   render() {
     const { data } = this.props;
     return (
-      <ul className={styles.card_list}>
+      <ul>
         {
           Object.keys(data)
             .map(key => (

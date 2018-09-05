@@ -1,0 +1,34 @@
+$pink: #d62b6b;
+$text: #4a4a4a;
+
+.music_wrapper {
+  font-family: "Roboto Mono Thin for Powerline", sans-serif;
+  .bg_cover {
+    width: 100%;
+    height: 20rem;
+    background: $pink url(./unsigned-advice.png) no-repeat 12rem -1rem;
+  }
+}
+
+.live_tours_wrapper {
+  width: 72rem;
+  margin: 0 auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+  .title {
+    padding: 2rem 0;
+    font-size: 1.1rem;
+    color: $text;
+  }
+  .swiper_wrapper {
+    .swiper {
+      width: 34rem;
+      height: 25.8rem;
+      outline: 2px dashed $pink;
+    }
+  }
+  .artists_wrapper{
+
+  }
+}

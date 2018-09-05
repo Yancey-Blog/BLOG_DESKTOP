@@ -1,9 +1,9 @@
 .bg_img {
   width: 100%;
-  height: 16rem;
-  background: url("./header_background.jpg") no-repeat center top;
-  background-size: cover;
-  margin-top: 3.25rem; }
+  height: 20rem;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover; }
 
 .privacy_policy_container {
   margin: 3rem 20% 0;

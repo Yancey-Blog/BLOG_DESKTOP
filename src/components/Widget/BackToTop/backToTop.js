@@ -20,7 +20,7 @@ class BackToTop extends Component {
   }
 
   scrollToTop = () => {
-    document.documentElement.scrollTop -= 80;
+    document.documentElement.scrollTop -= 100;
     if (document.documentElement.scrollTop <= 0) {
       window.cancelAnimationFrame(this.scrollToTop);
     } else {
