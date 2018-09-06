@@ -36,30 +36,19 @@ class App extends Component {
   }
 
   render() {
-    const duration = 300;
-
-    const defaultStyle = {
-      transition: `opacity ${duration}ms ease-in-out`,
-      opacity: 0,
-    }
-
-    const transitionStyles = {
-      entering: { opacity: 0 },
-      entered: { opacity: 1 },
-    };
     return (
       <div className="App">
         <Header />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/post/:id" component={BlogDetail} />
-            <Route path="/archive" component={Archive} />
-            <Route path="/music" component={Music} />
-            <Route path="/cv" component={CV} />
-            <Route path="/apps" component={Apps} />
-          </Switch>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/post/:id" component={BlogDetail} />
+          <Route path="/archive" component={Archive} />
+          <Route path="/music" component={Music} />
+          <Route path="/cv" component={CV} />
+          <Route path="/apps" component={Apps} />
+        </Switch>
         <ScrollProgress />
         <BackToTop />
         <Player />

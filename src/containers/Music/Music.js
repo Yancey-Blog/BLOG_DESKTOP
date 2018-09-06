@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import cs from 'classnames';
 import Carousel from 'nuka-carousel';
 import styles from './music.module.css';
@@ -15,11 +16,10 @@ class Music extends Component {
   }
 
   componentWillMount() {
-    this.getData();
   }
 
   componentDidMount() {
-
+    this.getData();
   }
 
   componentWillUnmount() {
@@ -37,58 +37,373 @@ class Music extends Component {
       });
   };
 
-  _handleLoadImage = () => {
+  handleLoadImage = () => {
     this.carousel.setDimensions();
   };
 
   render() {
     const { data } = this.state;
     return (
-      <main className={styles.music_wrapper}>
-        <figure className={styles.bg_cover}/>
-        <div className={styles.live_tours_wrapper}>
-          <section className={styles.slider_wrapper}>
-            <h1 className={styles.title}>
-              LIVE TOUR
+      <main className={cs(styles.music_wrapper, 'no-user-select')}>
+        <Helmet>
+          <title>
+            Music | Yancey Inc.
+          </title>
+        </Helmet>
+        <figure className={styles.bg_cover}>
+          <h1>
+            ミュージック
+          </h1>
+          <p>
+            夢を歌おう~
+          </p>
+        </figure>
+        <div className={styles.live_tours_artists_wrapper}>
+          <section>
+            <h1 className={styles.column_title}>
+              LIVE TOURS
             </h1>
-            <div className={styles.slider_container}>
-              <Carousel
-                ref={c => this.carousel = c} /* eslint-disable-line */
-                autoplay
-                autoplayInterval={2000}
-                transitionMode="fade"
-                wrapAround
-              >
-                {
-                  Object.keys(data)
-                    .map(key => (
-                      <div>
-                        <img
-                          key={key}
-                          src={checkWebp() ? `${data[key].poster}` : data[key].poster}
-                          onLoad={this._handleLoadImage} /* eslint-disable-line */
-                          alt={data[key].title}
-                        />
-                        <div className={styles.live_tour_meta}>
-                          <time className={styles.live_tour_date}>
-                            {data[key].publish_date}
-                          </time>
-                          <p className={styles.live_tour_title}>
-                            {data[key].title}
-                          </p>
-                        </div>
+            <Carousel
+              ref={c => this.carousel = c} /* eslint-disable-line */
+              autoplay
+              autoplayInterval={2000}
+              transitionMode="fade"
+              wrapAround
+            >
+              {
+                Object.keys(data)
+                  .map(key => (
+                    <div className={cs(styles.post_container, styles.live_tours_container)} key={key}>
+                      <img
+                        key={key}
+                        src={checkWebp() ? `${data[key].poster}?x-oss-process=image/format,webp` : data[key].poster}
+                        onLoad={this.handleLoadImage}
+                        alt={data[key].title}
+                      />
+                      <div className={styles.meta_intro}>
+                        <time className={styles.meta_date}>
+                          {data[key].publish_date}
+                        </time>
+                        <p className={cs(styles.meta_title, styles.live_tour_title)}>
+                          {data[key].title}
+                        </p>
                       </div>
-                    ))
-                }
-              </Carousel>
-            </div>
+                    </div>
+                  ))
+              }
+            </Carousel>
           </section>
-          <section className={styles.artists_wrapper}>
-            <h1 className={styles.title}>
-              ARTISTS
+          <section>
+            <h1 className={styles.column_title}>
+              MUSIC NOTES
             </h1>
+            <ul className={cs(styles.artists_list)}>
+              <li className={cs(styles.post_container, styles.artist_item)}>
+                <img
+                  src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                  alt="yancey"
+                />
+                <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.meta_title, styles.artist_title)}>
+                    How to Prepare for a Recording Studio Session
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MORE
+                  </a>
+                </div>
+              </li>
+              <li className={cs(styles.post_container, styles.artist_item)}>
+                <img
+                  src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                  alt="yancey"
+                />
+                <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.meta_title, styles.artist_title)}>
+                    How to Prepare for a Recording Studio Session
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MORE
+                  </a>
+                </div>
+              </li>
+              <li className={cs(styles.post_container, styles.artist_item)}>
+                <img
+                  src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                  alt="yancey"
+                />
+                <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.meta_title, styles.artist_title)}>
+                    How to Prepare for a Recording Studio Session
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MORE
+                  </a>
+                </div>
+              </li>
+              <li className={cs(styles.post_container, styles.artist_item)}>
+                <img
+                  src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                  alt="yancey"
+                />
+                <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.meta_title, styles.artist_title)}>
+                    How to Prepare for a Recording Studio Session
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MORE
+                  </a>
+                </div>
+              </li>
+            </ul>
           </section>
         </div>
+        <div className={styles.featured_records_wrapper}>
+          <section className={styles.featured_records_container}>
+            <h1 className={styles.column_title}>
+              FEATURED RECORDS
+            </h1>
+            <ul className={styles.featured_records_list}>
+              <li className={styles.featured_record_item}>
+                <figure className={styles.record_cover} />
+                <div className={styles.record_intro}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.record_title, styles.meta_title)}>
+                    The Stormzy Story: How DIY Grime Conquered the UK Charts
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    BUY NOW
+                  </a>
+                </div>
+              </li>
+              <li className={styles.featured_record_item}>
+                <figure className={styles.record_cover} />
+                <div className={styles.record_intro}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.record_title, styles.meta_title)}>
+                    The Stormzy Story: How DIY Grime Conquered the UK Charts
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    BUY NOW
+                  </a>
+                </div>
+              </li>
+              <li className={styles.featured_record_item}>
+                <figure className={styles.record_cover} />
+                <div className={styles.record_intro}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.record_title, styles.meta_title)}>
+                    The Stormzy Story: How DIY Grime Conquered the UK Charts
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    BUY NOW
+                  </a>
+                </div>
+              </li>
+              <li className={styles.featured_record_item}>
+                <figure className={styles.record_cover} />
+                <div className={styles.record_intro}>
+                  <time className={styles.meta_date}>
+                    2018-10-11
+                  </time>
+                  <p className={cs(styles.record_title, styles.meta_title)}>
+                    The Stormzy Story: How DIY Grime Conquered the UK Charts
+                  </p>
+                  <hr className={styles.music_split} />
+                  <a
+                    href="https://www.yanceyleo.com"
+                    className={styles.music_btn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    BUY NOW
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <section className={styles.yancey_music_container}>
+          <h1 className={styles.column_title}>
+            MY WORKS
+          </h1>
+          <ul className={cs(styles.artists_list, styles.yancey_music_list)}>
+            <li className={cs(styles.post_container, styles.artist_item)}>
+              <img
+                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                alt="yancey"
+              />
+              <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                <time className={styles.meta_date}>
+                  2018-10-11
+                </time>
+                <p className={cs(styles.meta_title, styles.artist_title)}>
+                  How to Prepare for a Recording Studio Session
+                </p>
+                <hr className={styles.music_split} />
+                <a
+                  href="https://www.yanceyleo.com"
+                  className={styles.music_btn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LISTEN
+                </a>
+              </div>
+            </li>
+            <li className={cs(styles.post_container, styles.artist_item)}>
+              <img
+                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                alt="yancey"
+              />
+              <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                <time className={styles.meta_date}>
+                  2018-10-11
+                </time>
+                <p className={cs(styles.meta_title, styles.artist_title)}>
+                  How to Prepare for a Recording Studio Session
+                </p>
+                <hr className={styles.music_split} />
+                <a
+                  href="https://www.yanceyleo.com"
+                  className={styles.music_btn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LISTEN
+                </a>
+              </div>
+            </li>
+            <li className={cs(styles.post_container, styles.artist_item)}>
+              <img
+                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                alt="yancey"
+              />
+              <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                <time className={styles.meta_date}>
+                  2018-10-11
+                </time>
+                <p className={cs(styles.meta_title, styles.artist_title)}>
+                  How to Prepare for a Recording Studio Session
+                </p>
+                <hr className={styles.music_split} />
+                <a
+                  href="https://www.yanceyleo.com"
+                  className={styles.music_btn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LISTEN
+                </a>
+              </div>
+            </li>
+            <li className={cs(styles.post_container, styles.artist_item)}>
+              <img
+                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                alt="yancey"
+              />
+              <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                <time className={styles.meta_date}>
+                  2018-10-11
+                </time>
+                <p className={cs(styles.meta_title, styles.artist_title)}>
+                  How to Prepare for a Recording Studio Session
+                </p>
+                <hr className={styles.music_split} />
+                <a
+                  href="https://www.yanceyleo.com"
+                  className={styles.music_btn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LISTEN
+                </a>
+              </div>
+            </li>
+            <li className={cs(styles.post_container, styles.artist_item)}>
+              <img
+                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
+                alt="yancey"
+              />
+              <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                <time className={styles.meta_date}>
+                  2018-10-11
+                </time>
+                <p className={cs(styles.meta_title, styles.artist_title)}>
+                  How to Prepare for a Recording Studio Session
+                </p>
+                <hr className={styles.music_split} />
+                <a
+                  href="https://www.yanceyleo.com"
+                  className={styles.music_btn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LISTEN
+                </a>
+              </div>
+            </li>
+          </ul>
+        </section>
       </main>
     );
   }

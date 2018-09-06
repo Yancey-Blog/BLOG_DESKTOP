@@ -25,10 +25,6 @@ const navInfo = {
     url: '/apps',
     icon: '#app-store-apple-symbol',
   },
-  photo: {
-    url: '/photo',
-    icon: '#photo-camera',
-  },
   CV: {
     url: '/cv',
     icon: '#curriculum-vitae',

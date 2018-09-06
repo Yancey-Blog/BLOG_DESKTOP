@@ -22,6 +22,7 @@
     "react": "^16.4.1",
     "react-app-rewire-mobx": "^1.0.8",
     "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "sass-loader": "^7.0.3",

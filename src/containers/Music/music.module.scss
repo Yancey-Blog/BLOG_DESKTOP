@@ -1,73 +1,202 @@
 $pink: #d62b6b;
 $text: #4a4a4a;
-$gray: #4A4A4A;
-.music_wrapper {
-  font-family: "Brandon Light", sans-serif;
-  .bg_cover {
-    width: 100%;
-    height: 20rem;
-    background: $pink url(./unsigned-advice.png) no-repeat 12rem -1rem;
+$gray: #4a4a4a;
+$gray_outline: #bebebe;
+$white: #fff;
+$aoi: #35c0c0;
+$slider_height: 25.8rem;
+
+// common
+.post_container {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    top: 2px;
+    left: 2px;
+    outline: 2px dashed $pink;
+  }
+  img {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    position: relative;
+    top: 1px;
+    left: 1px;
+    object-fit: cover;
   }
 }
 
-.live_tours_wrapper {
+.meta_intro {
+  position: absolute;
+  padding: 1rem 1.5rem;
+  left: 1px;
+  bottom: 1px;
+  width: calc(100% - 2px);
+  background: hsla(0, 0%, 100%, .9);
+  overflow: hidden;
+}
+
+.meta_date {
+  color: $pink;
+  display: block;
+  font-size: .6rem;
+}
+
+.meta_title {
+  color: $gray;
+  margin-right: 1.5rem;
+  padding: .75rem 0 1.5rem;
+}
+
+.column_title {
+  padding: 2rem 0;
+  font-size: 1.1rem;
+  color: $text;
+}
+
+.music_split {
+  border: 0;
+  border-top: 1px solid $pink;
+  margin-top: 1.4rem;
+  margin-bottom: 1.6rem;
+  margin-left: 0;
+  width: 3rem;
+}
+
+.music_btn {
+  border: 1px solid $aoi;
+  border-radius: 2rem;
+  color: $aoi;
+  padding: .35rem 1.4rem;
+  font-size: .75rem;
+  transition: all 200ms linear;
+  &:hover {
+    background: $aoi;
+    color: $white;
+    transition: all 200ms linear;
+  }
+}
+
+.music_wrapper {
+  font-family: "Brandon Light", sans-serif;
+}
+
+
+// part 1
+.bg_cover {
+  width: 100%;
+  height: 22rem;
+  background: $pink url(./unsigned-advice.png) no-repeat 12rem -1rem;
+  font-size: 2rem;
+  color: #fff;
+  padding-top: 9rem;
+  padding-left: 54rem;
+  p {
+    margin: .5rem 0 0 .5rem;
+    letter-spacing: .2rem;
+  }
+}
+
+.live_tours_artists_wrapper {
   width: 72rem;
-  margin: 0 auto 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
-  .title {
-    padding: 2rem 0;
-    font-size: 1.1rem;
-    color: $text;
-  }
-  .slider_wrapper {
-    .slider_container {
-      position: relative;
-      width: 34rem;
-      height: 25.8rem;
-      &::before {
-        content: "";
-        position: absolute;
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
-        top: 1px;
-        left: 1px;
-        outline: 2px dashed $pink;
-      }
-      img {
-        width: 34rem;
-        height: 25.8rem;
-        object-fit: cover;
-      }
-    }
-    .live_tour_meta {
-      position: absolute;
-      padding: 1rem 1.5rem;
-      bottom: .4rem;
-      width: 100%;
-      background: hsla(0, 0%, 100%, .9);
-      .live_tour_date {
-        color: $pink;
-        display: block;
-        font-weight: 500;
-        font-size: 12px;
-      }
-      .live_tour_title {
-        color: $gray;
-        font-size: 1.1rem;
-        font-weight: 200;
-        margin-right: 1.5rem;
-        padding: .75rem 0 1.5rem;
-      }
-    }
+}
 
+.live_tours_container {
+  height: $slider_height;
+  .live_tour_title {
+    font-size: 1.1rem;
   }
-  .artists_wrapper {
+}
+
+.artists_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  height: $slider_height;
+  .artist_item {
+    &::before {
+      outline-color: $gray_outline;
+    }
+    &:hover::before {
+      outline: none;
+      transition: all 200ms linear;
+    }
+    &:hover .artist_intro {
+      top: 0;
+      border: 2px solid $aoi;
+      box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .5);
+      transition: all 200ms linear;
+    }
+    .artist_intro {
+      top: 50%;
+      will-change: transform;
+      transition: all 200ms linear;
+      .artist_title {
+        font-size: .8rem;
+        padding-bottom: 1rem;
+      }
+    }
 
   }
 }
 
+// part 2
+.featured_records_wrapper {
+  margin-top: 3.5rem;
+  box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, .5);
+  background: url("./stripes_grey.png") repeat 0 0;
+  .featured_records_container {
+    width: 72rem;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+}
+
+.featured_records_list {
+  display: flex;
+  justify-content: space-between;
+  .featured_record_item {
+    display: inline-block;
+    width: 16.5rem;
+    height: 26.8rem;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .5);
+    .record_cover {
+      width: 100%;
+      height: 50%;
+      background: url("https://www.yanceyleo.com/media/uploads/20180124205523.jpg") no-repeat center top;
+      background-size: cover;
+    }
+  }
+}
+
+.record_intro {
+  height: 50%;
+  padding: 1rem 1.5rem;
+  background: $white;
+  .record_title {
+    margin-right: 0;
+  }
+}
+
+// part 3
+.yancey_music_container{
+  width: 72rem;
+  margin: 0 auto;
+  .yancey_music_list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* reset slider style */
 :global(.slider-control-bottomcenter) {
   display: none !important;
 }

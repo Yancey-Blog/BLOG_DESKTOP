@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import styles from './privacy_policy.module.css';
 import { checkWebp } from '../../utils/tools';
 
@@ -22,6 +23,11 @@ class PrivacyPolicy extends Component {
     const bgUrl = 'https://yancey-assets.oss-cn-beijing.aliyuncs.com/static/header_background.jpg';
     return (
       <section className="privacy_policy_wrapper">
+        <Helmet>
+          <title>
+            Privacy Policy | Yancey Inc.
+          </title>
+        </Helmet>
         <figure
           className={styles.bg_img}
           style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}?x-oss-process=image/format,webp` : bgUrl})` }}
