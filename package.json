@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "babel-eslint": "^8.2.5",
     "babel-loader": "^7.1.4",
+    "baguettebox.js": "^1.10.0",
     "classnames": "^2.2.6",
     "eslint-loader": "^2.0.0",
     "highlight.js": "^9.12.0",

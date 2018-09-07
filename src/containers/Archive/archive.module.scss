@@ -142,8 +142,9 @@ $text: #504e4e;
   .day_list_container {
     padding-left: 8.2rem;
     max-height: 0;
+    will-change: transform;
     overflow: hidden;
-    transition: all 500ms linear;
+    transition: all 1s linear;
   }
 
   label {
@@ -157,7 +158,8 @@ $text: #504e4e;
 
   input:checked ~ .day_list_container {
     max-height: 20rem;
-    transition: all .2s linear;
+    will-change: transform;
+    transition: all 1s linear;
   }
 
   .day_item {

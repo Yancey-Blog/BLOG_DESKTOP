@@ -30,6 +30,7 @@
       transition: all 400ms ease;
       max-width: 100%;
       text-align: center;
+      letter-spacing: .2rem;
       &::before, &::after {
         content: attr(data-value);
         position: absolute;
@@ -58,7 +59,7 @@
     .social-media-container {
       position: relative;
       z-index: 1;
-      max-width: 28.5rem;
+      max-width: 25rem;
       margin: 0 auto;
       background: rgba(#000, .5);
       padding: 1rem;
@@ -98,7 +99,7 @@
           outline: none;
           position: relative;
           display: inline-block;
-          margin-right: 1.4rem;
+          margin-right: 1.1rem;
           svg {
             width: 22px;
             height: 22px;

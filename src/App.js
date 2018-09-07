@@ -43,7 +43,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/blog" component={Blog} />
-          <Route path="/post/:id" component={BlogDetail} />
+          <Route path="/p/:id" component={BlogDetail} />
           <Route path="/archive" component={Archive} />
           <Route path="/music" component={Music} />
           <Route path="/cv" component={CV} />

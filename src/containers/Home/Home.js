@@ -159,9 +159,9 @@ export default class Home extends Component {
           >
             <h1
               className={styles.glitch}
-              data-value="Hi, Yanceyです!"
+              data-value="HI, YANCEY!"
             >
-              Hi, Yanceyです!
+              HI, YANCEY!
             </h1>
             <div className={styles['social-media-container']}>
               <div className={styles['up-triangle']} />

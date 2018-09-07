@@ -1315,6 +1315,10 @@ babylon@^6.17.0, babylon@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
 
+baguettebox.js@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/baguettebox.js/-/baguettebox.js-1.10.0.tgz#f24500b2f02433f52338cf77016ecf00cfe7f974"
+
 balanced-match@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.1.0.tgz#b504bd05869b39259dd0c5efc35d843176dccc4a"

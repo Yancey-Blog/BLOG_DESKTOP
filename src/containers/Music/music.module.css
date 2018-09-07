@@ -66,7 +66,7 @@
 .bg_cover {
   width: 100%;
   height: 22rem;
-  background: #d62b6b url(./unsigned-advice.png) no-repeat 12rem -1rem;
+  background: #d62b6b url(./result.svg) no-repeat 12rem 0;
   font-size: 2rem;
   color: #fff;
   padding-top: 9rem;

@@ -47,7 +47,7 @@ class Music extends Component {
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
         <Helmet>
           <title>
-            Music | Yancey Inc.
+            ミュージック | Yancey Inc.
           </title>
         </Helmet>
         <figure className={styles.bg_cover}>

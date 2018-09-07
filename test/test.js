@@ -22,27 +22,4 @@
 //   ],
 // });
 // // 输出结果
-console.log(JSON.stringify(data, null, 4));
-
-const demoData = [
-  {
-    year: 2018,
-    data: [
-      {
-        month: 1,
-        days: [
-          {
-            day: 27,
-            title: 'Vue终极教程修订版',
-            url: 'https://www.yanceyleo.com',
-            like_count: 10,
-            comment_count: 100,
-          },
-          // ...
-        ],
-      },
-      // ...
-    ],
-  },
-  // ...
-];
+// console.log(JSON.stringify(data, null, 4));
