@@ -8,8 +8,13 @@
   background-position: center top;
   background-size: cover;
   span {
-    font-size: 2.4rem;
-    color: rgba(#fff, .9);
+    font-size: 3rem;
+    background: -webkit-gradient(linear, right top, left top, color-stop(33%, #c4987a), color-stop(73%, #ffd5bf));
+    background: -webkit-linear-gradient(right, #c4987a 33%, #ffd5bf 73%);
+    background: linear-gradient(to left, #c4987a 33%, #ffd5bf 73%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
@@ -58,7 +63,7 @@
     position: relative;
     .search_icon {
       position: absolute;
-      top: .5rem;
+      top: .35rem;
       right: .8rem;
       fill: #B5B5B5;
       width: 1.6rem;
@@ -81,7 +86,7 @@
     }
   }
   .tags_container {
-    margin: 4rem 0 3rem;
+    margin: 5rem 0 4rem;
   }
 }
 
@@ -104,3 +109,4 @@
     color: #666;
   }
 }
+

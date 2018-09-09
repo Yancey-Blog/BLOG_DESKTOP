@@ -25,11 +25,11 @@
       font-size: 4rem;
       z-index: 1;
       user-select: none;
-      top: 38%;
+      top: 36%;
       transition: all 400ms ease;
       max-width: 100%;
       text-align: center;
-      letter-spacing: .2rem; }
+      letter-spacing: .25rem; }
       .yancey-blog-home .home-imax .glitch::before, .yancey-blog-home .home-imax .glitch::after {
         content: attr(data-value);
         position: absolute;
@@ -52,12 +52,12 @@
     .yancey-blog-home .home-imax .social-media-container {
       position: relative;
       z-index: 1;
-      max-width: 25rem;
+      max-width: 26rem;
       margin: 0 auto;
       background: rgba(0, 0, 0, 0.5);
       padding: 1rem;
       border-radius: 10px;
-      top: 42%; }
+      top: 39%; }
       .yancey-blog-home .home-imax .social-media-container .social-media-motto {
         font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;

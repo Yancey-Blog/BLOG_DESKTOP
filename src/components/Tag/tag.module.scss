@@ -45,21 +45,8 @@ $white: #fff;
 
 .tags a:hover {
   background: $gray_hover;
-  :global {
-    animation: twitch 100ms linear infinite;
-  }
 }
 
 .tags a:hover::before {
   border-color: transparent $gray_hover transparent transparent;
-}
-
-@keyframes:global(twitch) {
-  0% {
-    transform: rotate(-2deg);
-  }
-
-  100% {
-    transform: rotate(2deg);
-  }
 }

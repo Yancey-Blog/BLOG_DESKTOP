@@ -37,16 +37,8 @@
 
 .tags a:hover {
   background: #373C38; }
-  .tags a:hover :global {
-    animation: twitch 100ms linear infinite; }
 
 .tags a:hover::before {
   border-color: transparent #373C38 transparent transparent; }
-
-@keyframes :global(twitch) {
-  0% {
-    transform: rotate(-2deg); }
-  100% {
-    transform: rotate(2deg); } }
 
 /*# sourceMappingURL=tag.module.css.map */

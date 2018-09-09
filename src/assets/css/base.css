@@ -54,6 +54,15 @@ a {
   margin-top: -3.25rem;
   visibility: hidden; }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.6); }
+
 @media screen and (max-width: 1920px) {
   html {
     font-size: 20px; } }

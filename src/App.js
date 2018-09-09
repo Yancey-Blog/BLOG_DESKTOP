@@ -13,6 +13,7 @@ import Music from './containers/Music/Music';
 import CV from './containers/CV/CV';
 import Apps from './containers/Apps/Apps';
 import PrivacyPolicy from './containers/PrivacyPolicy/PrivacyPolicy';
+import NotFound from './containers/NotFound/NotFound';
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends Component {
           <Route path="/music" component={Music} />
           <Route path="/cv" component={CV} />
           <Route path="/apps" component={Apps} />
+          <Route path="/404" component={NotFound} />
         </Switch>
         <ScrollProgress />
         <BackToTop />

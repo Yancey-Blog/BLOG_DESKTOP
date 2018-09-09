@@ -26,3 +26,31 @@ export function checkWebp() {
     .toDataURL('image/webp')
     .indexOf('data:image/webp') === 0);
 }
+
+export function initLivere() {
+  (function (d, s) {
+    let j,
+      e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') {
+      return;
+    }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  }(document, 'script'));
+}
+
+export function shareToFB() {
+  (function (d, s, id) {
+    let js;
+    const fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+}

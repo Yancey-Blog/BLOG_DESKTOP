@@ -99,7 +99,7 @@ class Archive extends Component {
                     Object.keys(data[key].data)
                       .map(key1 => (
                         <li key={key1}>
-                          <input id={`tab_${key}_${key1}`} type="checkbox" name="tabs" checked="checked" />
+                          <input id={`tab_${key}_${key1}`} type="checkbox" name="tabs" defaultChecked={key === '0' && key1 === '0' ? 'checked' : ''} />
                           <label htmlFor={`tab_${key}_${key1}`}>{/* eslint-disable-line */}
                             <span className={styles.month}>
                               {monthToEN(data[key].data[key1].month)}
