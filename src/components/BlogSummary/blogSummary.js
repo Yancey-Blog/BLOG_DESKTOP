@@ -65,10 +65,10 @@ class blogSummary extends Component {
                   <svg className="icon-comment">
                     <use xlinkHref={`${svgIcons}#multimedia`} />
                   </svg>
-                  <a href={`${data[key].url}#comment`}>
+                  <a href={`${data[key].url}#like`}>
                     {data[key].comment_count}
                     {' '}
-                    Comment
+                    Likes
                   </a>
                 </span>
                 <span className={styles.category}>

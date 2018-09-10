@@ -13,6 +13,9 @@ $gray: #666;
   box-shadow: 0 1px 40px -8px rgba(#000, .5);
   z-index: 2;
   transition: all 500ms ease;
+  &:visited{
+    outline: none;
+  }
   .yancey-logo {
     width: 11rem;
     height: 2.2rem;
@@ -28,7 +31,10 @@ $gray: #666;
   display: inline-block;
   margin-right: 1.4rem;
   padding-right: .2rem;
-
+  cursor: pointer;
+  &:last-child::after {
+    height: 0;
+  }
   &::after {
     position: absolute;
     content: '';
@@ -42,6 +48,13 @@ $gray: #666;
   &:hover::after {
     width: 100%;
     transition: all 300ms ease;
+  }
+  .icon_search {
+    position: relative;
+    top: .4rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: #666;
   }
   a {
     display: block;
@@ -106,6 +119,68 @@ $gray: #666;
         animation: tada 2s ease infinite;
       }
     }
+  }
+}
+
+.search_full_screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(#fff, .99);
+  .icon_close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.6rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #B5B5B5;
+    cursor: pointer;
+  }
+  .search_cell {
+    position: relative;
+    width: 30rem;
+    margin: 0 auto;
+    top: 36vh;
+    .search_title {
+      margin-bottom: 1.2rem;
+      margin-left: 1.2rem;
+      color: #404040;
+      font-size: .9rem;
+    }
+    .search_icon {
+      position: absolute;
+      top: 3rem;
+      left: .9rem;
+      fill: #B5B5B5;
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+    input {
+      width: 30rem;
+      padding: .6rem 1.2rem .6rem 3.2rem;
+      color: #b5b5b5;
+      font-family: "Merriweather Sans", sans-serif;
+      font-size: 1.4rem;
+      outline: 0;
+      border: 1px solid #8f8f8f;
+      border-radius: 2.7rem;
+      transition: all 100ms linear;
+      &:focus {
+        color: #111;
+        transition: all 100ms linear;
+      }
+    }
+  }
+  .miku_chan {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    background: url("./miku.gif") no-repeat center top;
+    background-size: cover;
+    width: 20rem;
+    height: 25.15rem;
   }
 }
 

@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Arvo);
 .not_found_wrapper {
   background: #4A575A;
-  height: calc(100vh - 9.15rem);
+  min-height: calc(100vh - 3.25rem);
   margin-top: 3.25rem;
   padding-top: 2rem;
   user-select: none; }

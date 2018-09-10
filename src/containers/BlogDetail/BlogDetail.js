@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ShareLink from 'react-twitter-share-link';
-import POWERMODE from 'activate-power-mode';
 import 'tocbot/dist/tocbot.css';
 import $ from 'jquery';
 import cs from 'classnames';

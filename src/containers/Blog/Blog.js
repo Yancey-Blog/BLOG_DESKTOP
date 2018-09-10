@@ -115,28 +115,10 @@ class Blog extends Component {
             </ul>
           </section>
           <aside className={styles.aside_wrapper}>
-            <section>
-              <h1 className={styles.aside_title}>
-                <svg className={styles.title_icon}>
-                  <use xlinkHref={`${svgIcons}#search`} />
-                </svg>
-                <span className={styles.title_name}>
-                Find
-                </span>
-              </h1>
-              <div className={styles.search_cell}>
-                <svg className={styles.search_icon}>
-                  <use xlinkHref={`${svgIcons}#magnifying-glass`} />
-                </svg>
-                <label htmlFor="search">
-                  <input type="text" id="search" placeholder="Search..." />
-                </label>
-              </div>
-            </section>
             <section className={styles.tags_container}>
               <h1 className={styles.aside_title}>
                 <svg className={styles.title_icon}>
-                  <use xlinkHref={`${svgIcons}#price-tag-1`} />
+                  <use xlinkHref={`${svgIcons}#price-tag`} />
                 </svg>
                 <span className={styles.title_name}>
                 Tags

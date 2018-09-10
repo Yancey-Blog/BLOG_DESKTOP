@@ -10,6 +10,8 @@
   box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5);
   z-index: 2;
   transition: all 500ms ease; }
+  .yancey-common-header:visited {
+    outline: none; }
   .yancey-common-header .yancey-logo {
     width: 11rem;
     height: 2.2rem;
@@ -22,7 +24,10 @@
   position: relative;
   display: inline-block;
   margin-right: 1.4rem;
-  padding-right: .2rem; }
+  padding-right: .2rem;
+  cursor: pointer; }
+  .yancey-nav-item:last-child::after {
+    height: 0; }
   .yancey-nav-item::after {
     position: absolute;
     content: '';
@@ -35,6 +40,12 @@
   .yancey-nav-item:hover::after {
     width: 100%;
     transition: all 300ms ease; }
+  .yancey-nav-item .icon_search {
+    position: relative;
+    top: .4rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: #666; }
   .yancey-nav-item a {
     display: block;
     height: 3.25rem;
@@ -70,6 +81,60 @@
       animation: pulse 2s ease infinite; }
     .yancey-nav-item a:hover > .icon-RSS :global {
       animation: tada 2s ease infinite; }
+
+.search_full_screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.99); }
+  .search_full_screen .icon_close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.6rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #B5B5B5;
+    cursor: pointer; }
+  .search_full_screen .search_cell {
+    position: relative;
+    width: 30rem;
+    margin: 0 auto;
+    top: 36vh; }
+    .search_full_screen .search_cell .search_title {
+      margin-bottom: 1.2rem;
+      margin-left: 1.2rem;
+      color: #404040;
+      font-size: .9rem; }
+    .search_full_screen .search_cell .search_icon {
+      position: absolute;
+      top: 3rem;
+      left: .9rem;
+      fill: #B5B5B5;
+      width: 1.6rem;
+      height: 1.6rem; }
+    .search_full_screen .search_cell input {
+      width: 30rem;
+      padding: .6rem 1.2rem .6rem 3.2rem;
+      color: #b5b5b5;
+      font-family: "Merriweather Sans", sans-serif;
+      font-size: 1.4rem;
+      outline: 0;
+      border: 1px solid #8f8f8f;
+      border-radius: 2.7rem;
+      transition: all 100ms linear; }
+      .search_full_screen .search_cell input:focus {
+        color: #111;
+        transition: all 100ms linear; }
+  .search_full_screen .miku_chan {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    background: url("./miku.gif") no-repeat center top;
+    background-size: cover;
+    width: 20rem;
+    height: 25.15rem; }
 
 @keyframes :global(horizontal) {
   0% {
