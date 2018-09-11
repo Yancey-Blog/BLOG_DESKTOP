@@ -64,9 +64,7 @@ class Archive extends Component {
           </h1>
           <figure className={styles.desktop_mac} />
           <p className={styles.mac_version_support}>
-            Mac OS X 10.9 and higher. WhatsApp must be installed on your phone.
-            <br />
-            By clicking the Download button, you agree to our
+            Mac OS X 10.9 and higher. By clicking the Download button, you agree to our
             {' '}
             <Link to="/legal">
               Terms & Privacy Policy.

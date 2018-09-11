@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
 import styles from './archive.module.css';
-import { monthToEN } from '../../utils/tools';
+import { checkWebp, monthToEN, aliOSS, webp } from '../../utils/tools';
 import { GET } from '../../https/axios';
 
 const Mock = require('mockjs');
@@ -53,42 +53,49 @@ class Archive extends Component {
   }
 
   unfold() {
-    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i++) {
+    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i += 1) {
       document.querySelectorAll('input[type="checkbox"]')[i].checked = true;
     }
   }
 
   fold() {
-    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i++) {
+    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i += 1) {
       document.querySelectorAll('input[type="checkbox"]')[i].checked = false;
     }
   }
 
   render() {
     const { data } = this.state;
+    const bgUrl = `${aliOSS}/static/archive_page_header.jpg`;
     return (
       <main className={styles.archive_wrapper}>
-        <h1 className={styles.archive_title}>
+        <figure
+          className={cs(styles.bg_header, 'no-user-select')}
+          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
+        >
+          <span>
             Archive
-        </h1>
-        <div className={styles.fold_unfold_wrapper}>
-          <button
-            className={cs(styles.btn, styles.left_btn)}
-            type="button"
-            onClick={() => this.unfold()}
-          >
+          </span>
+        </figure>
+        <div className={styles.archive_container}>
+          <div className={styles.fold_unfold_wrapper}>
+            <button
+              className={cs(styles.btn, styles.left_btn)}
+              type="button"
+              onClick={() => this.unfold()}
+            >
             Unfold
-          </button>
-          <div className={styles.or} />
-          <button
-            className={cs(styles.btn, styles.right_btn)}
-            type="button"
-            onClick={() => this.fold()}
-          >
+            </button>
+            <div className={styles.or} />
+            <button
+              className={cs(styles.btn, styles.right_btn)}
+              type="button"
+              onClick={() => this.fold()}
+            >
             Fold
-          </button>
-        </div>
-        {
+            </button>
+          </div>
+          {
           Object.keys(data)
             .map(key => (
               <section className={styles.archive_list_wrapper} key={key}>
@@ -146,6 +153,7 @@ class Archive extends Component {
               </section>
             ))
         }
+        </div>
       </main>
     );
   }

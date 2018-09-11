@@ -5,7 +5,7 @@ import styles from './blog.module.css';
 import BlogSummary from '../../components/BlogSummary/blogSummary';
 import Tag from '../../components/Tag/Tag';
 import LinkCard from '../../components/LinkCard/LinkCard';
-import { checkWebp } from '../../utils/tools';
+import { checkWebp, aliOSS, webp } from '../../utils/tools';
 import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -42,12 +42,12 @@ class Blog extends Component {
 
   render() {
     const { data } = this.state;
-    const bgUrl = 'https://yancey-assets.oss-cn-beijing.aliyuncs.com/static/blog-header.jpg';
+    const bgUrl = `${aliOSS}/static/blog_page_header.jpg`;
     return (
       <main className="blog_wrapper">
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
-          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}?x-oss-process=image/format,webp` : bgUrl})` }}
+          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
         >
           <span>
             Code, Music and Life.

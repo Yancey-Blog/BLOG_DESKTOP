@@ -77,9 +77,11 @@
       background-size: cover;
     }
     .mac_version_support {
+      width: 20rem;
+      margin: 0 auto;
       font-size: .7rem;
       line-height: 1.1rem;
-      color: #282828;
+      color: rgba(#414A53, .4);
       a {
         color: rgba(#414A53, .4);
         border-bottom: 1px solid rgba(#414A53, .4);

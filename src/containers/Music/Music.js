@@ -5,7 +5,7 @@ import cs from 'classnames';
 import Carousel from 'nuka-carousel';
 import styles from './music.module.css';
 import { GET } from '../../https/axios';
-import { checkWebp } from '../../utils/tools';
+import { aliOSS, checkWebp, webp } from '../../utils/tools';
 
 class Music extends Component {
   constructor(props) {
@@ -44,6 +44,7 @@ class Music extends Component {
 
   render() {
     const { data } = this.state;
+    const bgUrl = `${aliOSS}/static/music_page_header.jpg`;
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
         <Helmet>
@@ -51,7 +52,10 @@ class Music extends Component {
             ミュージック | Yancey Inc.
           </title>
         </Helmet>
-        <figure className={styles.bg_cover}>
+        <figure
+          className={styles.bg_cover}
+          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
+        >
           <h1>
             ミュージック
           </h1>

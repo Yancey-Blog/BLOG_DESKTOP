@@ -54,3 +54,6 @@ export function shareToFB() {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 }
+
+export const aliOSS = 'https://yancey-assets.oss-cn-beijing.aliyuncs.com';
+export const webp = '?x-oss-process=image/format,webp';

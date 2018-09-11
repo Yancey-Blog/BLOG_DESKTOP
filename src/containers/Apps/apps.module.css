@@ -65,9 +65,11 @@
       background: url("./native-mac.png") no-repeat center top;
       background-size: cover; }
     .apps_wrapper .desktop_wrapper .mac_version_support {
+      width: 20rem;
+      margin: 0 auto;
       font-size: .7rem;
       line-height: 1.1rem;
-      color: #282828; }
+      color: rgba(65, 74, 83, 0.4); }
       .apps_wrapper .desktop_wrapper .mac_version_support a {
         color: rgba(65, 74, 83, 0.4);
         border-bottom: 1px solid rgba(65, 74, 83, 0.4); }
