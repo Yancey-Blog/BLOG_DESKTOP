@@ -28,7 +28,9 @@ export default class Home extends Component {
     };
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
 
   componentDidMount() {
     this.handleBigBannerHeight();

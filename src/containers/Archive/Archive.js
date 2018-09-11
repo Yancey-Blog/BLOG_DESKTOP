@@ -15,6 +15,7 @@ class Archive extends Component {
   }
 
   componentWillMount() {
+    window.scrollTo(0, 0);
   }
 
   componentDidMount() {

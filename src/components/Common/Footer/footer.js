@@ -10,7 +10,7 @@ const copyright = {
     name: 'About',
   },
   privacyPolicy: {
-    url: '/privacy-policy',
+    url: '/legal',
     name: 'Privacy Policy',
   },
   apps: {

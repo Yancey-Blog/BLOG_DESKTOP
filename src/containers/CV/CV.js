@@ -13,6 +13,7 @@ class CV extends Component {
   }
 
   componentWillMount() {
+    window.scrollTo(0, 0);
   }
 
   componentDidMount() {

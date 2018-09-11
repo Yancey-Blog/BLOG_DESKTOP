@@ -42,7 +42,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/legal" component={PrivacyPolicy} />
           <Route path="/blog" component={Blog} />
           <Route path="/p/:id" component={BlogDetail} />
           <Route path="/archive" component={Archive} />

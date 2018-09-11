@@ -20,7 +20,7 @@ class NotFound extends Component {
   render() {
     return (
       <main className="not_found_wrapper">
-        <div className="unicorn"/>
+        <div className="unicorn" />
         <div className="container">
           <div className="four-oh-four">
             <h1>
