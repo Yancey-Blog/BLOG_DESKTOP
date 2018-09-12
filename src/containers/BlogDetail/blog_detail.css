@@ -24,7 +24,7 @@
     .article_detail_wrapper .article_meta_wrapper .author_avatar {
       width: 2rem;
       height: 2rem;
-      background: url("https://yancey-assets.oss-cn-beijing.aliyuncs.com/static/_Users_licaifan_Desktop_11532336786_.pic_hd.jpg") no-repeat center top;
+      background: no-repeat center top;
       background-size: cover;
       border-radius: 50%;
       transition: all 800ms linear; }
@@ -368,5 +368,8 @@
     max-width: 80% !important;
     max-height: 80% !important;
     box-shadow: 0 0 8.5rem #ddd !important; }
+
+.fb_iframe_widget {
+  top: 0.1rem !important; }
 
 /*# sourceMappingURL=blog_detail.css.map */

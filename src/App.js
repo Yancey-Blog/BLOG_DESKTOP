@@ -13,6 +13,7 @@ import Music from './containers/Music/Music';
 import CV from './containers/CV/CV';
 import Apps from './containers/Apps/Apps';
 import PrivacyPolicy from './containers/PrivacyPolicy/PrivacyPolicy';
+import About from './containers/About/About';
 import NotFound from './containers/NotFound/NotFound';
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/legal" component={PrivacyPolicy} />
+          <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
           <Route path="/p/:id" component={BlogDetail} />
           <Route path="/archive" component={Archive} />

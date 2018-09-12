@@ -9,6 +9,7 @@ $slider_height: 25.8rem;
 // common
 .post_container {
   position: relative;
+  height: 12.4rem;
   &::before {
     content: "";
     position: absolute;
@@ -16,7 +17,7 @@ $slider_height: 25.8rem;
     height: calc(100% - 4px);
     top: 2px;
     left: 2px;
-    outline: 2px dashed $pink;
+    outline: 2px dashed $gray_outline;
   }
   img {
     width: calc(100% - 2px);
@@ -95,9 +96,13 @@ $slider_height: 25.8rem;
   padding-top: 11rem;
   padding-left: 2rem;
   text-shadow: 8px 8px 1px rgba(44, 46, 47, 0.1);
+  h1{
+    font-weight: 100;
+  }
   p {
     margin: .5rem 0 0 .5rem;
     letter-spacing: .2rem;
+    font-weight: 100;
   }
 }
 

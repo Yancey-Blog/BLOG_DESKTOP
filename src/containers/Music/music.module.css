@@ -1,5 +1,6 @@
 .post_container {
-  position: relative; }
+  position: relative;
+  height: 12.4rem; }
   .post_container::before {
     content: "";
     position: absolute;
@@ -7,7 +8,7 @@
     height: calc(100% - 4px);
     top: 2px;
     left: 2px;
-    outline: 2px dashed #d62b6b; }
+    outline: 2px dashed #bebebe; }
   .post_container img {
     width: calc(100% - 2px);
     height: calc(100% - 2px);
@@ -73,9 +74,12 @@
   padding-top: 11rem;
   padding-left: 2rem;
   text-shadow: 8px 8px 1px rgba(44, 46, 47, 0.1); }
+  .bg_cover h1 {
+    font-weight: 100; }
   .bg_cover p {
     margin: .5rem 0 0 .5rem;
-    letter-spacing: .2rem; }
+    letter-spacing: .2rem;
+    font-weight: 100; }
 
 .live_tours_artists_wrapper {
   width: 72rem;

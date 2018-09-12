@@ -11,7 +11,9 @@ import baguetteBox from 'baguettebox.js';
 import 'baguettebox.js/dist/baguetteBox.min.css';
 import Like from '../../components/Like/Like';
 import './blog_detail.css';
-import { setCopy, initLivere, shareToFB } from '../../utils/tools';
+import {
+  setCopy, initLivere, shareToFB, checkWebp, aliOSS, webp,
+} from '../../utils/tools';
 import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -171,6 +173,7 @@ class BlogDetail extends Component {
 
   render() {
     const { blogContent } = this.state;
+    const bgUrl = `${aliOSS}/static/logo_avatar.jpg`;
     return (
       <main className="article_detail_wrapper">
         {/* set meta info */}
@@ -198,7 +201,10 @@ class BlogDetail extends Component {
             React练习——汇率计算器
           </h1>
           <div className="article_meta_container">
-            <figure className="author_avatar" />
+            <figure
+              className="author_avatar"
+              style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
+            />
             <span className="publish_date" data-modify="Last Modified: 2018-11-13 14:51">
               2018-09-08 10:34
             </span>

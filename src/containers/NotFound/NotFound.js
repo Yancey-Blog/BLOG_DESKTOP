@@ -34,7 +34,7 @@ class NotFound extends Component {
             <p>
               The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
             </p>
-            <button role="button">
+            <button type="button">
               Go Home
             </button>
           </div>
