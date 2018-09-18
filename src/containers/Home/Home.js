@@ -75,7 +75,7 @@ export default class Home extends Component {
   };
 
   getNewReleaseData = () => {
-    GET('/projects', {})
+    GET('/latestThreeProjects', {})
       .then((res) => {
         this.setState({
           newReleaseData: res.data,

@@ -39,11 +39,11 @@
         position: absolute;
         content: attr(data-modify);
         font-family: "PingFang SC", sans-serif;
-        top: 1.6rem;
+        top: 1.8rem;
         left: -2.6rem;
-        padding: .1rem .1rem;
+        padding: .2rem .1rem;
         width: 11rem;
-        background: #000;
+        background: rgba(26, 26, 26, 0.8);
         border-radius: 4px;
         text-align: center;
         color: #fff; }
@@ -53,8 +53,8 @@
         width: 0;
         height: 0;
         border: .6rem solid transparent;
-        border-bottom-color: #000;
-        top: .45rem;
+        border-bottom-color: rgba(26, 26, 26, 0.8);
+        top: .6rem;
         left: 2.3rem; }
     .article_detail_wrapper .article_meta_wrapper .page_view {
       font-size: .7rem;
@@ -370,6 +370,6 @@
     box-shadow: 0 0 8.5rem #ddd !important; }
 
 .fb_iframe_widget {
-  top: 0.1rem !important; }
+  top: .1rem !important; }
 
 /*# sourceMappingURL=blog_detail.css.map */
