@@ -46,7 +46,7 @@ export default class Home extends Component {
   }
 
   getMottoData = () => {
-    GET('/mottoes', {})
+    GET('/latestMotto', {})
       .then((res) => {
         this.setState({
           motto: res.data.content,
