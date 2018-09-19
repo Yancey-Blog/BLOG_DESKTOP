@@ -178,7 +178,7 @@ $slider_height: 25.8rem;
     .record_cover {
       width: 100%;
       height: 50%;
-      background: url("https://www.yanceyleo.com/media/uploads/20180124205523.jpg") no-repeat center top;
+      background: no-repeat center top;
       background-size: cover;
     }
   }
@@ -189,6 +189,7 @@ $slider_height: 25.8rem;
   padding: 1rem 1.5rem;
   background: $white;
   .record_title {
+    min-height: 5.15rem;
     margin-right: 0;
   }
 }

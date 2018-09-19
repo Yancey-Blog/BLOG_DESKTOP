@@ -58,10 +58,11 @@ export default class Home extends Component {
   };
 
   getCoverData = () => {
-    const params = {
-      _id: window.localStorage.cover_id,
-    };
-    GET('/covers', params)
+    let id = window.localStorage.cover_id;
+    if (!id) {
+      id = 0;
+    }
+    GET(`/covers/${id}`, {})
       .then((res) => {
         this.setState({
           coverUrl: res.data.url,
@@ -129,7 +130,8 @@ export default class Home extends Component {
       });
   };
 
-  handleKeyDown = () => {};
+  handleKeyDown = () => {
+  };
 
   switchCover = (position, id) => {
     const params = {

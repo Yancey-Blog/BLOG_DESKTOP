@@ -12,6 +12,7 @@ class Music extends Component {
     super(props);
     this.state = {
       data: [],
+      recordData: [],
     };
   }
 
@@ -21,16 +22,29 @@ class Music extends Component {
 
   componentDidMount() {
     this.getData();
+    this.getRecordData();
   }
 
   componentWillUnmount() {
   }
 
   getData = () => {
-    GET('/articles', {})
+    GET('/liveTours', {})
       .then((res) => {
         this.setState({
           data: res.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  getRecordData = () => {
+    GET('/latestFourFeaturedRecords', {})
+      .then((res) => {
+        this.setState({
+          recordData: res.data,
         });
       })
       .catch((error) => {
@@ -43,7 +57,7 @@ class Music extends Component {
   };
 
   render() {
-    const { data } = this.state;
+    const { data, recordData } = this.state;
     const bgUrl = `${aliOSS}/static/music_page_header.jpg`;
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
@@ -87,7 +101,7 @@ class Music extends Component {
                       />
                       <div className={styles.meta_intro}>
                         <time className={styles.meta_date}>
-                          {data[key].publish_date}
+                          {data[key].upload_date}
                         </time>
                         <p className={cs(styles.meta_title, styles.live_tour_title)}>
                           {data[key].title}
@@ -204,86 +218,33 @@ class Music extends Component {
               FEATURED RECORDS
             </h1>
             <ul className={styles.featured_records_list}>
-              <li className={styles.featured_record_item}>
-                <figure className={styles.record_cover} />
-                <div className={styles.record_intro}>
-                  <time className={styles.meta_date}>
-                    2018-10-11
-                  </time>
-                  <p className={cs(styles.record_title, styles.meta_title)}>
-                    The Stormzy Story: How DIY Grime Conquered the UK Charts
-                  </p>
-                  <hr className={styles.music_split} />
-                  <a
-                    href="https://www.yanceyleo.com"
-                    className={styles.music_btn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    BUY NOW
-                  </a>
-                </div>
-              </li>
-              <li className={styles.featured_record_item}>
-                <figure className={styles.record_cover} />
-                <div className={styles.record_intro}>
-                  <time className={styles.meta_date}>
-                    2018-10-11
-                  </time>
-                  <p className={cs(styles.record_title, styles.meta_title)}>
-                    The Stormzy Story: How DIY Grime Conquered the UK Charts
-                  </p>
-                  <hr className={styles.music_split} />
-                  <a
-                    href="https://www.yanceyleo.com"
-                    className={styles.music_btn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    BUY NOW
-                  </a>
-                </div>
-              </li>
-              <li className={styles.featured_record_item}>
-                <figure className={styles.record_cover} />
-                <div className={styles.record_intro}>
-                  <time className={styles.meta_date}>
-                    2018-10-11
-                  </time>
-                  <p className={cs(styles.record_title, styles.meta_title)}>
-                    The Stormzy Story: How DIY Grime Conquered the UK Charts
-                  </p>
-                  <hr className={styles.music_split} />
-                  <a
-                    href="https://www.yanceyleo.com"
-                    className={styles.music_btn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    BUY NOW
-                  </a>
-                </div>
-              </li>
-              <li className={styles.featured_record_item}>
-                <figure className={styles.record_cover} />
-                <div className={styles.record_intro}>
-                  <time className={styles.meta_date}>
-                    2018-10-11
-                  </time>
-                  <p className={cs(styles.record_title, styles.meta_title)}>
-                    The Stormzy Story: How DIY Grime Conquered the UK Charts
-                  </p>
-                  <hr className={styles.music_split} />
-                  <a
-                    href="https://www.yanceyleo.com"
-                    className={styles.music_btn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    BUY NOW
-                  </a>
-                </div>
-              </li>
+              {
+                Object.keys(recordData).map(key => (
+                  <li className={styles.featured_record_item} key={key}>
+                    <figure
+                      className={styles.record_cover}
+                      style={{ backgroundImage: `url(${recordData[key].poster})` }}
+                    />
+                    <div className={styles.record_intro}>
+                      <time className={styles.meta_date}>
+                        {recordData[key].upload_date}
+                      </time>
+                      <p className={cs(styles.record_title, styles.meta_title)}>
+                        {recordData[key].title}
+                      </p>
+                      <hr className={styles.music_split} />
+                      <a
+                        href={recordData[key].url}
+                        className={styles.music_btn}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        BUY NOW
+                      </a>
+                    </div>
+                  </li>
+                ))
+              }
             </ul>
           </section>
         </div>
