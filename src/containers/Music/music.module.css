@@ -36,6 +36,10 @@
   margin-right: 1.5rem;
   padding: .75rem 0 1.5rem; }
 
+.meta_title_artist {
+  font-size: .7rem;
+  color: rgba(0, 0, 0, 0.4); }
+
 .column_title {
   padding: 2rem 0;
   font-size: 1.1rem;
@@ -146,6 +150,7 @@
   padding: 1rem 1.5rem;
   background: #fff; }
   .record_intro .record_title {
+    max-height: 5.15rem;
     min-height: 5.15rem;
     margin-right: 0; }
 
@@ -155,6 +160,8 @@
   .yancey_music_container .yancey_music_list {
     display: grid;
     grid-template-columns: repeat(4, 1fr); }
+    .yancey_music_container .yancey_music_list .meta_title {
+      font-family: "PingFang SC", sans-serif; }
 
 /* reset slider style */
 :global(.slider-control-bottomcenter) {

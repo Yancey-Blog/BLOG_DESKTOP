@@ -5,7 +5,9 @@ import cs from 'classnames';
 import Carousel from 'nuka-carousel';
 import styles from './music.module.css';
 import { GET } from '../../https/axios';
-import { aliOSS, checkWebp, webp } from '../../utils/tools';
+import {
+  aliOSS, checkWebp, webp, formatJSONDate,
+} from '../../utils/tools';
 
 class Music extends Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class Music extends Component {
     this.state = {
       data: [],
       recordData: [],
+      yanceyMusicData: [],
     };
   }
 
@@ -23,6 +26,7 @@ class Music extends Component {
   componentDidMount() {
     this.getData();
     this.getRecordData();
+    this.getYanceyMusicData();
   }
 
   componentWillUnmount() {
@@ -52,12 +56,24 @@ class Music extends Component {
       });
   };
 
+  getYanceyMusicData = () => {
+    GET('/yanceyMusic', {})
+      .then((res) => {
+        this.setState({
+          yanceyMusicData: res.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   handleLoadImage = () => {
     this.carousel.setDimensions();
   };
 
   render() {
-    const { data, recordData } = this.state;
+    const { data, recordData, yanceyMusicData } = this.state;
     const bgUrl = `${aliOSS}/static/music_page_header.jpg`;
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
@@ -223,18 +239,22 @@ class Music extends Component {
                   <li className={styles.featured_record_item} key={key}>
                     <figure
                       className={styles.record_cover}
-                      style={{ backgroundImage: `url(${recordData[key].poster})` }}
+                      style={{ backgroundImage: `url(${recordData[key].cover})` }}
                     />
                     <div className={styles.record_intro}>
                       <time className={styles.meta_date}>
-                        {recordData[key].upload_date}
+                        {formatJSONDate(recordData[key].release_date).split(' ')[0]}
                       </time>
                       <p className={cs(styles.record_title, styles.meta_title)}>
-                        {recordData[key].title}
+                        {recordData[key].album_name}
+                        <br />
+                        <span className={styles.meta_title_artist}>
+                          {recordData[key].artist}
+                        </span>
                       </p>
                       <hr className={styles.music_split} />
                       <a
-                        href={recordData[key].url}
+                        href={recordData[key].buy_url}
                         className={styles.music_btn}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -250,124 +270,36 @@ class Music extends Component {
         </div>
         <section className={styles.yancey_music_container}>
           <h1 className={styles.column_title}>
-            MY WORKS
+            YANCEY MUSIC
           </h1>
           <ul className={cs(styles.artists_list, styles.yancey_music_list)}>
-            <li className={cs(styles.post_container, styles.artist_item)}>
-              <img
-                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
-                alt="yancey"
-              />
-              <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                <time className={styles.meta_date}>
-                  2018-10-11
-                </time>
-                <p className={cs(styles.meta_title, styles.artist_title)}>
-                  How to Prepare for a Recording Studio Session
-                </p>
-                <hr className={styles.music_split} />
-                <a
-                  href="https://www.yanceyleo.com"
-                  className={styles.music_btn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LISTEN
-                </a>
-              </div>
-            </li>
-            <li className={cs(styles.post_container, styles.artist_item)}>
-              <img
-                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
-                alt="yancey"
-              />
-              <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                <time className={styles.meta_date}>
-                  2018-10-11
-                </time>
-                <p className={cs(styles.meta_title, styles.artist_title)}>
-                  How to Prepare for a Recording Studio Session
-                </p>
-                <hr className={styles.music_split} />
-                <a
-                  href="https://www.yanceyleo.com"
-                  className={styles.music_btn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LISTEN
-                </a>
-              </div>
-            </li>
-            <li className={cs(styles.post_container, styles.artist_item)}>
-              <img
-                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
-                alt="yancey"
-              />
-              <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                <time className={styles.meta_date}>
-                  2018-10-11
-                </time>
-                <p className={cs(styles.meta_title, styles.artist_title)}>
-                  How to Prepare for a Recording Studio Session
-                </p>
-                <hr className={styles.music_split} />
-                <a
-                  href="https://www.yanceyleo.com"
-                  className={styles.music_btn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LISTEN
-                </a>
-              </div>
-            </li>
-            <li className={cs(styles.post_container, styles.artist_item)}>
-              <img
-                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
-                alt="yancey"
-              />
-              <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                <time className={styles.meta_date}>
-                  2018-10-11
-                </time>
-                <p className={cs(styles.meta_title, styles.artist_title)}>
-                  How to Prepare for a Recording Studio Session
-                </p>
-                <hr className={styles.music_split} />
-                <a
-                  href="https://www.yanceyleo.com"
-                  className={styles.music_btn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LISTEN
-                </a>
-              </div>
-            </li>
-            <li className={cs(styles.post_container, styles.artist_item)}>
-              <img
-                src="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/illust_66799182_20180128_182352-1024x614.png"
-                alt="yancey"
-              />
-              <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                <time className={styles.meta_date}>
-                  2018-10-11
-                </time>
-                <p className={cs(styles.meta_title, styles.artist_title)}>
-                  How to Prepare for a Recording Studio Session
-                </p>
-                <hr className={styles.music_split} />
-                <a
-                  href="https://www.yanceyleo.com"
-                  className={styles.music_btn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LISTEN
-                </a>
-              </div>
-            </li>
+            {
+              Object.keys(yanceyMusicData).map(key => (
+                <li className={cs(styles.post_container, styles.artist_item)} key={key}>
+                  <img
+                    src={yanceyMusicData[key].cover}
+                    alt={yanceyMusicData[key].title}
+                  />
+                  <div className={cs(styles.meta_intro, styles.artist_intro)}>
+                    <time className={styles.meta_date}>
+                      {formatJSONDate(yanceyMusicData[key].release_date).split(' ')[0]}
+                    </time>
+                    <p className={cs(styles.meta_title, styles.artist_title)}>
+                      {yanceyMusicData[key].title}
+                    </p>
+                    <hr className={styles.music_split} />
+                    <a
+                      href={yanceyMusicData[key].soundCloud_url}
+                      className={styles.music_btn}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LISTEN
+                    </a>
+                  </div>
+                </li>
+              ))
+            }
           </ul>
         </section>
       </main>

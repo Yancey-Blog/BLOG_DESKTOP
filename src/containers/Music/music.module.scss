@@ -51,6 +51,11 @@ $slider_height: 25.8rem;
   padding: .75rem 0 1.5rem;
 }
 
+.meta_title_artist{
+  font-size: .7rem;
+  color: rgba(#000 ,.4);
+}
+
 .column_title {
   padding: 2rem 0;
   font-size: 1.1rem;
@@ -189,6 +194,7 @@ $slider_height: 25.8rem;
   padding: 1rem 1.5rem;
   background: $white;
   .record_title {
+    max-height: 5.15rem;
     min-height: 5.15rem;
     margin-right: 0;
   }
@@ -201,6 +207,9 @@ $slider_height: 25.8rem;
   .yancey_music_list{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+      .meta_title{
+        font-family: "PingFang SC", sans-serif;
+      }
   }
 }
 
