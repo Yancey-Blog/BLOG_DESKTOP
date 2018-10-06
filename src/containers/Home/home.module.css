@@ -52,7 +52,7 @@
     .yancey-blog-home .home-imax .social-media-container {
       position: relative;
       z-index: 1;
-      max-width: 26rem;
+      max-width: 27rem;
       margin: 0 auto;
       background: rgba(0, 0, 0, 0.5);
       padding: 1rem;
@@ -87,7 +87,7 @@
           outline: none;
           position: relative;
           display: inline-block;
-          margin-right: 1.1rem; }
+          margin-right: 1.4rem; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item svg {
             width: 22px;
             height: 22px; }

@@ -1,42 +1,61 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
+import { Link } from 'react-router-dom';
 import lazysizes from 'lazysizes';
-import { checkWebp } from '../../utils/tools';
+import { checkWebp, formatJSONDate } from '../../utils/tools';
 import styles from './blogSummary.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
+import { GET } from '../../https/axios';
 
 class blogSummary extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      dataSource: [],
+      curPage: 1,
+    };
   }
 
   componentWillMount() {
   }
 
   componentDidMount() {
+    this.getData();
   }
 
   componentWillUnmount() {
   }
 
+  getData() {
+    const { curPage } = this.state;
+    GET(`/articles/page/${curPage}`, {})
+      .then((res) => {
+        this.setState({
+          dataSource: res.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
   render() {
-    const { data } = this.props;
+    const { dataSource } = this.state;
     return (
-      Object.keys(data)
+      Object.keys(dataSource)
         .map((item, key) => (
-          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={data[key]._id}>
+          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={dataSource[key]._id}>
             <div className={styles['blog-thumb-wrapper']}>
-              <a href={data[key].url} title={data[key].title}>
+              <Link to={`/p/${dataSource[key]._id}`}>
                 <figure className={styles['blog-thumb']}>
                   <img
                     className={cs('lazyload', 'lazyload2', styles.img)}
-                    src={`${data[key].poster}?x-oss-process=image/resize,w_120/quality,Q_90`}
-                    data-src={checkWebp() ? `${data[key].poster}?x-oss-process=image/format,webp` : data[key].poster}
-                    alt={data[key].title}
+                    src={`${dataSource[key].header_cover}?x-oss-process=image/resize,w_120/quality,Q_90`}
+                    data-src={checkWebp() ? `${dataSource[key].header_cover}?x-oss-process=image/format,webp` : dataSource[key].poster}
+                    alt={dataSource[key].title}
                   />
                 </figure>
-              </a>
+              </Link>
             </div>
             <div className={styles['blog-info']}>
               <p className={styles['publish-date']}>
@@ -45,19 +64,19 @@ class blogSummary extends Component {
                 </svg>
                 Released
                 {' '}
-                {data[key].publish_date}
+                {formatJSONDate(dataSource[key].publish_date)}
               </p>
-              <a href={data[key].url} title={data[key].title}>
+              <Link to={`/p/${dataSource[key]._id}`}>
                 <h3 className={styles.title}>
-                  {data[key].title}
+                  {dataSource[key].title}
                 </h3>
-              </a>
+              </Link>
               <div className={styles['extra-info']}>
                 <span className="click-num">
                   <svg className={styles['icon-eye']}>
                     <use xlinkHref={`${svgIcons}#eye`} />
                   </svg>
-                  {data[key].like_count}
+                  {dataSource[key].pv_count}
                   {' '}
                   PV
                 </span>
@@ -65,30 +84,30 @@ class blogSummary extends Component {
                   <svg className="icon-comment">
                     <use xlinkHref={`${svgIcons}#multimedia`} />
                   </svg>
-                  <a href={`${data[key].url}#like`}>
-                    {data[key].comment_count}
+                  <Link to={`/p/${dataSource[key]._id}`}>
+                    {dataSource[key].like_count}
                     {' '}
                     Likes
-                  </a>
+                  </Link>
                 </span>
                 <span className={styles.category}>
                   <svg className="icon-folder">
                     <use xlinkHref={`${svgIcons}#folder`} />
                   </svg>
-                  <a href={`/${data[key].category}`} title={`This article belong to ${data[key].category}`}>
-                    {data[key].category}
-                  </a>
+                  <Link to={`/${dataSource[key].tags[0]}`}>
+                    {dataSource[key].tags[0]}
+                  </Link>
                 </span>
               </div>
               <p className={styles['summary-content']}>
-                {data[key].summary}
+                {dataSource[key].summary}
               </p>
               <div className={styles['show-detail-wrapper']}>
-                <a href={data[key].url} title="show the detail">
+                <Link to={`/p/${dataSource[key]._id}`}>
                   <svg className={styles['icon-more']}>
                     <use xlinkHref={`${svgIcons}#more`} />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </article>

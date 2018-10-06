@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
 import styles from './archive.module.css';
-import { checkWebp, monthToEN, aliOSS, webp } from '../../utils/tools';
+import {
+  checkWebp, monthToEN, aliOSS, webp,
+} from '../../utils/tools';
 import { GET } from '../../https/axios';
 
 const Mock = require('mockjs');

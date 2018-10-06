@@ -22,6 +22,7 @@ export default class Home extends Component {
     this.state = {
       data: [],
       newReleaseData: [],
+      announcementData: '',
       coverUrl: '',
       curCoverId: '',
       motto: '',
@@ -37,9 +38,10 @@ export default class Home extends Component {
     this.switchNavbarBackgroundColor();
     Home.addQrCode();
     this.getNewReleaseData();
+    this.getAnnouncementData();
     this.getCoverData();
     this.getMottoData();
-    this.getData();
+    // this.getData();
   }
 
   componentWillUnmount() {
@@ -87,17 +89,17 @@ export default class Home extends Component {
       });
   };
 
-  getData() {
-    GET('/articles', {})
+  getAnnouncementData = () => {
+    GET('/latestAnnouncements', {})
       .then((res) => {
         this.setState({
-          data: res.data,
+          announcementData: res.data,
         });
       })
       .catch((error) => {
         console.log(error.message);
       });
-  }
+  };
 
   handleBigBannerHeight = () => {
     const viewPortInit = $(window)
@@ -152,7 +154,7 @@ export default class Home extends Component {
 
   render() {
     const {
-      newReleaseData, coverUrl, curCoverId, motto, data,
+      newReleaseData, coverUrl, curCoverId, motto, data, announcementData,
     } = this.state;
     return (
       <main className={styles['yancey-blog-home']}>
@@ -223,7 +225,7 @@ export default class Home extends Component {
               <use xlinkHref={`${svgIcons}#megaphone`} />
             </svg>
             <span className="announcement-content">
-            主题已经开源，客户端也上线啦~
+              {announcementData.content}
             </span>
           </article>
           <article className={styles['new-release-wrapper']}>
@@ -238,14 +240,20 @@ export default class Home extends Component {
                 Object.keys(newReleaseData)
                   .map(key => (
                     <div className={styles['new-release']} key={key}>
-                      <figure
-                        className={styles['new-release-content']}
-                        style={{ backgroundImage: `url(${newReleaseData[key].poster}?x-oss-process=image/format,webp)` }}
-                        data-title={newReleaseData[key].title}
-                        data-intro={newReleaseData[key].introduction}
+                      <a
+                        href={newReleaseData[key].url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        <div className={styles.overlay} />
-                      </figure>
+                        <figure
+                          className={styles['new-release-content']}
+                          style={{ backgroundImage: `url(${newReleaseData[key].poster}?x-oss-process=image/format,webp)` }}
+                          data-title={newReleaseData[key].title}
+                          data-intro={newReleaseData[key].introduction}
+                        >
+                          <div className={styles.overlay} />
+                        </figure>
+                      </a>
                     </div>
                   ))
               }

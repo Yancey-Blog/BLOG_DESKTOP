@@ -1,25 +1,90 @@
-// const Mock = require('mockjs');
-//
-// const data = Mock.mock({
-//   'data|2-3': [
-//     {
-//       year: '20@integer(10, 18)',
-//       'data|1-12': [
-//         {
-//           month: '@integer(1, 12)',
-//           'days|0-6': [
-//             {
-//               day: '@integer(1, 28)',
-//               title: '@ctitle(10, 30)',
-//               like_count: '@integer(0, 500)',
-//               comment_count: '@integer(0, 500)',
-//               url: '@url',
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   ],
-// });
-// // 输出结果
-// console.log(JSON.stringify(data, null, 4));
+const arr = [
+  {
+    tags: [
+      'Sayaka',
+    ],
+  },
+  {
+    tags: [
+      '没变迁',
+    ],
+  },
+  {
+    tags: [
+      '等等',
+    ],
+  },
+  {
+    tags: [
+      'demo1',
+    ],
+  },
+  {
+    tags: [
+      '123',
+    ],
+  },
+  {
+    tags: [
+      '11',
+    ],
+  },
+  {
+    tags: [
+      '111',
+    ],
+  },
+  {
+    tags: [
+      'yacney',
+    ],
+  },
+  {
+    tags: [
+      '11',
+      '再相见',
+    ],
+  },
+  {
+    tags: [
+      '11',
+    ],
+  },
+  {
+    tags: [
+      '22',
+    ],
+  },
+  {
+    tags: [
+      'JavaScript',
+    ],
+  },
+  {
+    tags: [
+      'CSS',
+    ],
+  },
+  {
+    tags: [
+      'JavaScript',
+    ],
+  },
+  {
+    tags: [
+      'CSS',
+    ],
+  },
+];
+
+const deepFlatten = (arr) => {
+  const flatten = (arr) => [].concat(...arr);
+  return flatten(arr.map(x => Array.isArray(x) ? deepFlatten(x) : x));
+};
+
+const _arr = [];
+for (let i = 0; i < arr.length; i += 1) {
+  _arr.push(arr[i].tags);
+}
+console.log(deepFlatten(_arr));
+
