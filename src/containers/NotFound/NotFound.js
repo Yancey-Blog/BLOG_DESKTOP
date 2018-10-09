@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import history from '../../history';
 import './not_found.css';
 
 class NotFound extends Component {
@@ -17,6 +18,10 @@ class NotFound extends Component {
   componentWillUnmount() {
   }
 
+  handleBack = () => {
+    history.goBack();
+  };
+
   render() {
     return (
       <main className="not_found_wrapper">
@@ -34,9 +39,12 @@ class NotFound extends Component {
             <p>
               The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
             </p>
-            <button type="button">
-              Go Home
-            </button>
+              <button
+                type="button"
+                onClick={() => this.handleBack()}
+              >
+                Back To Previous Page
+              </button>
           </div>
         </div>
       </main>

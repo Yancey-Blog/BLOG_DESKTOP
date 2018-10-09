@@ -47,6 +47,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
           <Route path="/p/:id" component={BlogDetail} />
+          <Route path="/t/:id" component={Blog} />
           <Route path="/archive" component={Archive} />
           <Route path="/music" component={Music} />
           <Route path="/cv" component={CV} />

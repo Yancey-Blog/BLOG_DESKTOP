@@ -27,16 +27,29 @@ class blogSummary extends Component {
   }
 
   getData() {
-    const { curPage } = this.state;
-    GET(`/articles/page/${curPage}`, {})
-      .then((res) => {
-        this.setState({
-          dataSource: res.data,
+    const path = document.location.pathname.split('/')[1];
+    if (path === 't') {
+      GET(`/articlesByTag?tag=${document.location.pathname.split('/').slice(-1)[0]}`, {})
+        .then((res) => {
+          this.setState({
+            dataSource: res.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    } else {
+      const { curPage } = this.state;
+      GET(`/articles/page/${curPage}`, {})
+        .then((res) => {
+          this.setState({
+            dataSource: res.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
   }
 
   render() {

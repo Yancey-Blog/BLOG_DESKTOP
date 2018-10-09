@@ -6,14 +6,12 @@ import BlogSummary from '../../components/BlogSummary/blogSummary';
 import Tag from '../../components/Tag/Tag';
 import LinkCard from '../../components/LinkCard/LinkCard';
 import { checkWebp, aliOSS, webp } from '../../utils/tools';
-import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
 class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
     };
   }
 
@@ -22,26 +20,12 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    this.getData();
   }
 
   componentWillUnmount() {
   }
 
-  getData() {
-    GET('/articles', {})
-      .then((res) => {
-        this.setState({
-          data: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }
-
   render() {
-    const { data } = this.state;
     const bgUrl = `${aliOSS}/static/blog_page_header.jpg`;
     return (
       <main className="blog_wrapper">
@@ -55,7 +39,7 @@ class Blog extends Component {
         </figure>
         <div className={styles.main_content}>
           <section>
-            <BlogSummary data={data} />
+            <BlogSummary />
             <ul className={styles.pagination_list}>
               <li className={styles.pagination_item}>
                 <Link to="blog">
@@ -132,10 +116,10 @@ class Blog extends Component {
                   <use xlinkHref={`${svgIcons}#placeholder`} />
                 </svg>
                 <span className={styles.title_name}>
-                Top 10
+                Top 7 Most Viewed
                 </span>
               </h1>
-              <LinkCard data={data} />
+              <LinkCard />
             </section>
           </aside>
         </div>

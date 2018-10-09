@@ -12,7 +12,8 @@
   .not_found_wrapper .container {
     width: 20rem;
     margin: 0 auto 4rem;
-    text-align: center; }
+    text-align: center;
+    background: transparent; }
   .not_found_wrapper h2 {
     margin-bottom: 1rem;
     font-size: 1rem;
@@ -34,7 +35,7 @@
     line-height: 1.6; }
   .not_found_wrapper .warning button {
     display: block;
-    width: 7.5rem;
+    width: 9.5rem;
     margin: 3rem auto 1.25rem;
     padding: .6rem 0;
     background: none;
