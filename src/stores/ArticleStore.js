@@ -15,6 +15,8 @@ class ArticleStore {
 
   @observable top7Data;
 
+  @observable detailData;
+
   @observable curPage;
 
   @observable totalAmount;
@@ -26,6 +28,7 @@ class ArticleStore {
     this.summaryData = [];
     this.TagData = [];
     this.top7Data = [];
+    this.detailData = {};
     this.curPage = 1;
     this.totalAmount = 1;
     this.showSearch = false;
@@ -38,6 +41,7 @@ class ArticleStore {
         this.summaryData.splice(0, this.summaryData.length);
         this.summaryData = response.data;
         this.totalAmount = parseInt(response.headers.amount, 10);
+        window.scrollTo(0, 0);
         this.curPage = 1;
       });
     } catch (e) {
@@ -91,6 +95,17 @@ class ArticleStore {
     }
   };
 
+  getArtcileById = async (id) => {
+    try {
+      const response = await this.articleApi.getArticleById(id);
+      runInAction(() => {
+        this.detailData = response.data;
+      });
+    } catch (e) {
+      console.log('unknown error');
+    }
+  };
+
   @computed get curTag() {
     return document.location.pathname.split('/').slice(-1)[0];
   }
@@ -103,8 +118,8 @@ class ArticleStore {
   @action onSearchChange = (e) => {
     const event = e || window.event;
     const key = event.which || event.keyCode || event.charCode;
-    if (key == 13) {
-      history.push('/blog');
+    if (key === 13) {
+      history.push(`/search?q=${event.target.value}`);
       this.getDataByTitle(event.target.value);
       this.showSearch = false;
     }

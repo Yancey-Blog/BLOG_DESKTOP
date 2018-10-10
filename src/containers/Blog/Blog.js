@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_US';
@@ -27,7 +28,7 @@ class Blog extends Component {
     const { articleStore } = this.props;
     if (document.location.pathname.split('/')[1] === 't') {
       articleStore.getDataByTag(articleStore.curTag);
-    } else {
+    } else if (document.location.pathname.split('/')[1] === 'blog') {
       articleStore.getSummaryData(articleStore.curPage);
     }
     articleStore.getTagData();
@@ -39,7 +40,7 @@ class Blog extends Component {
     if (nextProps.location.pathname !== location.pathname) {
       if (document.location.pathname.split('/')[1] === 't') {
         articleStore.getDataByTag(articleStore.curTag);
-      } else {
+      } else if (document.location.pathname.split('/')[1] === 'blog') {
         articleStore.getSummaryData(articleStore.curPage);
       }
     }
@@ -63,20 +64,38 @@ class Blog extends Component {
         </figure>
         <div className={styles.main_content}>
           <section>
-            <BlogSummary />
-            <Pagination
-              showSizeChanger
-              showQuickJumper={{
-                goButton: <button>
-                            OK
-                          </button>,
-              }}
-              defaultPageSize={10}
-              defaultCurrent={articleStore.curPage}
-              onChange={articleStore.onPageChange}
-              total={articleStore.totalAmount}
-              locale={localeInfo}
-            />
+            {
+              articleStore.summaryData.length === 0
+                ? (
+                  <div>
+                    <p className={styles.no_articles}>
+                    no articles!
+                    </p>
+                    <Link to="/blog" className={styles.back}>
+                      Back
+                    </Link>
+                  </div>
+                ) : (
+                  <BlogSummary />
+                )
+            }
+            {
+              document.location.pathname.split('/')[1] === 'blog'
+                ? (
+                  <Pagination
+                    showSizeChanger
+                    showQuickJumper={{
+                      goButton: <button>OK</button>,
+                    }}
+                    defaultPageSize={10}
+                    defaultCurrent={articleStore.curPage}
+                    onChange={articleStore.onPageChange}
+                    total={articleStore.totalAmount}
+                    locale={localeInfo}
+                  />
+                )
+                : null
+            }
           </section>
           <aside className={styles.aside_wrapper}>
             <section className={styles.tags_container}>

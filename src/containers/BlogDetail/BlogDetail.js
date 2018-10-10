@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { inject, observer } from 'mobx-react/index';
 import ShareLink from 'react-twitter-share-link';
 import 'tocbot/dist/tocbot.css';
 import $ from 'jquery';
@@ -12,11 +13,13 @@ import 'baguettebox.js/dist/baguetteBox.min.css';
 import Like from '../../components/Like/Like';
 import './blog_detail.css';
 import {
-  setCopy, initLivere, shareToFB, checkWebp, aliOSS, webp,
+  setCopy, initLivere, shareToFB, checkWebp, aliOSS, webp, formatJSONDate,
 } from '../../utils/tools';
 import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
+@inject('articleStore')
+@observer
 class BlogDetail extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +33,16 @@ class BlogDetail extends Component {
   }
 
   componentDidMount() {
-    this.getData();
+    const { articleStore } = this.props;
+    articleStore.getArtcileById(window.location.pathname.split('/').slice(-1)[0]);
+    this.hljsInit();
+    this.addLineNumbers();
+    this.getCodeLanguage();
+    this.showImageAlt();
+    this.codeBlockChange();
+    this.tocbotInit();
+    this.wrapImg();
+    this.initBaguetteBox();
     initLivere();
     shareToFB();
     this.fixToc();
@@ -172,7 +184,7 @@ class BlogDetail extends Component {
   }
 
   render() {
-    const { blogContent } = this.state;
+    const { articleStore } = this.props;
     const bgUrl = `${aliOSS}/static/logo_avatar.jpg`;
     return (
       <main className="article_detail_wrapper">
@@ -196,39 +208,38 @@ class BlogDetail extends Component {
           <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
         </Helmet>
         {/* header */}
-        <section className="article_meta_wrapper">
+        <section
+          className="article_meta_wrapper"
+          style={{ backgroundImage: `url(${checkWebp() ? `${articleStore.detailData.header_cover}${webp}` : bgUrl})` }}
+        >
           <h1 className="title">
-            React练习——汇率计算器
+            {articleStore.detailData.title}
           </h1>
-          <div className="article_meta_container">
+          <div
+            className="article_meta_container"
+          >
             <figure
               className="author_avatar"
               style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
             />
-            <span className="publish_date" data-modify="Last Modified: 2018-11-13 14:51">
-              2018-09-08 10:34
+            <span className="publish_date" data-modify={`Last Modified: ${formatJSONDate(articleStore.detailData.last_modified_date)}`}>
+              {formatJSONDate(articleStore.detailData.publish_date)}
             </span>
             <span className="page_view">
-              1111
+              {articleStore.detailData.pv_count}
               {' '}
               Page Views
             </span>
             <ul className="tags_list">
-              <li>
-                <Link to="/blog">
-                  Yarn
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog">
-                  JavaScript
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog">
-                  npm
-                </Link>
-              </li>
+              {/*{*/}
+                {/*Object.keys(articleStore.detailData.tags).map(key => (*/}
+                  {/*<li key={key}>*/}
+                    {/*<Link to={`/t/${articleStore.detailData.tags[key]}`}>*/}
+                      {/*{articleStore.detailData.tags[key]}*/}
+                    {/*</Link>*/}
+                  {/*</li>*/}
+                {/*))*/}
+              {/*}*/}
             </ul>
           </div>
         </section>
@@ -237,7 +248,7 @@ class BlogDetail extends Component {
           {/* content */}
           <section
             className="article_content"
-            dangerouslySetInnerHTML={{ __html: blogContent }}
+            dangerouslySetInnerHTML={{ __html: articleStore.detailData.content }}
           />
           {/* menu */}
           <aside className="menu" />

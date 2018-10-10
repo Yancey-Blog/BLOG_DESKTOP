@@ -49,6 +49,7 @@ class Archive extends Component {
         },
       ],
     });
+    console.log(data)
     this.setState({
       data: data.data,
     });

@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
 import Carousel from 'nuka-carousel';
 import styles from './music.module.css';
-import { GET } from '../../https/axios';
 import {
   aliOSS, checkWebp, webp, formatJSONDate,
 } from '../../utils/tools';
 
+@inject('musicStore')
+@observer
 class Music extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-      recordData: [],
-      yanceyMusicData: [],
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -24,56 +21,21 @@ class Music extends Component {
   }
 
   componentDidMount() {
-    this.getData();
-    this.getRecordData();
-    this.getYanceyMusicData();
+    const { musicStore } = this.props;
+    musicStore.getLiveToursData();
+    musicStore.getRecordsData();
+    musicStore.getYanceyMusicData();
   }
 
   componentWillUnmount() {
   }
-
-  getData = () => {
-    GET('/liveTours', {})
-      .then((res) => {
-        this.setState({
-          data: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  getRecordData = () => {
-    GET('/latestFourFeaturedRecords', {})
-      .then((res) => {
-        this.setState({
-          recordData: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  getYanceyMusicData = () => {
-    GET('/yanceyMusic', {})
-      .then((res) => {
-        this.setState({
-          yanceyMusicData: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
 
   handleLoadImage = () => {
     this.carousel.setDimensions();
   };
 
   render() {
-    const { data, recordData, yanceyMusicData } = this.state;
+    const { musicStore } = this.props;
     const bgUrl = `${aliOSS}/static/music_page_header.jpg`;
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
@@ -106,21 +68,21 @@ class Music extends Component {
               wrapAround
             >
               {
-                Object.keys(data)
+                Object.keys(musicStore.liveTourData)
                   .map(key => (
                     <div className={cs(styles.post_container, styles.live_tours_container)} key={key}>
                       <img
                         key={key}
-                        src={checkWebp() ? `${data[key].poster}?x-oss-process=image/format,webp` : data[key].poster}
+                        src={checkWebp() ? `${musicStore.liveTourData[key].poster}?x-oss-process=image/format,webp` : musicStore.liveTourData[key].poster}
                         onLoad={this.handleLoadImage}
-                        alt={data[key].title}
+                        alt={musicStore.liveTourData[key].title}
                       />
                       <div className={styles.meta_intro}>
                         <time className={styles.meta_date}>
-                          {data[key].upload_date}
+                          {musicStore.liveTourData[key].upload_date}
                         </time>
                         <p className={cs(styles.meta_title, styles.live_tour_title)}>
-                          {data[key].title}
+                          {musicStore.liveTourData[key].title}
                         </p>
                       </div>
                     </div>
@@ -235,26 +197,26 @@ class Music extends Component {
             </h1>
             <ul className={styles.featured_records_list}>
               {
-                Object.keys(recordData).map(key => (
+                Object.keys(musicStore.featuredRecordData).map(key => (
                   <li className={styles.featured_record_item} key={key}>
                     <figure
                       className={styles.record_cover}
-                      style={{ backgroundImage: `url(${recordData[key].cover})` }}
+                      style={{ backgroundImage: `url(${musicStore.featuredRecordData[key].cover})` }}
                     />
                     <div className={styles.record_intro}>
                       <time className={styles.meta_date}>
-                        {formatJSONDate(recordData[key].release_date).split(' ')[0]}
+                        {formatJSONDate(musicStore.featuredRecordData[key].release_date).split(' ')[0]}
                       </time>
                       <p className={cs(styles.record_title, styles.meta_title)}>
-                        {recordData[key].album_name}
+                        {musicStore.featuredRecordData[key].album_name}
                         <br />
                         <span className={styles.meta_title_artist}>
-                          {recordData[key].artist}
+                          {musicStore.featuredRecordData[key].artist}
                         </span>
                       </p>
                       <hr className={styles.music_split} />
                       <a
-                        href={recordData[key].buy_url}
+                        href={musicStore.featuredRecordData[key].buy_url}
                         className={styles.music_btn}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -274,22 +236,22 @@ class Music extends Component {
           </h1>
           <ul className={cs(styles.artists_list, styles.yancey_music_list)}>
             {
-              Object.keys(yanceyMusicData).map(key => (
+              Object.keys(musicStore.yanceyMusicData).map(key => (
                 <li className={cs(styles.post_container, styles.artist_item)} key={key}>
                   <img
-                    src={yanceyMusicData[key].cover}
-                    alt={yanceyMusicData[key].title}
+                    src={musicStore.yanceyMusicData[key].cover}
+                    alt={musicStore.yanceyMusicData[key].title}
                   />
                   <div className={cs(styles.meta_intro, styles.artist_intro)}>
                     <time className={styles.meta_date}>
-                      {formatJSONDate(yanceyMusicData[key].release_date).split(' ')[0]}
+                      {formatJSONDate(musicStore.yanceyMusicData[key].release_date).split(' ')[0]}
                     </time>
                     <p className={cs(styles.meta_title, styles.artist_title)}>
-                      {yanceyMusicData[key].title}
+                      {musicStore.yanceyMusicData[key].title}
                     </p>
                     <hr className={styles.music_split} />
                     <a
-                      href={yanceyMusicData[key].soundCloud_url}
+                      href={musicStore.yanceyMusicData[key].soundCloud_url}
                       className={styles.music_btn}
                       target="_blank"
                       rel="noopener noreferrer"

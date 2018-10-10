@@ -10,7 +10,8 @@
     padding-top: 11rem;
     padding-left: 28rem;
     font-family: "Merriweather Sans", sans-serif;
-    background: url("./bg.jpg") no-repeat center top;
+    background-repeat: no-repeat;
+    background-position: center top;
     background-attachment: fixed;
     background-size: cover;
     color: #fff;

@@ -25,7 +25,22 @@
   grid-column-gap: 2rem;
   width: 62rem;
   margin: 3rem auto 0;
-
+  .no_articles {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    color: #fc625d;
+  }
+  .back{
+    display: block;
+    padding: .5rem 2.75rem;
+    border: 2px solid #F12742;
+    border-radius: 1.75rem;
+    color: #F12742;
+    text-align: center;
+    margin: 2rem auto;
+    width: 8rem;
+  }
 }
 
 .pagination_list {
@@ -82,6 +97,25 @@
     font-size: .9rem;
     font-weight: 400;
     color: #666;
+  }
+}
+
+:global(.rc-pagination) {
+  margin: 1rem 0;
+  :global(.rc-pagination-prev) {
+    outline: none !important;
+    border-radius: 50% !important;
+  }
+  :global(.rc-pagination-next) {
+    outline: none !important;
+    border-radius: 50% !important;
+  }
+  :global(.rc-pagination-item) {
+    outline: none !important;
+    border-radius: 50% !important;
+  }
+  :global(button) {
+    outline: none !important;
   }
 }
 

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
+import { inject, observer } from 'mobx-react/index';
 import styles from './cv.module.css';
-import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
+@inject('cvStore')
+@observer
 class CV extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -17,32 +17,27 @@ class CV extends Component {
   }
 
   componentDidMount() {
-    // this.getData();
+    const { cvStore } = this.props;
+    cvStore.getUserInfoData();
+    cvStore.getProgramExperienceData();
+    cvStore.getWorkExperienceData();
   }
 
   componentWillUnmount() {
   }
 
-  getData() {
-    GET('/articles', {})
-      .then((res) => {
-        this.setState({
-          data: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }
-
   render() {
+    const { cvStore } = this.props;
     return (
       <main className={styles.cv_wrapper}>
         <section className={styles.cv_basic_container}>
-          <figure className={styles.avatar} />
+          <figure
+            className={styles.avatar}
+            style={{ backgroundImage: `url(${cvStore.userInfoData.avatar})` }}
+          />
           <div className={styles.cv_basic}>
             <p className={cs(styles.identity, styles.name)}>
-              Yancey Leo
+              {cvStore.userInfoData.user_name}
             </p>
             <p className={styles.identity}>
               <span>
@@ -50,6 +45,13 @@ class CV extends Component {
                 {' '}
               </span>
               Man
+            </p>
+            <p className={styles.identity}>
+              <span>
+                City:
+                {' '}
+              </span>
+              {cvStore.userInfoData.city}
             </p>
             <p className={styles.identity}>
               <span>
@@ -94,17 +96,7 @@ class CV extends Component {
             </p>
             <div className={styles.self_introduction}>
               <p className={styles.self_introduction_content}>
-                A full stack software engineer with 20 years of professional experience in many programming languages, frameworks, and environments.
-              </p>
-              <p className={styles.self_introduction_content}>
-                Expert in translating business requirements into robust technical solutions that are delivered on time.
-              </p>
-              <p className={styles.self_introduction_content}>
-                11 years working remotely as both a solo full stack developer as well as a member of a geographically distributed Agile team.
-              </p>
-              <p className={styles.self_introduction_content}>
-                Currently seeking a position working with the latest JavaScript web, mobile, and server technologies including React/Redux/GraphQL, Angular, Node.js, Express, Redis, MongoDB,
-                PostgreSQL/MySQL, et al.
+                {cvStore.userInfoData.self_introduction}
               </p>
             </div>
           </div>
@@ -118,34 +110,39 @@ class CV extends Component {
               Work Experience
             </span>
           </div>
-          <div className={styles.detail_wrapper}>
-            <div className={styles.summary}>
-              <figure className={styles.logo} />
-              <div className="company_info">
-                <p className={styles.company_name}>
-                  Hawaii Medical Service Association - Honolulu, HI
-                </p>
-                <p className={styles.position}>
-                  Senior Software Engineer
-                </p>
-                <p className={styles.work_range}>
-                  Aug 2016 to Present
-                </p>
+          {
+            Object.keys(cvStore.workExperienceData).map(key => (
+              <div className={styles.detail_wrapper} key={key}>
+                <div className={styles.summary}>
+                  <div className="company_info">
+                    <p className={styles.company_name}>
+                      {cvStore.workExperienceData[key].enterprise_name}
+                    </p>
+                    <p className={styles.position}>
+                      {cvStore.workExperienceData[key].position}
+                    </p>
+                    <p className={styles.work_range}>
+                      {cvStore.workExperienceData[key].in_service[0]}
+                      {' '}
+                      ~
+                      {' '}
+                      {cvStore.workExperienceData[key].in_service[1]}
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.work_content}>
+                  <p className={styles.work_content_detail}>
+                    {cvStore.workExperienceData[key].work_content}
+                  </p>
+                  <p className={styles.technology_stack}>
+                    Tech:
+                    {' '}
+                    {cvStore.workExperienceData[key].work_technology_stack.toString()}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className={styles.work_content}>
-              <p className={styles.work_content_detail}>
-                Brought on board to help meet increasing development demands of yancey public faciing website, hmsa.com. Developed new modules and refactored others to cohere with changes
-                introduced by the Affordable Care Act. Refactored dozens of web pages and controls to meet Section 508 web accessibility standards. Helped develop new web module for healthcare
-                providers. Lead effort to provide unit testing and code coverage across all C# and JavaScript code. Helped develop automated testing procedures using Selenium. Helped prepare
-                transition of build process and testing environments to Microsoft Azure.
-              </p>
-              <p className={styles.technology_stack}>
-                Tech: .NET, C#, MVC, WCF, Web Api, Entity Framework, Unity Framework, MSTest, Moq, Selenium, Bootstrap, AJAX, jQuery, Grunt, LESS, Apache Lucene, Team Foundation Server (TFS), SQL
-                Server, Azure
-              </p>
-            </div>
-          </div>
+            ))
+          }
           <div className={styles.cv_detail_item}>
             <svg className={styles.item_icon}>
               <use xlinkHref={`${svgIcons}#code`} />
@@ -154,34 +151,35 @@ class CV extends Component {
               Program Experience
             </span>
           </div>
-          <div className={styles.detail_wrapper}>
-            <div className={styles.summary}>
-              <figure className={styles.logo} />
-              <div className="company_info">
-                <p className={styles.company_name}>
-                  Program name Program name Program name
-                </p>
-                <p className={styles.position}>
-                  Senior Software Engineer
-                </p>
-                <p className={styles.work_range}>
-                  Aug 2016 to Present
-                </p>
+          {
+            Object.keys(cvStore.programExperienceData).map(key => (
+              <div className={styles.detail_wrapper} key={key}>
+                <div className={styles.summary}>
+                  <figure className={styles.logo} />
+                  <div className="company_info">
+                    <p className={styles.company_name}>
+                      <a
+                        href={cvStore.programExperienceData[key].program_url}
+                        className={styles.program_name}
+                      >
+                        {cvStore.programExperienceData[key].program_name}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.work_content}>
+                  <p className={styles.work_content_detail}>
+                    {cvStore.programExperienceData[key].program_content}
+                  </p>
+                  <p className={styles.technology_stack}>
+                    Tech:
+                    {' '}
+                    {cvStore.programExperienceData[key].program_technology_stack.toString()}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className={styles.work_content}>
-              <p className={styles.work_content_detail}>
-                Brought on board to help meet increasing development demands of yancey public faciing website, hmsa.com. Developed new modules and refactored others to cohere with changes
-                introduced by the Affordable Care Act. Refactored dozens of web pages and controls to meet Section 508 web accessibility standards. Helped develop new web module for healthcare
-                providers. Lead effort to provide unit testing and code coverage across all C# and JavaScript code. Helped develop automated testing procedures using Selenium. Helped prepare
-                transition of build process and testing environments to Microsoft Azure.
-              </p>
-              <p className={styles.technology_stack}>
-                Tech: .NET, C#, MVC, WCF, Web Api, Entity Framework, Unity Framework, MSTest, Moq, Selenium, Bootstrap, AJAX, jQuery, Grunt, LESS, Apache Lucene, Team Foundation Server (TFS), SQL
-                Server, Azure
-              </p>
-            </div>
-          </div>
+            ))
+          }
           <div className={styles.cv_detail_item}>
             <svg className={styles.item_icon}>
               <use xlinkHref={`${svgIcons}#mortarboard`} />
@@ -194,7 +192,7 @@ class CV extends Component {
             <div className={cs(styles.summary)}>
               <div className="company_info">
                 <p className={styles.position}>
-                  Harvard University
+                  Institute of Disaster Prevention Science and Technology
                 </p>
                 <p className={styles.work_range}>
                   Sep 2014 to Jun 2018

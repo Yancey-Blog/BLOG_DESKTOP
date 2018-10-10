@@ -7,9 +7,9 @@ import styles from './home.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/BlogSummary/BlogSummary';
 import socialMedia from '../../utils/socialMedia';
-import { GET } from '../../https/axios';
 
 @inject('articleStore')
+@inject('homeStore')
 @observer
 class Home extends Component {
   static addQrCode() {
@@ -21,14 +21,7 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-      newReleaseData: [],
-      announcementData: '',
-      coverUrl: '',
-      curCoverId: '',
-      motto: '',
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -36,74 +29,19 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const { articleStore } = this.props;
+    const { articleStore, homeStore } = this.props;
     articleStore.getSummaryData();
+    homeStore.getLatestMotto();
+    homeStore.getNewReleaseData();
+    homeStore.getAnnouncementData();
+    homeStore.getCoverData();
     this.handleBigBannerHeight();
     this.switchNavbarBackgroundColor();
     Home.addQrCode();
-    this.getNewReleaseData();
-    this.getAnnouncementData();
-    this.getCoverData();
-    this.getMottoData();
-    // this.getData();
   }
 
   componentWillUnmount() {
   }
-
-  getMottoData = () => {
-    GET('/latestMotto', {})
-      .then((res) => {
-        this.setState({
-          motto: res.data.content,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  getCoverData = () => {
-    let id = window.localStorage.cover_id;
-    if (!id) {
-      id = 0;
-    }
-    GET(`/covers/${id}`, {})
-      .then((res) => {
-        this.setState({
-          coverUrl: res.data.url,
-          curCoverId: res.data._id, // eslint-disable-line
-        });
-        window.localStorage.setItem('cover_id', res.data._id); // eslint-disable-line
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  getNewReleaseData = () => {
-    GET('/latestThreeProjects', {})
-      .then((res) => {
-        this.setState({
-          newReleaseData: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  getAnnouncementData = () => {
-    GET('/latestAnnouncements', {})
-      .then((res) => {
-        this.setState({
-          announcementData: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
 
   handleBigBannerHeight = () => {
     const viewPortInit = $(window)
@@ -139,33 +77,14 @@ class Home extends Component {
   handleKeyDown = () => {
   };
 
-  switchCover = (position, id) => {
-    const params = {
-      position,
-    };
-    GET(`/covers/${id}`, params)
-      .then((res) => {
-        this.setState({
-          coverUrl: res.data.url,
-          curCoverId: res.data._id, // eslint-disable-line
-        });
-        window.localStorage.setItem('cover_id', res.data._id); // eslint-disable-line
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
   render() {
-    const {
-      newReleaseData, coverUrl, curCoverId, motto, data, announcementData,
-    } = this.state;
+    const { homeStore } = this.props;
     return (
       <main className={styles['yancey-blog-home']}>
         <section className="home-imax-wrapper">
           <figure
             className={cs([styles['home-imax']], 'home-big')}
-            style={{ backgroundImage: `url(${coverUrl}?x-oss-process=image/format,webp)` }}
+            style={{ backgroundImage: `url(${homeStore.coverUrl}?x-oss-process=image/format,webp)` }}
           >
             <h1
               className={styles.glitch}
@@ -179,7 +98,7 @@ class Home extends Component {
                 <svg className={cs(styles.icon, styles['left-quote'])}>
                   <use xlinkHref={`${svgIcons}#left-quote`} />
                 </svg>
-                {motto}
+                {homeStore.mottoData}
                 <svg className={cs(styles.icon, styles['right-quote'])}>
                   <use xlinkHref={`${svgIcons}#right-quote`} />
                 </svg>
@@ -187,7 +106,7 @@ class Home extends Component {
               <ul className={styles['social-media-list']}>
                 <li
                   className={styles['social-media-item']}
-                  onClick={() => this.switchCover('prev', curCoverId)}
+                  onClick={() => homeStore.switchCoverData('prev', homeStore.curCoverId)}
                   onKeyDown={this.handleKeyDown}
                   role="tab"
                   tabIndex="0"
@@ -210,7 +129,7 @@ class Home extends Component {
                 }
                 <li
                   className={styles['social-media-item']}
-                  onClick={() => this.switchCover('next', curCoverId)}
+                  onClick={() => homeStore.switchCoverData('next', homeStore.curCoverId)}
                   onKeyDown={this.handleKeyDown}
                   role="tab"
                   tabIndex="0"
@@ -229,7 +148,7 @@ class Home extends Component {
               <use xlinkHref={`${svgIcons}#megaphone`} />
             </svg>
             <span className="announcement-content">
-              {announcementData.content}
+              {homeStore.announcementData}
             </span>
           </article>
           <article className={styles['new-release-wrapper']}>
@@ -241,19 +160,19 @@ class Home extends Component {
             </h2>
             <div className={styles['new-release-container']}>
               {
-                Object.keys(newReleaseData)
+                Object.keys(homeStore.newReleaseData)
                   .map(key => (
                     <div className={styles['new-release']} key={key}>
                       <a
-                        href={newReleaseData[key].url}
+                        href={homeStore.newReleaseData[key].url}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <figure
                           className={styles['new-release-content']}
-                          style={{ backgroundImage: `url(${newReleaseData[key].poster}?x-oss-process=image/format,webp)` }}
-                          data-title={newReleaseData[key].title}
-                          data-intro={newReleaseData[key].introduction}
+                          style={{ backgroundImage: `url(${homeStore.newReleaseData[key].poster}?x-oss-process=image/format,webp)` }}
+                          data-title={homeStore.newReleaseData[key].title}
+                          data-intro={homeStore.newReleaseData[key].introduction}
                         >
                           <div className={styles.overlay} />
                         </figure>
@@ -270,7 +189,7 @@ class Home extends Component {
               </svg>
               The Latest!
             </h2>
-            <BlogSummary data={data} />
+            <BlogSummary />
           </article>
           <article className={styles['show-more-btn-wrapper']}>
             <Link to="/blog">

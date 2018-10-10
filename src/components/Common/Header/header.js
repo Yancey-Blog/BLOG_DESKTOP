@@ -31,10 +31,10 @@ const navInfo = {
     url: '/cv',
     icon: '#curriculum-vitae',
   },
-  RSS: {
-    url: '/rss',
-    icon: '#rss-symbol',
-  },
+  // RSS: {
+  //   url: '/rss',
+  //   icon: '#rss-symbol',
+  // },
 };
 
 @inject('articleStore')

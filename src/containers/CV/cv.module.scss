@@ -4,7 +4,11 @@
   grid-column-gap: 2rem;
   width: 60rem;
   margin: 5rem auto 0;
-  // font-family: "Ubuntu", sans-serif;
+  .program_name{
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #000;
+  }
 }
 
 .cv_basic_container {
@@ -14,7 +18,8 @@
   border-radius: .5rem;
   .avatar {
     height: 13rem;
-    background: url("https://static.2heng.xin/wp-content/uploads//2017/11/IMG_20171127_161530-1024x576.jpg") no-repeat 0 0;
+    background-repeat: no-repeat;
+    background-position: 0 0 ;
     background-size: cover;
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
@@ -91,13 +96,6 @@
       padding: .8rem;
       &:last-child{
         padding: 0 .8rem;
-      }
-      .logo {
-        width: 3.2rem;
-        height: 3.2rem;
-        margin-right: 1rem;
-        background: url("./logo.jpg") no-repeat center top;
-        background-size: cover;
       }
       .company_name {
         font-size: .75rem;

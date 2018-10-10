@@ -1,89 +1,347 @@
 const arr = [
   {
-    tags: [
-      'Sayaka',
-    ],
+    _id: '5baca395766f9c1d349d6325',
+    title: 'make the change',
+    pv_count: 0,
+    like_count: 0,
+    year: '2017',
+    month: '09',
+    day: '12',
   },
   {
-    tags: [
-      '没变迁',
-    ],
+    _id: '5baca3df766f9c1d349d6326',
+    title: 'say anything thdi',
+    pv_count: 76,
+    like_count: 23,
+    year: '2017',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      '等等',
-    ],
+    _id: '5bad900a766f9c1d349d6327',
+    title: 'sayaka',
+    pv_count: 0,
+    like_count: 0,
+    year: '2017',
+    month: '11',
+    day: '08',
   },
   {
-    tags: [
-      'demo1',
-    ],
+    _id: '5bad90c1766f9c1d349d6328',
+    title: 'demo2',
+    pv_count: 34,
+    like_count: 4,
+    year: '2018',
+    month: '07',
+    day: '17',
   },
   {
-    tags: [
-      '123',
-    ],
+    _id: '5bad90ce766f9c1d349d6329',
+    title: 'demo2',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '07',
+    day: '27',
   },
   {
-    tags: [
-      '11',
-    ],
+    _id: '5bad90da766f9c1d349d632a',
+    title: 'demo3',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '08',
+    day: '22',
   },
   {
-    tags: [
-      '111',
-    ],
+    _id: '5bad90ff766f9c1d349d632b',
+    title: 'demo4',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      'yacney',
-    ],
+    _id: '5bad910a766f9c1d349d632c',
+    title: 'demo54',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      '11',
-      '再相见',
-    ],
+    _id: '5bad911f766f9c1d349d632d',
+    title: 'demo5',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      '11',
-    ],
+    _id: '5bad912c766f9c1d349d632e',
+    title: 'demo6',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      '22',
-    ],
+    _id: '5bad9142766f9c1d349d632f',
+    title: 'dee',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      'JavaScript',
-    ],
+    _id: '5bad9b44766f9c1d349d6330',
+    title: '底mo',
+    pv_count: 2,
+    like_count: 0,
+    year: '2018',
+    month: '09',
+    day: '28',
   },
   {
-    tags: [
-      'CSS',
-    ],
+    _id: '5bad9b55766f9c1d349d6331',
+    title: 'Article 1',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '08',
+    day: '13',
   },
   {
-    tags: [
-      'JavaScript',
-    ],
+    _id: '5bbc5df347e427a14702fd6f',
+    title: 'demo11',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
   },
   {
-    tags: [
-      'CSS',
-    ],
+    _id: '5bbc5e0347e427a14702fd70',
+    title: 'demo12',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e1147e427a14702fd71',
+    title: 'demo13',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e1f47e427a14702fd72',
+    title: 'demo14',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e3147e427a14702fd73',
+    title: 'demo15',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e4347e427a14702fd74',
+    title: 'demo16',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e5847e427a14702fd75',
+    title: 'demo17',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e6647e427a14702fd76',
+    title: 'demo18',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e7c47e427a14702fd77',
+    title: 'demo19',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e8f47e427a14702fd78',
+    title: 'demo20',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5e9c47e427a14702fd79',
+    title: 'demo21',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5eab47e427a14702fd7a',
+    title: 'demo22',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5ecf47e427a14702fd7b',
+    title: 'demo23',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5edf47e427a14702fd7c',
+    title: 'demo24',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5eed47e427a14702fd7d',
+    title: 'demo25',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5efd47e427a14702fd7e',
+    title: 'demo26',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5fdd47e427a14702fd7f',
+    title: 'demo27',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5fef47e427a14702fd80',
+    title: 'demo28',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc5ffb47e427a14702fd81',
+    title: 'demo29',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc600d47e427a14702fd82',
+    title: 'demo30',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc602147e427a14702fd83',
+    title: 'demo31',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc603b47e427a14702fd84',
+    title: 'demo32',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
+  },
+  {
+    _id: '5bbc605247e427a14702fd85',
+    title: 'demo33',
+    pv_count: 0,
+    like_count: 0,
+    year: '2018',
+    month: '10',
+    day: '09',
   },
 ];
 
-const deepFlatten = (arr) => {
-  const flatten = (arr) => [].concat(...arr);
-  return flatten(arr.map(x => Array.isArray(x) ? deepFlatten(x) : x));
-};
-
-const _arr = [];
+const map = {};
+const dest = [];
 for (let i = 0; i < arr.length; i += 1) {
-  _arr.push(arr[i].tags);
+  const ai = arr[i];
+  if (!map[ai.year]) {
+    dest.push({
+      year: ai.year,
+      data: [ai],
+    });
+    map[ai.year] = ai;
+  } else {
+    for (let j = 0; j < dest.length; j++) {
+      const dj = dest[j];
+      if (dj.year == ai.year) {
+        dj.data.push(ai);
+        break;
+      }
+    }
+  }
 }
-console.log(deepFlatten(_arr));
