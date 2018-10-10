@@ -1,71 +1,43 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import lazysizes from 'lazysizes';
 import { checkWebp, formatJSONDate } from '../../utils/tools';
 import styles from './blogSummary.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
-import { GET } from '../../https/axios';
 
+@inject('articleStore')
+@observer
 class blogSummary extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dataSource: [],
-      curPage: 1,
-    };
+    this.state = {};
   }
 
   componentWillMount() {
   }
 
   componentDidMount() {
-    this.getData();
   }
 
   componentWillUnmount() {
   }
 
-  getData() {
-    const path = document.location.pathname.split('/')[1];
-    if (path === 't') {
-      GET(`/articlesByTag?tag=${document.location.pathname.split('/').slice(-1)[0]}`, {})
-        .then((res) => {
-          this.setState({
-            dataSource: res.data,
-          });
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    } else {
-      const { curPage } = this.state;
-      GET(`/articles/page/${curPage}`, {})
-        .then((res) => {
-          this.setState({
-            dataSource: res.data,
-          });
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    }
-  }
-
   render() {
-    const { dataSource } = this.state;
+    const { articleStore } = this.props;
     return (
-      Object.keys(dataSource)
+      Object.keys(articleStore.summaryData)
         .map((item, key) => (
-          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={dataSource[key]._id}>
+          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={articleStore.summaryData[key]._id}>
             <div className={styles['blog-thumb-wrapper']}>
-              <Link to={`/p/${dataSource[key]._id}`}>
+              <Link to={`/p/${articleStore.summaryData[key]._id}`}>
                 <figure className={styles['blog-thumb']}>
                   <img
                     className={cs('lazyload', 'lazyload2', styles.img)}
-                    src={`${dataSource[key].header_cover}?x-oss-process=image/resize,w_120/quality,Q_90`}
-                    data-src={checkWebp() ? `${dataSource[key].header_cover}?x-oss-process=image/format,webp` : dataSource[key].poster}
-                    alt={dataSource[key].title}
+                    src={`${articleStore.summaryData[key].header_cover}?x-oss-process=image/resize,w_120/quality,Q_90`}
+                    data-src={checkWebp() ? `${articleStore.summaryData[key].header_cover}?x-oss-process=image/format,webp` : articleStore.summaryData[key].poster}
+                    alt={articleStore.summaryData[key].title}
                   />
                 </figure>
               </Link>
@@ -77,11 +49,11 @@ class blogSummary extends Component {
                 </svg>
                 Released
                 {' '}
-                {formatJSONDate(dataSource[key].publish_date)}
+                {formatJSONDate(articleStore.summaryData[key].publish_date)}
               </p>
-              <Link to={`/p/${dataSource[key]._id}`}>
+              <Link to={`/p/${articleStore.summaryData[key]._id}`}>
                 <h3 className={styles.title}>
-                  {dataSource[key].title}
+                  {articleStore.summaryData[key].title}
                 </h3>
               </Link>
               <div className={styles['extra-info']}>
@@ -89,7 +61,7 @@ class blogSummary extends Component {
                   <svg className={styles['icon-eye']}>
                     <use xlinkHref={`${svgIcons}#eye`} />
                   </svg>
-                  {dataSource[key].pv_count}
+                  {articleStore.summaryData[key].pv_count}
                   {' '}
                   PV
                 </span>
@@ -97,8 +69,8 @@ class blogSummary extends Component {
                   <svg className="icon-comment">
                     <use xlinkHref={`${svgIcons}#multimedia`} />
                   </svg>
-                  <Link to={`/p/${dataSource[key]._id}`}>
-                    {dataSource[key].like_count}
+                  <Link to={`/p/${articleStore.summaryData[key]._id}`}>
+                    {articleStore.summaryData[key].like_count}
                     {' '}
                     Likes
                   </Link>
@@ -107,16 +79,16 @@ class blogSummary extends Component {
                   <svg className="icon-folder">
                     <use xlinkHref={`${svgIcons}#folder`} />
                   </svg>
-                  <Link to={`/${dataSource[key].tags[0]}`}>
-                    {dataSource[key].tags[0]}
+                  <Link to={`/${articleStore.summaryData[key].tags[0]}`}>
+                    {articleStore.summaryData[key].tags[0]}
                   </Link>
                 </span>
               </div>
               <p className={styles['summary-content']}>
-                {dataSource[key].summary}
+                {articleStore.summaryData[key].summary}
               </p>
               <div className={styles['show-detail-wrapper']}>
-                <Link to={`/p/${dataSource[key]._id}`}>
+                <Link to={`/p/${articleStore.summaryData[key]._id}`}>
                   <svg className={styles['icon-more']}>
                     <use xlinkHref={`${svgIcons}#more`} />
                   </svg>

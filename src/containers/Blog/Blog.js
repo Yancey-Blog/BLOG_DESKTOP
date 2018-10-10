@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
-import { Link } from 'react-router-dom';
+import Pagination from 'rc-pagination';
+import localeInfo from 'rc-pagination/lib/locale/en_US';
+import 'rc-pagination/assets/index.css';
 import styles from './blog.module.css';
-import BlogSummary from '../../components/BlogSummary/blogSummary';
+import BlogSummary from '../../components/BlogSummary/BlogSummary';
 import Tag from '../../components/Tag/Tag';
 import LinkCard from '../../components/LinkCard/LinkCard';
 import { checkWebp, aliOSS, webp } from '../../utils/tools';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
+@inject('articleStore')
+@observer
 class Blog extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -20,6 +24,25 @@ class Blog extends Component {
   }
 
   componentDidMount() {
+    const { articleStore } = this.props;
+    if (document.location.pathname.split('/')[1] === 't') {
+      articleStore.getDataByTag(articleStore.curTag);
+    } else {
+      articleStore.getSummaryData(articleStore.curPage);
+    }
+    articleStore.getTagData();
+    articleStore.getTop7Data();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { articleStore, location } = this.props;
+    if (nextProps.location.pathname !== location.pathname) {
+      if (document.location.pathname.split('/')[1] === 't') {
+        articleStore.getDataByTag(articleStore.curTag);
+      } else {
+        articleStore.getSummaryData(articleStore.curPage);
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -27,6 +50,7 @@ class Blog extends Component {
 
   render() {
     const bgUrl = `${aliOSS}/static/blog_page_header.jpg`;
+    const { articleStore } = this.props;
     return (
       <main className="blog_wrapper">
         <figure
@@ -40,63 +64,19 @@ class Blog extends Component {
         <div className={styles.main_content}>
           <section>
             <BlogSummary />
-            <ul className={styles.pagination_list}>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                &lt;
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                1
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                2
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                3
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                4
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog" onClick={e => e.preventDefault()}>
-                ···
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                6
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                7
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                8
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                9
-                </Link>
-              </li>
-              <li className={styles.pagination_item}>
-                <Link to="blog">
-                &gt;
-                </Link>
-              </li>
-            </ul>
+            <Pagination
+              showSizeChanger
+              showQuickJumper={{
+                goButton: <button>
+                            OK
+                          </button>,
+              }}
+              defaultPageSize={10}
+              defaultCurrent={articleStore.curPage}
+              onChange={articleStore.onPageChange}
+              total={articleStore.totalAmount}
+              locale={localeInfo}
+            />
           </section>
           <aside className={styles.aside_wrapper}>
             <section className={styles.tags_container}>

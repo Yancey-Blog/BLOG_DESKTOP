@@ -1,48 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react/index';
 import styles from './tag.module.css';
-import { GET } from '../../https/axios';
 
+@inject('articleStore')
+@observer
 class Tag extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dataSource: [],
-    };
+    this.state = {};
   }
 
   componentWillMount() {
   }
 
   componentDidMount() {
-    this.getData();
   }
 
   componentWillUnmount() {
   }
 
-  getData() {
-    GET('/allTags', {})
-      .then((res) => {
-        this.setState({
-          dataSource: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }
-
   render() {
-    const { dataSource } = this.state;
+    const { articleStore } = this.props;
     return (
       <ul className={styles.tags}>
         {
-        Object.keys(dataSource)
+        Object.keys(articleStore.TagData)
           .map(key => (
-            <li key={key}>
-              <Link to={`/t/${dataSource[key]}`}>
-                {dataSource[key]}
+            <li
+              key={key}
+            >
+              <Link
+                to={`/t/${articleStore.TagData[key]}`}
+              >
+                {articleStore.TagData[key]}
               </Link>
             </li>
           ))

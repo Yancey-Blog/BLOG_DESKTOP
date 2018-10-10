@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
 import $ from 'jquery';
 import styles from './home.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
-import BlogSummary from '../../components/BlogSummary/blogSummary';
+import BlogSummary from '../../components/BlogSummary/BlogSummary';
 import socialMedia from '../../utils/socialMedia';
 import { GET } from '../../https/axios';
 
-
-export default class Home extends Component {
+@inject('articleStore')
+@observer
+class Home extends Component {
   static addQrCode() {
     const twitter = document.getElementsByClassName('twitter')[0];
     const wechat = document.getElementsByClassName('wechat')[0];
@@ -34,6 +36,8 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
+    const { articleStore } = this.props;
+    articleStore.getSummaryData();
     this.handleBigBannerHeight();
     this.switchNavbarBackgroundColor();
     Home.addQrCode();
@@ -278,3 +282,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home;

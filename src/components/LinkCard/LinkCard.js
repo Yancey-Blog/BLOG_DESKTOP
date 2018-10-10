@@ -1,63 +1,49 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react/index';
 import styles from './linkCard.module.css';
-import { GET } from '../../https/axios';
 
+@inject('articleStore')
+@observer
 class LinkCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dataSource: [],
-    };
+    this.state = {};
   }
 
   componentWillMount() {
   }
 
   componentDidMount() {
-    this.getData();
   }
 
   componentWillUnmount() {
   }
 
-  getData() {
-    GET('/articlesByPV', {})
-      .then((res) => {
-        console.log(res.data)
-        this.setState({
-          dataSource: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }
-
   render() {
-    const { dataSource } = this.state;
+    const { articleStore } = this.props;
     return (
       <ul>
         {
-          Object.keys(dataSource)
+          Object.keys(articleStore.top7Data)
             .map(key => (
               <li className={styles.card_item} key={key}>
-                <Link to={`/p/${dataSource[key]._id}`}> {/*eslint-disable-line*/}
+                <Link to={`/p/${articleStore.top7Data[key]._id}`}> {/*eslint-disable-line*/}
                   <span
                     className={styles.card_bg}
-                    style={{ backgroundImage: `url(${dataSource[key].header_cover}?x-oss-process=image/resize,w_360/quality,Q_90)` }}
+                    style={{ backgroundImage: `url(${articleStore.top7Data[key].header_cover}?x-oss-process=image/resize,w_360/quality,Q_90)` }}
                   />
                   <span className={styles.card_content}>
                     <span>
                       <span className={styles.card_title}>
-                        {dataSource[key].title}
+                        {articleStore.top7Data[key].title}
                       </span>
                       <span className={styles.card_url}>
                       https://www.yanceyleo.com/
                       </span>
                     </span>
                     <span className={styles.card_img_cell}>
-                      <img src={`${dataSource[key].header_cover}?x-oss-process=image/resize,w_360/quality,Q_90`} alt={dataSource[key].title} />
+                      <img src={`${articleStore.top7Data[key].header_cover}?x-oss-process=image/resize,w_360/quality,Q_90`} alt={articleStore.top7Data[key].title} />
                     </span>
                   </span>
                 </Link>

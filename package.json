@@ -20,6 +20,7 @@
     "node-sass": "^4.9.2",
     "nuka-carousel": "^4.3.7",
     "postcss-cssnext": "^3.1.0",
+    "rc-pagination": "^1.17.3",
     "react": "^16.4.1",
     "react-app-rewire-mobx": "^1.0.8",
     "react-dom": "^16.4.1",

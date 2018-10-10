@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Router } from 'react-router-dom';
+import { Provider } from 'mobx-react';
+import history from './history';
+import stores from './stores/index';
 import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
@@ -39,26 +42,30 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/legal" component={PrivacyPolicy} />
-          <Route path="/about" component={About} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/p/:id" component={BlogDetail} />
-          <Route path="/t/:id" component={Blog} />
-          <Route path="/archive" component={Archive} />
-          <Route path="/music" component={Music} />
-          <Route path="/cv" component={CV} />
-          <Route path="/apps" component={Apps} />
-          <Route component={NotFound} />
-        </Switch>
-        <ScrollProgress />
-        <BackToTop />
-        <Player />
-        <Footer />
-      </div>
+      <Provider {...stores}>
+        <Router history={history}>
+          <div className="App">
+            <Header />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/legal" component={PrivacyPolicy} />
+              <Route path="/about" component={About} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/p/:id" component={BlogDetail} />
+              <Route path="/t/:id" component={Blog} />
+              <Route path="/archive" component={Archive} />
+              <Route path="/music" component={Music} />
+              <Route path="/cv" component={CV} />
+              <Route path="/apps" component={Apps} />
+              <Route component={NotFound} />
+            </Switch>
+            <ScrollProgress />
+            <BackToTop />
+            <Player />
+            <Footer />
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }

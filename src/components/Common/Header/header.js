@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
 import styles from './header.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
+import articleStore from '../../../stores/ArticleStore';
 
 const navInfo = {
   home: {
@@ -35,37 +37,23 @@ const navInfo = {
   },
 };
 
+@inject('articleStore')
+@observer
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showSearch: false,
-    };
+    this.state = {};
   }
 
   componentWillMount() {
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   handleKeyDown() {
   }
 
-  showSearch() {
-    this.setState({
-      showSearch: true,
-    });
-  }
-
-  closeSearch() {
-    this.setState({
-      showSearch: false,
-    });
-  }
-
   render() {
-    const { showSearch } = this.state;
     return (
       <header className={cs(styles['yancey-common-header'], 'no-user-select')}>
         <a href="/" className={styles['yancey-logo']}>
@@ -90,7 +78,7 @@ class Header extends Component {
             }
             <li
               className={styles['yancey-nav-item']}
-              onClick={() => this.showSearch()}
+              onClick={() => articleStore.onShowSearchChange()}
               onKeyDown={this.handleKeyDown}
               role="tab"
             >
@@ -101,12 +89,12 @@ class Header extends Component {
           </ul>
         </nav>
         {
-          showSearch
+          articleStore.showSearch
             ? (
               <div className={styles.search_full_screen}>
                 <svg
                   className={cs(styles['header-icon'], styles.icon_close)}
-                  onClick={() => this.closeSearch()}
+                  onClick={() => articleStore.onCloseSearchChange()}
                 >
                   <use xlinkHref={`${svgIcons}#close`} />
                 </svg>
@@ -118,7 +106,12 @@ class Header extends Component {
                     <use xlinkHref={`${svgIcons}#magnifying-glass`} />
                   </svg>
                   <label htmlFor="search">
-                    <input type="text" id="search" placeholder="Search" />
+                    <input
+                      type="text"
+                      id="search"
+                      placeholder="Search"
+                      onKeyUp={e => articleStore.onSearchChange(e)}
+                    />
                   </label>
                 </div>
                 <figure className={styles.miku_chan} />
