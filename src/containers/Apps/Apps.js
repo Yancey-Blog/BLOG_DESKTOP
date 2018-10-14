@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import styles from './apps.module.css';
@@ -22,6 +23,11 @@ class Archive extends Component {
   render() {
     return (
       <main className={cs(styles.apps_wrapper, 'no-user-select')}>
+        <Helmet>
+          <title>
+            Apps | Yancey Inc.
+          </title>
+        </Helmet>
         <section className={cs(styles.platform, styles.mobile_wrapper)}>
           <h3 className={styles.platform_title}>
             DOWNLOAD YANCEY BLOG APP FOR

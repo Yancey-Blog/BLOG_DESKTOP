@@ -36,7 +36,7 @@ html, body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background: #ffA500; }
+  background: rgba(58, 58, 58, 0.6); }
 
 li {
   list-style-type: none; }
@@ -62,6 +62,17 @@ a {
   left: 0;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.6); }
+
+.float_fix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.float_fix {
+  zoom: 1; }
 
 @media screen and (max-width: 1920px) {
   html {

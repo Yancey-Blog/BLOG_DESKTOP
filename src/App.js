@@ -3,6 +3,8 @@ import { Route, Switch, Router } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import history from './history';
 import stores from './stores/index';
+import './assets/css/base.css';
+import { globalApi } from './https/index';
 import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
@@ -22,12 +24,22 @@ import NotFound from './containers/NotFound/NotFound';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      fullSiteGray: false,
+    };
   }
 
   componentDidMount() {
+    this.getGlobalData();
     this.devToolsWarning();
   }
+
+  getGlobalData = async () => {
+    const response = await globalApi.getData();
+    this.setState({
+      fullSiteGray: response.data.full_site_gray,
+    });
+  };
 
   devToolsWarning() {
     const re = /x/;
@@ -41,10 +53,17 @@ class App extends Component {
   }
 
   render() {
+    const { fullSiteGray } = this.state;
+    const grayStyle = {
+      filter: 'grayscale(100%)',
+    };
     return (
       <Provider {...stores}>
         <Router history={history}>
-          <div className="App">
+          <div
+            className="App"
+            style={fullSiteGray ? grayStyle : {}}
+          >
             <Header />
             <Switch>
               <Route path="/" exact component={Home} />

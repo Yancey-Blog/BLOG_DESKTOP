@@ -154,6 +154,8 @@ $slider_height: 25.8rem;
       .artist_title {
         font-size: .8rem;
         padding-bottom: 1rem;
+        max-height: 3rem;
+        overflow: hidden;
       }
     }
 

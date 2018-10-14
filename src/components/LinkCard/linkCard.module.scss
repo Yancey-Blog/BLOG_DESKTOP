@@ -33,6 +33,12 @@
       font-weight: 500;
       line-height: 1.25;
       color: #1a1a1a;
+      display: block;
+      max-width: 15rem;
+      width: 15rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
     .card_url {
       display: block;
@@ -40,15 +46,20 @@
       font-size: .7rem;
       line-height: 1.25;
       color: #999;
+      max-width: 15rem;
+      width: 15rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
     .card_img_cell {
       margin-left: .4rem;
-      width: 4rem;
-      height: 4rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: .3rem;
       img {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         object-fit: cover;
         border-radius: inherit;
       }

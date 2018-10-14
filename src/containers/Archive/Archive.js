@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+import { Link } from 'react-router-dom';
 import cs from 'classnames';
+import { inject, observer } from 'mobx-react/index';
 import styles from './archive.module.css';
 import {
   checkWebp, monthToEN, aliOSS, webp,
 } from '../../utils/tools';
-import { GET } from '../../https/axios';
 
-const Mock = require('mockjs');
-
+@inject('articleStore')
+@observer
 class Archive extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -21,38 +21,11 @@ class Archive extends Component {
   }
 
   componentDidMount() {
-    this.getFakeData();
+    const { articleStore } = this.props;
+    articleStore.getArchive();
   }
 
   componentWillUnmount() {
-  }
-
-  getFakeData() {
-    const data = Mock.mock({
-      'data|2-3': [
-        {
-          year: '20@integer(10, 18)',
-          'data|1-12': [
-            {
-              month: '@integer(1, 12)',
-              'days|0-6': [
-                {
-                  day: '@integer(1, 28)',
-                  title: '@title(5, 6)',
-                  like_count: '@integer(0, 500)',
-                  comment_count: '@integer(0, 500)',
-                  url: '@url',
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    });
-    console.log(data)
-    this.setState({
-      data: data.data,
-    });
   }
 
   unfold() {
@@ -68,10 +41,15 @@ class Archive extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { articleStore } = this.props;
     const bgUrl = `${aliOSS}/static/archive_page_header.jpg`;
     return (
       <main className={styles.archive_wrapper}>
+        <Helmet>
+          <title>
+            Archive | Yancey Inc.
+          </title>
+        </Helmet>
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
           style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
@@ -99,52 +77,47 @@ class Archive extends Component {
             </button>
           </div>
           {
-          Object.keys(data)
+          Object.keys(articleStore.archiveData)
             .map(key => (
               <section className={styles.archive_list_wrapper} key={key}>
                 <h2 className={styles.year}>
-                  {data[key].year}
+                  {articleStore.archiveData[key]._id.year}
                 </h2>
                 <ul className={styles.year_list_wrapper}>
                   {
-                    Object.keys(data[key].data)
+                    Object.keys(articleStore.archiveData[key].data)
                       .map(key1 => (
                         <li key={key1}>
                           <input id={`tab_${key}_${key1}`} type="checkbox" name="tabs" defaultChecked={key === '0' && key1 === '0' ? 'checked' : ''} />
                           <label htmlFor={`tab_${key}_${key1}`}>{/* eslint-disable-line */}
                             <span className={styles.month}>
-                              {monthToEN(data[key].data[key1].month)}
+                              {monthToEN(articleStore.archiveData[key].data[key1].month)}
                               {'. '}
                               (
-                              {data[key].data[key1].days.length}
+                              {articleStore.archiveData[key].data[key1].data.length}
                               {' '}
-                              {data[key].data[key1].days.length > 1 ? 'articles' : 'article'}
+                              {articleStore.archiveData[key].data[key1].data.length > 1 ? 'articles' : 'article'}
                               )
                             </span>
                           </label>
                           <ul className={styles.day_list_container}>
                             {
-                              Object.keys(data[key].data[key1].days)
+                              Object.keys(articleStore.archiveData[key].data[key1].data)
                                 .map($key => (
                                   <li className={styles.day_item} key={$key}>
                                     <span className={styles.day}>
-                                      {data[key].data[key1].days[$key].day < 10 ? `0${data[key].data[key1].days[$key].day}` : data[key].data[key1].days[$key].day}
+                                      {articleStore.archiveData[key].data[key1].data[$key].day}
                                       {': '}
                                     </span>
-                                    <a href={data[key].data[key1].days[$key].url}>
-                                      {data[key].data[key1].days[$key].title}
+                                    <Link to={`p/${articleStore.archiveData[key].data[key1].data[$key].id}`}>
+                                      {articleStore.archiveData[key].data[key1].data[$key].title}
                                       {' '}
                                       (
-                                      {data[key].data[key1].days[$key].like_count}
+                                      {articleStore.archiveData[key].data[key1].data[$key].pv_count}
                                       {' '}
                                       PV
-                                      /
-                                      {' '}
-                                      {data[key].data[key1].days[$key].comment_count}
-                                      {' '}
-                                      Comment
                                       )
-                                    </a>
+                                    </Link>
                                   </li>
                                 ))
                             }

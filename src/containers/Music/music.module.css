@@ -120,7 +120,9 @@
     transition: all 200ms linear; }
     .artists_list .artist_item .artist_intro .artist_title {
       font-size: .8rem;
-      padding-bottom: 1rem; }
+      padding-bottom: 1rem;
+      max-height: 3rem;
+      overflow: hidden; }
 
 .featured_records_wrapper {
   margin-top: 3.5rem;

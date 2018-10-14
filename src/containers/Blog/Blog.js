@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import cs from 'classnames';
 import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_US';
@@ -54,6 +55,11 @@ class Blog extends Component {
     const { articleStore } = this.props;
     return (
       <main className="blog_wrapper">
+        <Helmet>
+          <title>
+            Blog | Yancey Inc.
+          </title>
+        </Helmet>
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
           style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}

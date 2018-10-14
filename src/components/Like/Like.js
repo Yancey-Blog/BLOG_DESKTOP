@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './like.css';
+import { inject, observer } from 'mobx-react/index';
 
+@inject('articleStore')
+@observer
 class Like extends Component {
   constructor(props) {
     super(props);
@@ -8,14 +11,22 @@ class Like extends Component {
   }
 
   render() {
+    const { articleStore } = this.props;
     return (
       <div className="like_wrapper">
-        <input id="toggle-heart" type="checkbox" />
+        <input
+          id="toggle-heart"
+          type="checkbox"
+          defaultChecked={articleStore.isLiked}
+          onChange={articleStore.handleLikes}
+        />
         <label htmlFor="toggle-heart"> {/* eslint-disable-line */}
           ❤
         </label>
         <span className="like_number">
-          10 likes
+          {articleStore.likeNum}
+          {' '}
+          {articleStore.likeNum > 1 ? 'likes' : 'like'}
         </span>
       </div>
     );

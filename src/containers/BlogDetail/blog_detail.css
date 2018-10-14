@@ -11,7 +11,7 @@
     padding-left: 28rem;
     font-family: "Merriweather Sans", sans-serif;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center;
     background-attachment: fixed;
     background-size: cover;
     color: #fff;
@@ -43,7 +43,7 @@
         top: 1.8rem;
         left: -2.6rem;
         padding: .2rem .1rem;
-        width: 11rem;
+        width: 13rem;
         background: rgba(26, 26, 26, 0.8);
         border-radius: 4px;
         text-align: center;
@@ -65,7 +65,8 @@
       margin-right: .4rem;
       text-align: center;
       background: rgba(0, 0, 0, 0.4);
-      border-radius: 2px; }
+      border-radius: 2px;
+      line-height: 1; }
       .article_detail_wrapper .article_meta_wrapper .tags_list li:hover {
         background: rgba(0, 0, 0, 0.6); }
       .article_detail_wrapper .article_meta_wrapper .tags_list li a {
@@ -79,6 +80,17 @@
     width: 40rem;
     padding-top: 2rem;
     margin: 0 auto; }
+    .article_detail_wrapper .content_wrapper .summary, .article_detail_wrapper .attachment_wrapper .summary {
+      font-size: .75rem;
+      line-height: 2;
+      border-bottom: 1px dashed #ddd;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem; }
+      .article_detail_wrapper .content_wrapper .summary::first-letter, .article_detail_wrapper .attachment_wrapper .summary::first-letter {
+        float: left;
+        line-height: 1;
+        font-size: 3rem;
+        margin: 0 0.4rem 0 0; }
   .article_detail_wrapper .copyright_share_wrapper {
     position: relative;
     margin-top: 1.5rem;
@@ -100,20 +112,19 @@
   .article_detail_wrapper .prev_next_wrapper {
     display: flex;
     margin: 2.8rem 0; }
+    .article_detail_wrapper .prev_next_wrapper button {
+      width: 100%;
+      outline: none;
+      border-width: 0; }
     .article_detail_wrapper .prev_next_wrapper .prev_next_container {
       position: relative;
-      width: 20rem;
       height: 7.5rem;
-      background: no-repeat center top;
+      background: no-repeat center center;
       background-size: cover;
       transition: opacity 200ms ease-in; }
       .article_detail_wrapper .prev_next_wrapper .prev_next_container:hover .overlay {
         opacity: .4;
         transition: opacity 200ms ease-in; }
-    .article_detail_wrapper .prev_next_wrapper .prev {
-      background-image: url("https://static.2heng.xin/wp-content/uploads//2018/04/photo_2018-04-05_17-22-45.jpg"); }
-    .article_detail_wrapper .prev_next_wrapper .next {
-      background-image: url("https://static.2heng.xin/wp-content/uploads//2018/04/IMG_20180403_23032701-1024x606.jpg"); }
     .article_detail_wrapper .prev_next_wrapper .prev_next_meta {
       position: absolute;
       top: 1.8rem;
@@ -149,10 +160,14 @@
     font-size: .8rem; }
   .article_detail_wrapper h6 {
     font-size: .6rem; }
+  .article_detail_wrapper li {
+    font-size: .8rem;
+    line-height: 2;
+    list-style-type: disc; }
   .article_detail_wrapper img {
     display: block;
     margin: 0 auto;
-    width: 100%;
+    max-width: 100%;
     border-radius: 4px; }
   .article_detail_wrapper blockquote {
     margin-bottom: 2rem;
@@ -253,7 +268,8 @@
   100% {
     transform: rotate(0); } }
   .article_detail_wrapper .img-group {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 3rem; }
   .article_detail_wrapper .img-group .img-info {
     display: inline-block;
     text-align: center;
@@ -372,5 +388,9 @@
 
 .fb_iframe_widget {
   top: .1rem !important; }
+
+.rounded-list li, .toc-list li {
+  list-style-type: none;
+  line-height: 1.5; }
 
 /*# sourceMappingURL=blog_detail.css.map */

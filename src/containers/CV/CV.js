@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import cs from 'classnames';
+import Helmet from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
 import styles from './cv.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
@@ -30,6 +31,11 @@ class CV extends Component {
     const { cvStore } = this.props;
     return (
       <main className={styles.cv_wrapper}>
+        <Helmet>
+          <title>
+            CV | Yancey Inc.
+          </title>
+        </Helmet>
         <section className={styles.cv_basic_container}>
           <figure
             className={styles.avatar}

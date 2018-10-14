@@ -39,7 +39,8 @@ class LinkCard extends Component {
                         {articleStore.top7Data[key].title}
                       </span>
                       <span className={styles.card_url}>
-                      https://www.yanceyleo.com/
+                      https://www.yanceyleo.com/p/
+                        {articleStore.top7Data[key]._id}
                       </span>
                     </span>
                     <span className={styles.card_img_cell}>

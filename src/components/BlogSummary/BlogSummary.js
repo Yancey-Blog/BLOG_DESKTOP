@@ -70,7 +70,7 @@ class blogSummary extends Component {
                     <use xlinkHref={`${svgIcons}#multimedia`} />
                   </svg>
                   <Link to={`/p/${articleStore.summaryData[key]._id}`}>
-                    {articleStore.summaryData[key].like_count}
+                    {articleStore.summaryData[key].like_count.length}
                     {' '}
                     Likes
                   </Link>

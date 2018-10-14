@@ -13,9 +13,8 @@ import 'baguettebox.js/dist/baguetteBox.min.css';
 import Like from '../../components/Like/Like';
 import './blog_detail.css';
 import {
-  setCopy, initLivere, shareToFB, checkWebp, aliOSS, webp, formatJSONDate,
+  setCopy, initLivere, checkWebp, aliOSS, webp, formatJSONDate,
 } from '../../utils/tools';
-import { GET } from '../../https/axios';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
 @inject('articleStore')
@@ -23,18 +22,19 @@ import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 class BlogDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      blogContent: '',
-    };
+    this.state = {};
   }
 
   componentWillMount() {
     window.scrollTo(0, 0);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { articleStore } = this.props;
-    articleStore.getArtcileById(window.location.pathname.split('/').slice(-1)[0]);
+    await articleStore.getArticleById(window.location.pathname.split('/').slice(-1)[0]);
+    await articleStore.increasePV(window.location.pathname.split('/').slice(-1)[0]);
+    await articleStore.getIp();
+    await articleStore.getLikes(window.location.pathname.split('/').slice(-1)[0], articleStore.curIp);
     this.hljsInit();
     this.addLineNumbers();
     this.getCodeLanguage();
@@ -43,33 +43,32 @@ class BlogDetail extends Component {
     this.tocbotInit();
     this.wrapImg();
     this.initBaguetteBox();
-    initLivere();
-    shareToFB();
     this.fixToc();
+    initLivere();
     document.oncopy = setCopy;
   }
 
-  componentWillUnmount() {
+  async componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      const { articleStore } = this.props;
+      await articleStore.getArticleById(window.location.pathname.split('/').slice(-1)[0]);
+      await articleStore.increasePV(window.location.pathname.split('/').slice(-1)[0]);
+      await articleStore.getIp();
+      await articleStore.getLikes(window.location.pathname.split('/').slice(-1)[0], articleStore.curIp);
+      this.hljsInit();
+      this.addLineNumbers();
+      this.getCodeLanguage();
+      this.showImageAlt();
+      this.codeBlockChange();
+      this.tocbotInit();
+      this.wrapImg();
+      this.initBaguetteBox();
+      this.fixToc();
+      document.oncopy = setCopy;
+    }
   }
 
-  getData() {
-    GET('https://api.leoyancey.com/api/article.json', {})
-      .then((res) => {
-        this.setState({
-          blogContent: res.data.content,
-        });
-        this.hljsInit();
-        this.addLineNumbers();
-        this.getCodeLanguage();
-        this.showImageAlt();
-        this.codeBlockChange();
-        this.tocbotInit();
-        this.wrapImg();
-        this.initBaguetteBox();
-      })
-      .catch((error) => {
-        // todo
-      });
+  componentWillUnmount() {
   }
 
   getCodeLanguage() {
@@ -191,21 +190,15 @@ class BlogDetail extends Component {
         {/* set meta info */}
         <Helmet>
           <title>
-            当前标题 | Yancey Inc.
+            {`${articleStore.detailData.title} | Yancey Inc.`}
           </title>
           {/* share to Twitter meta */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@YanceyOfficial" />
           <meta name="twitter:creator" content="@YanceyOfficial" />
-          <meta name="twitter:title" content="insertAdjacentHTML" />
-          <meta name="twitter:description" content="Many developers consider it's an opportunity to discard jQuery when React and Vue.js have been widely used." />
-          <meta name="twitter:image" content="https://yancey-assets.oss-cn-beijing.aliyuncs.com/post/IMG_20171127_161530-1024x576.jpg?x-oss-process=image/format,webp" />
-          {/* share to Facebook meta */}
-          <meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content="When Great Minds Don’t Think Alike" />
-          <meta property="og:description" content="How much does culture influence creative thinking?" />
-          <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+          <meta name="twitter:title" content={articleStore.detailData.title} />
+          <meta name="twitter:description" content={articleStore.detailData.summary} />
+          <meta name="twitter:image" content={articleStore.detailData.header_cover} />
         </Helmet>
         {/* header */}
         <section
@@ -231,20 +224,24 @@ class BlogDetail extends Component {
               Page Views
             </span>
             <ul className="tags_list">
-              {/*{*/}
-                {/*Object.keys(articleStore.detailData.tags).map(key => (*/}
-                  {/*<li key={key}>*/}
-                    {/*<Link to={`/t/${articleStore.detailData.tags[key]}`}>*/}
-                      {/*{articleStore.detailData.tags[key]}*/}
-                    {/*</Link>*/}
-                  {/*</li>*/}
-                {/*))*/}
-              {/*}*/}
+              {
+                Object.keys(articleStore.detailTags)
+                  .map(key => (
+                    <li key={key}>
+                      <Link to={`/t/${articleStore.detailTags[key]}`}>
+                        {articleStore.detailTags[key]}
+                      </Link>
+                    </li>
+                  ))
+              }
             </ul>
           </div>
         </section>
         {/* content wrapper */}
         <div className="content_wrapper">
+          <summary className="summary">
+            {articleStore.detailData.summary}
+          </summary>
           {/* content */}
           <section
             className="article_content"
@@ -277,44 +274,57 @@ class BlogDetail extends Component {
                   </a>
                 )}
               </ShareLink>
-              {/* share To FaceBook Btn */}
-              <div
-                className="fb-share-button"
-                data-href="https://www.your-domain.com/your-page.html"
-                data-layout="button_count"
-              />
               <Like />
             </div>
-            <div id="fb-root" />
           </section>
           {/* Previous and Next Articles Link */}
           <section className="prev_next_wrapper">
-            <Link to="/blog">
-              <div className={cs('prev_next_container', 'prev')}>
-                <div className={cs('prev_next_meta', 'prev_meta')}>
-                  <p className="directive">
-                    PREVIOUS POST
-                  </p>
-                  <p className="title">
-                    风平浪静的夏天~
-                  </p>
-                </div>
-                <div className="overlay" />
-              </div>
-            </Link>
-            <Link to="/blog">
-              <div className={cs('prev_next_container', 'next')}>
-                <div className={cs('prev_next_meta', 'next_meta')}>
-                  <p className="directive">
-                    PREVIOUS POST
-                  </p>
-                  <p className="title">
-                    风平浪静的夏天~
-                  </p>
-                </div>
-                <div className="overlay" />
-              </div>
-            </Link>
+            {
+              JSON.stringify(articleStore.previousArticle) === '{}' ? null : (
+                <button
+                  type="button"
+                  onClick={() => articleStore.getArticleById(articleStore.previousArticle.id)}
+                >
+                  <div
+                    className={cs('prev_next_container', 'prev')}
+                    style={{ backgroundImage: `url(${checkWebp() ? `${articleStore.previousArticle.header_cover}${webp}` : bgUrl})` }}
+                  >
+                    <div className={cs('prev_next_meta', 'prev_meta')}>
+                      <p className="directive">
+                        PREVIOUS POST
+                      </p>
+                      <p className="title">
+                        {articleStore.previousArticle.title}
+                      </p>
+                    </div>
+                    <div className="overlay" />
+                  </div>
+                </button>
+              )
+            }
+            {
+              JSON.stringify(articleStore.nextArticle) === '{}' ? null : (
+                <button
+                  type="button"
+                  onClick={() => articleStore.getArticleById(articleStore.nextArticle.id)}
+                >
+                  <div
+                    className={cs('prev_next_container', 'next')}
+                    style={{ backgroundImage: `url(${checkWebp() ? `${articleStore.nextArticle.header_cover}${webp}` : bgUrl})` }}
+                  >
+                    <div className={cs('prev_next_meta', 'next_meta')}>
+                      <p className="directive">
+                        NEXT POST
+                      </p>
+                      <p className="title">
+                        {articleStore.nextArticle.title}
+                      </p>
+                    </div>
+                    <div className="overlay" />
+                  </div>
+                </button>
+              )
+            }
           </section>
           {/* Livere Comment */}
           <section className="comment_wrapper">

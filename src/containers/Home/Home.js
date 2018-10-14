@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
 import $ from 'jquery';
@@ -81,6 +82,11 @@ class Home extends Component {
     const { homeStore } = this.props;
     return (
       <main className={styles['yancey-blog-home']}>
+        <Helmet>
+          <title>
+            Yancey Official Blog | Yancey Inc.
+          </title>
+        </Helmet>
         <section className="home-imax-wrapper">
           <figure
             className={cs([styles['home-imax']], 'home-big')}

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+import { inject, observer } from 'mobx-react/index';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css';
 import './about.css';
+import { formatJSONDate } from '../../utils/tools';
 
+@inject('aboutStore')
+@observer
 class About extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +18,9 @@ class About extends Component {
     window.scrollTo(0, 0);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const { aboutStore } = this.props;
+    await aboutStore.getData();
     this.handleSwiper();
   }
 
@@ -47,96 +54,39 @@ class About extends Component {
 
 
   render() {
+    const { aboutStore } = this.props;
     return (
       <main className="about-wrapper">
+        <Helmet>
+          <title>
+            About | Yancey Inc.
+          </title>
+        </Helmet>
         <div className="container">
           <div className="timeline">
             <div className="swiper-container">
               <div className="swiper-wrapper">
-                <div className="swiper-slide" style={{ backgroundImage: 'url(https://unsplash.it/1920/500?image=11)' }} data-year="2011">
-                  <div className="swiper-slide-content">
-                    <span className="timeline-year">
-                      2011
-                    </span>
-                    <h4 className="timeline-title">
-                      Our nice super title
-                    </h4>
-                    <p className="timeline-text">
-                      Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide" style={{ backgroundImage: 'url(https://unsplash.it/1920/500?image=12)' }} data-year="2012">
-                  <div className="swiper-slide-content">
-                    <span className="timeline-year">
-                      2012
-                    </span>
-                    <h4 className="timeline-title">
-                      Our nice super title
-                    </h4>
-                    <p className="timeline-text">
-                      Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide" style={{ backgroundImage: 'url(https://unsplash.it/1920/500?image=13)' }} data-year="2013">
-                  <div className="swiper-slide-content">
-                    <span className="timeline-year">
-                      2013
-                    </span>
-                    <h4 className="timeline-title">
-                      Our nice super title
-                    </h4>
-                    <p className="timeline-text">
-                      Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide" style={{ backgroundImage: 'url(https://unsplash.it/1920/500?image=14)' }} data-year="2014">
-                  <div className="swiper-slide-content">
-                    <span className="timeline-year">
-                      2014
-                    </span>
-                    <h4 className="timeline-title">
-                      Our nice super title
-                    </h4>
-                    <p className="timeline-text">
-                      Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide" style={{ backgroundImage: 'url(https://unsplash.it/1920/500?image=15)' }} data-year="2015">
-                  <div className="swiper-slide-content">
-                    <span className="timeline-year">
-                      2015
-                    </span>
-                    <h4 className="timeline-title">
-                      Our nice super title
-                    </h4>
-                    <p className="timeline-text">
-                      Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-                <div className="swiper-slide" style={{ backgroundImage: 'url(https://unsplash.it/1920/500?image=16)' }} data-year="2016">
-                  <div className="swiper-slide-content">
-                    <span className="timeline-year">
-                      2016
-                    </span>
-                    <h4 className="timeline-title">
-                      Our nice super title
-                    </h4>
-                    <p className="timeline-text">
-                      Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
+                {
+                  Object.keys(aboutStore.dataSource).map(key => (
+                    <div
+                      className="swiper-slide"
+                      style={{ backgroundImage: `url(${aboutStore.dataSource[key].cover})` }}
+                      data-year={formatJSONDate(aboutStore.dataSource[key].release_date).slice(0, 10)}
+                    >
+                      <div className="swiper-slide-content">
+                        <span className="timeline-year">
+                          {formatJSONDate(aboutStore.dataSource[key].release_date).slice(0, 10)}
+                        </span>
+                        <h4 className="timeline-title">
+                          {aboutStore.dataSource[key].title}
+                        </h4>
+                        <p className="timeline-text">
+                          {aboutStore.dataSource[key].introduction}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
               <div className="swiper-button-prev" />
               <div className="swiper-button-next" />

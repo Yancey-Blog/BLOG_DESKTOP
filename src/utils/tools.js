@@ -30,7 +30,7 @@ export function checkWebp() {
 export function formatJSONDate(jsonDate) {
   return new Date(+new Date(new Date(jsonDate).toJSON()) + 8 * 3600 * 1000).toISOString()
     .replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '');
-};
+}
 
 export function initLivere() {
   (function (d, s) {
@@ -47,17 +47,6 @@ export function initLivere() {
 
     e.parentNode.insertBefore(j, e);
   }(document, 'script'));
-}
-
-export function shareToFB() {
-  (function (d, s, id) {
-    let js;
-    const fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
 }
 
 export const aliOSS = 'https://yancey-assets.oss-cn-beijing.aliyuncs.com';

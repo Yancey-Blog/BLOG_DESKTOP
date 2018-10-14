@@ -1,347 +1,211 @@
 const arr = [
   {
-    _id: '5baca395766f9c1d349d6325',
-    title: 'make the change',
-    pv_count: 0,
-    like_count: 0,
-    year: '2017',
-    month: '09',
-    day: '12',
+    _id: {
+      year: 2018,
+    },
+    data: [
+      {
+        month: 10,
+        data: [
+          {
+            day: 13,
+            title: 'demo5',
+            id: '5bc202a26b48dfee0a0dcedf',
+            pv_count: 8,
+          },
+          {
+            day: 13,
+            title: 'demo4',
+            id: '5bc2028a6b48dfee0a0dcede',
+            pv_count: 6,
+          },
+          {
+            day: 13,
+            title: 'demo3',
+            id: '5bc2024a6b48dfee0a0dcedd',
+            pv_count: 16,
+          },
+        ],
+      },
+    ],
   },
   {
-    _id: '5baca3df766f9c1d349d6326',
-    title: 'say anything thdi',
-    pv_count: 76,
-    like_count: 23,
-    year: '2017',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad900a766f9c1d349d6327',
-    title: 'sayaka',
-    pv_count: 0,
-    like_count: 0,
-    year: '2017',
-    month: '11',
-    day: '08',
-  },
-  {
-    _id: '5bad90c1766f9c1d349d6328',
-    title: 'demo2',
-    pv_count: 34,
-    like_count: 4,
-    year: '2018',
-    month: '07',
-    day: '17',
-  },
-  {
-    _id: '5bad90ce766f9c1d349d6329',
-    title: 'demo2',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '07',
-    day: '27',
-  },
-  {
-    _id: '5bad90da766f9c1d349d632a',
-    title: 'demo3',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '08',
-    day: '22',
-  },
-  {
-    _id: '5bad90ff766f9c1d349d632b',
-    title: 'demo4',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad910a766f9c1d349d632c',
-    title: 'demo54',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad911f766f9c1d349d632d',
-    title: 'demo5',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad912c766f9c1d349d632e',
-    title: 'demo6',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad9142766f9c1d349d632f',
-    title: 'dee',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad9b44766f9c1d349d6330',
-    title: '底mo',
-    pv_count: 2,
-    like_count: 0,
-    year: '2018',
-    month: '09',
-    day: '28',
-  },
-  {
-    _id: '5bad9b55766f9c1d349d6331',
-    title: 'Article 1',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '08',
-    day: '13',
-  },
-  {
-    _id: '5bbc5df347e427a14702fd6f',
-    title: 'demo11',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e0347e427a14702fd70',
-    title: 'demo12',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e1147e427a14702fd71',
-    title: 'demo13',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e1f47e427a14702fd72',
-    title: 'demo14',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e3147e427a14702fd73',
-    title: 'demo15',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e4347e427a14702fd74',
-    title: 'demo16',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e5847e427a14702fd75',
-    title: 'demo17',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e6647e427a14702fd76',
-    title: 'demo18',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e7c47e427a14702fd77',
-    title: 'demo19',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e8f47e427a14702fd78',
-    title: 'demo20',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5e9c47e427a14702fd79',
-    title: 'demo21',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5eab47e427a14702fd7a',
-    title: 'demo22',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5ecf47e427a14702fd7b',
-    title: 'demo23',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5edf47e427a14702fd7c',
-    title: 'demo24',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5eed47e427a14702fd7d',
-    title: 'demo25',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5efd47e427a14702fd7e',
-    title: 'demo26',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5fdd47e427a14702fd7f',
-    title: 'demo27',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5fef47e427a14702fd80',
-    title: 'demo28',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc5ffb47e427a14702fd81',
-    title: 'demo29',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc600d47e427a14702fd82',
-    title: 'demo30',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc602147e427a14702fd83',
-    title: 'demo31',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc603b47e427a14702fd84',
-    title: 'demo32',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
-  },
-  {
-    _id: '5bbc605247e427a14702fd85',
-    title: 'demo33',
-    pv_count: 0,
-    like_count: 0,
-    year: '2018',
-    month: '10',
-    day: '09',
+    _id: {
+      year: 2017,
+    },
+    data: [
+      {
+        month: 12,
+        data: [
+          {
+            day: 20,
+            title: 'demo2',
+            id: '5bc2006c5aa898eaf3870d3c',
+            pv_count: 17,
+          },
+        ],
+      },
+      {
+        month: 11,
+        data: [
+          {
+            day: 13,
+            title: 'demo1',
+            id: '5bc1fed569c03ee95784345e',
+            pv_count: 19,
+          },
+        ],
+      },
+    ],
   },
 ];
 
-const map = {};
-const dest = [];
-for (let i = 0; i < arr.length; i += 1) {
-  const ai = arr[i];
-  if (!map[ai.year]) {
-    dest.push({
-      year: ai.year,
-      data: [ai],
-    });
-    map[ai.year] = ai;
-  } else {
-    for (let j = 0; j < dest.length; j++) {
-      const dj = dest[j];
-      if (dj.year == ai.year) {
-        dj.data.push(ai);
-        break;
-      }
-    }
-  }
-}
+console.log(arr[0].data)
+// function isPrime(number) {
+//   if (!(number === +number && /^[0-9]+$/.test(number))) {
+//     return false;
+//   }
+//   if (number < 2) {
+//     return false;
+//   }
+//   if (number === 2) {
+//     return true;
+//   }
+//   if (number % 2 === 0) {
+//     return false;
+//   }
+//   const squareRoot = Math.sqrt(number);
+//   for (let i = 3; i <= squareRoot; i += 2) {
+//     if (number % i === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+//
+// console.log(isPrime(10081));
+
+
+// const myHttpClient = url => new Promise((resolve, reject) => {
+//   const client = new XMLHttpRequest();
+//   client.open('GET', url);
+//   client.onreadystatechange = handler;
+//   client.responseType = 'json';
+//   client.setRequestHeader('Accept', 'application/json');
+//   client.send();
+//   function handler() {
+//     if (this.readyState !== 4) {
+//       return;
+//     }
+//     if (this.status === 200) {
+//       resolve(this.response);
+//     } else {
+//       reject(new Error(this.statusText));
+//     }
+//   }
+// });
+//
+// myHttpClient('https://www.baidu.com').then((res) => {
+//   console.log(res);
+// }).catch((error) => {
+//   console.log(error);
+// });
+//
+// function myTrim(str) {
+//   const reg = /^\s+|\s+$/g;
+//   return str.replace(reg, '');
+// }
+// console.log(myTrim('    asdf    '));
+//
+// $.ajax({
+//   url: 'http://www.domain2.com:8080/login',
+//   type: 'get',
+//   dataType: 'jsonp', // 请求方式为jsonp
+//   jsonpCallback: 'onBack', // 自定义回调函数名
+//   data: {},
+// });
+
+// function binarySearch(arr, key) {
+//   let low = 0;
+//   let high = arr.length - 1;
+//   while (low <= high) {
+//     const mid = parseInt((high + low) / 2, 10);
+//     if (key === arr[mid]) {
+//       return mid;
+//     } if (key > arr[mid]) {
+//       low = mid + 1;
+//     } else if (key < arr[mid]) {
+//       high = mid - 1;
+//     } else {
+//       return -1;
+//     }
+//   }
+// }
+//
+//
+// const t = 4;
+// function foo() {
+//   const tem = 12;
+//   return function bar() {
+//     const temo = 34;
+//     console.log(`${t} ${tem} ${temo}`);
+//   };
+// }
+//
+// function FF(a, b) {
+//   this.a = a;
+//   this.b = b;
+// }
+// FF.prototype.test = function () {
+//   console.log(`${this.a} success ${this.b}`);
+// };
+//
+// class Point {
+//   constructor(x, y) {
+//     this.x = x;
+//     this.y = y;
+//   }
+//
+//   toString() {
+//     return `(${this.x}, ${this.y})`;
+//   }
+// }
+//
+// const point = new Point(3, 4);
+//
+// function myNew(constructor, ...args) {
+//   const o = {};
+//   o.__proto__ = constructor.prototype;
+//   constructor.call(o, ...args);
+//   return o;
+// }
+//
+// const point1 = myNew(Point, 3, 4);
+//
+// console.log(point);
+// console.log(point1);
+
+// 多层obj
+// const obj = {
+//   name: {
+//     firstName: 'Yancey',
+//     lastName: 'Leo',
+//   },
+// };
+//
+// // 单层obj
+// const _obj = {
+//   firstName: 'Yancey',
+//   lastName: 'Leo',
+//   foo() {
+//     console.log('ss');
+//   },
+// };
+//
+// const newObj = Object.assign({}, obj);
+// newObj.name.firstName = 'yancey';
+// console.log(obj.name.firstName);
+//
+// const _newObj = Object.assign({}, obj);
+// _newObj.firstName = 'yancey';
+// console.log(_obj.firstName);

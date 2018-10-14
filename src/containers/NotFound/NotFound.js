@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import history from '../../history';
 import './not_found.css';
 
@@ -25,6 +26,11 @@ class NotFound extends Component {
   render() {
     return (
       <main className="not_found_wrapper">
+        <Helmet>
+          <title>
+            404 | Yancey Inc.
+          </title>
+        </Helmet>
         <div className="unicorn" />
         <div className="container">
           <div className="four-oh-four">

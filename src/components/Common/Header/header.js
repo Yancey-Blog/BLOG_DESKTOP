@@ -4,7 +4,6 @@ import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
 import styles from './header.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
-import articleStore from '../../../stores/ArticleStore';
 
 const navInfo = {
   home: {
@@ -54,6 +53,7 @@ class Header extends Component {
   }
 
   render() {
+    const { articleStore } = this.props;
     return (
       <header className={cs(styles['yancey-common-header'], 'no-user-select')}>
         <a href="/" className={styles['yancey-logo']}>
