@@ -11,8 +11,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 
 // config base url
-// axios.defaults.baseURL = 'https://api.leoyancey.com/api/';
-axios.defaults.baseURL = 'http://127.0.0.1:3001/api';
+axios.defaults.baseURL = 'https://api.yanceyleo.com/api/';
 
 
 // config request interceptors
