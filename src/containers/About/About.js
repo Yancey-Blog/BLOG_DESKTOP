@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper.min';
 import 'swiper/dist/css/swiper.min.css';
 import './about.css';
 import { formatJSONDate } from '../../utils/tools';

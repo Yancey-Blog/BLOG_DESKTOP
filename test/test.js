@@ -1,66 +1,14 @@
-const arr = [
-  {
-    _id: {
-      year: 2018,
-    },
-    data: [
-      {
-        month: 10,
-        data: [
-          {
-            day: 13,
-            title: 'demo5',
-            id: '5bc202a26b48dfee0a0dcedf',
-            pv_count: 8,
-          },
-          {
-            day: 13,
-            title: 'demo4',
-            id: '5bc2028a6b48dfee0a0dcede',
-            pv_count: 6,
-          },
-          {
-            day: 13,
-            title: 'demo3',
-            id: '5bc2024a6b48dfee0a0dcedd',
-            pv_count: 16,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    _id: {
-      year: 2017,
-    },
-    data: [
-      {
-        month: 12,
-        data: [
-          {
-            day: 20,
-            title: 'demo2',
-            id: '5bc2006c5aa898eaf3870d3c',
-            pv_count: 17,
-          },
-        ],
-      },
-      {
-        month: 11,
-        data: [
-          {
-            day: 13,
-            title: 'demo1',
-            id: '5bc1fed569c03ee95784345e',
-            pv_count: 19,
-          },
-        ],
-      },
-    ],
-  },
-];
+const str = '我是{name}, 我的工作是{job}';
+const obj = {
+  name: 'Yancey',
+  job: 'Web developer',
+};
 
-console.log(arr[0].data)
+function tmpl(_str, _obj) {
+  return _str.match(/^{.*?}$/);
+}
+console.log(tmpl(str));
+
 // function isPrime(number) {
 //   if (!(number === +number && /^[0-9]+$/.test(number))) {
 //     return false;

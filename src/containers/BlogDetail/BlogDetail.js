@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
-import ShareLink from 'react-twitter-share-link';
+import { TwitterShareButton, TwitterIcon } from 'react-share';
 import 'tocbot/dist/tocbot.css';
 import $ from 'jquery';
 import cs from 'classnames';
@@ -15,7 +15,6 @@ import './blog_detail.css';
 import {
   setCopy, initLivere, checkWebp, aliOSS, webp, formatJSONDate,
 } from '../../utils/tools';
-import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
 @inject('articleStore')
 @observer
@@ -258,22 +257,17 @@ class BlogDetail extends Component {
             </a>
             {/* share To Twitter Btn */}
             <div className="share_btn">
-              <ShareLink
-                text="you are reading 「insertAdjacentHTML」 | Yancey Inc."
-                link="localhost:3000/p/1"
+              <TwitterShareButton
+                title={articleStore.detailData.title}
+                url={window.location.href}
                 via="YanceyOfficial"
+                className="Demo__some-network__share-button"
               >
-                {link => (
-                  <a href={link} className="twitter_share_button_wrapper" target="_blank" rel="noopener noreferrer">
-                    <button className="twitter_share_button" type="button">
-                      <svg className="icon-comment">
-                        <use xlinkHref={`${svgIcons}#twitter-1`} />
-                      </svg>
-                      Tweet
-                    </button>
-                  </a>
-                )}
-              </ShareLink>
+                <TwitterIcon
+                  size={32}
+                  round
+                />
+              </TwitterShareButton>
               <Like />
             </div>
           </section>
