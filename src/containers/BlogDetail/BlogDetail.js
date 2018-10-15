@@ -187,7 +187,16 @@ class BlogDetail extends Component {
     return (
       <main className="article_detail_wrapper">
         {/* set meta info */}
-        <Helmet>
+        <Helmet
+          meta={[
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:site', content: '@YanceyOfficial' },
+            { name: 'twitter:creator', content: '@YanceyOfficial' },
+            { name: 'twitter:title', content: articleStore.detailData.title },
+            { name: 'twitter:description', content: articleStore.detailData.summary },
+            { name: 'twitter:image', content: articleStore.detailData.header_cover },
+          ]}
+        >
           <title>
             {`${articleStore.detailData.title} | Yancey Inc.`}
           </title>
