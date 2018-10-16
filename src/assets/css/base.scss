@@ -89,7 +89,7 @@ a {
   background-color: rgba(#000, .6);
 }
 
-.float_fix:after{
+.clearfix::after{
   content:".";
   clear:both;
   display:block;
@@ -97,7 +97,7 @@ a {
   overflow:hidden;
   visibility:hidden;
 }
-.float_fix{
+.clearfix{
   zoom:1
 }
 
