@@ -82,7 +82,7 @@ Motto部分对应上面第一张图这个部分。
 
 ### Blog Detail Page
 
-![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_60)
+![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
 
 关于Blog Detail页面其实有很多地方，一张图放不下：
 
