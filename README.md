@@ -27,14 +27,14 @@
 
 ### Home Page
 
-![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_60)
+![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_20)
 ![Home](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
 
 主页分为5个部分：
 
 - Background
 - Motto
-- Annoncement
+- Announcement
 - The Latest 3 Projects
 - The Latest 10 Articles
 
@@ -54,9 +54,9 @@ Motto部分对应上面第一张图这个部分。
    
 同样是请求后端接口，取得最新的那条Motto 
 
-*px: 上面那句话来自「ノルウェイの森」（《挪威的森林》）*
+*ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）*
 
-#### Annoncement
+#### Announcement
 
 和Motto部分同理，用途是发布一些最新消息。
 
