@@ -6,7 +6,7 @@
 
 2.0的数据还在迁移中...因此下面的图各种demo1 demo2...
 
-2.0版本是一个前后端分离的项目，这次除了前端和后端，还专门写了一套后台管理系统。其中:
+2.0版本是一个前后端分离的项目，这次除了前端和后端，还专门写了一个[后台管理系统](https://github.com/Yancey-Blog/BLOG_CMS/blob/master/README.md)。其中:
 
 - 前端主要技术栈是react + react-router-4 + mobx;
 - 管理后台用的是react + react-router-4 + mobx + Google reCAPTCHA + Ant Design;
