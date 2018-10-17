@@ -119,7 +119,7 @@ Motto部分对应上面第一张图这个部分。
 
 ![Music-1](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184221%402x.jpg?x-oss-process=image/quality,Q_60)
 
-![Music-2](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184130@2x.jpg?x-oss-process=image/quality,Q_20)
+![Music-2](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184130@2x.jpg?x-oss-process=image/quality,Q_10)
 
 第一张图的左上角是我看过的Live的轮播图片，当然图片肯定都是在拍照时间拍的；
 
@@ -145,7 +145,7 @@ Motto部分对应上面第一张图这个部分。
 
 ### About
 
-![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_20)
+![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
 
 About页面也是从后端取出来的，用来记录Blog发展的大事记（估计就是Bug修改历程 噗x）。
 
