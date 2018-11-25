@@ -79,7 +79,7 @@ class blogSummary extends Component {
                   <svg className="icon-folder">
                     <use xlinkHref={`${svgIcons}#folder`} />
                   </svg>
-                  <Link to={`/${articleStore.summaryData[key].tags[0]}`}>
+                  <Link to={`/t/${articleStore.summaryData[key].tags[0]}`}>
                     {articleStore.summaryData[key].tags[0]}
                   </Link>
                 </span>
