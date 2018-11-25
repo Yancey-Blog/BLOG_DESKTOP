@@ -167,7 +167,10 @@
       border-radius: 50%;
       z-index: 1; }
     .year_list_wrapper .day_item .day {
-      color: #00bbff; }
+      color: #00bbff;
+      display: inline-block;
+      width: 1.2rem;
+      margin-right: .5rem; }
     .year_list_wrapper .day_item a {
       font-size: .75rem;
       color: #504e4e;

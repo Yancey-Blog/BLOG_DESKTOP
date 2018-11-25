@@ -11,8 +11,7 @@
     padding-left: 28rem;
     font-family: "Merriweather Sans", sans-serif;
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center center;
     background-size: cover;
     color: #fff;
     text-shadow: black 2px 2px 10px; }
