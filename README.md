@@ -1,8 +1,8 @@
-# [Blog2.0 FE](https://blog.yanceyleo.com/)
+# [Blog2.0 FE](https://wwww.yanceyleo.com/)
 
 ## Introduction
 
-这是我写的第二个博客网站。[第一个](https://www.yanceyleo.com/)是在今年(2018年)3月份完成的，用的Bootstrap + Django. 至于为什么写第二版，无非是看到别人的博客太好看了😂。
+这是我写的第二个博客网站。第一个是在今年(2018年)3月份完成的，用的Bootstrap + Django. 至于为什么写第二版，无非是看到别人的博客太好看了😂。
 
 2.0的数据还在迁移中...因此下面的图各种demo1 demo2...
 
