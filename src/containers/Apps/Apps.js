@@ -93,7 +93,7 @@ class Archive extends Component {
             </Link>
           </p>
         </section>
-        <overlay className={styles.overlay}>
+        <section className={styles.overlay}>
           <dialog open>
             <h1>
               Sorry
@@ -109,7 +109,7 @@ class Archive extends Component {
               </Link>
             </button>
           </dialog>
-        </overlay>
+        </section>
       </main>
     );
   }
