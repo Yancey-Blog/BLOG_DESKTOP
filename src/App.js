@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
 import { Provider } from 'mobx-react';
+import ReactGA from 'react-ga';
 import history from './history';
 import stores from './stores/index';
 import './assets/css/base.css';
@@ -29,6 +30,10 @@ class App extends Component {
     };
   }
 
+  componentWillMount() {
+    this.reactGA();
+  }
+
   componentDidMount() {
     this.getGlobalData();
     this.devToolsWarning();
@@ -50,6 +55,11 @@ class App extends Component {
       console.log('For more information, http://en.wikipedia.org/wiki/Self-XSS');
       return '';
     };
+  }
+
+  reactGA() {
+    ReactGA.initialize('UA-114532340-1');
+    ReactGA.pageview('/');
   }
 
   render() {
