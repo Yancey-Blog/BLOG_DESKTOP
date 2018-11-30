@@ -68,7 +68,7 @@ class HomeStore {
     try {
       const response = await this.homeApi.getCoverData(id);
       runInAction(() => {
-        this.coverUrl = response.data.url.slice(5);
+        this.coverUrl = response.data.url;
         this.curCoverId = response.data._id; // eslint-disable-line
       });
       window.localStorage.setItem('cover_id', response.data._id); // eslint-disable-line
@@ -84,7 +84,7 @@ class HomeStore {
     try {
       const response = await this.homeApi.switchCover(id, params);
       runInAction(() => {
-        this.coverUrl = response.data.url.slice(5);
+        this.coverUrl = response.data.url;
         this.curCoverId = response.data._id; // eslint-disable-line
       });
       window.localStorage.setItem('cover_id', response.data._id); // eslint-disable-line
