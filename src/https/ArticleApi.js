@@ -19,7 +19,7 @@ class ArticleApi {
 
   handleLikes = (id, ip) => PUT(`/likes/${id}?ip=${ip}`);
 
-  getIp = () => GET('https://icanhazip.com/');
+  getIp = () => GET('https://api.ipify.org/');
 
   getArchive = () => GET('/archives', {});
 }
