@@ -8,6 +8,7 @@ import styles from './home.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/BlogSummary/BlogSummary';
 import socialMedia from '../../utils/socialMedia';
+import history from '../../history';
 
 @inject('articleStore')
 @inject('homeStore')
@@ -27,6 +28,7 @@ class Home extends Component {
 
   componentWillMount() {
     window.scrollTo(0, 0);
+    this.redirectToBlogDetail();
   }
 
   componentDidMount() {
@@ -43,6 +45,14 @@ class Home extends Component {
 
   componentWillUnmount() {
   }
+
+  redirectToBlogDetail = () => {
+    const curPost = window.localStorage.getItem('curPost');
+    if (curPost) {
+      history.push(curPost);
+      window.localStorage.removeItem('curPost');
+    }
+  };
 
   handleBigBannerHeight = () => {
     const viewPortInit = $(window)

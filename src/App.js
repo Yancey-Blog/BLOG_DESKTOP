@@ -32,7 +32,6 @@ class App extends Component {
 
   componentWillMount() {
     this.reactGA();
-    this.redirectToBlogDetail();
   }
 
   componentDidMount() {
@@ -45,14 +44,6 @@ class App extends Component {
     this.setState({
       fullSiteGray: response.data.full_site_gray,
     });
-  };
-
-  redirectToBlogDetail = () => {
-    const curPost = window.localStorage.getItem('curPost');
-    if (curPost) {
-      history.push(curPost);
-      window.localStorage.removeItem('curPost');
-    }
   };
 
   devToolsWarning() {
