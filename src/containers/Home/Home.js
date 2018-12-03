@@ -48,10 +48,10 @@ class Home extends Component {
 
   redirectToBlogDetail = () => {
     const curPost = window.localStorage.getItem('curPost');
-    if (curPost) {
-      history.push(curPost);
-      window.localStorage.removeItem('curPost');
-    }
+    // if (curPost) {
+    //   history.push(curPost);
+    //   window.localStorage.removeItem('curPost');
+    // }
   };
 
   handleBigBannerHeight = () => {
