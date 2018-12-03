@@ -89,6 +89,7 @@ class App extends Component {
               <Route path="/music" component={Music} />
               <Route path="/cv" component={CV} />
               <Route path="/apps" component={Apps} />
+              <Route path="/404" component={NotFound} />
               <Route component={NotFound} />
             </Switch>
             <ScrollProgress />

@@ -26,7 +26,6 @@ class BlogDetail extends Component {
 
   componentWillMount() {
     window.scrollTo(0, 0);
-    window.localStorage.setItem('curPost', window.location.pathname);
   }
 
   async componentDidMount() {

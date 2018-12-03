@@ -143,7 +143,7 @@ class ArticleStore {
         this.likeNum = response.data.curArticle.like_count.length;
       });
     } catch (e) {
-      console.log('unknown error');
+      history.push('/404');
     }
   };
 
