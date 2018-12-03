@@ -20,7 +20,7 @@ class NotFound extends Component {
   }
 
   handleBack = () => {
-    history.goBack();
+    history.push('/');
   };
 
   render() {
@@ -49,7 +49,7 @@ class NotFound extends Component {
                 type="button"
                 onClick={() => this.handleBack()}
               >
-                Back To Previous Page
+                Back To Home
               </button>
           </div>
         </div>
