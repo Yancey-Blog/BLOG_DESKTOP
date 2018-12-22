@@ -45,7 +45,7 @@
       }
       &::after {
         left: 1px;
-        text-shadow: -1px 0 #00a7e0
+        text-shadow: -1px 0 #00a7e0;
       }
       &:hover::before {
         text-shadow: 4px 0 #ff3f1a;
@@ -65,6 +65,22 @@
       padding: 1rem;
       border-radius: 10px;
       top: 39%;
+      &::after{
+        position: absolute;
+        content: '';
+        top: -8.2rem;
+        right: -1.2rem;
+        width: 4rem;
+        height: 4rem;
+        background: url(https://yancey-assets.oss-cn-beijing.aliyuncs.com/cap.12a740a.svg) no-repeat;
+        background-size: contain;
+        transform: rotate(15deg);
+        transform-origin: bottom right;
+        transition: all .2s;
+      }
+      &:hover::after{
+        transform: rotate(20deg);
+      }
       .social-media-motto {
         font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
