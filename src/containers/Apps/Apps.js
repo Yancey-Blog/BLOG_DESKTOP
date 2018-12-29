@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import styles from './apps.module.css';
 
-class Archive extends Component {
+class Apps extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,12 +12,6 @@ class Archive extends Component {
 
   componentWillMount() {
     window.scrollTo(0, 0);
-  }
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
   }
 
   render() {
@@ -115,4 +109,4 @@ class Archive extends Component {
   }
 }
 
-export default Archive;
+export default Apps;

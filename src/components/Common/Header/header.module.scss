@@ -26,6 +26,16 @@ $gray: #666;
   }
 }
 
+.clear-navbar-bg {
+  box-shadow: none;
+  background: transparent;
+  transition: all .4s ease;
+  &:hover {
+    background: rgba(#fff, .95);
+    box-shadow: 0 1px 40px -8px rgba(#000, .5);
+  }
+}
+
 .yancey-nav-item {
   position: relative;
   display: inline-block;

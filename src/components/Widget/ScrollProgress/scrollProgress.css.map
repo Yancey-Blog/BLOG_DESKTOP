@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,gBAAiB;EACf,MAAM,EAAE,GAAG;EACX,KAAK,EAAE,CAAC;EACR,UAAU,EAAE,OAAO;EACnB,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,CAAC;EACN,IAAI,EAAE,CAAC;EACP,OAAO,EAAE,CAAC",
-"sources": ["scrollProgress.scss"],
-"names": [],
-"file": "scrollProgress.css"
-}

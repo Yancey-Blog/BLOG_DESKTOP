@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import { inject, observer } from 'mobx-react/index';
 import styles from './archive.module.css';
-import {
-  checkWebp, monthToEN, aliOSS, webp,
-} from '../../utils/tools';
+import { aliOSS, monthToEN, webp } from '../../utils/tools';
 
 @inject('articleStore')
 @observer
 class Archive extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      checked: false,
+    };
   }
 
   componentWillMount() {
@@ -29,19 +29,21 @@ class Archive extends Component {
   }
 
   unfold() {
-    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i += 1) {
-      document.querySelectorAll('input[type="checkbox"]')[i].checked = true;
-    }
+    this.setState({
+      checked: true,
+    });
   }
 
   fold() {
-    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i += 1) {
-      document.querySelectorAll('input[type="checkbox"]')[i].checked = false;
-    }
+    this.setState({
+      checked: false,
+    });
   }
 
   render() {
     const { articleStore } = this.props;
+    const { checked } = this.state;
+    const isWebp = window.localStorage.isWebp;
     const bgUrl = `${aliOSS}/static/archive_page_header.jpg`;
     return (
       <main className={styles.archive_wrapper}>
@@ -52,7 +54,7 @@ class Archive extends Component {
         </Helmet>
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
-          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
+          style={{ backgroundImage: `url(${isWebp === 'true' ? `${bgUrl}${webp}` : bgUrl})` }}
         >
           <span>
             Archive
@@ -65,7 +67,7 @@ class Archive extends Component {
               type="button"
               onClick={() => this.unfold()}
             >
-            Unfold
+              Unfold
             </button>
             <div className={styles.or} />
             <button
@@ -73,62 +75,67 @@ class Archive extends Component {
               type="button"
               onClick={() => this.fold()}
             >
-            Fold
+              Fold
             </button>
           </div>
           {
-          Object.keys(articleStore.archiveData)
-            .map(key => (
-              <section className={styles.archive_list_wrapper} key={key}>
-                <h2 className={styles.year}>
-                  {articleStore.archiveData[key]._id.year}
-                </h2>
-                <ul className={styles.year_list_wrapper}>
-                  {
-                    Object.keys(articleStore.archiveData[key].data)
-                      .map(key1 => (
-                        <li key={key1}>
-                          <input id={`tab_${key}_${key1}`} type="checkbox" name="tabs" defaultChecked={key === '0' && key1 === '0' ? 'checked' : ''} />
-                          <label htmlFor={`tab_${key}_${key1}`}>{/* eslint-disable-line */}
-                            <span className={styles.month}>
-                              {monthToEN(articleStore.archiveData[key].data[key1].month)}
-                              {'. '}
-                              (
-                              {articleStore.archiveData[key].data[key1].data.length}
-                              {' '}
-                              {articleStore.archiveData[key].data[key1].data.length > 1 ? 'articles' : 'article'}
-                              )
-                            </span>
-                          </label>
-                          <ul className={styles.day_list_container}>
-                            {
-                              Object.keys(articleStore.archiveData[key].data[key1].data)
-                                .map($key => (
-                                  <li className={styles.day_item} key={$key}>
-                                    <span className={styles.day}>
-                                      {articleStore.archiveData[key].data[key1].data[$key].day}
-                                      {': '}
-                                    </span>
-                                    <Link to={`p/${articleStore.archiveData[key].data[key1].data[$key].id}`}>
-                                      {articleStore.archiveData[key].data[key1].data[$key].title}
-                                      {' '}
-                                      (
-                                      {articleStore.archiveData[key].data[key1].data[$key].pv_count}
-                                      {' '}
-                                      PV
-                                      )
-                                    </Link>
-                                  </li>
-                                ))
-                            }
-                          </ul>
-                        </li>
-                      ))
-                  }
-                </ul>
-              </section>
-            ))
-        }
+            Object.keys(articleStore.archiveData)
+              .map(key => (
+                <section className={styles.archive_list_wrapper} key={key}>
+                  <h2 className={styles.year}>
+                    {articleStore.archiveData[key]._id.year}{/* eslint-disable-line */}
+                  </h2>
+                  <ul className={styles.year_list_wrapper}>
+                    {
+                      Object.keys(articleStore.archiveData[key].data)
+                        .map(key1 => (
+                          <li key={key1}>
+                            <input
+                              id={`tab_${key}_${key1}`}
+                              type="checkbox"
+                              name="tabs"
+                              checked={checked}
+                            />
+                            <label htmlFor={`tab_${key}_${key1}`}>{/* eslint-disable-line */}
+                              <span className={styles.month}>
+                                {monthToEN(articleStore.archiveData[key].data[key1].month)}
+                                {'. '}
+                                (
+                                {articleStore.archiveData[key].data[key1].data.length}
+                                {' '}
+                                {articleStore.archiveData[key].data[key1].data.length > 1 ? 'articles' : 'article'}
+                                )
+                              </span>
+                            </label>
+                            <ul className={styles.day_list_container}>
+                              {
+                                Object.keys(articleStore.archiveData[key].data[key1].data)
+                                  .map($key => (
+                                    <li className={styles.day_item} key={$key}>
+                                      <span className={styles.day}>
+                                        {articleStore.archiveData[key].data[key1].data[$key].day}
+                                        {': '}
+                                      </span>
+                                      <Link to={`p/${articleStore.archiveData[key].data[key1].data[$key].id}`}>
+                                        {articleStore.archiveData[key].data[key1].data[$key].title}
+                                        {' '}
+                                        (
+                                        {articleStore.archiveData[key].data[key1].data[$key].pv_count}
+                                        {' '}
+                                        PV
+                                        )
+                                      </Link>
+                                    </li>
+                                  ))
+                              }
+                            </ul>
+                          </li>
+                        ))
+                    }
+                  </ul>
+                </section>
+              ))
+          }
         </div>
       </main>
     );

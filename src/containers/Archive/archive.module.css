@@ -22,9 +22,8 @@
 .archive_container {
   margin: 1rem auto 0;
   max-width: 40rem;
-  font-family: "Brandon Light", sans-serif;
   font-size: .8rem;
-  font-weight: bold; }
+  font-weight: 500; }
 
 .fold_unfold_wrapper {
   display: flex;

@@ -81,10 +81,6 @@
   flex-direction: row-reverse;
   text-align: left; }
 
-:global(.lazyloaded.lazyload1) {
-  animation: main 600ms;
-  will-change: tranform; }
-
 :global(.lazyload.lazyload2),
 :global(.lazyloading.lazyload2) {
   -webkit-filter: blur(5px);
@@ -96,11 +92,5 @@
   -webkit-filter: blur(0);
   filter: blur(0);
   will-change: tranform; }
-
-@keyframes main {
-  0% {
-    transform: translateY(4rem); }
-  100% {
-    transform: translateY(0); } }
 
 /*# sourceMappingURL=blogSummary.module.css.map */

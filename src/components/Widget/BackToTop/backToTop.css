@@ -1,4 +1,4 @@
-.back-to-top {
+.back_to_top {
   background: url("yancey-official-blog-cat-scroll.png") no-repeat 0 0;
   width: 70px;
   height: 900px;
@@ -8,7 +8,7 @@
   transition: 600ms all cubic-bezier(0.25, 0.1, 0.3, 1.5);
   animation: float 2s linear infinite;
   outline: none; }
-  .back-to-top:hover {
+  .back_to_top:hover {
     cursor: pointer; }
 
 @keyframes float {

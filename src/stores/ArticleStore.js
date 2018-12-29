@@ -163,6 +163,7 @@ class ArticleStore {
       runInAction(() => {
         this.archiveData = response.data;
       });
+      document.querySelector('#tab_0_0').checked = true;
     } catch (e) {
       console.log('unknown error');
     }

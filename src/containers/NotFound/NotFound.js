@@ -13,12 +13,6 @@ class NotFound extends Component {
     window.scrollTo(0, 0);
   }
 
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
   handleBack = () => {
     history.push('/');
   };
@@ -45,12 +39,12 @@ class NotFound extends Component {
             <p>
               The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
             </p>
-              <button
-                type="button"
-                onClick={() => this.handleBack()}
-              >
-                Back To Home
-              </button>
+            <button
+              type="button"
+              onClick={() => this.handleBack()}
+            >
+              Back To Home
+            </button>
           </div>
         </div>
       </main>

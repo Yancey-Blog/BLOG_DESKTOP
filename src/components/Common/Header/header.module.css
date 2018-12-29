@@ -20,6 +20,14 @@
     background-size: cover;
     text-indent: -99999px; }
 
+.clear-navbar-bg {
+  box-shadow: none;
+  background: transparent;
+  transition: all .4s ease; }
+  .clear-navbar-bg:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5); }
+
 .yancey-nav-item {
   position: relative;
   display: inline-block;

@@ -46,10 +46,10 @@
           border-radius: 1rem; }
       .apps_wrapper .mobile_wrapper .phone_list .mobile_android {
         width: 6.48rem;
-        background-image: url("./phone-android.png"); }
+        background-image: url("//yancey-assets.oss-cn-beijing.aliyuncs.com/phone-android.png"); }
       .apps_wrapper .mobile_wrapper .phone_list .mobile_iOS {
         width: 5.7rem;
-        background-image: url("./phone-iphone.png"); }
+        background-image: url("//yancey-assets.oss-cn-beijing.aliyuncs.com/phone-iphone.png"); }
     .apps_wrapper .mobile_wrapper .mobile_download_url {
       margin: 5.05rem auto 0;
       width: 60%;
@@ -62,7 +62,7 @@
       margin: 3.8rem auto 1rem;
       width: 20.61rem;
       height: 12rem;
-      background: url("./native-mac.png") no-repeat center top;
+      background: url("//yancey-assets.oss-cn-beijing.aliyuncs.com/native-mac.png") no-repeat center top;
       background-size: cover; }
     .apps_wrapper .desktop_wrapper .mac_version_support {
       width: 20rem;

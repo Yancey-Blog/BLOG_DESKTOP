@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import lazysizes from 'lazysizes';
-import { checkWebp, formatJSONDate } from '../../utils/tools';
+import { formatJSONDate } from '../../utils/tools';
 import styles from './blogSummary.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -15,28 +15,25 @@ class blogSummary extends Component {
     this.state = {};
   }
 
-  componentWillMount() {
-  }
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
   render() {
     const { articleStore } = this.props;
+    const isWebp = window.localStorage.isWebp;
     return (
       Object.keys(articleStore.summaryData)
         .map((item, key) => (
-          <article className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload', 'lazyload1')} key={articleStore.summaryData[key]._id}>
+          <article
+            className={cs(styles['blog-summary-content'], key % 2 === 0 ? styles.reverse : '', 'lazyload')}
+            key={articleStore.summaryData[key]._id}
+          >
             <div className={styles['blog-thumb-wrapper']}>
               <Link to={`/p/${articleStore.summaryData[key]._id}`}>
                 <figure className={styles['blog-thumb']}>
                   <img
                     className={cs('lazyload', 'lazyload2', styles.img)}
-                    src={`${articleStore.summaryData[key].header_cover}?x-oss-process=image/resize,w_120/quality,Q_90`}
-                    data-src={checkWebp() ? `${articleStore.summaryData[key].header_cover}?x-oss-process=image/format,webp` : articleStore.summaryData[key].poster}
+                    src={`${articleStore.summaryData[key].header_cover}?x-oss-process=image/resize,w_120/quality,Q_10`}
+                    data-src={isWebp
+                      ? `${articleStore.summaryData[key].header_cover}?x-oss-process=image/format,webp`
+                      : articleStore.summaryData[key].poster}
                     alt={articleStore.summaryData[key].title}
                   />
                 </figure>

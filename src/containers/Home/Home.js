@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
-import $ from 'jquery';
 import styles from './home.module.css';
 import svgIcons from '../../assets/image/yancey-official-blog-svg-icons.svg';
 import BlogSummary from '../../components/BlogSummary/BlogSummary';
 import socialMedia from '../../utils/socialMedia';
+import { webp } from '../../utils/tools';
 
-@inject('articleStore')
 @inject('homeStore')
+@inject('articleStore')
 @observer
 class Home extends Component {
   static addQrCode() {
@@ -31,55 +31,20 @@ class Home extends Component {
 
   componentDidMount() {
     const { articleStore, homeStore } = this.props;
+    homeStore.getCoverData();
     articleStore.getSummaryData();
     homeStore.getLatestMotto();
     homeStore.getNewReleaseData();
     homeStore.getAnnouncementData();
-    homeStore.getCoverData();
-    this.handleBigBannerHeight();
-    this.switchNavbarBackgroundColor();
     Home.addQrCode();
   }
-
-  componentWillUnmount() {
-  }
-
-  handleBigBannerHeight = () => {
-    const viewPortInit = $(window)
-      .height();
-    const homeBg = $('.home-big');
-    homeBg.css('height', `${viewPortInit}px`);
-    $(window)
-      .on('resize scroll', function () {
-        homeBg.css('height', `${$(this)
-          .height()}px`);
-      });
-  };
-
-  switchNavbarBackgroundColor = () => {
-    if ($(window)
-      .scrollTop() === 0) {
-      $('header')
-        .addClass(styles['clear-navbar-bg']);
-    }
-    $(window)
-      .on('scroll', function () {
-        if ($(this)
-          .scrollTop() === 0) {
-          $('header')
-            .addClass(styles['clear-navbar-bg']);
-        } else {
-          $('header')
-            .removeClass(styles['clear-navbar-bg']);
-        }
-      });
-  };
 
   handleKeyDown = () => {
   };
 
   render() {
     const { homeStore } = this.props;
+    const isWebp = window.localStorage.isWebp;
     return (
       <main className={styles['yancey-blog-home']}>
         <Helmet>
@@ -89,8 +54,8 @@ class Home extends Component {
         </Helmet>
         <section className="home-imax-wrapper">
           <figure
-            className={cs([styles['home-imax']], 'home-big')}
-            style={{ backgroundImage: `url(${homeStore.coverUrl}?x-oss-process=image/format,webp)` }}
+            className={styles['home-imax']}
+            style={{ backgroundImage: `url(${isWebp ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
           >
             <h1
               className={styles.glitch}

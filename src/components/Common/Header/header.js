@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
+import _ from 'lodash';
 import styles from './header.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
 
@@ -30,10 +31,6 @@ const navInfo = {
     url: '/cv',
     icon: '#curriculum-vitae',
   },
-  // RSS: {
-  //   url: '/rss',
-  //   icon: '#rss-symbol',
-  // },
 };
 
 @inject('articleStore')
@@ -41,21 +38,47 @@ const navInfo = {
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isTop: true,
+    };
   }
 
   componentWillMount() {
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.switchNavbarBackgroundColor();
+  }
+
+  switchNavbarBackgroundColor = () => {
+    const top = document.documentElement.scrollTop || document.body.scrollTop;
+    if (!top) {
+      this.setState({
+        isTop: true,
+      });
+    }
+    window.addEventListener('scroll', _.throttle(() => {
+      const tops = document.documentElement.scrollTop || document.body.scrollTop;
+      if (!tops) {
+        this.setState({
+          isTop: true,
+        });
+      } else {
+        this.setState({
+          isTop: false,
+        });
+      }
+    }, 150));
+  };
 
   handleKeyDown() {
   }
 
   render() {
     const { articleStore } = this.props;
+    const { isTop } = this.state;
     return (
-      <header className={cs(styles['yancey-common-header'], 'no-user-select')}>
+      <header className={cs(styles['yancey-common-header'], 'no-user-select', isTop ? styles['clear-navbar-bg'] : '')}>
         <a href="/" className={styles['yancey-logo']}>
           Yancey Official Blog
         </a>

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import ReactGA from 'react-ga';
 import history from './history';
 import stores from './stores/index';
 import './assets/css/base.css';
 import { globalApi } from './https/index';
+import { checkWebp } from './utils/tools';
+import GA from './constant/constant';
+// todo
+// code split
 import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
-import ScrollProgress from './components/Widget/ScrollProgress/scrollProgress';
 import Player from './components/Widget/Player/player';
 import Home from './containers/Home/Home';
 import Blog from './containers/Blog/Blog';
@@ -36,7 +39,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getGlobalData();
-    this.devToolsWarning();
+    window.localStorage.isWebp = checkWebp();
   }
 
   getGlobalData = async () => {
@@ -46,20 +49,9 @@ class App extends Component {
     });
   };
 
-  devToolsWarning() {
-    const re = /x/;
-    console.log(re);
-    re.toString = () => {
-      console.log('%cDANGER!', 'color:red;font-size:64px;font-weight:bold');
-      console.log('This browser feature is for developers only. Please do not copy-paste any code or run any scripts here. It may increase the risk of %c sudden death!!!', 'color:red;font-size:18px');
-      console.log('For more information, http://en.wikipedia.org/wiki/Self-XSS');
-      return '';
-    };
-  }
-
   reactGA() {
-    ReactGA.initialize('UA-114532340-1');
-    history.listen((location, action) => {
+    ReactGA.initialize(GA);
+    history.listen(() => {
       ReactGA.pageview(window.location.pathname + window.location.search);
     });
   }
@@ -92,7 +84,6 @@ class App extends Component {
               <Route path="/404" component={NotFound} />
               <Route component={NotFound} />
             </Switch>
-            <ScrollProgress />
             <BackToTop />
             <Player />
             <Footer />

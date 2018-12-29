@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import styles from './privacy_policy.module.css';
-import { checkWebp, aliOSS, webp } from '../../utils/tools';
+import { aliOSS, webp } from '../../utils/tools';
 
 class PrivacyPolicy extends Component {
   constructor(props) {
@@ -21,6 +21,7 @@ class PrivacyPolicy extends Component {
 
   render() {
     const bgUrl = `${aliOSS}/static/legal_page_header.jpg`;
+    const isWebp = window.localStorage.isWebp;
     return (
       <section className="privacy_policy_wrapper">
         <Helmet>
@@ -30,7 +31,7 @@ class PrivacyPolicy extends Component {
         </Helmet>
         <figure
           className={styles.bg_img}
-          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
+          style={{ backgroundImage: `url(${isWebp ? `${bgUrl}${webp}` : bgUrl})` }}
         />
         <article className={styles.privacy_policy_container}>
           <h1>
@@ -83,7 +84,7 @@ class PrivacyPolicy extends Component {
               </a>
             </li>
           </ul>
-          <span className="target-fix" id="Types_of_Data_collected"/>
+          <span className="target-fix" id="Types_of_Data_collected" />
           <h2>
             I. Types of Data collected
           </h2>
@@ -123,7 +124,7 @@ class PrivacyPolicy extends Component {
             the
             Owner.
           </p>
-          <span className="target-fix" id="Mode_and_place_of_processing_the_Data"/>
+          <span className="target-fix" id="Mode_and_place_of_processing_the_Data" />
           <h2>
             II. Mode and place of processing the Data
           </h2>
@@ -253,7 +254,7 @@ class PrivacyPolicy extends Component {
             to erasure, the right to rectification and the right to data portability cannot
             be enforced after expiration of the retention period.
           </p>
-          <span className="target-fix" id="The_purposes_of_processing"/>
+          <span className="target-fix" id="The_purposes_of_processing" />
           <h2>
             III. The purposes of processing
           </h2>
@@ -266,14 +267,14 @@ class PrivacyPolicy extends Component {
             Users can find further detailed information about such purposes of processing and about the specific
             Personal Data used for each purpose in the respective sections of this document.
           </p>
-          <span className="target-fix" id="Detailed_information_on_the_processing_of_Personal_Data"/>
+          <span className="target-fix" id="Detailed_information_on_the_processing_of_Personal_Data" />
           <h2>
             IV. Detailed information on the processing of Personal Data
           </h2>
           <p>
             Personal Data is collected for the following purposes and using the following services:
           </p>
-          <span className="target-fix" id="The_rights_of_Users"/>
+          <span className="target-fix" id="The_rights_of_Users" />
           <h2>
             V. The rights of Users
           </h2>
@@ -394,7 +395,7 @@ class PrivacyPolicy extends Component {
             addressed
             by the Owner as early as possible and always within one month.
           </p>
-          <span className="target-fix" id="Additional_information_about_Data_collection_and_processing"/>
+          <span className="target-fix" id="Additional_information_about_Data_collection_and_processing" />
           <h2>
             VI. Additional information about Data collection and processing
           </h2>
@@ -458,7 +459,7 @@ class PrivacyPolicy extends Component {
             Should the changes affect processing activities performed on the basis of the User’s consent, the Owner
             shall collect new consent from the User, where required.
           </p>
-          <span className="target-fix" id="Detailed_information_on_the_processing_of_Personal_Data"/>
+          <span className="target-fix" id="Detailed_information_on_the_processing_of_Personal_Data" />
           <h2>
             VII. Detailed information on the processing of Personal Data
           </h2>
@@ -558,7 +559,7 @@ class PrivacyPolicy extends Component {
             </a>
             . Privacy Shield participant.
           </p>
-          <span className="target-fix" id="Definitions_and_legal_references"/>
+          <span className="target-fix" id="Definitions_and_legal_references" />
           <h2>
             VIII. Definitions and legal references
           </h2>
@@ -650,7 +651,7 @@ class PrivacyPolicy extends Component {
           <p>
             This privacy policy relates solely to this Application, if not stated otherwise within this document.
           </p>
-          <span className="target-fix" id="Owner_and_Data_Controller"/>
+          <span className="target-fix" id="Owner_and_Data_Controller" />
           <h2>
             IX. Owner and Data Controller
           </h2>
@@ -664,7 +665,7 @@ class PrivacyPolicy extends Component {
             </span>
             team@yanceyleo.com
           </p>
-          <hr/>
+          <hr />
           <p className={styles.update_date}>
             Date of last revision: Tuesday, August 28, 2018
           </p>
