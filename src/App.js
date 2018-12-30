@@ -15,16 +15,18 @@ import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
 import Player from './components/Widget/Player/player';
 
+import Home from './containers/Home/Home';
+
 const Loadings = () => (
   <div className="loading_wrapper">
     <div className="loading_item" />
   </div>
 );
 
-const Home = Loadable({
-  loader: () => import('./containers/Home/Home'),
-  loading: Loadings,
-});
+// const Home = Loadable({
+//   loader: () => import('./containers/Home/Home'),
+//   loading: Loadings,
+// });
 
 const Blog = Loadable({
   loader: () => import('./containers/Blog/Blog'),
