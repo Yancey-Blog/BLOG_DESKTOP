@@ -5,6 +5,7 @@ import cs from 'classnames';
 import _ from 'lodash';
 import styles from './header.module.css';
 import svgIcons from '../../../assets/image/yancey-official-blog-svg-icons.svg';
+import { aliOSS, webp } from '../../../utils/tools';
 
 const navInfo = {
   home: {
@@ -77,6 +78,8 @@ class Header extends Component {
   render() {
     const { articleStore } = this.props;
     const { isTop } = this.state;
+    const miku = `${aliOSS}/miku.gif`;
+    const isWebp = window.localStorage.isWebp;
     return (
       <header className={cs(styles['yancey-common-header'], 'no-user-select', isTop ? styles['clear-navbar-bg'] : '')}>
         <a href="/" className={styles['yancey-logo']}>
@@ -137,7 +140,10 @@ class Header extends Component {
                     />
                   </label>
                 </div>
-                <figure className={styles.miku_chan} />
+                <figure
+                  className={styles.miku_chan}
+                  style={{ backgroundImage: `url(${isWebp ? `${miku}${webp}` : miku})` }}
+                />
               </div>
             )
             : null

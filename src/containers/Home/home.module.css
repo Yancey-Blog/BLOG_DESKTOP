@@ -3,13 +3,13 @@
   position: relative; }
   .yancey-blog-home .home-imax {
     position: relative;
-    width: 100%;
-    height: 100vh;
-    animation: header 1s;
-    transition: 1s all linear;
-    background: no-repeat fixed center top;
-    background-size: cover;
-    will-change: transform; }
+    width: 100vw;
+    height: 100vh; }
+    .yancey-blog-home .home-imax img {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; }
     .yancey-blog-home .home-imax::after {
       content: '';
       background: url("../../assets/image/dot.gif") 0 0 fixed;
@@ -93,9 +93,9 @@
             width: 22px;
             height: 22px; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .wechat-qr-code::after {
-          background: rgba(0, 0, 0, 0.5) url("./image/wechat-qr-code.jpg") no-repeat center top; }
+          background: rgba(0, 0, 0, 0.5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg") no-repeat center top; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .twitter-qr-code::after {
-          background: rgba(0, 0, 0, 0.5) url("./image/twitter-qr-code.jpg") no-repeat center top; }
+          background: rgba(0, 0, 0, 0.5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg") no-repeat center top; }
         .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code {
           cursor: pointer; }
           .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::after, .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::before {
@@ -163,6 +163,8 @@
             transition: all 400ms linear; }
           .yancey-blog-home .content .new-release-container .new-release .new-release-content:hover::before {
             left: 50%;
+            width: 100%;
+            text-align: center;
             transform: translate3d(-50%, -50%, 0); }
           .yancey-blog-home .content .new-release-container .new-release .new-release-content:hover::after {
             left: 0; }
@@ -179,6 +181,7 @@
             font-size: .9rem;
             transition: all 400ms linear; }
           .yancey-blog-home .content .new-release-container .new-release .new-release-content::before {
+            width: 100%;
             position: absolute;
             content: attr(data-intro);
             bottom: 1rem;
@@ -243,13 +246,6 @@
   top: -36px;
   left: 80px; }
 
-@keyframes header {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
 @keyframes main {
   0% {
     opacity: 0;

@@ -13,13 +13,6 @@ import { webp } from '../../utils/tools';
 @inject('articleStore')
 @observer
 class Home extends Component {
-  static addQrCode() {
-    const twitter = document.getElementsByClassName('twitter')[0];
-    const wechat = document.getElementsByClassName('wechat')[0];
-    twitter.classList.add(styles['qr-code'], styles['twitter-qr-code']);
-    wechat.classList.add(styles['qr-code'], styles['wechat-qr-code']);
-  }
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -31,12 +24,11 @@ class Home extends Component {
 
   componentDidMount() {
     const { articleStore, homeStore } = this.props;
-    homeStore.getCoverData();
-    articleStore.getSummaryData();
     homeStore.getLatestMotto();
+    homeStore.getCoverData();
     homeStore.getNewReleaseData();
     homeStore.getAnnouncementData();
-    Home.addQrCode();
+    articleStore.getSummaryData();
   }
 
   handleKeyDown = () => {
@@ -55,8 +47,8 @@ class Home extends Component {
         <section className="home-imax-wrapper">
           <figure
             className={styles['home-imax']}
-            style={{ backgroundImage: `url(${isWebp ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
           >
+            <img src={isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl} alt="" />
             <h1
               className={styles.glitch}
               data-value="HI, YANCEY!"
@@ -89,7 +81,13 @@ class Home extends Component {
                 {
                   Object.keys(socialMedia)
                     .map(key => (
-                      <li className={cs(styles['social-media-item'], key)} key={key}>
+                      <li
+                        className={cs(styles['social-media-item'],
+                          key === 'twitter' || key === 'wechat' ? styles['qr-code'] : '',
+                          key === 'twitter' ? styles['twitter-qr-code'] : '',
+                          key === 'wechat' ? styles['wechat-qr-code'] : '')}
+                        key={key}
+                      >
                         <a href={socialMedia[key].url} target="_blank" rel="noopener noreferrer">
                           <svg className={`icon-${socialMedia[key]}`}>
                             <use xlinkHref={`${svgIcons}${socialMedia[key].icon}`} />
@@ -131,25 +129,24 @@ class Home extends Component {
             </h2>
             <div className={styles['new-release-container']}>
               {
-                Object.keys(homeStore.newReleaseData)
-                  .map(key => (
-                    <div className={styles['new-release']} key={key}>
-                      <a
-                        href={homeStore.newReleaseData[key].url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                homeStore.newReleaseData.map((item, key) => (
+                  <div className={styles['new-release']} key={item._id}>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <figure
+                        className={styles['new-release-content']}
+                        style={{ backgroundImage: `url(${isWebp ? `${item.poster}${webp}` : item.poster})` }}
+                        data-title={item.title}
+                        data-intro={item.introduction}
                       >
-                        <figure
-                          className={styles['new-release-content']}
-                          style={{ backgroundImage: `url(${homeStore.newReleaseData[key].poster}?x-oss-process=image/format,webp)` }}
-                          data-title={homeStore.newReleaseData[key].title}
-                          data-intro={homeStore.newReleaseData[key].introduction}
-                        >
-                          <div className={styles.overlay} />
-                        </figure>
-                      </a>
-                    </div>
-                  ))
+                        <div className={styles.overlay} />
+                      </figure>
+                    </a>
+                  </div>
+                ))
               }
             </div>
           </article>

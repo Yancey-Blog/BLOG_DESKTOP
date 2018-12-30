@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
-import { TwitterShareButton, TwitterIcon } from 'react-share';
+import { TwitterIcon, TwitterShareButton } from 'react-share';
 import 'tocbot/dist/tocbot.css';
-import $ from 'jquery';
 import cs from 'classnames';
 import hljs from 'highlight.js';
 import tocbot from 'tocbot';
@@ -13,7 +12,7 @@ import 'baguettebox.js/dist/baguetteBox.min.css';
 import Like from '../../components/Like/Like';
 import './blog_detail.css';
 import {
-  setCopy, initLivere, checkWebp, aliOSS, webp, formatJSONDate,
+  aliOSS, checkWebp, formatJSONDate, initLivere, webp,
 } from '../../utils/tools';
 
 @inject('articleStore')
@@ -30,10 +29,13 @@ class BlogDetail extends Component {
 
   async componentDidMount() {
     const { articleStore } = this.props;
-    await articleStore.getArticleById(window.location.pathname.split('/').slice(-1)[0]);
-    await articleStore.increasePV(window.location.pathname.split('/').slice(-1)[0]);
+    await articleStore.getArticleById(window.location.pathname.split('/')
+      .slice(-1)[0]);
+    await articleStore.increasePV(window.location.pathname.split('/')
+      .slice(-1)[0]);
     await articleStore.getIp();
-    await articleStore.getLikes(window.location.pathname.split('/').slice(-1)[0], articleStore.curIp);
+    await articleStore.getLikes(window.location.pathname.split('/')
+      .slice(-1)[0], articleStore.curIp);
     this.hljsInit();
     this.addLineNumbers();
     this.getCodeLanguage();
@@ -44,16 +46,18 @@ class BlogDetail extends Component {
     this.initBaguetteBox();
     this.fixToc();
     initLivere();
-    document.oncopy = setCopy;
   }
 
   async componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       const { articleStore } = this.props;
-      await articleStore.getArticleById(window.location.pathname.split('/').slice(-1)[0]);
-      await articleStore.increasePV(window.location.pathname.split('/').slice(-1)[0]);
+      await articleStore.getArticleById(window.location.pathname.split('/')
+        .slice(-1)[0]);
+      await articleStore.increasePV(window.location.pathname.split('/')
+        .slice(-1)[0]);
       await articleStore.getIp();
-      await articleStore.getLikes(window.location.pathname.split('/').slice(-1)[0], articleStore.curIp);
+      await articleStore.getLikes(window.location.pathname.split('/')
+        .slice(-1)[0], articleStore.curIp);
       this.hljsInit();
       this.addLineNumbers();
       this.getCodeLanguage();
@@ -63,26 +67,17 @@ class BlogDetail extends Component {
       this.wrapImg();
       this.initBaguetteBox();
       this.fixToc();
-      document.oncopy = setCopy;
     }
   }
 
-  componentWillUnmount() {
-  }
-
   getCodeLanguage() {
-    const preTag = $('pre');
-    const codeBlock = preTag.find('code');
+    const preTag = document.querySelectorAll('pre');
+    const codeBlock = document.querySelectorAll('pre code');
     const codeTypeList = [];
-    codeBlock.each(function () {
-      codeTypeList.push($(this)
-        .attr('class')
-        .split(' ')[1].toLocaleUpperCase());
-    });
-    preTag.each(function (index) {
-      $(this)
-        .prepend($(`<div class="code-title"><span class="code-title-btn code-title-close"></span><span class="code-title-btn code-title-shrink"></span><span class="code-title-btn code-title-amplify"></span><span class="code-title-type">${codeTypeList[index]}</span></div>`));
-    });
+    for (let i = 0, l = codeBlock.length; i < l; i += 1) {
+      codeTypeList.push(codeBlock[i].className.split(' ')[1].toLocaleUpperCase());
+      preTag[i].insertAdjacentHTML('afterbegin', `<div class="code-title"><span class="code-title-btn code-title-close"></span><span class="code-title-btn code-title-shrink"></span><span class="code-title-btn code-title-amplify"></span><span class="code-title-type">${codeTypeList[i]}</span></div>`);
+    }
   }
 
   wrapImg = () => {
@@ -98,11 +93,10 @@ class BlogDetail extends Component {
   }
 
   tocbotInit() {
-    $(':header')
-      .each(function (index, value) {
-        $(this)
-          .attr('id', `header-${index}`);
-      });
+    const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    for (let i = 0, len = headers.length; i < len; i += 1) {
+      headers[i].id = `header-${i}`;
+    }
     tocbot.init({
       tocSelector: '.menu',
       contentSelector: '.article_content',
@@ -111,74 +105,57 @@ class BlogDetail extends Component {
   }
 
   fixToc() {
-    $(window)
-      .on('resize scroll', function () {
-        const menu = $('.menu');
-        if ($(this)
-          .scrollTop() <= 580) {
-          menu.css('top', `${512 - $(this)
-            .scrollTop()}px`);
-        } else {
-          menu.css('top', '4rem');
-        }
-      });
+    const menu = document.querySelector('.menu');
+    window.addEventListener('scroll', () => {
+      const tops = document.documentElement.scrollTop || document.body.scrollTop;
+      if (tops < 580) {
+        menu.style.top = `${512 - tops}px`;
+      } else {
+        menu.style.top = '4rem';
+      }
+    });
   }
 
   codeBlockChange() {
-    $('.code-title')
-      .find('span')
-      .click(function () {
-        const currentPreTag = $(this)
-          .parent()
-          .parent();
-        if (currentPreTag.hasClass('code-full-screen')) {
-          currentPreTag.addClass('code-close-full-screen')
-            .removeClass('code-full-screen');
-          $('body')
-            .css('overflow', 'auto');
+    const codeTitle = document.querySelectorAll('.code-title');
+    const body = document.querySelector('body');
+    for (let i = 0, l = codeTitle.length; i < l; i += 1) {
+      codeTitle[i].addEventListener('click', () => {
+        if (codeTitle[i].parentNode.classList.contains('code-full-screen')) {
+          codeTitle[i].parentNode.classList.add('code-close-full-screen');
+          codeTitle[i].parentNode.classList.remove('code-full-screen');
+          body.style.overflow = 'auto';
         } else {
-          currentPreTag.addClass('code-full-screen')
-            .removeClass('code-close-full-screen');
-          $('body')
-            .css('overflow', 'hidden');
+          codeTitle[i].parentNode.classList.remove('code-close-full-screen');
+          codeTitle[i].parentNode.classList.add('code-full-screen');
+          body.style.overflow = 'hidden';
         }
       });
+    }
   }
 
   showImageAlt() {
     const imgList = [];
-    const imgTag = $('img');
-    const parentOfImgTag = imgTag.parent();
-    imgTag.each(function () {
-      imgList.push($(this)
-        .attr('alt'));
-    });
-    parentOfImgTag.each(function (index) {
-      $(this)
-        .addClass('img-group');
-      $(this)
-        .append($(`<span class="img-info">${imgList[index]}</span>`));
-    });
+    const imgTag = document.querySelectorAll('img');
+    for (let i = 0, l = imgTag.length; i < l; i += 1) {
+      imgList.push(imgTag[i].alt);
+      imgTag[i].parentNode.classList.add('img-group');
+      imgTag[i].parentNode.insertAdjacentHTML('beforeend', `<span class="img-info">${imgList[i]}</span>`);
+    }
   }
 
   addLineNumbers() {
-    $('.hljs')
-      .each(function () {
-        $(this)
-          .html(`<ol class="rounded-list"><li class="hljs-ln-line">${$(this)
-            .html()
-            .replace(/\n/g, '\n</li><li class="hljs-ln-line">')}\n</li></ol>`);
-      });
-    $('ol li:last-child')
-      .remove();
+    const hljsDOM = document.querySelectorAll('.hljs');
+    for (let i = 0, l = hljsDOM.length; i < l; i += 1) {
+      hljsDOM[i].innerHTML = `<ol class="rounded-list"><li class="hljs-ln-line">${hljsDOM[i].innerHTML.replace(/\n/g, '\n</li><li class="hljs-ln-line">')}\n</li></ol>`;
+    }
   }
 
   hljsInit() {
-    const preTag = $('pre');
-    const codeBlock = preTag.find('code');
-    codeBlock.each((i, block) => {
-      hljs.highlightBlock(block);
-    });
+    const codeBlock = document.querySelectorAll('pre code');
+    for (let i = 0, l = codeBlock.length; i < l; i += 1) {
+      hljs.highlightBlock(codeBlock[i]);
+    }
   }
 
   render() {
@@ -189,12 +166,30 @@ class BlogDetail extends Component {
         {/* set meta info */}
         <Helmet
           meta={[
-            { name: 'twitter:card', content: 'summary_large_image' },
-            { name: 'twitter:site', content: '@YanceyOfficial' },
-            { name: 'twitter:creator', content: '@YanceyOfficial' },
-            { name: 'twitter:title', content: articleStore.detailData.title },
-            { name: 'twitter:description', content: articleStore.detailData.summary },
-            { name: 'twitter:image', content: articleStore.detailData.header_cover },
+            {
+              name: 'twitter:card',
+              content: 'summary_large_image',
+            },
+            {
+              name: 'twitter:site',
+              content: '@YanceyOfficial',
+            },
+            {
+              name: 'twitter:creator',
+              content: '@YanceyOfficial',
+            },
+            {
+              name: 'twitter:title',
+              content: articleStore.detailData.title,
+            },
+            {
+              name: 'twitter:description',
+              content: articleStore.detailData.summary,
+            },
+            {
+              name: 'twitter:image',
+              content: articleStore.detailData.header_cover,
+            },
           ]}
         >
           <title>

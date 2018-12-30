@@ -3,13 +3,14 @@
   position: relative;
   .home-imax {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    animation: header 1s;
-    transition: 1s all linear;
-    background: no-repeat fixed center top;
-    background-size: cover;
-    will-change: transform;
+    img {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
     &::after {
       content: '';
       background: url("../../assets/image/dot.gif") 0 0 fixed;
@@ -124,12 +125,12 @@
         }
         .wechat-qr-code {
           &::after {
-            background: rgba(0, 0, 0, .5) url("./image/wechat-qr-code.jpg") no-repeat center top;
+            background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg") no-repeat center top;
           }
         }
         .twitter-qr-code {
           &::after {
-            background: rgba(0, 0, 0, .5) url("./image/twitter-qr-code.jpg") no-repeat center top;
+            background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg") no-repeat center top;
           }
         }
         .qr-code {
@@ -213,6 +214,8 @@
           }
           &:hover::before {
             left: 50%;
+            width: 100%;
+            text-align: center;
             transform: translate3d(-50%, -50%, 0);
           }
           &:hover::after {
@@ -232,6 +235,7 @@
             transition: all 400ms linear;
           }
           &::before {
+            width: 100%;
             position: absolute;
             content: attr(data-intro);
             bottom: 1rem;
@@ -308,18 +312,6 @@
   border-bottom-color: rgba(0, 0, 0, 0.5);
   top: -36px;
   left: 80px;
-}
-
-@keyframes header {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes main {
