@@ -8,7 +8,6 @@ import styles from './music.module.css';
 import {
   aliOSS, checkWebp, webp, formatJSONDate,
 } from '../../utils/tools';
-import articleStore from '../../stores/ArticleStore';
 
 @inject('musicStore')
 @inject('articleStore')
@@ -39,7 +38,7 @@ class Music extends Component {
   };
 
   render() {
-    const { musicStore } = this.props;
+    const { musicStore, articleStore } = this.props;
     const bgUrl = `${aliOSS}/static/music_page_header.jpg`;
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
@@ -60,7 +59,7 @@ class Music extends Component {
           </p>
         </figure>
         <div className={styles.live_tours_artists_wrapper}>
-          <section>
+          <section className={styles.live_tour_container}>
             <h1 className={styles.column_title}>
               LIVE TOURS
             </h1>

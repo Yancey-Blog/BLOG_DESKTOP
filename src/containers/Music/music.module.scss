@@ -117,6 +117,9 @@ $slider_height: 25.8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
+  .live_tour_container{
+    width: 35.5rem;
+  }
 }
 
 .live_tours_container {

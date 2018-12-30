@@ -20,7 +20,7 @@
       left: 0;
       will-change: transform;
     }
-    .glitch {
+    @at-root .glitch {
       position: relative;
       font-family: "Ubuntu Bold", sans-serif;
       color: #fff;
@@ -57,7 +57,7 @@
         animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
       }
     }
-    .social-media-container {
+    @at-root .social-media-container {
       position: relative;
       z-index: 1;
       max-width: 27rem;
@@ -107,7 +107,7 @@
           margin-left: .4rem;
         }
       }
-      .social-media-list {
+      @at-root .social-media-list {
         text-align: center;
         .social-media-item:last-child {
           margin-right: 0;
@@ -190,7 +190,7 @@
       font-size: .8rem;
       background: #fbfbfb;
     }
-    .new-release-container {
+    @at-root .new-release-container {
       display: flex;
       justify-content: space-around;
       .new-release {

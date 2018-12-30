@@ -19,7 +19,7 @@
       bottom: 0;
       left: 0;
       will-change: transform; }
-    .yancey-blog-home .home-imax .glitch {
+    .glitch {
       position: relative;
       font-family: "Ubuntu Bold", sans-serif;
       color: #fff;
@@ -31,26 +31,26 @@
       max-width: 100%;
       text-align: center;
       letter-spacing: .25rem; }
-      .yancey-blog-home .home-imax .glitch::before, .yancey-blog-home .home-imax .glitch::after {
+      .glitch::before, .glitch::after {
         content: attr(data-value);
         position: absolute;
         top: 0;
         width: 100%;
         background: rgba(0, 0, 0, 0);
         clip: rect(0, 0, 0, 0); }
-      .yancey-blog-home .home-imax .glitch::before {
+      .glitch::before {
         left: -1px;
         text-shadow: 1px 0 #ff3f1a; }
-      .yancey-blog-home .home-imax .glitch::after {
+      .glitch::after {
         left: 1px;
         text-shadow: -1px 0 #00a7e0; }
-      .yancey-blog-home .home-imax .glitch:hover::before {
+      .glitch:hover::before {
         text-shadow: 4px 0 #ff3f1a;
         animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse; }
-      .yancey-blog-home .home-imax .glitch:hover::after {
+      .glitch:hover::after {
         text-shadow: -5px 0 #00a7e0;
         animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse; }
-    .yancey-blog-home .home-imax .social-media-container {
+    .social-media-container {
       position: relative;
       z-index: 1;
       max-width: 27rem;
@@ -59,7 +59,7 @@
       padding: 1rem;
       border-radius: 10px;
       top: 39%; }
-      .yancey-blog-home .home-imax .social-media-container .social-media-motto {
+      .social-media-container .social-media-motto {
         font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
         font-size: .8rem;
@@ -68,44 +68,44 @@
         justify-content: center;
         margin-bottom: 1.2rem;
         max-height: .9rem; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-motto .left-quote, .yancey-blog-home .home-imax .social-media-container .social-media-motto .right-quote {
+        .social-media-container .social-media-motto .left-quote, .social-media-container .social-media-motto .right-quote {
           position: relative;
           width: .9rem;
           height: .9rem;
           fill: #fff;
           fill-opacity: .6;
           top: 1px; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-motto .left-quote {
+        .social-media-container .social-media-motto .left-quote {
           margin-right: .4rem; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-motto .right-quote {
+        .social-media-container .social-media-motto .right-quote {
           margin-right: 0;
           margin-left: .4rem; }
-      .yancey-blog-home .home-imax .social-media-container .social-media-list {
+      .social-media-list {
         text-align: center; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item:last-child {
+        .social-media-list .social-media-item:last-child {
           margin-right: 0; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item {
+        .social-media-list .social-media-item {
           outline: none;
           position: relative;
           display: inline-block;
           margin-right: 1.4rem; }
-          .yancey-blog-home .home-imax .social-media-container .social-media-list .social-media-item svg {
+          .social-media-list .social-media-item svg {
             width: 22px;
             height: 22px; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list .wechat-qr-code::after {
+        .social-media-list .wechat-qr-code::after {
           background: rgba(0, 0, 0, 0.5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg") no-repeat center top; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list .twitter-qr-code::after {
+        .social-media-list .twitter-qr-code::after {
           background: rgba(0, 0, 0, 0.5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg") no-repeat center top; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code {
+        .social-media-list .qr-code {
           cursor: pointer; }
-          .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::after, .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::before {
+          .social-media-list .qr-code::after, .social-media-list .qr-code::before {
             position: absolute;
             content: '';
             opacity: 0;
             visibility: hidden;
             transform: translate3d(0, 16px, 0);
             transition: 700ms all ease; }
-          .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::after {
+          .social-media-list .qr-code::after {
             width: 120px;
             height: 120px;
             padding: 10px;
@@ -114,24 +114,24 @@
             background-origin: content-box;
             top: 62px;
             left: -58px; }
-          .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code::before {
+          .social-media-list .qr-code::before {
             width: 0;
             height: 0;
             border: 16px solid transparent;
             border-bottom-color: rgba(0, 0, 0, 0.5);
             top: 30px;
             left: -4px; }
-          .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code:hover::after, .yancey-blog-home .home-imax .social-media-container .social-media-list .qr-code:hover::before {
+          .social-media-list .qr-code:hover::after, .social-media-list .qr-code:hover::before {
             opacity: 1;
             visibility: visible;
             transform: translate3d(0, 0, 0);
             transition: 700ms all ease; }
-        .yancey-blog-home .home-imax .social-media-container .social-media-list svg.arrow {
+        .social-media-list svg.arrow {
           width: 20px;
           height: 20px;
           position: relative;
           top: -1px; }
-          .yancey-blog-home .home-imax .social-media-container .social-media-list svg.arrow:hover {
+          .social-media-list svg.arrow:hover {
             cursor: pointer; }
   .yancey-blog-home .content {
     max-width: 40rem;
@@ -143,32 +143,32 @@
       border-radius: 10px;
       font-size: .8rem;
       background: #fbfbfb; }
-    .yancey-blog-home .content .new-release-container {
+    .new-release-container {
       display: flex;
       justify-content: space-around; }
-      .yancey-blog-home .content .new-release-container .new-release {
+      .new-release-container .new-release {
         overflow: hidden;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         border-radius: 10px; }
-        .yancey-blog-home .content .new-release-container .new-release .new-release-content {
+        .new-release-container .new-release .new-release-content {
           position: relative;
           width: 13rem;
           height: 8rem;
           background: no-repeat center top;
           background-size: cover;
           transition: all 400ms linear; }
-          .yancey-blog-home .content .new-release-container .new-release .new-release-content:hover .overlay {
+          .new-release-container .new-release .new-release-content:hover .overlay {
             visibility: visible;
             opacity: 1;
             transition: all 400ms linear; }
-          .yancey-blog-home .content .new-release-container .new-release .new-release-content:hover::before {
+          .new-release-container .new-release .new-release-content:hover::before {
             left: 50%;
             width: 100%;
             text-align: center;
             transform: translate3d(-50%, -50%, 0); }
-          .yancey-blog-home .content .new-release-container .new-release .new-release-content:hover::after {
+          .new-release-container .new-release .new-release-content:hover::after {
             left: 0; }
-          .yancey-blog-home .content .new-release-container .new-release .new-release-content::after {
+          .new-release-container .new-release .new-release-content::after {
             position: absolute;
             content: attr(data-title);
             left: 13rem;
@@ -180,7 +180,7 @@
             text-align: center;
             font-size: .9rem;
             transition: all 400ms linear; }
-          .yancey-blog-home .content .new-release-container .new-release .new-release-content::before {
+          .new-release-container .new-release .new-release-content::before {
             width: 100%;
             position: absolute;
             content: attr(data-intro);
@@ -193,7 +193,7 @@
             letter-spacing: 1px;
             z-index: 2;
             transition: all 400ms linear; }
-          .yancey-blog-home .content .new-release-container .new-release .new-release-content .overlay {
+          .new-release-container .new-release .new-release-content .overlay {
             visibility: hidden;
             position: absolute;
             opacity: 0;
