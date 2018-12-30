@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import ReactGA from 'react-ga';
+import Loadable from 'react-loadable';
 import history from './history';
 import stores from './stores/index';
 import './assets/css/base.css';
@@ -14,16 +15,62 @@ import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
 import Player from './components/Widget/Player/player';
-import Home from './containers/Home/Home';
-import Blog from './containers/Blog/Blog';
-import BlogDetail from './containers/BlogDetail/BlogDetail';
-import Archive from './containers/Archive/Archive';
-import Music from './containers/Music/Music';
-import CV from './containers/CV/CV';
-import Apps from './containers/Apps/Apps';
-import PrivacyPolicy from './containers/PrivacyPolicy/PrivacyPolicy';
-import About from './containers/About/About';
-import NotFound from './containers/NotFound/NotFound';
+
+const Loadings = () => (
+  <div className="loading_wrapper">
+    <div className="loading_item" />
+  </div>
+);
+
+const Home = Loadable({
+  loader: () => import('./containers/Home/Home'),
+  loading: Loadings,
+});
+
+const Blog = Loadable({
+  loader: () => import('./containers/Blog/Blog'),
+  loading: Loadings,
+});
+
+const BlogDetail = Loadable({
+  loader: () => import('./containers/BlogDetail/BlogDetail'),
+  loading: Loadings,
+});
+
+const Archive = Loadable({
+  loader: () => import('./containers/Archive/Archive'),
+  loading: Loadings,
+});
+
+const Music = Loadable({
+  loader: () => import('./containers/Music/Music'),
+  loading: Loadings,
+});
+
+const CV = Loadable({
+  loader: () => import('./containers/CV/CV'),
+  loading: Loadings,
+});
+
+const Apps = Loadable({
+  loader: () => import('./containers/Apps/Apps'),
+  loading: Loadings,
+});
+
+const PrivacyPolicy = Loadable({
+  loader: () => import('./containers/PrivacyPolicy/PrivacyPolicy'),
+  loading: Loadings,
+});
+
+const About = Loadable({
+  loader: () => import('./containers/About/About'),
+  loading: Loadings,
+});
+
+const NotFound = Loadable({
+  loader: () => import('./containers/NotFound/NotFound'),
+  loading: Loadings,
+});
 
 class App extends Component {
   constructor(props) {
