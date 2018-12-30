@@ -4,11 +4,12 @@
   .yancey-blog-home .home-imax {
     position: relative;
     width: 100vw;
-    height: 100vh;
-    animation: header 1s;
-    transition: 1s all linear;
-    background: no-repeat fixed center top;
-    background-size: cover; }
+    height: 100vh; }
+    .yancey-blog-home .home-imax img {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; }
     .yancey-blog-home .home-imax::after {
       content: '';
       background: url("../../assets/image/dot.gif") 0 0 fixed;

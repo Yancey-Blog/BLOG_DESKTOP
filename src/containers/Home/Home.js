@@ -47,8 +47,9 @@ class Home extends Component {
         <section className="home-imax-wrapper">
           <figure
             className={styles['home-imax']}
-            style={{ backgroundImage: `url(${isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
+            // style={{ backgroundImage: `url(${isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
           >
+            <img src={isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl} alt="cover" />
             <h1
               className={styles.glitch}
               data-value="HI, YANCEY!"
