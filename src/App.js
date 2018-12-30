@@ -9,8 +9,7 @@ import './assets/css/base.css';
 import { globalApi } from './https/index';
 import { checkWebp } from './utils/tools';
 import GA from './constant/constant';
-// todo
-// code split
+
 import Header from './components/Common/Header/header';
 import Footer from './components/Common/Footer/footer';
 import BackToTop from './components/Widget/BackToTop/backToTop';
