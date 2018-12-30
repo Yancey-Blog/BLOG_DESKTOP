@@ -9,7 +9,6 @@
     transition: 1s all linear;
     background: no-repeat fixed center top;
     background-size: cover;
-    will-change: transform;
     &::after {
       content: '';
       background: url("../../assets/image/dot.gif") 0 0 fixed;

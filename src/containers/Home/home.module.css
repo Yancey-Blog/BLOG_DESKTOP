@@ -8,8 +8,7 @@
     animation: header 1s;
     transition: 1s all linear;
     background: no-repeat fixed center top;
-    background-size: cover;
-    will-change: transform; }
+    background-size: cover; }
     .yancey-blog-home .home-imax::after {
       content: '';
       background: url("../../assets/image/dot.gif") 0 0 fixed;
