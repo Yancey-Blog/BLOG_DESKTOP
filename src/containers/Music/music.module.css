@@ -42,8 +42,10 @@
 
 .column_title {
   padding: 2rem 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 1.1rem;
-  color: #4a4a4a; }
+  color: #4a4a4a;
+  font-weight: 300; }
 
 .music_split {
   border: 0;
@@ -66,7 +68,7 @@
     transition: all 200ms linear; }
 
 .music_wrapper {
-  font-family: "Brandon Light", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin-top: 3.25rem; }
 
 .bg_cover {
@@ -164,8 +166,6 @@
   .yancey_music_container .yancey_music_list {
     display: grid;
     grid-template-columns: repeat(4, 1fr); }
-    .yancey_music_container .yancey_music_list .meta_title {
-      font-family: "PingFang SC", sans-serif; }
 
 /* reset slider style */
 :global(.slider-control-bottomcenter) {

@@ -23,11 +23,6 @@ const Loadings = () => (
   </div>
 );
 
-// const Home = Loadable({
-//   loader: () => import('./containers/Home/Home'),
-//   loading: Loadings,
-// });
-
 const Blog = Loadable({
   loader: () => import('./containers/Blog/Blog'),
   loading: Loadings,

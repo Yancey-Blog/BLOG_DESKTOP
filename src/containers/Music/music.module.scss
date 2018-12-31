@@ -51,15 +51,17 @@ $slider_height: 25.8rem;
   padding: .75rem 0 1.5rem;
 }
 
-.meta_title_artist{
+.meta_title_artist {
   font-size: .7rem;
-  color: rgba(#000 ,.4);
+  color: rgba(#000, .4);
 }
 
 .column_title {
   padding: 2rem 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 1.1rem;
   color: $text;
+  font-weight: 300;
 }
 
 .music_split {
@@ -86,10 +88,9 @@ $slider_height: 25.8rem;
 }
 
 .music_wrapper {
-  font-family: "Brandon Light", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin-top: 3.25rem;
 }
-
 
 // part 1
 .bg_cover {
@@ -101,7 +102,7 @@ $slider_height: 25.8rem;
   padding-top: 11rem;
   padding-left: 2rem;
   text-shadow: 8px 8px 1px rgba(44, 46, 47, 0.1);
-  h1{
+  h1 {
     font-weight: 100;
   }
   p {
@@ -117,7 +118,7 @@ $slider_height: 25.8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1rem;
-  .live_tour_container{
+  .live_tour_container {
     width: 35.5rem;
   }
 }
@@ -206,15 +207,12 @@ $slider_height: 25.8rem;
 }
 
 // part 3
-.yancey_music_container{
+.yancey_music_container {
   width: 72rem;
   margin: 0 auto;
-  .yancey_music_list{
+  .yancey_music_list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-      .meta_title{
-        font-family: "PingFang SC", sans-serif;
-      }
   }
 }
 

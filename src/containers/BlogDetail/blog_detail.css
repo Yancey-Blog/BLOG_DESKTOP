@@ -9,7 +9,6 @@
     height: 20rem;
     padding-top: 11rem;
     padding-left: 28rem;
-    font-family: "Merriweather Sans", sans-serif;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -38,7 +37,6 @@
       .article_detail_wrapper .article_meta_wrapper .publish_date:hover::after {
         position: absolute;
         content: attr(data-modify);
-        font-family: "PingFang SC", sans-serif;
         top: 1.8rem;
         left: -2.6rem;
         padding: .2rem .1rem;
@@ -287,7 +285,7 @@
     top: 25.6rem;
     margin-left: 42rem; }
     .article_detail_wrapper .menu .toc-link {
-      font-family: "Merriweather Sans", sans-serif;
+      font-family: "Ubuntu", sans-serif;
       font-size: .8rem;
       color: #404040;
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }

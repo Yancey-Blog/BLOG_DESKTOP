@@ -22,7 +22,6 @@
     }
     @at-root .glitch {
       position: relative;
-      font-family: "Ubuntu Bold", sans-serif;
       color: #fff;
       font-size: 4rem;
       z-index: 1;
@@ -40,18 +39,22 @@
         background: rgba(0, 0, 0, 0);
         clip: rect(0, 0, 0, 0)
       }
+
       &::before {
         left: -1px;
         text-shadow: 1px 0 #ff3f1a
       }
+
       &::after {
         left: 1px;
         text-shadow: -1px 0 #00a7e0;
       }
+
       &:hover::before {
         text-shadow: 4px 0 #ff3f1a;
         animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
       }
+
       &:hover::after {
         text-shadow: -5px 0 #00a7e0;
         animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
@@ -83,7 +86,6 @@
       //  transform: rotate(20deg);
       //}
       .social-media-motto {
-        font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
         font-size: .8rem;
         color: #eaeadf;
@@ -107,11 +109,13 @@
           margin-left: .4rem;
         }
       }
+
       @at-root .social-media-list {
         text-align: center;
         .social-media-item:last-child {
           margin-right: 0;
         }
+
         .social-media-item {
           outline: none;
           position: relative;
@@ -122,16 +126,19 @@
             height: 22px;
           }
         }
+
         .wechat-qr-code {
           &::after {
             background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg") no-repeat center top;
           }
         }
+
         .twitter-qr-code {
           &::after {
             background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg") no-repeat center top;
           }
         }
+
         .qr-code {
           cursor: pointer;
           &::after, &::before {
@@ -167,6 +174,7 @@
             transition: 700ms all ease;
           }
         }
+
         svg.arrow {
           width: 20px;
           height: 20px;

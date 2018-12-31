@@ -24,8 +24,8 @@ class Home extends Component {
 
   componentDidMount() {
     const { articleStore, homeStore } = this.props;
-    homeStore.getLatestMotto();
     homeStore.getCoverData();
+    homeStore.getLatestMotto();
     homeStore.getNewReleaseData();
     homeStore.getAnnouncementData();
     articleStore.getSummaryData();

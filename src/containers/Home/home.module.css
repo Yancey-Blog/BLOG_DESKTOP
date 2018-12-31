@@ -21,7 +21,6 @@
       will-change: transform; }
     .glitch {
       position: relative;
-      font-family: "Ubuntu Bold", sans-serif;
       color: #fff;
       font-size: 4rem;
       z-index: 1;
@@ -60,7 +59,6 @@
       border-radius: 10px;
       top: 39%; }
       .social-media-container .social-media-motto {
-        font-family: "Ubuntu Bold", sans-serif;
         font-weight: 700;
         font-size: .8rem;
         color: #eaeadf;

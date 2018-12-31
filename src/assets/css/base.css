@@ -1,18 +1,11 @@
 @font-face {
-  font-family: 'Ubuntu Bold';
-  src: url("../../assets/fonts/Ubuntu-Bold.ttf"); }
-@font-face {
   font-family: 'Ubuntu';
-  src: url("../../assets/fonts/Ubuntu-Regular.ttf"); }
+  src: url("https://yancey-assets.oss-cn-beijing.aliyuncs.com/font/Ubuntu-Regular.woff2");
+  font-display: swap; }
 @font-face {
   font-family: "Operator Mono";
-  src: url("../../assets/fonts/Operator-Mono-Book-Regular.otf"); }
-@font-face {
-  font-family: "Merriweather Sans";
-  src: url("../../assets/fonts/MerriweatherSans-Regular.ttf"); }
-@font-face {
-  font-family: "Brandon Light";
-  src: url("../../assets/fonts/Brandon-Light.otf"); }
+  src: url("../../assets/fonts/Operator-Mono-Book-Regular.otf");
+  font-display: swap; }
 * {
   margin: 0;
   padding: 0;
