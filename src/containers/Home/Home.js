@@ -25,6 +25,7 @@ class Home extends Component {
   componentDidMount() {
     const { articleStore, homeStore } = this.props;
     homeStore.getCoverData();
+    // this.preloadImg();
     homeStore.getLatestMotto();
     homeStore.getNewReleaseData();
     homeStore.getAnnouncementData();
@@ -32,6 +33,19 @@ class Home extends Component {
   }
 
   handleKeyDown = () => {
+  };
+
+  preloadImg = () => {
+    const { homeStore } = this.props;
+    const background = new Image();
+    background.src = '//yancey-assets.oss-cn-beijing.aliyuncs.com/New-Picture-Of-Happy-New-Year-2019.png?x-oss-process=image/format,webp';
+    background.onload = function () {
+      console.log('Background load complete!');
+      const loadbackground = document.getElementById('background');
+      loadbackground.style.backgroundImage = 'url("//yancey-assets.oss-cn-beijing.aliyuncs.com/New-Picture-Of-Happy-New-Year-2019.png?x-oss-process=image/format,webp")';
+      loadbackground.style.animationName = 'fadein';
+      loadbackground.style.opacity = 1;
+    };
   };
 
   render() {
@@ -46,8 +60,9 @@ class Home extends Component {
         </Helmet>
         <section className="home-imax-wrapper">
           <figure
+            id="background"
             className={styles['home-imax']}
-            style={{ backgroundImage: `url(${isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
+            // style={{ backgroundImage: `url(${isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
           >
             <h1
               className={styles.glitch}

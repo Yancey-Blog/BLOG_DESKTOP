@@ -9,6 +9,12 @@
     transition: 1s all linear;
     background: no-repeat fixed center top;
     background-size: cover;
+
+    opacity: 0;
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
     will-change: transform;
     &::after {
       content: '';
@@ -379,3 +385,7 @@
   }
 }
 
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

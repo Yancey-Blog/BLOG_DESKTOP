@@ -71,6 +71,16 @@ class HomeStore {
         this.coverUrl = response.data.url;
         this.curCoverId = response.data._id; // eslint-disable-line
       });
+      if (this.coverUrl) {
+        const background = new Image();
+        background.src = this.coverUrl;
+        background.onload = function () {
+          const loadbackground = document.getElementById('background');
+          loadbackground.style.backgroundImage = `url(${background.src})`;
+          loadbackground.style.animationName = 'fadein';
+          loadbackground.style.opacity = 1;
+        };
+      }
       window.localStorage.setItem('cover_id', response.data._id); // eslint-disable-line
     } catch (e) {
       console.log('unknown error');
