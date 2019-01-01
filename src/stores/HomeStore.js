@@ -27,6 +27,17 @@ class HomeStore {
     this.curCoverId = '';
   }
 
+  loadBgImg = () => {
+    const background = new Image();
+    background.src = this.coverUrl;
+    background.onload = function () {
+      const loadbackground = document.getElementById('background');
+      loadbackground.style.backgroundImage = `url(${background.src})`;
+      loadbackground.style.animationName = 'fadein';
+      loadbackground.style.opacity = 1;
+    };
+  }
+
   getLatestMotto = async () => {
     try {
       const response = await this.homeApi.getLatestMotto();
@@ -72,14 +83,7 @@ class HomeStore {
         this.curCoverId = response.data._id; // eslint-disable-line
       });
       if (this.coverUrl) {
-        const background = new Image();
-        background.src = this.coverUrl;
-        background.onload = function () {
-          const loadbackground = document.getElementById('background');
-          loadbackground.style.backgroundImage = `url(${background.src})`;
-          loadbackground.style.animationName = 'fadein';
-          loadbackground.style.opacity = 1;
-        };
+        this.loadBgImg();
       }
       window.localStorage.setItem('cover_id', response.data._id); // eslint-disable-line
     } catch (e) {
@@ -97,6 +101,10 @@ class HomeStore {
         this.coverUrl = response.data.url;
         this.curCoverId = response.data._id; // eslint-disable-line
       });
+      window.localStorage.setItem('cover_id', response.data._id); // eslint-disable-line
+      if (this.coverUrl) {
+        this.loadBgImg();
+      }
       window.localStorage.setItem('cover_id', response.data._id); // eslint-disable-line
     } catch (e) {
       console.log('unknown error');
