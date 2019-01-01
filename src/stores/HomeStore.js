@@ -1,6 +1,6 @@
 import { configure, observable, runInAction, } from 'mobx';
 import { homeApi } from '../https/index';
-import { webp } from '../utils/tools';
+import { webp, checkWebp } from '../utils/tools';
 
 configure({
   strict: 'always',
@@ -17,8 +17,6 @@ class HomeStore {
 
   @observable curCoverId;
 
-  @observable isWebp;
-
   constructor() {
     this.homeApi = homeApi;
     this.mottoData = '';
@@ -26,12 +24,11 @@ class HomeStore {
     this.announcementData = '';
     this.coverUrl = '';
     this.curCoverId = '';
-    this.isWebp = window.localStorage.isWebp === 'true';
   }
 
   loadBgImg = () => {
     const background = new Image();
-    background.src = this.isWebp ? `${this.coverUrl}${webp}` : this.coverUrl;
+    background.src = checkWebp() ? `${this.coverUrl}${webp}` : this.coverUrl;
     background.onload = function () {
       const loadbackground = document.getElementById('background');
       loadbackground.style.backgroundImage = `url(${background.src})`;
