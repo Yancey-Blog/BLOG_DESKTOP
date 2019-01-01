@@ -1,7 +1,6 @@
-import {
-  observable, configure, runInAction,
-} from 'mobx';
+import { configure, observable, runInAction, } from 'mobx';
 import { homeApi } from '../https/index';
+import { webp } from '../utils/tools';
 
 configure({
   strict: 'always',
@@ -28,15 +27,16 @@ class HomeStore {
   }
 
   loadBgImg = () => {
+    const isWebp = window.localStorage.isWebp;
     const background = new Image();
-    background.src = this.coverUrl;
+    background.src = isWebp ? `${this.coverUrl}${webp}` : this.coverUrl;
     background.onload = function () {
       const loadbackground = document.getElementById('background');
       loadbackground.style.backgroundImage = `url(${background.src})`;
       loadbackground.style.animationName = 'fadein';
       loadbackground.style.opacity = 1;
     };
-  }
+  };
 
   getLatestMotto = async () => {
     try {

@@ -35,19 +35,6 @@ class Home extends Component {
   handleKeyDown = () => {
   };
 
-  preloadImg = () => {
-    const { homeStore } = this.props;
-    const background = new Image();
-    background.src = '//yancey-assets.oss-cn-beijing.aliyuncs.com/New-Picture-Of-Happy-New-Year-2019.png?x-oss-process=image/format,webp';
-    background.onload = function () {
-      console.log('Background load complete!');
-      const loadbackground = document.getElementById('background');
-      loadbackground.style.backgroundImage = 'url("//yancey-assets.oss-cn-beijing.aliyuncs.com/New-Picture-Of-Happy-New-Year-2019.png?x-oss-process=image/format,webp")';
-      loadbackground.style.animationName = 'fadein';
-      loadbackground.style.opacity = 1;
-    };
-  };
-
   render() {
     const { homeStore } = this.props;
     const isWebp = window.localStorage.isWebp;
