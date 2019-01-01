@@ -17,6 +17,8 @@ class HomeStore {
 
   @observable curCoverId;
 
+  @observable isWebp;
+
   constructor() {
     this.homeApi = homeApi;
     this.mottoData = '';
@@ -24,12 +26,12 @@ class HomeStore {
     this.announcementData = '';
     this.coverUrl = '';
     this.curCoverId = '';
+    this.isWebp = window.localStorage.isWebp === 'true';
   }
 
   loadBgImg = () => {
-    const isWebp = window.localStorage.isWebp;
     const background = new Image();
-    background.src = isWebp ? `${this.coverUrl}${webp}` : this.coverUrl;
+    background.src = this.isWebp ? `${this.coverUrl}${webp}` : this.coverUrl;
     background.onload = function () {
       const loadbackground = document.getElementById('background');
       loadbackground.style.backgroundImage = `url(${background.src})`;
