@@ -79,7 +79,7 @@ class Header extends Component {
     const { articleStore } = this.props;
     const { isTop } = this.state;
     const miku = `${aliOSS}/miku.gif`;
-    const isWebp = window.localStorage.isWebp;
+    const isWebp = window.localStorage.isWebp === 'true';
     return (
       <header className={cs(styles['yancey-common-header'], 'no-user-select', isTop ? styles['clear-navbar-bg'] : '')}>
         <a href="/" className={styles['yancey-logo']}>

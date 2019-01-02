@@ -101,7 +101,7 @@
     left: 0;
     background: rgba(0, 0, 0, 0.8);
     z-index: 100; }
-    .apps_wrapper .overlay dialog {
+    .apps_wrapper .overlay div {
       margin-top: 50vh;
       margin-left: 50vw;
       transform: translate(-50%, -50%);
@@ -113,15 +113,15 @@
       border-radius: 6px;
       color: #f6f6f6;
       background: rgba(30, 190, 165, 0.6); }
-      .apps_wrapper .overlay dialog h1 {
+      .apps_wrapper .overlay div h1 {
         font-weight: 100;
         letter-spacing: .1rem; }
-      .apps_wrapper .overlay dialog p {
+      .apps_wrapper .overlay div p {
         margin: .4rem 0;
         line-height: 1.6;
         font-weight: 100;
         letter-spacing: .05rem; }
-      .apps_wrapper .overlay dialog button {
+      .apps_wrapper .overlay div button {
         width: 7.5rem;
         margin: 1rem auto;
         background: none;
@@ -130,14 +130,14 @@
         border: 1px solid #fff;
         border-radius: 7px;
         outline: none; }
-        .apps_wrapper .overlay dialog button a {
+        .apps_wrapper .overlay div button a {
           display: block;
           font-size: .75rem;
           padding: .6rem 0;
           color: #f6f6f6; }
-          .apps_wrapper .overlay dialog button a:hover {
+          .apps_wrapper .overlay div button a:hover {
             color: #ffbb39; }
-        .apps_wrapper .overlay dialog button:hover {
+        .apps_wrapper .overlay div button:hover {
           border-color: #ffbb39;
           cursor: pointer;
           opacity: 1; }

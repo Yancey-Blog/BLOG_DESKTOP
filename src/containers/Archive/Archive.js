@@ -43,7 +43,7 @@ class Archive extends Component {
   render() {
     const { articleStore } = this.props;
     const { checked } = this.state;
-    const isWebp = window.localStorage.isWebp;
+    const isWebp = window.localStorage.isWebp === 'true';
     const bgUrl = `${aliOSS}/static/archive_page_header.jpg`;
     return (
       <main className={styles.archive_wrapper}>
@@ -54,7 +54,7 @@ class Archive extends Component {
         </Helmet>
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
-          style={{ backgroundImage: `url(${isWebp === 'true' ? `${bgUrl}${webp}` : bgUrl})` }}
+          style={{ backgroundImage: `url(${isWebp ? `${bgUrl}${webp}` : bgUrl})` }}
         >
           <span>
             Archive

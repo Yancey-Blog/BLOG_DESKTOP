@@ -37,7 +37,7 @@ class Home extends Component {
 
   render() {
     const { homeStore } = this.props;
-    const isWebp = window.localStorage.isWebp;
+    const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={styles['yancey-blog-home']}>
         <Helmet>
@@ -49,7 +49,6 @@ class Home extends Component {
           <figure
             id="background"
             className={styles['home-imax']}
-            // style={{ backgroundImage: `url(${isWebp && homeStore.coverUrl ? `${homeStore.coverUrl}${webp}` : homeStore.coverUrl})` }}
           >
             <h1
               className={styles.glitch}

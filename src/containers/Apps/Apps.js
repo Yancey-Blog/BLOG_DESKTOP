@@ -88,7 +88,7 @@ class Apps extends Component {
           </p>
         </section>
         <section className={styles.overlay}>
-          <dialog open>
+          <div>
             <h1>
               Sorry
             </h1>
@@ -102,7 +102,7 @@ class Apps extends Component {
                 Go Home
               </Link>
             </button>
-          </dialog>
+          </div>
         </section>
       </main>
     );

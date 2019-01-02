@@ -17,7 +17,7 @@ class blogSummary extends Component {
 
   render() {
     const { articleStore } = this.props;
-    const isWebp = window.localStorage.isWebp;
+    const isWebp = window.localStorage.isWebp === 'true';
     return (
       articleStore.summaryData.map((post, key) => (
         <article
@@ -32,7 +32,7 @@ class blogSummary extends Component {
                   src={`${post.header_cover}?x-oss-process=image/resize,w_120/quality,Q_10`}
                   data-src={isWebp
                     ? `${post.header_cover}${webp}`
-                    : post.poster}
+                    : post.header_cover}
                   alt={post.title}
                 />
               </figure>

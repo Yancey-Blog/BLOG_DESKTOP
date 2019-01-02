@@ -21,7 +21,7 @@ class PrivacyPolicy extends Component {
 
   render() {
     const bgUrl = `${aliOSS}/static/legal_page_header.jpg`;
-    const isWebp = window.localStorage.isWebp;
+    const isWebp = window.localStorage.isWebp === 'true';
     return (
       <section className="privacy_policy_wrapper">
         <Helmet>
