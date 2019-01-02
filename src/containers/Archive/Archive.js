@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import { inject, observer } from 'mobx-react/index';
 import styles from './archive.module.css';
-import { aliOSS, monthToEN, webp } from '../../utils/tools';
+import {
+  checkWebp, monthToEN, aliOSS, webp,
+} from '../../utils/tools';
 
 @inject('articleStore')
 @observer
 class Archive extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      checked: false,
-    };
+    this.state = {};
   }
 
   componentWillMount() {
@@ -29,21 +29,19 @@ class Archive extends Component {
   }
 
   unfold() {
-    this.setState({
-      checked: true,
-    });
+    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i += 1) {
+      document.querySelectorAll('input[type="checkbox"]')[i].checked = true;
+    }
   }
 
   fold() {
-    this.setState({
-      checked: false,
-    });
+    for (let i = 0; i < document.querySelectorAll('input[type="checkbox"]').length; i += 1) {
+      document.querySelectorAll('input[type="checkbox"]')[i].checked = false;
+    }
   }
 
   render() {
     const { articleStore } = this.props;
-    const { checked } = this.state;
-    const isWebp = window.localStorage.isWebp === 'true';
     const bgUrl = `${aliOSS}/static/archive_page_header.jpg`;
     return (
       <main className={styles.archive_wrapper}>
@@ -54,7 +52,7 @@ class Archive extends Component {
         </Helmet>
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
-          style={{ backgroundImage: `url(${isWebp ? `${bgUrl}${webp}` : bgUrl})` }}
+          style={{ backgroundImage: `url(${checkWebp() ? `${bgUrl}${webp}` : bgUrl})` }}
         >
           <span>
             Archive
@@ -83,39 +81,34 @@ class Archive extends Component {
               .map(key => (
                 <section className={styles.archive_list_wrapper} key={key}>
                   <h2 className={styles.year}>
-                    {articleStore.archiveData[key]._id.year}{/* eslint-disable-line */}
+                    {articleStore.archiveData[key]._id.year}
                   </h2>
                   <ul className={styles.year_list_wrapper}>
                     {
                       Object.keys(articleStore.archiveData[key].data)
                         .map(key1 => (
                           <li key={key1}>
-                            <input
-                              id={`tab_${key}_${key1}`}
-                              type="checkbox"
-                              name="tabs"
-                              checked={checked}
-                            />
+                            <input id={`tab_${key}_${key1}`} type="checkbox" name="tabs" defaultChecked={key === '0' && key1 === '0' ? 'checked' : ''} />
                             <label htmlFor={`tab_${key}_${key1}`}>{/* eslint-disable-line */}
                               <span className={styles.month}>
-                                {monthToEN(articleStore.archiveData[key].data[key1].month)}
+                              {monthToEN(articleStore.archiveData[key].data[key1].month)}
                                 {'. '}
                                 (
                                 {articleStore.archiveData[key].data[key1].data.length}
                                 {' '}
                                 {articleStore.archiveData[key].data[key1].data.length > 1 ? 'articles' : 'article'}
                                 )
-                              </span>
+                            </span>
                             </label>
                             <ul className={styles.day_list_container}>
                               {
                                 Object.keys(articleStore.archiveData[key].data[key1].data)
                                   .map($key => (
                                     <li className={styles.day_item} key={$key}>
-                                      <span className={styles.day}>
-                                        {articleStore.archiveData[key].data[key1].data[$key].day}
-                                        {': '}
-                                      </span>
+                                    <span className={styles.day}>
+                                      {articleStore.archiveData[key].data[key1].data[$key].day}
+                                      {': '}
+                                    </span>
                                       <Link to={`p/${articleStore.archiveData[key].data[key1].data[$key].id}`}>
                                         {articleStore.archiveData[key].data[key1].data[$key].title}
                                         {' '}

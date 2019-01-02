@@ -164,7 +164,6 @@ class ArticleStore {
       runInAction(() => {
         this.archiveData = response.data.sort(sortBy('_id', 'year'));
       });
-      document.querySelector('#tab_0_0').checked = true;
     } catch (e) {
       console.log('unknown error');
     }
