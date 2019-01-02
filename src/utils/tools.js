@@ -50,5 +50,7 @@ export function initLivere() {
   }(document, 'script'));
 }
 
+export const sortBy = (key, keys) => (a, b) => (a[key][keys] < b[key][keys] ? 1 : a[key][keys] > b[key][keys] ? -1 : 0);
+
 export const aliOSS = 'https://yancey-assets.oss-cn-beijing.aliyuncs.com';
 export const webp = '?x-oss-process=image/format,webp';

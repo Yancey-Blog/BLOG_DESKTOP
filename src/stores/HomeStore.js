@@ -1,4 +1,4 @@
-import { configure, observable, runInAction, } from 'mobx';
+import { configure, observable, runInAction } from 'mobx';
 import { homeApi } from '../https/index';
 import { webp, checkWebp } from '../utils/tools';
 

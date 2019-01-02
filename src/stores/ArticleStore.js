@@ -3,6 +3,7 @@ import {
 } from 'mobx';
 import history from '../history';
 import { articleApi } from '../https/index';
+import { sortBy } from '../utils/tools';
 
 configure({
   strict: 'always',
@@ -161,7 +162,7 @@ class ArticleStore {
     try {
       const response = await this.articleApi.getArchive();
       runInAction(() => {
-        this.archiveData = response.data;
+        this.archiveData = response.data.sort(sortBy('_id', 'year'));
       });
       document.querySelector('#tab_0_0').checked = true;
     } catch (e) {
