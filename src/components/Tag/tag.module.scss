@@ -1,5 +1,5 @@
-$gray: #535953;
-$gray_hover: #373C38;
+$blue: #85c8ea;
+$blue_hover: #426b7f;
 $white: #fff;
 
 .tags li, .tags a {
@@ -7,14 +7,14 @@ $white: #fff;
   height: 28px;
   line-height: 28px;
   position: relative;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 1rem;
 }
 
 .tags a {
   margin-left: 20px;
   padding: 0 10px 0 12px;
-  background: $gray;
+  background: $blue;
   color: $white;
   text-decoration: none;
   border-bottom-right-radius: 4px;
@@ -26,7 +26,7 @@ $white: #fff;
   position: absolute;
   top: 0;
   left: -14px;
-  border-color: transparent $gray transparent transparent;
+  border-color: transparent $blue transparent transparent;
   border-style: solid;
   border-width: 14px 14px 14px 0;
 }
@@ -44,9 +44,9 @@ $white: #fff;
 }
 
 .tags a:hover {
-  background: $gray_hover;
+  background: $blue_hover;
 }
 
 .tags a:hover::before {
-  border-color: transparent $gray_hover transparent transparent;
+  border-color: transparent $blue_hover transparent transparent;
 }
