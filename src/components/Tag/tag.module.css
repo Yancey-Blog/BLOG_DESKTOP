@@ -9,7 +9,7 @@
 .tags a {
   margin-left: 20px;
   padding: 0 10px 0 12px;
-  background: #85c8ea;
+  background: #61c1ea;
   color: #fff;
   text-decoration: none;
   border-bottom-right-radius: 4px;
@@ -20,7 +20,7 @@
   position: absolute;
   top: 0;
   left: -14px;
-  border-color: transparent #85c8ea transparent transparent;
+  border-color: transparent #61c1ea transparent transparent;
   border-style: solid;
   border-width: 14px 14px 14px 0; }
 
