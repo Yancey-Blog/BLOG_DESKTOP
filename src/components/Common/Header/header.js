@@ -82,9 +82,9 @@ class Header extends Component {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <header className={cs(styles['yancey-common-header'], 'no-user-select', isTop ? styles['clear-navbar-bg'] : '')}>
-        <a href="/" className={styles['yancey-logo']}>
+        <Link to="/" className={styles['yancey-logo']}>
           Yancey Official Blog
-        </a>
+        </Link>
         <nav className="yancey-nav-wrapper">
           <ul className="yancey-nav-list">
             {
