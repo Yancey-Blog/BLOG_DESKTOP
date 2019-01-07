@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import 'lazysizes';
 import styles from './PostSummary.module.scss';
-import { formatJSONDate } from '../../tools/tools';
-import { webpSuffix } from '../../constant/constant';
-import { IArticleDetail, ArticleStoreType } from '../../types/article';
 import svgIcons from '../../assets/images/yancey-official-blog-svg-icons.svg';
+import { formatJSONDate } from '../../tools/tools';
+import { webpSuffix, thumbSuffix } from '../../constant/constant';
+import { IArticleDetail, ArticleStoreType } from '../../types/article';
 
 interface IArticleProps {
   articleStore?: ArticleStoreType;
@@ -39,20 +39,18 @@ class PostSummary extends React.Component<IArticleProps, {}> {
     return articleStore!.posts.map((post: IArticleDetail, key: number) => (
       <article
         className={cs(
-          styles['blog-summary-content'],
+          styles.blog_summary_content,
           key % 2 === 0 ? styles.reverse : '',
           'lazyload',
         )}
         key={post._id}
       >
-        <div className={styles['blog-thumb-wrapper']}>
+        <div className={styles.blog_thumb_wrapper}>
           <Link to={`/p/${post._id}`}>
-            <figure className={styles['blog-thumb']}>
+            <figure className={styles.blog_thumb}>
               <img
-                className={cs('lazyload', 'lazyload2', styles.img)}
-                src={`${
-                  post.header_cover
-                }?x-oss-process=image/resize,w_120/quality,Q_10`}
+                className={cs('lazyload', 'lazyloads', styles.img)}
+                src={`${post.header_cover}${thumbSuffix}`}
                 data-src={
                   isWebp
                     ? `${post.header_cover}${webpSuffix}`
@@ -63,9 +61,9 @@ class PostSummary extends React.Component<IArticleProps, {}> {
             </figure>
           </Link>
         </div>
-        <div className={styles['blog-info']}>
-          <p className={styles['publish-date']}>
-            <svg className='icon-time'>
+        <div className={styles.blog_info}>
+          <p className={styles.publish_date}>
+            <svg>
               <use xlinkHref={`${svgIcons}#time`} />
             </svg>
             Released {formatJSONDate(post.publish_date)}
@@ -73,30 +71,30 @@ class PostSummary extends React.Component<IArticleProps, {}> {
           <Link to={`/p/${post._id}`}>
             <h3 className={styles.title}>{post.title}</h3>
           </Link>
-          <div className={styles['extra-info']}>
-            <span className='click-num'>
-              <svg className={styles['icon-eye']}>
+          <div className={styles.extra_info}>
+            <span>
+              <svg>
                 <use xlinkHref={`${svgIcons}#eye`} />
               </svg>
               {post.pv_count} PV
             </span>
-            <span className='comment-num'>
-              <svg className='icon-comment'>
+            <span>
+              <svg>
                 <use xlinkHref={`${svgIcons}#multimedia`} />
               </svg>
               <Link to={`/p/${post._id}`}>{post.like_count.length} Likes</Link>
             </span>
             <span className={styles.category}>
-              <svg className='icon-folder'>
+              <svg>
                 <use xlinkHref={`${svgIcons}#folder`} />
               </svg>
               <Link to={`/t/${post.tags[0]}`}>{post.tags[0]}</Link>
             </span>
           </div>
-          <p className={styles['summary-content']}>{post.summary}</p>
-          <div className={styles['show-detail-wrapper']}>
+          <p className={styles.summary_content}>{post.summary}</p>
+          <div className={styles.show_detail_wrapper}>
             <Link to={`/p/${post._id}`}>
-              <svg className={styles['icon-more']}>
+              <svg className={styles.icon_more}>
                 <use xlinkHref={`${svgIcons}#more`} />
               </svg>
             </Link>
