@@ -1,0 +1,213 @@
+// a close button by pure css
+@mixin close_icon {
+  padding-right: rem(30);
+  color: $lightTxtColor;
+  overflow: hidden;
+  line-height: rem(70);
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: rem(32);
+    right: rem(28);
+    width: rem(16);
+    height: rem(3);
+    background: $lightTxtColor;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+    content: '';
+    position: absolute;
+    top: rem(32);
+    right: rem(28);
+    width: rem(16);
+    height: rem(3);
+    background: $lightTxtColor;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+
+// a commit bubble by pure css
+@mixin commit_bubble {
+  position: relative;
+  top: 2px;
+  width: 38px;
+  height: 34px;
+  font-size: 12px;
+  background-color: #ededed;
+  border-radius: 50%;
+  color: #747474;
+  line-height: 34px;
+  text-align: center;
+  transition: all .15s ease-in;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 27px;
+    right: 1px;
+    width: 9px;
+    height: 8px;
+    background: transparent;
+    border-width: 0 0 2px 6px;
+    border-color: #ededed;
+    border-bottom-left-radius: 22px 19px;
+    border-style: solid;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 21px;
+    right: 1px;
+    width: 5px;
+    height: 14px;
+    background: transparent;
+    border-width: 0 0 2px 3px;
+    border-color: #ededed;
+    border-bottom-left-radius: 10px 22px;
+    border-style: solid;
+  }
+
+}
+
+@mixin switch {
+  top: 4px;
+  width: 46px;
+  height: 25px;
+  display: inline-block;
+  position: relative;
+  user-select: none;
+
+  .switch_input {
+    display: none;
+
+    &:checked+.switch_label {
+      background: $switchGreen;
+
+      .switch_slider {
+        transform: translateX(1px);
+      }
+    }
+  }
+
+  .switch_label {
+    @include hv_center_classical;
+    background: $switchGray;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+
+    .switch_slider {
+      display: block;
+      position: relative;
+      top: 1px;
+      width: 23px;
+      height: 23px;
+      background: $white;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+      transform: translateX(22px);
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+// menu_trigger
+@mixin menu_trigger {
+  display: inline-block;
+  @include hv_center_classical;
+  width: 15px;
+  height: 2px;
+  background: $lightTxtColor;
+  border-radius: 2px;
+
+  &::before {
+    top: 4px;
+    width: 15px;
+    height: 2px;
+    background: $lightTxtColor;
+    position: absolute;
+    left: 0;
+    content: '';
+    border-radius: 2px;
+  }
+
+  &::after {
+    top: -4px;
+    width: 15px;
+    height: 2px;
+    background: $lightTxtColor;
+    position: absolute;
+    left: 0;
+    content: '';
+    border-radius: 2px;
+  }
+}
+
+// music button
+@mixin music_btn {
+  display: block;
+  // padding: rem(8) rem(16);
+  // border: 1px solid $switchGreen;
+  // background: $switchGreen;
+  // border-radius: rem(4);
+  // font-size: 12px;
+  // color: $white;
+  // outline: none;
+  border: 1px solid $switchGreen;
+  border-radius: 2rem;
+  color: $switchGreen;
+  padding: rem(7) rem(28);
+  background: $white;
+}
+
+// hide blocks
+@mixin fade_out($time: 300ms) {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, $time linear;
+}
+
+// background default style
+@mixin background_default {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+// horizontal and vertical center type-1
+@mixin hv_center_classical($positionType: absolute) {
+  position: $positionType;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+// horizontal and vertical center type-2
+@mixin hv_center_translate($positionType: absolute) {
+  position: $positionType;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// horizontal and vertical center type-3
+@mixin hv_center_flex {
+  display: center;
+  justify-content: center;
+  align-items: center;
+}
+
+// flex default
+@mixin flex_default($flexDisplay: flex, $justifyContent: space-between) {
+  display: $flexDisplay;
+  justify-content: $justifyContent;
+  align-items: center;
+}
