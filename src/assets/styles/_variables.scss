@@ -1,0 +1,33 @@
+// common color
+$white: #ffffff;
+$black: #000000;
+$switchGreen: #49c5b6;
+$switchGray: #4e4d4d;
+$warning: #fc625d;
+$red: #d62b6b;
+$musicGray: #bebebe;
+$purpleBgColor: rgba(42, 20, 112, .4);
+$loadingBg: #E8352F;
+
+// Light theme colors
+$lightTxtColor: #202121;
+$lightBgColor: #f4f7f6;
+$lightSummaryBgColor: #fcfcfc;
+$lightBorderColor: #e6eaea;
+$lightMenuBgColor: rgba($white, .75);
+
+// Dark theme colors 
+$darkTxtColor: #adadad;
+$darkBgColor: #050404;
+$darkSummaryBgColor: #2b2b2b;
+$darkBorderColor: #434343;
+$darkMenuBgColor: rgba($black, .75);
+
+// iamges
+$ossBaseUrl: '//yancey-assets.oss-cn-beijing.aliyuncs.com/';
+$loading: #{$ossBaseUrl}#{'loading.svg'};
+$newBrand: #{$ossBaseUrl}#{'sotd_white_left%402x.png'};
+$menuBg: #{$ossBaseUrl}#{'sidebar-4.fc9cb053%20%281%29.jpg'};
+$sayaka: #{$ossBaseUrl}#{'sayaka_side.jpg'};
+$legalBg: #{$ossBaseUrl}#{'legal_split.jpg'};
+$logo: #{$ossBaseUrl}#{'static/logo_size_icon.jpg'};

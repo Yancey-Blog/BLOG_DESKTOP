@@ -1,0 +1,19 @@
+$vw_fontSize: 75;
+
+@function rem($px) {
+  @return ($px / $vw_fontSize) * 1rem;
+}
+
+$vw_design: 750;
+
+html {
+  font-size: ($vw_fontSize / ($vw_design / 2)) * 100vw;
+
+  @media screen and (max-width: 320px) {
+    font-size: 64px;
+  }
+
+  @media screen and (min-width: 540px) {
+    font-size: 108px;
+  }
+}
