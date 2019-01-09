@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import 'lazysizes';
 import styles from './PostSummary.module.scss';
-import svgIcons from '../../assets/images/yancey-official-blog-svg-icons.svg';
-import { formatJSONDate } from '../../tools/tools';
-import { webpSuffix, thumbSuffix } from '../../constant/constant';
-import { IArticleDetail, ArticleStoreType } from '../../types/article';
+import svgIcons from '../../../assets/images/yancey-official-blog-svg-icons.svg';
+import routePath from '../../../constant/routePath';
+import { formatJSONDate } from '../../../tools/tools';
+import { webpSuffix, thumbSuffix, svgSprite } from '../../../constant/constant';
+import { IArticleDetail, ArticleStoreType } from '../../../types/article';
 
 interface IArticleProps {
   articleStore?: ArticleStoreType;
@@ -46,7 +47,7 @@ class PostSummary extends React.Component<IArticleProps, {}> {
         key={post._id}
       >
         <div className={styles.blog_thumb_wrapper}>
-          <Link to={`/p/${post._id}`}>
+          <Link to={`${routePath.blogDetail}${post._id}`}>
             <figure className={styles.blog_thumb}>
               <img
                 className={cs('lazyload', 'lazyloads', styles.img)}
@@ -64,38 +65,40 @@ class PostSummary extends React.Component<IArticleProps, {}> {
         <div className={styles.blog_info}>
           <p className={styles.publish_date}>
             <svg>
-              <use xlinkHref={`${svgIcons}#time`} />
+              <use xlinkHref={`${svgIcons}${svgSprite.time}`} />
             </svg>
             Released {formatJSONDate(post.publish_date)}
           </p>
-          <Link to={`/p/${post._id}`}>
+          <Link to={`${routePath.blogDetail}${post._id}`}>
             <h3 className={styles.title}>{post.title}</h3>
           </Link>
           <div className={styles.extra_info}>
             <span>
               <svg>
-                <use xlinkHref={`${svgIcons}#eye`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.eye}`} />
               </svg>
               {post.pv_count} PV
             </span>
             <span>
               <svg>
-                <use xlinkHref={`${svgIcons}#multimedia`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.comments1}`} />
               </svg>
-              <Link to={`/p/${post._id}`}>{post.like_count.length} Likes</Link>
+              <Link to={`${routePath.blogDetail}${post._id}`}>
+                {post.like_count.length} Likes
+              </Link>
             </span>
             <span className={styles.category}>
               <svg>
-                <use xlinkHref={`${svgIcons}#folder`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.closeFolder}`} />
               </svg>
-              <Link to={`/t/${post.tags[0]}`}>{post.tags[0]}</Link>
+              <Link to={`${routePath.tag}${post.tags[0]}`}>{post.tags[0]}</Link>
             </span>
           </div>
           <p className={styles.summary_content}>{post.summary}</p>
           <div className={styles.show_detail_wrapper}>
-            <Link to={`/p/${post._id}`}>
+            <Link to={`${routePath.blogDetail}${post._id}`}>
               <svg className={styles.icon_more}>
-                <use xlinkHref={`${svgIcons}#more`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.more}`} />
               </svg>
             </Link>
           </div>
