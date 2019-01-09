@@ -1,6 +1,6 @@
 import * as React from 'react';
 import 'aplayer/dist/APlayer.min.css';
-import './Player.scss';
+import './player.scss';
 
 class Player extends React.Component<{}, {}> {
   constructor(props: {}) {

@@ -1,12 +1,12 @@
 export interface ArticleStoreType {
   posts: IArticleDetail[];
   curPage: number;
-  isAutoLoad: boolean;
-  isManualLoad: boolean;
-  isLoading: boolean;
-  postAmouts: boolean;
   total: number;
-  getData: (page: number) => void;
+  showSearch: boolean;
+  toggleShowSearch: () => void;
+  onSearchChange: (e: any) => void;
+  getPostsByPage: () => void;
+  getPostsByTitle: (title: string) => void;
 }
 
 export interface IArticleDetail {

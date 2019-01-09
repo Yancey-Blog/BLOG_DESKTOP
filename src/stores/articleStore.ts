@@ -1,6 +1,7 @@
 import {
   observable,
   runInAction,
+  action,
 } from 'mobx';
 import {
   articleService
@@ -9,40 +10,56 @@ import {
   IArticleDetail
 } from '../types/article';
 
+import history from '../history';
+
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
   @observable public curPage: number = 1;
-  @observable public isAutoLoad: boolean = true;
-  @observable public isManualLoad: boolean = false;
-  @observable public isLoading: boolean = false;
   @observable public total: number = 0;
+  @observable public showSearch: boolean = false;
 
   constructor() {
     this.posts = [];
     this.curPage = 1;
-    this.isAutoLoad = true;
-    this.isManualLoad = false;
-    this.isLoading = false;
     this.total = 0;
+    this.showSearch = false;
   }
 
-  public getData = async (page: number) => {
-    this.curPage = page;
-    this.isLoading = true;
+  @action public toggleShowSearch = () => {
+    this.showSearch = !this.showSearch;
+  };
+
+  @action public onSearchChange = (e: any) => {
+    const event = e || window.event;
+    const key = event.which || event.keyCode || event.charCode;
+    if (key === 13) {
+      history.push(`/search?q=${event.target.value}`);
+      this.getPostsByTitle(event.target.value);
+      this.showSearch = false;
+    }
+  };
+
+  public getPostsByPage = async () => {
     try {
-      const res = await articleService.getPostsByPage(page);
+      const res = await articleService.getPostsByPage(this.curPage);
       runInAction(() => {
-        this.posts = [...this.posts, ...res.data];
-        if (this.curPage === 3) {
-          this.isManualLoad = true;
-          this.isAutoLoad = false;
-        }
+        this.posts = res.data;
       });
     } catch (e) {
-      this.isManualLoad = false;
-      this.isAutoLoad = false;
+      // todo
     } finally {
-      this.isLoading = false;
+      // todo
+    }
+  };
+
+  public getPostsByTitle = async (title: string) => {
+    try {
+      const res = await articleService.getPostsByTitle(title);
+      runInAction(() => {
+        this.posts = res.data;
+      });
+    } catch (e) {
+      // todo
     }
   };
 }

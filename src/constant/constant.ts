@@ -2,6 +2,8 @@ export const aliOSS = '//yancey-assets.oss-cn-beijing.aliyuncs.com';
 export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
 
+export const GA = 'UA-114532340-1';
+
 export const svgSprite = {
   telegram: '#telegram',
   github: '#github',
@@ -33,7 +35,7 @@ export const svgSprite = {
   home: '#home',
   share1: '#share-symbol',
   rss: '#rss-symbol',
-  appStore: '#app-store-apple-symbol',
+  apps: '#app-store-apple-symbol',
   blog: '#blogger-letter-logotype',
   comments2: '#blog-comment-speech-bubble-symbol',
   search1: '#musica-searcher',
@@ -82,5 +84,40 @@ export const socialMediaList = {
     icon: svgSprite.instagram,
   },
 }
+
+export const socialMedia = {
+  github: {
+    url: 'https://github.com/yanceyleo/',
+    icon: '#github',
+  },
+  twitter: {
+    url: 'https://twitter.com/YanceyOfficial/',
+    icon: '#twitter',
+  },
+  instagram: {
+    url: 'https://www.instagram.com/yancey_leo/',
+    icon: '#instagram',
+  },
+  soundCloud: {
+    url: 'https://soundcloud.com/yancey-leo/',
+    icon: '#soundcloud',
+  },
+  telegram: {
+    url: 'https://t.me/YanceyOfficial',
+    icon: '#telegram',
+  },
+  paypal: {
+    url: 'https://www.paypal.me/yanceyleo/10usd',
+    icon: '#paypal',
+  },
+  wechat: {
+    url: '/',
+    icon: '#wechat',
+  },
+  email: {
+    url: 'mailto:team@yanceyleo.com',
+    icon: '#mail',
+  },
+};
 
 export const mail = 'team@yanceyleo.com';

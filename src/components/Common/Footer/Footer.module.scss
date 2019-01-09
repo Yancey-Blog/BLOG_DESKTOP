@@ -1,0 +1,71 @@
+.yancey_common_footer {
+  font-family: "Ubuntu", sans-serif;
+  width: 40rem;
+  max-width: 40rem;
+  margin: 1rem auto 1.8rem;
+  letter-spacing: .025rem;
+  .creator {
+    margin-bottom: .3rem;
+    font-size: .75rem;
+    font-weight: bold;
+    color: #2c2e2f;
+    .icon_heart {
+      width: .9rem;
+      height: .9rem;
+      position: relative;
+      top: .2rem;
+      margin: 0 .2rem;
+      animation: pluse 1500ms infinite linear;
+    }
+  }
+  .dot_split {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #b7bcbf 50%, rgba(255, 255, 255, 0) 40%) repeat-x top;
+    background-size: 3px 1px;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    border-bottom: 0;
+    box-sizing: content-box;
+  }
+  .copyright_wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    font-size: .65rem;
+    color: #6c7378;
+    .copyright {
+      text-shadow: 0 0 1px rgba(0, 0, 0, .1);
+    }
+    .copyright_item {
+      display: inline-block;
+      margin-left: .4rem;
+      padding-right: .4rem;
+      border-right: 1px solid #d9d9d9;
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+      a {
+        color: #6c7378;
+        transition: all 300ms linear;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pluse {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}

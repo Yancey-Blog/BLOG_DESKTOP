@@ -19,6 +19,10 @@ class ArticleService {
   public async getPostsByPage(page: number): Promise < AxiosResponse < IArticleDetail[] >> {
     return GET(`/articleList/page/${page}`, null, '');
   }
+
+  public async getPostsByTitle(title: string): Promise < AxiosResponse < IArticleDetail[] >> {
+    return GET(`/articlesByTitle?q=${title}`, null, '');
+  }
 }
 
 const articleService = new ArticleService();
