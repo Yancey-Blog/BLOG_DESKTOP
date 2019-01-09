@@ -1,7 +1,7 @@
-.yancey-blog-home {
+.yancey_blog_home {
   color: #666;
   position: relative;
-  .home-imax {
+  .home_imax {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -66,7 +66,7 @@
         animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
       }
     }
-    @at-root .social-media-container {
+    @at-root .social_media_container {
       position: relative;
       z-index: 1;
       max-width: 27rem;
@@ -91,7 +91,7 @@
       //&:hover::after{
       //  transform: rotate(20deg);
       //}
-      .social-media-motto {
+      .social_media_motto {
         font-weight: 700;
         font-size: .8rem;
         color: #eaeadf;
@@ -99,7 +99,7 @@
         justify-content: center;
         margin-bottom: 1.2rem;
         max-height: .9rem;
-        .left-quote, .right-quote {
+        .left_quote, .right_quote {
           position: relative;
           width: .9rem;
           height: .9rem;
@@ -107,22 +107,22 @@
           fill-opacity: .6;
           top: 1px;
         }
-        .left-quote {
+        .left_quote {
           margin-right: .4rem;
         }
-        .right-quote {
+        .right_quote {
           margin-right: 0;
           margin-left: .4rem;
         }
       }
 
-      @at-root .social-media-list {
+      @at-root .social_media_list {
         text-align: center;
-        .social-media-item:last-child {
+        .social_media_item:last-child {
           margin-right: 0;
         }
 
-        .social-media-item {
+        .social_media_item {
           outline: none;
           position: relative;
           display: inline-block;
@@ -133,19 +133,19 @@
           }
         }
 
-        .wechat-qr-code {
+        .wechat_qr_code {
           &::after {
             background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg") no-repeat center top;
           }
         }
 
-        .twitter-qr-code {
+        .twitter_qr_code {
           &::after {
             background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg") no-repeat center top;
           }
         }
 
-        .qr-code {
+        .qr_code {
           cursor: pointer;
           &::after, &::before {
             position: absolute;
@@ -196,7 +196,7 @@
   .content {
     max-width: 40rem;
     margin: 3rem auto 1rem;
-    .announcement-wrapper {
+    .announcement_wrapper {
       border: 1px dashed #e6e6e6;
       color: #969696;
       padding: 1rem;
@@ -204,14 +204,14 @@
       font-size: .8rem;
       background: #fbfbfb;
     }
-    @at-root .new-release-container {
+    @at-root .new_release_container {
       display: flex;
       justify-content: space-around;
-      .new-release {
+      .new_release {
         overflow: hidden;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
         border-radius: 10px;
-        .new-release-content {
+        .new_release_content {
           position: relative;
           width: 13rem;
           height: 8rem;
@@ -277,7 +277,7 @@
       }
     }
   }
-  .show-more-btn-wrapper {
+  .show_more_btn_wrapper {
     text-align: center;
     margin-top: 4rem;
     a {
@@ -298,7 +298,7 @@
       }
     }
   }
-  .blog-summary-tips, .new-release-tips {
+  .blog_summary_tips, .new_release_tips {
     color: #666;
     font-size: .9rem;
     font-weight: 400;
@@ -317,7 +317,7 @@
   }
 }
 
-.up-triangle {
+.up_triangle {
   position: absolute;
   width: 0;
   height: 0;

@@ -4,13 +4,28 @@ import { Provider } from 'mobx-react';
 import stores from './stores/index';
 import history from './history';
 import ReactGA from 'react-ga';
+import Loadable from 'react-loadable';
 import './assets/styles/global.scss';
 import { checkWebp } from './tools/tools';
 import { GA } from './constant/constant';
+import routePath from './constant/routePath';
 import Home from './containers/Home/Home';
 import Player from './components/Widget/Player/Player';
+import ScrollToTop from './components/Widget/ScrollToTop/ScrollToTop';
 import Header from './components/Common/Header/Header';
 import Footer from './components/Common/Footer/Footer';
+
+const Loadings = () => (
+  <div className='loading_wrapper'>
+    <div className='loading_item' />
+  </div>
+);
+
+const Legal = Loadable({
+  loader: () => import('./containers/Legal/Legal'),
+  loading: Loadings,
+});
+
 class App extends React.Component {
   public componentWillMount() {
     window.localStorage.isWebp = checkWebp();
@@ -60,8 +75,10 @@ class App extends React.Component {
           >
             <Header />
             <Switch>
-              <Route path='/' exact component={Home} />
+              <Route path={routePath.home} exact component={Home} />
+              <Route path={routePath.legal} component={Legal} />
             </Switch>
+            <ScrollToTop />
             <Player />
             <Footer />
           </div>

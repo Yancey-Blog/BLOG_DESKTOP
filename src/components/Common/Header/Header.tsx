@@ -29,6 +29,10 @@ class Header extends React.Component<IArticleProps, IArticleStates> {
     };
   }
 
+  public componentDidMount() {
+    this.switchNavbarBackgroundColor();
+  }
+
   public switchNavbarBackgroundColor = () => {
     const top = document.documentElement.scrollTop || document.body.scrollTop;
     if (!top) {
