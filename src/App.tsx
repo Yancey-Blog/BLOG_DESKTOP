@@ -31,6 +31,11 @@ const Legal = Loadable({
   loading: Loadings,
 });
 
+const Apps = Loadable({
+  loader: () => import('./containers/Apps/Apps'),
+  loading: Loadings,
+});
+
 class App extends React.Component {
   public componentWillMount() {
     window.localStorage.isWebp = checkWebp();
@@ -85,6 +90,7 @@ class App extends React.Component {
               <Route path={routePath.blog} component={Blog} />
               <Route path={`${routePath.tag}:id`} component={Blog} />
               <Route path={routePath.search} component={Blog} />
+              <Route path={routePath.apps} component={Apps} />
             </Switch>
             <ScrollToTop />
             <Player />
