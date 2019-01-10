@@ -13,7 +13,7 @@ class Legal extends React.Component<{}, {}> {
     const bgUrl = `${aliOSS}/static/legal_page_header.jpg`;
     const isWebp = window.localStorage.isWebp === 'true';
     return (
-      <section className='privacy_policy_wrapper'>
+      <main className='privacy_policy_wrapper'>
         <Helmet>
           <title>Privacy Policy | Yancey Inc.</title>
         </Helmet>
@@ -611,7 +611,7 @@ class Legal extends React.Component<{}, {}> {
             Date of last revision: Tuesday, August 28, 2018
           </p>
         </article>
-      </section>
+      </main>
     );
   }
 }

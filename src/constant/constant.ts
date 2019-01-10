@@ -1,8 +1,16 @@
+export const domain = 'https://www.yanceyleo.com';
+
 export const aliOSS = '//yancey-assets.oss-cn-beijing.aliyuncs.com';
 export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
+export const middleThumbSuffix = '?x-oss-process=image/resize,w_360/quality,Q_90';
+
+export const miku =  `${aliOSS}/miku.gif`;
+export const blogBg =  `${aliOSS}/static/blog_page_header.jpg`;
 
 export const GA = 'UA-114532340-1';
+
+export const ipify = 'https://api.ipify.org/';
 
 export const svgSprite = {
   telegram: '#telegram',

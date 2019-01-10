@@ -75,6 +75,7 @@
       padding: 1rem;
       border-radius: 10px;
       top: 39%;
+      // xmas theme
       //&::after{
       //  position: absolute;
       //  content: '';
@@ -82,7 +83,7 @@
       //  right: -1.2rem;
       //  width: 4rem;
       //  height: 4rem;
-      //  background: url(https://yancey-assets.oss-cn-beijing.aliyuncs.com/cap.12a740a.svg) no-repeat;
+      //  background: url($xmas) no-repeat;
       //  background-size: contain;
       //  transform: rotate(15deg);
       //  transform-origin: bottom right;
@@ -135,13 +136,13 @@
 
         .wechat_qr_code {
           &::after {
-            background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg") no-repeat center top;
+            background: rgba(0, 0, 0, .5) url($wechatQR) no-repeat center top;
           }
         }
 
         .twitter_qr_code {
           &::after {
-            background: rgba(0, 0, 0, .5) url("//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg") no-repeat center top;
+            background: rgba(0, 0, 0, .5) url($twitterQR) no-repeat center top;
           }
         }
 
