@@ -4,7 +4,7 @@ import cs from 'classnames';
 import _ from 'lodash';
 import styles from './Search.module.scss';
 import svgIcons from '../../../assets/images/yancey-official-blog-svg-icons.svg';
-import { aliOSS, webpSuffix } from '../../../constant/constant';
+import { webpSuffix, miku } from '../../../constant/constant';
 import { ArticleStoreType } from '../../../types/article';
 
 interface IArticleProps {
@@ -21,7 +21,6 @@ class Search extends React.Component<IArticleProps, {}> {
 
   public render() {
     const { articleStore } = this.props;
-    const miku = `${aliOSS}/miku.gif`;
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <span>

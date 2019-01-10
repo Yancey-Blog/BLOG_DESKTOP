@@ -8,11 +8,8 @@ import svgIcons from '../../../assets/images/yancey-official-blog-svg-icons.svg'
 import routePath from '../../../constant/routePath';
 import { formatJSONDate } from '../../../tools/tools';
 import { webpSuffix, thumbSuffix, svgSprite } from '../../../constant/constant';
-import { IArticleDetail, ArticleStoreType } from '../../../types/article';
+import { IArticleDetail, IArticleProps } from '../../../types/article';
 
-interface IArticleProps {
-  articleStore?: ArticleStoreType;
-}
 @inject('articleStore')
 @observer
 class PostSummary extends React.Component<IArticleProps, {}> {

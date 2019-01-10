@@ -23,6 +23,18 @@ class ArticleService {
   public async getPostsByTitle(title: string): Promise < AxiosResponse < IArticleDetail[] >> {
     return GET(`/articlesByTitle?q=${title}`, null, '');
   }
+
+  public async getAllTags(): Promise < AxiosResponse < string[] >> {
+    return GET('/allTags', null, '');
+  }
+
+  public async getPostsByTag(tag: string): Promise < AxiosResponse < IArticleDetail[] >> {
+    return GET(`/articlesByTag?tag=${tag}`, null, '');
+  }
+
+  public async getHots(): Promise < AxiosResponse < IArticleDetail[] >> {
+    return GET('/articlesByPV', null, '');
+  }
 }
 
 const articleService = new ArticleService();

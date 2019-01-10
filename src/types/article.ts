@@ -1,12 +1,24 @@
 export interface ArticleStoreType {
   posts: IArticleDetail[];
+  hots: IArticleDetail[];
+  tags: string[];
+  // curTag: string;
   curPage: number;
   total: number;
   showSearch: boolean;
   toggleShowSearch: () => void;
+  onPageChange: () => void;
   onSearchChange: (e: any) => void;
   getPostsByPage: () => void;
   getPostsByTitle: (title: string) => void;
+  getAllTags: () => void;
+  getPostsByTag: () => void;
+  getHots: () => void;
+}
+
+export interface IArticleProps {
+  articleStore?: ArticleStoreType;
+  location?: any;
 }
 
 export interface IArticleDetail {

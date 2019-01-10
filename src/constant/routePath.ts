@@ -1,6 +1,7 @@
 const routePath = {
   home: '/',
   blog: '/blog',
+  search: '/search',
   music: '/music',
   archive: '/archive',
   blogDetail: '/p/',

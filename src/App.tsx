@@ -21,6 +21,11 @@ const Loadings = () => (
   </div>
 );
 
+const Blog = Loadable({
+  loader: () => import('./containers/Blog/Blog'),
+  loading: Loadings,
+});
+
 const Legal = Loadable({
   loader: () => import('./containers/Legal/Legal'),
   loading: Loadings,
@@ -77,6 +82,9 @@ class App extends React.Component {
             <Switch>
               <Route path={routePath.home} exact component={Home} />
               <Route path={routePath.legal} component={Legal} />
+              <Route path={routePath.blog} component={Blog} />
+              <Route path={`${routePath.tag}:id`} component={Blog} />
+              <Route path={routePath.search} component={Blog} />
             </Switch>
             <ScrollToTop />
             <Player />
