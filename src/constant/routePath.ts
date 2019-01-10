@@ -10,6 +10,7 @@ const routePath = {
   about: '/about',
   apps: '/apps',
   cv: '/cv',
+  notFound: '/404',
 };
 
 export default routePath;

@@ -36,6 +36,11 @@ const Apps = Loadable({
   loading: Loadings,
 });
 
+const NotFound = Loadable({
+  loader: () => import('./containers/NotFound/NotFound'),
+  loading: Loadings,
+});
+
 class App extends React.Component {
   public componentWillMount() {
     window.localStorage.isWebp = checkWebp();
@@ -91,6 +96,8 @@ class App extends React.Component {
               <Route path={`${routePath.tag}:id`} component={Blog} />
               <Route path={routePath.search} component={Blog} />
               <Route path={routePath.apps} component={Apps} />
+              <Route path={routePath.notFound} component={NotFound} />
+              <Route component={NotFound} />
             </Switch>
             <ScrollToTop />
             <Player />
