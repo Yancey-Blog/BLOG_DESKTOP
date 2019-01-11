@@ -1,6 +1,6 @@
 const socialMedia = {
   github: {
-    url: 'https://github.com/yanceyleo/',
+    url: 'https://github.com/YanceyOfficial/',
     icon: '#github',
   },
   twitter: {
