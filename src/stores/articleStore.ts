@@ -91,14 +91,14 @@ class ArticleStore {
     }
   };
 
-  public getPostsByTag = async () => {
+   public getPostsByTag = async (tag = this.curTag) => {
     try {
-      const res = await articleService.getPostsByTag(this.curTag);
+      const res = await articleService.getPostsByTag(tag);
       runInAction(() => {
         this.posts = res.data;
       });
     } catch (e) {
-      // todo
+      // todo  
     }
   };
 

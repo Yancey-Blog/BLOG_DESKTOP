@@ -4,7 +4,7 @@ import {
 } from 'mobx';
 
 import {
-  musicService
+  musicService,
 } from '../apis/index.service';
 
 import {ILiveTours, IFeaturedRecords, IYanceyMusic} from '../types/music';
