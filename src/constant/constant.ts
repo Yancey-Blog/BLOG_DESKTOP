@@ -5,8 +5,8 @@ export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
 export const middleThumbSuffix = '?x-oss-process=image/resize,w_360/quality,Q_90';
 
-export const miku =  `${aliOSS}/miku.gif`;
-export const blogBg =  `${aliOSS}/static/blog_page_header.jpg`;
+export const miku = `${aliOSS}/miku.gif`;
+export const blogBg = `${aliOSS}/static/blog_page_header.jpg`;
 
 export const GA = 'UA-114532340-1';
 
@@ -74,28 +74,9 @@ export const svgSprite = {
   close: '#close',
 }
 
-export const socialMediaList = {
-  github: {
-    url: 'https://github.com/YanceyOfficial',
-    icon: svgSprite.github,
-  },
-  twitter: {
-    url: 'https://www.twitter.com/YanceyOfficial',
-    icon: svgSprite.twitter1,
-  },
-  facebook: {
-    url: 'https://www.facebook.com/yanceyleo',
-    icon: svgSprite.close,
-  },
-  instagram: {
-    url: 'https://www.instagram.com/yancey_leo',
-    icon: svgSprite.instagram,
-  },
-}
-
 export const socialMedia = {
   github: {
-    url: 'https://github.com/yanceyleo/',
+    url: 'https://github.com/YanceyOfficial/',
     icon: '#github',
   },
   twitter: {
@@ -127,5 +108,3 @@ export const socialMedia = {
     icon: '#mail',
   },
 };
-
-export const mail = 'team@yanceyleo.com';

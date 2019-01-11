@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import styles from './Legal.module.scss';
-import { aliOSS, webpSuffix, mail } from '../../constant/constant';
+import { aliOSS, webpSuffix, socialMedia } from '../../constant/constant';
 
 class Legal extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -604,7 +604,7 @@ class Legal extends React.Component<{}, {}> {
           <p>Yancey Inc.</p>
           <p>
             <span>Owner contact email: </span>
-            {mail}
+            {socialMedia.email.url.split(':')[1]}
           </p>
           <hr />
           <p className={styles.update_date}>

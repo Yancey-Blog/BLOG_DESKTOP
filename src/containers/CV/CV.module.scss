@@ -1,0 +1,130 @@
+.cv_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 2rem;
+  width: 60rem;
+  margin: 5rem auto 0;
+  .program_name{
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #000;
+  }
+}
+
+.cv_basic_container {
+  width: 100%;
+  background: #354B6F;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
+  border-radius: .5rem;
+  .avatar {
+    height: 13rem;
+    background-repeat: no-repeat;
+    background-position: 0 0 ;
+    background-size: cover;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+  }
+  .cv_basic {
+    padding-top: 1rem;
+    text-align: center;
+    color: #fff;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    .identity {
+      line-height: 1.8;
+      font-size: .9rem;
+    }
+    .name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .media {
+      a {
+        text-decoration: none;
+        color: #fff;
+        border-bottom: 1px solid #fff;
+      }
+    }
+    .self_introduction {
+      padding: 1rem;
+      .self_introduction_content {
+        margin-bottom: 1rem;
+        font-size: .8rem;
+        text-align: left;
+        line-height: 1.6;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.cv_detail_container {
+  .cv_detail_item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    &:first-child{
+      margin-top: 0;
+    }
+    .item_icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: rgba(0, 0, 0, .54);
+    }
+    .item_name {
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: rgba(0, 0, 0, .54);
+    }
+  }
+  .detail_wrapper {
+    margin: 0 0 .8rem;
+    padding: 1.2rem;
+    box-shadow: rgba(#000, .16) 0 3px 10px, rgba(#000, 0.23) 0 3px 10px;
+    border-radius: .5rem;
+    color: rgba(#000, 0.87);
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    .summary {
+      display: flex;
+      padding: .8rem;
+      &:last-child{
+        padding: 0 .8rem;
+      }
+      .company_name {
+        font-size: .75rem;
+      }
+      .position {
+        margin: .2rem 0;
+        color: rgba(#000, 0.54)
+      }
+      .work_range {
+        font-size: .7rem;
+        color: #5DA4D9;
+      }
+    }
+    .work_content {
+      font-size: .7rem;
+      text-shadow: 0 0 1px rgba(0, 0, 0, .1);
+      line-height: 1.8;
+      padding: 0 .8rem .8rem;
+      .work_content_detail {
+        color: rgba(#000, 0.87);
+      }
+      .technology_stack {
+        margin-top: .8rem;
+        font-weight: bold;
+        color: #5DA4D9;
+      }
+    }
+
+  }
+}
+
+
