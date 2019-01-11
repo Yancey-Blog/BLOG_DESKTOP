@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import svgIcons from '../../../assets/images/yancey-official-blog-svg-icons.svg';
 import styles from './Footer.module.scss';
-import { svgSprite, mail } from '../../../constant/constant';
+import { svgSprite, socialMedia } from '../../../constant/constant';
 
 const copyright = {
   about: {
@@ -50,7 +50,7 @@ class Footer extends React.Component<{}, {}> {
               </li>
             ))}
             <li className={styles.copyright_item}>
-              <a href={`mailto:${mail}`}>Contact</a>
+              <a href={socialMedia.email.url}>Contact</a>
             </li>
           </ul>
         </section>
