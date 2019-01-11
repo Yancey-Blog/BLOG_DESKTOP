@@ -41,6 +41,11 @@ const CV = Loadable({
   loading: Loadings,
 });
 
+const Music = Loadable({
+  loader: () => import('./containers/Music/Music'),
+  loading: Loadings,
+});
+
 const NotFound = Loadable({
   loader: () => import('./containers/NotFound/NotFound'),
   loading: Loadings,
@@ -102,6 +107,7 @@ class App extends React.Component {
               <Route path={routePath.search} component={Blog} />
               <Route path={routePath.apps} component={Apps} />
               <Route path={routePath.cv} component={CV} />
+              <Route path={routePath.music} component={Music} />
               <Route path={routePath.notFound} component={NotFound} />
               <Route component={NotFound} />
             </Switch>

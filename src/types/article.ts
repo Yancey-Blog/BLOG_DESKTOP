@@ -12,7 +12,7 @@ export interface ArticleStoreType {
   getPostsByPage: () => void;
   getPostsByTitle: (title: string) => void;
   getAllTags: () => void;
-  getPostsByTag: () => void;
+  getPostsByTag: (tag?: string) => void;
   getHots: () => void;
 }
 

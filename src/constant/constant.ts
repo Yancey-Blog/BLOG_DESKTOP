@@ -7,6 +7,7 @@ export const middleThumbSuffix = '?x-oss-process=image/resize,w_360/quality,Q_90
 
 export const miku = `${aliOSS}/miku.gif`;
 export const blogBg = `${aliOSS}/static/blog_page_header.jpg`;
+export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
 
 export const GA = 'UA-114532340-1';
 

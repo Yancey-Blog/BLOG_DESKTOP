@@ -1,3 +1,7 @@
+import {
+  ArticleStoreType
+} from './article';
+
 interface MusicStoreType {
   liveToursData: ILiveTours[];
   featuredRecordsData: IFeaturedRecords[];
@@ -9,12 +13,15 @@ interface MusicStoreType {
 
 export interface IMusicProps {
   musicStore ? : MusicStoreType;
+  articleStore ? : ArticleStoreType;
 }
 
 export interface ILiveTours {
   poster: string;
   title: string;
   upload_date: string;
+  __v: number;
+  _id: string;
 }
 
 export interface IFeaturedRecords {
@@ -23,6 +30,7 @@ export interface IFeaturedRecords {
   buy_url: string;
   cover: string;
   release_date: string;
+  __v: number;
   _id: string;
 }
 
@@ -31,5 +39,6 @@ export interface IYanceyMusic {
   soundCloud_url: string;
   cover: string;
   release_date: string;
+  __v: number;
   _id: string;
 }
