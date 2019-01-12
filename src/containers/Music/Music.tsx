@@ -59,12 +59,6 @@ class Music extends React.Component<IMusicProps, {}> {
         <div className={styles.live_tours_artists_wrapper}>
           <section className={styles.live_tour_container}>
             <h1 className={styles.column_title}>LIVE TOURS</h1>
-            {/* if the version of "@types/nuka-carousel" you installed is v4.4.0, 
-            you must add the following code in CarouselProps:
-
-            transitionMode: 'scroll' | 'fade'; 
-            */}
-
             <Carousel
               autoplay
               autoplayInterval={2000}

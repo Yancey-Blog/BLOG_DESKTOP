@@ -756,13 +756,6 @@
   version "10.12.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.10.tgz#4fa76e6598b7de3f0cb6ec3abacc4f59e5b3a2ce"
 
-"@types/nuka-carousel@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@types/nuka-carousel/-/nuka-carousel-4.4.0.tgz#01939b98208e3eb590a36026cd9c8dcb84d6b0de"
-  integrity sha512-isOUi7stKY9QUwF6XXu1NBZu2QDrrXFnpwA0C03QdR+8DOyzhGWxnIcDUEtPIksVFcRVN7tLormSLjkIDJsI0Q==
-  dependencies:
-    "@types/react" "*"
-
 "@types/prop-types@*":
   version "15.5.6"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
@@ -829,6 +822,11 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/swiper@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@types/swiper/-/swiper-4.4.1.tgz#a4223c990f73123ebf19094f731aec5c6b2def2e"
+  integrity sha512-kG4moYcEEhAZH2l6ges7JyCit1tBMfQvAar6MLfZTfwZ1bvaTJQU8sxKiJavhoA69bc9A+lNYC2bhhEaVbp35w==
 
 "@types/tapable@*":
   version "1.0.4"
@@ -8639,6 +8637,14 @@ swiper@4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-4.4.1.tgz#9eeca17c5bfa4a27663963b2640119e5fc668255"
   integrity sha512-SONgpB1mFh++eFiUDOCggwW2ZzsWMEf3+SEROcQ+qXPYUnyD423l3uDsk+0jdo/a4pXeOJmH0oN3XK5maMqQyQ==
+  dependencies:
+    dom7 "^2.1.2"
+    ssr-window "^1.0.1"
+
+swiper@^4.4.6:
+  version "4.4.6"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-4.4.6.tgz#0dfa9d66e39811c73e96ea55cea61047a4091667"
+  integrity sha512-F9NDtijQt+etiOe6JAEH+Cb+QKzwwFpi08FlOIQv8ALdoQ8tvAX/38a/28E5XxalAkChsHCutwkBCzDxDXTGiA==
   dependencies:
     dom7 "^2.1.2"
     ssr-window "^1.0.1"
