@@ -167,16 +167,10 @@
     max-width: 100%;
     border-radius: 4px; }
   .article_detail_wrapper blockquote {
-    margin-bottom: 2rem;
-    line-height: 2;
-    font-size: .8rem;
-    letter-spacing: 1px; }
-    .article_detail_wrapper blockquote::first-letter {
-      padding-right: .2rem;
-      font-size: 4em;
-      float: left;
-      font-weight: bold;
-      line-height: 1; }
+    border-left: 4px solid #D3D3D3;
+    color: #646464;
+    margin: .8rem 0;
+    padding-left: .8rem; }
   .article_detail_wrapper p {
     font-size: .75rem;
     line-height: 1.5rem;
