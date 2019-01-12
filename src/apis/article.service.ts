@@ -7,7 +7,8 @@ import {
 } from 'axios';
 
 import {
-  IArticleDetail
+  IArticleDetail,
+  IArchive,
 } from '../types/article';
 
 
@@ -35,6 +36,11 @@ class ArticleService {
   public async getHots(): Promise < AxiosResponse < IArticleDetail[] >> {
     return GET('/articlesByPV', null, '');
   }
+
+  public async getArchives(): Promise < AxiosResponse < IArchive[] >> {
+    return GET('/archives', null, '');
+  }
+
 }
 
 const articleService = new ArticleService();

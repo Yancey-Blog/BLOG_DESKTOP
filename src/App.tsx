@@ -26,6 +26,11 @@ const Blog = Loadable({
   loading: Loadings,
 });
 
+const Archive = Loadable({
+  loader: () => import('./containers/Archive/Archive'),
+  loading: Loadings,
+});
+
 const Legal = Loadable({
   loader: () => import('./containers/Legal/Legal'),
   loading: Loadings,
@@ -110,6 +115,7 @@ class App extends React.Component {
               <Route path={routePath.blog} component={Blog} />
               <Route path={`${routePath.tag}:id`} component={Blog} />
               <Route path={routePath.search} component={Blog} />
+              <Route path={routePath.archive} component={Archive} />
               <Route path={routePath.apps} component={Apps} />
               <Route path={routePath.cv} component={CV} />
               <Route path={routePath.music} component={Music} />
