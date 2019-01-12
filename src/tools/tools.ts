@@ -12,15 +12,20 @@ export const formatCommonDate = (date: string): string => {
   return `${months[parseInt(dataList[1], 10) - 1]} ${dataList[2]}, ${dataList[0]}`;
 };
 
-export const sortBy = (key: string, key1: string) => (a, b) =>
-  a[key][key1] < b[key][key1] ? -1 : a[key][key1] > b[key][key1] ? 1 : 0;
-
-export const memoized = fn => {
-  const cache = {};
-  return arg => cache[arg] || (cache[arg] = fn(arg))
+export const monthToEN = (monthNum: number) => {
+  const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return monthList[monthNum - 1];
 }
 
-export const once = fn => {
+export const sortBy = (parent: string, child: string) => (a: any, b: any) =>
+  a[parent][child] < b[parent][child] ? 1 : a[parent][child] > b[parent][child] ? -1 : 0;
+
+export const memoized = (fn: any) => {
+  const cache = {};
+  return (arg: any) => cache[arg] || (cache[arg] = fn(arg))
+}
+
+export const once = (fn: any) => {
   let done = false;
   // tslint:disable-next-line:only-arrow-functions
   return function () {

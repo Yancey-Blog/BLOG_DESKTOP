@@ -8,15 +8,21 @@ import {
   articleService
 } from '../apis/index.service';
 import {
-  IArticleDetail
+  IArticleDetail,
+  IArchive,
 } from '../types/article';
 
 import history from '../history';
+
+import {
+  sortBy
+} from '../tools/tools';
 
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
   @observable public hots: IArticleDetail[] = [];
   @observable public tags: string[] = [];
+  @observable public archives: IArchive[] = [];
   @observable public curPage: number = 1;
   @observable public total: number = 0;
   @observable public showSearch: boolean = false;
@@ -25,6 +31,7 @@ class ArticleStore {
     this.posts = [];
     this.hots = [];
     this.tags = [];
+    this.archives = [];
     this.curPage = 1;
     this.total = 0;
     this.showSearch = false;
@@ -91,7 +98,7 @@ class ArticleStore {
     }
   };
 
-   public getPostsByTag = async (tag = this.curTag) => {
+  public getPostsByTag = async (tag = this.curTag) => {
     try {
       const res = await articleService.getPostsByTag(tag);
       runInAction(() => {
@@ -107,6 +114,17 @@ class ArticleStore {
       const res = await articleService.getHots();
       runInAction(() => {
         this.hots = res.data;
+      });
+    } catch (e) {
+      // todo
+    }
+  };
+
+  public getArchives = async () => {
+    try {
+      const res = await articleService.getArchives();
+      runInAction(() => {
+        this.archives = res.data.sort(sortBy('_id', 'year'));
       });
     } catch (e) {
       // todo
