@@ -7,7 +7,11 @@ import {
   musicService,
 } from '../apis/index.service';
 
-import {ILiveTours, IFeaturedRecords, IYanceyMusic} from '../types/music';
+import {
+  ILiveTours,
+  IFeaturedRecords,
+  IYanceyMusic,
+} from '../types/music';
 
 class MusicStore {
   @observable public liveToursData: ILiveTours[] = [];

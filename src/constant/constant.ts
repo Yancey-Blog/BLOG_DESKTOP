@@ -9,10 +9,13 @@ export const miku = `${aliOSS}/miku.gif`;
 export const blogBg = `${aliOSS}/static/blog_page_header.jpg`;
 export const archiveBg = `${aliOSS}/static/archive_page_header.jpg`;
 export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
+export const avatar = `${aliOSS}/static/logo_avatar.jpg`;
 
 export const GA = 'UA-114532340-1';
 
 export const ipify = 'https://api.ipify.org/';
+
+export const byNcSa = 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en';
 
 export const svgSprite = {
   telegram: '#telegram',

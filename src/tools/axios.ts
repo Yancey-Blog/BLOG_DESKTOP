@@ -101,7 +101,7 @@ export function GET(url: string, params: object | null, errMsg: string | null): 
 }
 
 // POST
-export function POST(url: string, params: object | null, config ? : AxiosRequestConfig) {
+export function POST(url: string, params: object | null, config ? : AxiosRequestConfig): Promise < AxiosResponse > {
   return new Promise((resolve, reject) => {
     axios
       .post(url, params, config)
@@ -120,7 +120,7 @@ export function POST(url: string, params: object | null, config ? : AxiosRequest
 }
 
 // PUT
-export function PUT(url: string, params: object | null) {
+export function PUT(url: string, params: object | null, errMsg: string | null): Promise < AxiosResponse > {
   return new Promise((resolve, reject) => {
     axios
       .put(url, params)
@@ -128,13 +128,14 @@ export function PUT(url: string, params: object | null) {
         resolve(res);
       })
       .catch((err) => {
+        err = errMsg ? errMsg : err;
         reject(err);
       });
   });
 }
 
 // DELETE
-export function DELETE(url: string, params: object | null) {
+export function DELETE(url: string, params: object | null): Promise < AxiosResponse > {
   return new Promise((resolve, reject) => {
     axios
       .delete(url, {

@@ -1,5 +1,6 @@
 import {
   GET,
+  PUT,
 } from '../tools/axios';
 
 import {
@@ -9,11 +10,18 @@ import {
 import {
   IArticleDetail,
   IArchive,
+  IDetail,
+  ILike,
+  IIncreasePV,
 } from '../types/article';
+
+import {
+  ipify
+} from '../constant/constant';
 
 
 class ArticleService {
-  public async getPostById(id: string): Promise < AxiosResponse < IArticleDetail >> {
+  public async getPostById(id: string): Promise < AxiosResponse < IDetail >> {
     return GET(`/articles/${id}`, null, '');
   }
 
@@ -39,6 +47,22 @@ class ArticleService {
 
   public async getArchives(): Promise < AxiosResponse < IArchive[] >> {
     return GET('/archives', null, '');
+  }
+
+  public async handleLikes(id: string, ip: string): Promise < AxiosResponse < ILike >> {
+    return PUT(`/likes/${id}?ip=${ip}`, null, '');
+  }
+
+  public async getLikes(id: string, ip: string): Promise < AxiosResponse < ILike >> {
+    return GET(`/likes/${id}?ip=${ip}`, null, '');
+  }
+
+  public async getIp(): Promise < AxiosResponse < string >> {
+    return GET(ipify, null, '');
+  }
+
+  public async increasePV(id: string): Promise < AxiosResponse < IIncreasePV >> {
+    return PUT(`/articlePV/${id}`, null, '');
   }
 
 }

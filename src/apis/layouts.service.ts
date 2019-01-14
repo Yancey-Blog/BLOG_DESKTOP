@@ -7,13 +7,13 @@ import {
 } from 'axios';
 
 import {
-  IAnnouncement,
   IPlayer,
+  IGlobalStatus,
 } from '../types/layout';
 
 class LayoutsService {
-  public async getAnnouncementData(): Promise < AxiosResponse < IAnnouncement >> {
-    return GET(`/latestAnnouncements`, null, '');
+  public async getGlobalStatus(): Promise < AxiosResponse < IGlobalStatus >> {
+    return GET(`/globalStatus`, null, '');
   }
 
   public async getPlayerData(): Promise < AxiosResponse < IPlayer[] >> {

@@ -81,7 +81,8 @@ class PostSummary extends React.Component<IArticleProps, {}> {
                 <use xlinkHref={`${svgIcons}${svgSprite.comments1}`} />
               </svg>
               <Link to={`${routePath.blogDetail}${post._id}`}>
-                {post.like_count.length} Likes
+                {post.like_count.length}{' '}
+                {post.like_count.length > 1 ? 'Likes' : 'Like'}
               </Link>
             </span>
             <span className={styles.category}>

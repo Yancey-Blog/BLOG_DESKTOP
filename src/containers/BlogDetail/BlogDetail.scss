@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 .article_detail_wrapper {
-  margin-top: 3.25rem;
   color: #404040;
   text-shadow: 0 0 1px rgba(0, 0, 0, .1);
 
@@ -150,6 +149,7 @@
   .prev_next_wrapper {
     display: flex;
     margin: 2.8rem 0;
+    cursor: pointer;
 
     button {
       width: 100%;
@@ -175,6 +175,7 @@
       top: 1.8rem;
       left: 2rem;
       z-index: 1;
+
 
       .directive {
         font-size: .65rem;
@@ -280,6 +281,11 @@
   a {
     color: #e67474;
     transition: 200ms all linear;
+  }
+
+  .prev_next {
+    display: inline-block;
+    width: 100%;
   }
 
   a:hover {
