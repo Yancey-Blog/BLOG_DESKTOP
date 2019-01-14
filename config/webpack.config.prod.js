@@ -68,12 +68,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     },
     {
       loader: require.resolve('css-loader'),
-      // options: cssOptions,
-      options: {
-        importLoaders: 1,
-        modules: true,
-        localIdentName: "[hash:base64:8]"  
-      },
+      options: cssOptions,
     },
     {
       // Options for PostCSS as we reference these options twice
@@ -354,7 +349,7 @@ module.exports = {
             exclude: cssModuleRegex,
             loader: getStyleLoaders({
               importLoaders: 1,
-              sourceMap: shouldUseSourceMap,
+              // sourceMap: shouldUseSourceMap,
             }),
             // Don't consider CSS imports dead code even if the
             // containing package claims to have no side effects.
@@ -381,13 +376,38 @@ module.exports = {
           {
             test: sassRegex,
             exclude: sassModuleRegex,
-            loader: getStyleLoaders(
-              {
+            // loader: getStyleLoaders(
+            //   {
+            //     importLoaders: 2,
+            //     sourceMap: shouldUseSourceMap,
+            //   },
+            //   'sass-loader'
+            // ),
+
+            use: [{
+              loader: require.resolve('style-loader'),
+            },
+            {
+              loader: require.resolve('css-loader'),
+              options: {
                 importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
               },
-              'sass-loader'
-            ),
+            },
+            {
+              loader: require.resolve('sass-loader'),
+            },
+            {
+              loader: require.resolve('sass-resources-loader'),
+              options: {
+                resources: [
+                  path.resolve(__dirname, '../src/assets/styles/_variables.scss'),
+                  path.resolve(__dirname, '../src/assets/styles/_functions.scss'),
+                  path.resolve(__dirname, '../src/assets/styles/_mixins.scss'),
+                ],
+              }
+            }
+          ],
+
             // Don't consider CSS imports dead code even if the
             // containing package claims to have no side effects.
             // Remove this when webpack adds a warning or an error for this.
@@ -398,15 +418,43 @@ module.exports = {
           // using the extension .module.scss or .module.sass
           {
             test: sassModuleRegex,
-            loader: getStyleLoaders(
-              {
+            // loader: getStyleLoaders(
+            //   {
+            //     importLoaders: 2,
+            //     sourceMap: shouldUseSourceMap,
+            //     modules: true,
+            //     getLocalIdent: getCSSModuleLocalIdent,
+            //   },
+            //   'sass-loader'
+            // ),
+
+            use: [{
+              loader: require.resolve('style-loader'),
+            },
+            {
+              loader: require.resolve('css-loader'),
+              options: {
                 importLoaders: 2,
-                sourceMap: shouldUseSourceMap,
                 modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
+                // getLocalIdent: getCSSModuleLocalIdent,
+                localIdentName: "[hash:base64:5]"  
               },
-              'sass-loader'
-            ),
+            },
+            {
+              loader: require.resolve('sass-loader'),
+            },
+            {
+              loader: require.resolve('sass-resources-loader'),
+              options: {
+                resources: [
+                  path.resolve(__dirname, '../src/assets/styles/_variables.scss'),
+                  path.resolve(__dirname, '../src/assets/styles/_functions.scss'),
+                  path.resolve(__dirname, '../src/assets/styles/_mixins.scss'),
+                ],
+              }
+            }
+          ],
+
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

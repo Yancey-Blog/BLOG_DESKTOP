@@ -137,12 +137,14 @@
         .wechat_qr_code {
           &::after {
             background: rgba(0, 0, 0, .5) url($wechatQR) no-repeat center top;
+            // background: rgba(0, 0, 0, .5) url(//yancey-assets.oss-cn-beijing.aliyuncs.com/wechat-qr-code.jpg) no-repeat center top;
           }
         }
 
         .twitter_qr_code {
           &::after {
-            background: rgba(0, 0, 0, .5) url($twitterQR) no-repeat center top;
+            background: rgba(0, 0, 0, .5) url('#{$twitterQR}') no-repeat center top;
+            // background: rgba(0, 0, 0, .5) url(//yancey-assets.oss-cn-beijing.aliyuncs.com/twitter-qr-code.jpg) no-repeat center top;
           }
         }
 
