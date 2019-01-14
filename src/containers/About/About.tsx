@@ -67,6 +67,7 @@ class About extends React.Component<IAboutProps, {}> {
                 {aboutStore!.abouts.map((item: IAbout) => (
                   <div
                     className='swiper-slide'
+                    key={item._id}
                     style={{ backgroundImage: `url(${item.cover})` }}
                     data-year={formatJSONDate(item.release_date).slice(0, 10)}
                   >

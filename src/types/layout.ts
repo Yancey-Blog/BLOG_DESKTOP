@@ -1,25 +1,12 @@
 interface LayoutsStoreType {
-  animatable: boolean;
-  visible: boolean;
-  themeType: boolean;
-  announcement: string;
-  playerData: IPlayer[];
-  toggleMenu: () => void;
-  handleTransitionEnd: () => void;
-  handleSwitch: () => void;
-  getAnnouncementData: () => void;
+  players: IPlayer[];
+  globalStatus: IGlobalStatus;
   getPlayerData: () => void;
+  getGlobalStatus: () => void;
 }
 
 export interface ILayoutsProps {
   layoutsStore ? : LayoutsStoreType;
-}
-
-export interface IAnnouncement {
-  __v: number;
-  _id: string;
-  content: string;
-  upload_date: string;
 }
 
 export interface IPlayer {
@@ -40,4 +27,10 @@ export interface IAPlayer {
   url: string;
   cover: string;
   lrc: string;
+}
+
+export interface IGlobalStatus {
+  full_site_gray: boolean;
+  __v: number;
+  _id: string;
 }

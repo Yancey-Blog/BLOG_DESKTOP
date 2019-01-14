@@ -15,8 +15,13 @@ class ScrollToTop extends React.Component<{}, {}> {
   }
 
   public scrollToTop = () => {
+    let time: number = 0;
     document.documentElement.scrollTop -= 100;
-    window.requestAnimationFrame(this.scrollToTop);
+    if (document.documentElement.scrollTop <= 0) {
+      window.cancelAnimationFrame(time);
+    } else {
+      time = window.requestAnimationFrame(this.scrollToTop);
+    }
   };
 
   public handlePosition = () => {

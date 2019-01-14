@@ -1,6 +1,5 @@
 import {
   observable,
-  action,
   runInAction
 } from 'mobx';
 
@@ -10,51 +9,25 @@ import {
 
 import {
   IAPlayer,
+  IGlobalStatus,
 } from '../types/layout';
 
 import APlayer from 'aplayer';
 
 class LayoutsStore {
-  @observable public animatable: boolean = false;
-  @observable public visible: boolean = false;
-  @observable public themeType: boolean = false;
-  @observable public announcement: string = '';
-  @observable public playerData: IAPlayer[] = [];
+  @observable public players: IAPlayer[] = [];
+  @observable public globalStatus: IGlobalStatus = {
+    full_site_gray: false,
+    __v: 0,
+    _id: '',
+  };
 
   constructor() {
-    this.animatable = false;
-    this.visible = false;
-    this.themeType = false;
-    this.announcement = '';
-    this.playerData = [];
-  }
-
-  @action
-  public toggleMenu() {
-    this.animatable = true;
-    this.visible = !this.visible;
-  }
-
-  @action
-  public handleTransitionEnd() {
-    this.animatable = false;
-  }
-
-  @action
-  public handleSwitch() {
-    this.themeType = !this.themeType;
-  }
-
-  public getAnnouncementData = async () => {
-    try {
-      const res = await layoutsService.getAnnouncementData();
-      runInAction(() => {
-        this.announcement = res.data.content;
-      });
-    } catch (error) {
-      // todo
-    } finally {
-      // todo
+    this.players = [];
+    this.globalStatus = {
+      full_site_gray: false,
+      __v: 0,
+      _id: '',
     }
   }
 
@@ -63,7 +36,7 @@ class LayoutsStore {
       const res = await layoutsService.getPlayerData();
       runInAction(() => {
         res.data.map(item => {
-          this.playerData.push({
+          this.players.push({
             name: item.title,
             artist: item.artist,
             url: item.music_file_url,
@@ -75,7 +48,7 @@ class LayoutsStore {
           container: document.querySelector('#player'),
           fixed: true,
           lrcType: 1,
-          audio: layoutsStore!.playerData,
+          audio: layoutsStore!.players,
         });
         ap.lrc.show();
       });
@@ -85,6 +58,17 @@ class LayoutsStore {
       // todo
     }
   }
+
+  public getGlobalStatus = async () => {
+    try {
+      const res = await layoutsService.getGlobalStatus();
+      runInAction(() => {
+        this.globalStatus = res.data;
+      });
+    } catch (e) {
+      // todo
+    }
+  };
 
 }
 

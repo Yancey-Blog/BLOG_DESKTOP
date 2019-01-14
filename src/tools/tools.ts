@@ -62,3 +62,25 @@ export const judgeClient = () => {
   }
   return client;
 }
+
+export const initLivere = () => {
+  // tslint:disable-next-line:prefer-const
+  let LivereTower;
+  // tslint:disable-next-line:only-arrow-functions
+  (function (d, s) {
+    // tslint:disable-next-line:one-variable-per-declaration
+    let j,
+      // tslint:disable-next-line:prefer-const
+      e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') {
+      return;
+    }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    (e.parentNode as HTMLDivElement).insertBefore(j, e);
+  }(document, 'script'));
+}
