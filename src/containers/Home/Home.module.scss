@@ -212,6 +212,8 @@
     background: #fff;
 
     @at-root .announcement_wrapper {
+      width: 40rem;
+      margin: 0 auto;
       border: 1px dashed #e6e6e6;
       color: #969696;
       padding: 1rem;
@@ -223,6 +225,8 @@
     @at-root .new_release_container {
       display: flex;
       justify-content: space-around;
+      width: 40rem;
+      margin: 0 auto;
 
       .new_release {
         overflow: hidden;

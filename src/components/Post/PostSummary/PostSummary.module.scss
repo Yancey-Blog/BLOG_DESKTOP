@@ -3,9 +3,9 @@ $small_text: #888;
 .blog_summary_content {
   font-family: 'Ubuntu', sans-serif;
   display: flex;
-  max-width: 40rem;
+  width: 40rem;
   height: 15rem;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
   text-align: right;
   border-radius: .5rem;
   box-shadow: 0 1px 20px -8px rgba(#000, .5);
@@ -105,6 +105,9 @@ $small_text: #888;
         width: 1.4rem;
         height: 1.4rem;
         margin-right: 0;
+        &:hover{
+          fill: #FE9600;
+        }
       }
     }
   }
