@@ -40,77 +40,74 @@ class Home extends React.Component<IHomeProps, {}> {
         <Helmet>
           <title>Yancey Official Blog | Yancey Inc.</title>
         </Helmet>
-        <section className='home_imax_wrapper'>
-          <figure id='background' className={styles.home_imax}>
-            <h1 className={styles.glitch} data-value='HI, YANCEY!'>
-              HI, YANCEY!
-            </h1>
-            <div className={styles.social_media_container}>
-              <div className={styles.up_triangle} />
-              <p className={cs(styles.social_media_motto, 'no-user-select')}>
-                <svg className={cs(styles.icon, styles.left_quote)}>
-                  <use xlinkHref={`${svgIcons}#left-quote`} />
+        <section id='background' className={styles.ad_wrapper}>
+          <h1 className={styles.glitch} data-value='HI, YANCEY!'>
+            HI, YANCEY!
+          </h1>
+          <div className={styles.social_media_container}>
+            <div className={styles.up_triangle} />
+            <p className={cs(styles.social_media_motto, 'no-user-select')}>
+              <svg className={cs(styles.icon, styles.left_quote)}>
+                <use xlinkHref={`${svgIcons}#left-quote`} />
+              </svg>
+              {homeStore!.motto}
+              <svg className={cs(styles.icon, styles.right_quote)}>
+                <use xlinkHref={`${svgIcons}#right-quote`} />
+              </svg>
+            </p>
+            <ul className={styles.social_media_list}>
+              <li
+                className={styles.social_media_item}
+                onClick={() => homeStore!.getCoverData('prev')}
+              >
+                <svg className={styles.arrow}>
+                  <use xlinkHref={`${svgIcons}#left-arrow`} />
                 </svg>
-                {homeStore!.motto}
-                <svg className={cs(styles.icon, styles.right_quote)}>
-                  <use xlinkHref={`${svgIcons}#right-quote`} />
-                </svg>
-              </p>
-              <ul className={styles.social_media_list}>
+              </li>
+              {Object.keys(socialMedia).map(key => (
                 <li
-                  className={styles.social_media_item}
-                  onClick={() => homeStore!.getCoverData('prev')}
+                  className={cs(
+                    styles.social_media_item,
+                    key === 'twitter' || key === 'wechat' ? styles.qr_code : '',
+                    key === 'twitter' ? styles.twitter_qr_code : '',
+                    key === 'wechat' ? styles.wechat_qr_code : '',
+                  )}
+                  key={key}
                 >
-                  <svg className={styles.arrow}>
-                    <use xlinkHref={`${svgIcons}#left-arrow`} />
-                  </svg>
-                </li>
-                {Object.keys(socialMedia).map(key => (
-                  <li
-                    className={cs(
-                      styles.social_media_item,
-                      key === 'twitter' || key === 'wechat'
-                        ? styles.qr_code
-                        : '',
-                      key === 'twitter' ? styles.twitter_qr_code : '',
-                      key === 'wechat' ? styles.wechat_qr_code : '',
-                    )}
-                    key={key}
+                  <a
+                    href={socialMedia[key].url}
+                    target='_blank'
+                    rel='noopener noreferrer'
                   >
-                    <a
-                      href={socialMedia[key].url}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <svg className={`icon-${socialMedia[key]}`}>
-                        <use
-                          xlinkHref={`${svgIcons}${socialMedia[key].icon}`}
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                ))}
-                <li
-                  className={styles.social_media_item}
-                  onClick={() => homeStore!.getCoverData('next')}
-                >
-                  <svg className={styles.arrow}>
-                    <use xlinkHref={`${svgIcons}#right-arrow`} />
-                  </svg>
+                    <svg className={`icon-${socialMedia[key]}`}>
+                      <use xlinkHref={`${svgIcons}${socialMedia[key].icon}`} />
+                    </svg>
+                  </a>
                 </li>
-              </ul>
-            </div>
-          </figure>
+              ))}
+              <li
+                className={styles.social_media_item}
+                onClick={() => homeStore!.getCoverData('next')}
+              >
+                <svg className={styles.arrow}>
+                  <use xlinkHref={`${svgIcons}#right-arrow`} />
+                </svg>
+              </li>
+            </ul>
+          </div>
         </section>
+        {/* main */}
         <section className={styles.content}>
+          {/* announcement */}
           <article className={styles.announcement_wrapper}>
             <svg className={styles.icon}>
               <use xlinkHref={`${svgIcons}#megaphone`} />
             </svg>
-            <span className='announcement-content'>
+            <span>
               {homeStore!.announcement}
             </span>
           </article>
+          {/* projects */}
           <article className={styles.new_release_wrapper}>
             <h2 className={styles.new_release_tips}>
               <svg className={styles.icon}>
@@ -139,6 +136,7 @@ class Home extends React.Component<IHomeProps, {}> {
               ))}
             </div>
           </article>
+          {/* new post summary */}
           <article className={styles.blog_summary_wrapper}>
             <h2 className={styles.blog_summary_tips}>
               <svg className={styles.icon}>

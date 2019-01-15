@@ -1,21 +1,31 @@
 .yancey_blog_home {
-  color: #666;
   position: relative;
-  .home_imax {
+  color: #666;
+
+  .ad_wrapper {
     position: relative;
     width: 100vw;
     height: 100vh;
-    animation: header 1s;
-    transition: 1s all linear;
-    background: no-repeat fixed center top;
-    background-size: cover;
+    overflow: hidden;
 
     opacity: 0;
-    animation-delay: 0s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-    will-change: transform;
+    transition: 1s opacity linear;
+
+    &::before {
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      will-change: transform;
+      z-index: -1;
+    }
+    
+
     &::after {
       content: '';
       background: url("../../assets/images/dot.gif") 0 0 fixed;
@@ -26,178 +36,182 @@
       left: 0;
       will-change: transform;
     }
-    @at-root .glitch {
-      position: relative;
-      color: #fff;
-      font-size: 4rem;
-      z-index: 1;
-      user-select: none;
-      top: 36%;
-      transition: all 400ms ease;
-      max-width: 100%;
-      text-align: center;
-      letter-spacing: .25rem;
-      &::before, &::after {
-        content: attr(data-value);
-        position: absolute;
-        top: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0);
-        clip: rect(0, 0, 0, 0)
+  }
+
+  @at-root .glitch {
+    position: relative;
+    color: #fff;
+    font-size: 4rem;
+    z-index: 1;
+    user-select: none;
+    top: 36%;
+    transition: all 400ms ease;
+    max-width: 100%;
+    text-align: center;
+    letter-spacing: .25rem;
+
+    &::before,
+    &::after {
+      content: attr(data-value);
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0);
+      clip: rect(0, 0, 0, 0)
+    }
+
+    &::before {
+      left: -1px;
+      text-shadow: 1px 0 #ff3f1a
+    }
+
+    &::after {
+      left: 1px;
+      text-shadow: -1px 0 #00a7e0;
+    }
+
+    &:hover::before {
+      text-shadow: 4px 0 #ff3f1a;
+      animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
+    }
+
+    &:hover::after {
+      text-shadow: -5px 0 #00a7e0;
+      animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
+    }
+  }
+
+  @at-root .social_media_container {
+    position: relative;
+    z-index: 1;
+    max-width: 27rem;
+    margin: 0 auto;
+    background: rgba(#000, .5);
+    padding: 1rem;
+    border-radius: 10px;
+    top: 39%;
+
+    .social_media_motto {
+      font-weight: 700;
+      font-size: .8rem;
+      color: #eaeadf;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      max-height: .9rem;
+
+      .left_quote,
+      .right_quote {
+        position: relative;
+        width: .9rem;
+        height: .9rem;
+        fill: #fff;
+        fill-opacity: .6;
+        top: 1px;
       }
 
-      &::before {
-        left: -1px;
-        text-shadow: 1px 0 #ff3f1a
+      .left_quote {
+        margin-right: .4rem;
       }
 
-      &::after {
-        left: 1px;
-        text-shadow: -1px 0 #00a7e0;
-      }
-
-      &:hover::before {
-        text-shadow: 4px 0 #ff3f1a;
-        animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
-      }
-
-      &:hover::after {
-        text-shadow: -5px 0 #00a7e0;
-        animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
+      .right_quote {
+        margin-right: 0;
+        margin-left: .4rem;
       }
     }
-    @at-root .social_media_container {
-      position: relative;
-      z-index: 1;
-      max-width: 27rem;
-      margin: 0 auto;
-      background: rgba(#000, .5);
-      padding: 1rem;
-      border-radius: 10px;
-      top: 39%;
-      // xmas theme
-      //&::after{
-      //  position: absolute;
-      //  content: '';
-      //  top: -8.2rem;
-      //  right: -1.2rem;
-      //  width: 4rem;
-      //  height: 4rem;
-      //  background: url($xmas) no-repeat;
-      //  background-size: contain;
-      //  transform: rotate(15deg);
-      //  transform-origin: bottom right;
-      //  transition: all .2s;
-      //}
-      //&:hover::after{
-      //  transform: rotate(20deg);
-      //}
-      .social_media_motto {
-        font-weight: 700;
-        font-size: .8rem;
-        color: #eaeadf;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 1.2rem;
-        max-height: .9rem;
-        .left_quote, .right_quote {
-          position: relative;
-          width: .9rem;
-          height: .9rem;
-          fill: #fff;
-          fill-opacity: .6;
-          top: 1px;
-        }
-        .left_quote {
-          margin-right: .4rem;
-        }
-        .right_quote {
-          margin-right: 0;
-          margin-left: .4rem;
+
+    @at-root .social_media_list {
+      text-align: center;
+
+      .social_media_item:last-child {
+        margin-right: 0;
+      }
+
+      .social_media_item {
+        outline: none;
+        position: relative;
+        display: inline-block;
+        margin-right: 1.4rem;
+
+        svg {
+          width: 22px;
+          height: 22px;
         }
       }
 
-      @at-root .social_media_list {
-        text-align: center;
-        .social_media_item:last-child {
-          margin-right: 0;
+      .wechat_qr_code {
+        &::after {
+          background: rgba(0, 0, 0, .5) url($wechatQR) no-repeat center top;
+        }
+      }
+
+      .twitter_qr_code {
+        &::after {
+          background: rgba(0, 0, 0, .5) url('#{$twitterQR}') no-repeat center top;
+        }
+      }
+
+      .qr_code {
+        cursor: pointer;
+
+        &::after,
+        &::before {
+          position: absolute;
+          content: '';
+          opacity: 0;
+          visibility: hidden;
+          transform: translate3d(0, 16px, 0);
+          transition: 700ms all ease;
         }
 
-        .social_media_item {
-          outline: none;
-          position: relative;
-          display: inline-block;
-          margin-right: 1.4rem;
-          svg {
-            width: 22px;
-            height: 22px;
-          }
+        &::after {
+          width: 120px;
+          height: 120px;
+          padding: 10px;
+          border-radius: 12px;
+          background-size: cover;
+          background-origin: content-box;
+          top: 62px;
+          left: -58px;
         }
 
-        .wechat_qr_code {
-          &::after {
-            background: rgba(0, 0, 0, .5) url($wechatQR) no-repeat center top;
-          }
+        &::before {
+          width: 0;
+          height: 0;
+          border: 16px solid transparent;
+          border-bottom-color: rgba(0, 0, 0, 0.5);
+          top: 30px;
+          left: -4px;
         }
 
-        .twitter_qr_code {
-          &::after {
-            background: rgba(0, 0, 0, .5) url('#{$twitterQR}') no-repeat center top;
-          }
+        &:hover::after,
+        &:hover::before {
+          opacity: 1;
+          visibility: visible;
+          transform: translate3d(0, 0, 0);
+          transition: 700ms all ease;
         }
+      }
 
-        .qr_code {
+      svg.arrow {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: -1px;
+
+        &:hover {
           cursor: pointer;
-          &::after, &::before {
-            position: absolute;
-            content: '';
-            opacity: 0;
-            visibility: hidden;
-            transform: translate3d(0, 16px, 0);
-            transition: 700ms all ease;
-          }
-          &::after {
-            width: 120px;
-            height: 120px;
-            padding: 10px;
-            border-radius: 12px;
-            background-size: cover;
-            background-origin: content-box;
-            top: 62px;
-            left: -58px;
-          }
-          &::before {
-            width: 0;
-            height: 0;
-            border: 16px solid transparent;
-            border-bottom-color: rgba(0, 0, 0, 0.5);
-            top: 30px;
-            left: -4px;
-          }
-          &:hover::after, &:hover::before {
-            opacity: 1;
-            visibility: visible;
-            transform: translate3d(0, 0, 0);
-            transition: 700ms all ease;
-          }
-        }
-
-        svg.arrow {
-          width: 20px;
-          height: 20px;
-          position: relative;
-          top: -1px;
-          &:hover {
-            cursor: pointer;
-          }
         }
       }
     }
   }
+
   .content {
-    max-width: 40rem;
-    margin: 3rem auto 1rem;
-    .announcement_wrapper {
+    margin: 0 auto;
+    padding: 3rem 26% 1rem;
+    background: #fff;
+
+    @at-root .announcement_wrapper {
       border: 1px dashed #e6e6e6;
       color: #969696;
       padding: 1rem;
@@ -205,13 +219,16 @@
       font-size: .8rem;
       background: #fbfbfb;
     }
+
     @at-root .new_release_container {
       display: flex;
       justify-content: space-around;
+
       .new_release {
         overflow: hidden;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
         border-radius: 10px;
+
         .new_release_content {
           position: relative;
           width: 13rem;
@@ -219,6 +236,7 @@
           background: no-repeat center top;
           background-size: cover;
           transition: all 400ms linear;
+
           &:hover {
             .overlay {
               visibility: visible;
@@ -226,15 +244,18 @@
               transition: all 400ms linear;
             }
           }
+
           &:hover::before {
             left: 50%;
             width: 100%;
             text-align: center;
             transform: translate3d(-50%, -50%, 0);
           }
+
           &:hover::after {
             left: 0;
           }
+
           &::after {
             position: absolute;
             content: attr(data-title);
@@ -248,6 +269,7 @@
             font-size: .9rem;
             transition: all 400ms linear;
           }
+
           &::before {
             width: 100%;
             position: absolute;
@@ -262,6 +284,7 @@
             z-index: 2;
             transition: all 400ms linear;
           }
+
           .overlay {
             visibility: hidden;
             position: absolute;
@@ -278,9 +301,11 @@
       }
     }
   }
+
   .show_more_btn_wrapper {
     text-align: center;
     margin-top: 4rem;
+
     a {
       display: inline-block;
       font-family: "Ubuntu", sans-serif;
@@ -293,13 +318,16 @@
       transition-timing-function: cubic-bezier(0.31, 0.32, 0.38, 2), linear, linear;
       transition-delay: 0s, 0s, 0.15s;
       transform: scale3d(1, 1, 1);
+
       &:hover {
         box-shadow: 0 0 4px rgba(#F12742, .85);
         transform: scale3d(1.05, 1.05, 1);
       }
     }
   }
-  .blog_summary_tips, .new_release_tips {
+
+  .blog_summary_tips,
+  .new_release_tips {
     color: #666;
     font-size: .9rem;
     font-weight: 400;
@@ -344,15 +372,19 @@
   0% {
     clip: rect(36px, 9999px, 9px, 0)
   }
+
   25% {
     clip: rect(25px, 9999px, 99px, 0)
   }
+
   50% {
     clip: rect(50px, 9999px, 102px, 0)
   }
+
   75% {
     clip: rect(30px, 9999px, 92px, 0)
   }
+
   100% {
     clip: rect(91px, 9999px, 98px, 0)
   }
@@ -364,29 +396,28 @@
     left: 1px;
     clip: rect(65px, 9999px, 119px, 0)
   }
+
   25% {
     top: -6px;
     left: 4px;
     clip: rect(79px, 9999px, 19px, 0)
   }
+
   50% {
     top: -3px;
     left: 2px;
     clip: rect(68px, 9999px, 11px, 0)
   }
+
   75% {
     top: 0;
     left: -4px;
     clip: rect(95px, 9999px, 53px, 0)
   }
+
   100% {
     top: -1px;
     left: -1px;
     clip: rect(31px, 9999px, 149px, 0)
   }
-}
-
-@keyframes fadein {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }

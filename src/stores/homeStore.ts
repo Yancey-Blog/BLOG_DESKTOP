@@ -73,8 +73,8 @@ class HomeStore {
     background.onload = function () {
       const loadbackground = document.getElementById('background');
       if (loadbackground) {
-        loadbackground.style.backgroundImage = `url(${background.src})`;
-        loadbackground.style.animationName = 'fadein';
+        const styleSheet = document.styleSheets.item(0);
+        (styleSheet as CSSStyleSheet).insertRule(`#background::before{background-image: url(${background.src})}`, (styleSheet as CSSStyleSheet).cssRules.length);
         loadbackground.style.opacity = '1';
       }
 
