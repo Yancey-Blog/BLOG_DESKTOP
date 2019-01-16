@@ -10,6 +10,8 @@
     "baseUrl": ".",
     "paths": {
       "@constant/*": ["./src/constant/*"],
+      "@types/*": ["./src/types/*"],
+      "@components/*": ["./src/components/*"],
     },
     "sourceMap": true,
     "allowJs": true,

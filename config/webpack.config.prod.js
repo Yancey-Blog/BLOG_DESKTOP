@@ -224,9 +224,10 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      Assets: path.resolve(__dirname, '../src/assets'),
-      Constants: path.resolve(__dirname, '../src/constant'),
-      Components: path.resolve(__dirname, '../src/components'),
+      '@assets': path.resolve(__dirname, '../src/assets'),
+      '@constant': path.resolve(__dirname, '../src/constant'),
+      '@types': path.resolve(__dirname, '../src/types'),
+      '@components': path.resolve(__dirname, '../src/components'),
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

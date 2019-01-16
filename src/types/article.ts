@@ -83,3 +83,7 @@ export interface IIncreasePV {
   nModified: number;
   ok: number;
 }
+
+export interface IHeaderState {
+  isTop: boolean;
+}
