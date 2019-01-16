@@ -3,25 +3,43 @@ import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import _ from 'lodash';
-import headerList from './headerList';
-import Search from '../../Post/Search/Search';
+import Search from '@components/Post/Search/Search';
 import styles from './Header.module.scss';
-import routePath from '../../../constant/routePath';
-import {svgSprite} from '../../../constant/constant';
-import svgIcons from '../../../assets/images/yancey-official-blog-svg-icons.svg';
-import { ArticleStoreType } from '../../../types/article';
+import routePath from '@constant/routePath';
+import { svgSprite } from '@constant/constant';
+import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import { IArticleProps, IHeaderState } from '../../../types/article';
 
-interface IArticleProps {
-  articleStore?: ArticleStoreType;
-}
-
-interface IArticleStates {
-  isTop: boolean;
-}
+const headerList = {
+  home: {
+    url: routePath.home,
+    icon: svgSprite.home,
+  },
+  blog: {
+    url: routePath.blog,
+    icon: svgSprite.blog,
+  },
+  archive: {
+    url: routePath.archive,
+    icon: svgSprite.archive,
+  },
+  music: {
+    url: routePath.music,
+    icon: svgSprite.music,
+  },
+  apps: {
+    url: routePath.apps,
+    icon: svgSprite.apps,
+  },
+  CV: {
+    url: routePath.cv,
+    icon: svgSprite.cv,
+  },
+};
 
 @inject('articleStore')
 @observer
-class Header extends React.Component<IArticleProps, IArticleStates> {
+class Header extends React.Component<IArticleProps, IHeaderState> {
   constructor(props: IArticleProps) {
     super(props);
     this.state = {
@@ -72,8 +90,8 @@ class Header extends React.Component<IArticleProps, IArticleStates> {
         <Link to={routePath.home} className={styles.yancey_logo}>
           Yancey Official Blog
         </Link>
-        <nav className='yancey_nav_wrapper'>
-          <ul className='yancey_nav_list'>
+        <nav>
+          <ul>
             {Object.keys(headerList).map(key => (
               <li className={styles.yancey_nav_item} key={key}>
                 <Link to={headerList[key].url}>
@@ -89,7 +107,6 @@ class Header extends React.Component<IArticleProps, IArticleStates> {
             <li
               className={styles.yancey_nav_item}
               onClick={() => articleStore!.toggleShowSearch()}
-              role='tab'
             >
               <svg className={cs(styles.header_icon, styles.icon_search)}>
                 <use xlinkHref={`${svgIcons}${svgSprite.search2}`} />
@@ -98,7 +115,6 @@ class Header extends React.Component<IArticleProps, IArticleStates> {
           </ul>
           <Search />
         </nav>
-        
       </header>
     );
   }
