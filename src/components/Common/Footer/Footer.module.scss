@@ -9,7 +9,7 @@
     width: 40rem;
   }
 
-  .creator {
+  @at-root .creator {
     margin-bottom: .3rem;
     font-size: .75rem;
     font-weight: bold;
@@ -37,7 +37,7 @@
     box-sizing: content-box;
   }
 
-  .copyright_wrapper {
+  @at-root .copyright_wrapper {
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
@@ -48,7 +48,7 @@
       text-shadow: 0 0 1px rgba(0, 0, 0, .1);
     }
 
-    .copyright_item {
+    @at-root .copyright_item {
       display: inline-block;
       margin-left: .4rem;
       padding-right: .4rem;
