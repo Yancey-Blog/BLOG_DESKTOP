@@ -2,9 +2,9 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import styles from './LinkCard.module.scss';
-import { middleThumbSuffix } from '../../../constant/constant';
-import routePath from '../../../constant/routePath';
-import { domain } from '../../../constant/constant';
+import { middleThumbSuffix } from '@constant/constant';
+import routePath from '@constant/routePath';
+import { domain } from '@constant/constant';
 import { IArticleProps, IArticleDetail } from '../../../types/article';
 
 @inject('articleStore')

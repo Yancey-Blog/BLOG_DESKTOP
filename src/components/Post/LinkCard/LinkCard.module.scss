@@ -21,7 +21,7 @@
     background-position: 50%;
     background-repeat: no-repeat;
   }
-  .card_content {
+  @at-root .card_content {
     position: relative;
     display: flex;
     align-items: center;
