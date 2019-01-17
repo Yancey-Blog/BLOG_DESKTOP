@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import cs from 'classnames';
 import styles from './Archive.module.scss';
-import { archiveBg, webpSuffix } from '../../constant/constant';
-import { monthToEN } from '../../tools/tools';
+import { archiveBg, webpSuffix } from '@constants/constants';
+import { monthToEN } from '@tools/tools';
 import { IArticleProps } from '../../types/article';
 
 @inject('articleStore')
@@ -61,7 +61,6 @@ class Archive extends React.Component<IArticleProps, {}> {
           <div className={styles.fold_unfold_wrapper}>
             <button
               className={cs(styles.btn, styles.left_btn)}
-              type='button'
               onClick={() => this.unfold()}
             >
               Unfold
@@ -69,7 +68,6 @@ class Archive extends React.Component<IArticleProps, {}> {
             <div className={styles.or} />
             <button
               className={cs(styles.btn, styles.right_btn)}
-              type='button'
               onClick={() => this.fold()}
             >
               Fold

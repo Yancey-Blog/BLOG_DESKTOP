@@ -2,7 +2,7 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import history from '../../history';
 import styles from './NotFound.module.scss';
-import routePath from '../../constant/routePath';
+import routePath from '@constants/routePath';
 
 class NotFound extends React.Component<{}, {}> {
   constructor(props: {}) {

@@ -5,8 +5,8 @@ import cs from 'classnames';
 import _ from 'lodash';
 import Search from '@components/Post/Search/Search';
 import styles from './Header.module.scss';
-import routePath from '@constant/routePath';
-import { svgSprite } from '@constant/constant';
+import routePath from '@constants/routePath';
+import { svgSprite } from '@constants/constants';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import { IArticleProps, IHeaderState } from '../../../types/article';
 

@@ -10,10 +10,10 @@ import 'baguettebox.js/dist/baguetteBox.min.css';
 import 'tocbot/dist/tocbot.css';
 import cs from 'classnames';
 import './BlogDetail.scss';
-import { initLivere, formatJSONDate } from '../../tools/tools';
-import { webpSuffix, avatar, byNcSa } from '../../constant/constant';
+import Like from '@components/Post/Like/Like';
+import { initLivere, formatJSONDate } from '@tools/tools';
+import { webpSuffix, avatar, byNcSa } from '@constants/constants';
 import { ArticleStoreType } from '../../types/article';
-import Like from '../../components/Post/Like/Like';
 
 interface IArticleProps {
   articleStore?: ArticleStoreType;

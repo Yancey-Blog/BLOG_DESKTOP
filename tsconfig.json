@@ -9,9 +9,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@constant/*": ["./src/constant/*"],
+      "@constants/*": ["./src/constants/*"],
       "@types/*": ["./src/types/*"],
       "@components/*": ["./src/components/*"],
+      "@tools/*": ["./src/tools/*"],
     },
     "sourceMap": true,
     "allowJs": true,

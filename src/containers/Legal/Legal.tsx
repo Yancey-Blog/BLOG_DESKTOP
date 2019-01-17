@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import styles from './Legal.module.scss';
-import { aliOSS, webpSuffix, socialMedia } from '../../constant/constant';
+import { webpSuffix, socialMedia, legalBg } from '@constants/constants';
 
 class Legal extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -10,17 +10,18 @@ class Legal extends React.Component<{}, {}> {
   }
 
   public render() {
-    const bgUrl = `${aliOSS}/static/legal_page_header.jpg`;
     const isWebp = window.localStorage.isWebp === 'true';
     return (
-      <main className='privacy_policy_wrapper'>
+      <main>
         <Helmet>
           <title>Privacy Policy | Yancey Inc.</title>
         </Helmet>
         <figure
           className={styles.bg_img}
           style={{
-            backgroundImage: `url(${isWebp ? `${bgUrl}${webpSuffix}` : bgUrl})`,
+            backgroundImage: `url(${
+              isWebp ? `${legalBg}${webpSuffix}` : legalBg
+            })`,
           }}
         />
         <article className={styles.privacy_policy_container}>
@@ -68,7 +69,7 @@ class Legal extends React.Component<{}, {}> {
               </a>
             </li>
           </ul>
-          <span className='target-fix' id='Types_of_Data_collected' />
+          <span className={styles.target_fix} id='Types_of_Data_collected' />
           <h2>I. Types of Data collected</h2>
           <p>
             Among the types of Personal Data that this Application collects, by
@@ -108,7 +109,7 @@ class Legal extends React.Component<{}, {}> {
             have the third party′s consent to provide the Data to the Owner.
           </p>
           <span
-            className='target-fix'
+            className={styles.target_fix}
             id='Mode_and_place_of_processing_the_Data'
           />
           <h2>II. Mode and place of processing the Data</h2>
@@ -245,7 +246,7 @@ class Legal extends React.Component<{}, {}> {
             rectification and the right to data portability cannot be enforced
             after expiration of the retention period.
           </p>
-          <span className='target-fix' id='The_purposes_of_processing' />
+          <span className={styles.target_fix} id='The_purposes_of_processing' />
           <h2>III. The purposes of processing</h2>
           <p>
             The Data concerning the User is collected to allow the Owner to
@@ -259,7 +260,7 @@ class Legal extends React.Component<{}, {}> {
             purpose in the respective sections of this document.
           </p>
           <span
-            className='target-fix'
+            className={styles.target_fix}
             id='Detailed_information_on_the_processing_of_Personal_Data'
           />
           <h2>IV. Detailed information on the processing of Personal Data</h2>
@@ -267,7 +268,7 @@ class Legal extends React.Component<{}, {}> {
             Personal Data is collected for the following purposes and using the
             following services:
           </p>
-          <span className='target-fix' id='The_rights_of_Users' />
+          <span className={styles.target_fix} id='The_rights_of_Users' />
           <h2>V. The rights of Users</h2>
           <p>
             Users may exercise certain rights regarding their Data processed by
@@ -371,7 +372,7 @@ class Legal extends React.Component<{}, {}> {
             the Owner as early as possible and always within one month.
           </p>
           <span
-            className='target-fix'
+            className={styles.target_fix}
             id='Additional_information_about_Data_collection_and_processing'
           />
           <h2>
@@ -429,7 +430,7 @@ class Legal extends React.Component<{}, {}> {
             from the User, where required.
           </p>
           <span
-            className='target-fix'
+            className={styles.target_fix}
             id='Detailed_information_on_the_processing_of_Personal_Data'
           />
           <h2>VII. Detailed information on the processing of Personal Data</h2>
@@ -523,7 +524,10 @@ class Legal extends React.Component<{}, {}> {
             <a href='https://policies.google.com/privacy'>Privacy Policy</a>.
             Privacy Shield participant.
           </p>
-          <span className='target-fix' id='Definitions_and_legal_references' />
+          <span
+            className={styles.target_fix}
+            id='Definitions_and_legal_references'
+          />
           <h2>VIII. Definitions and legal references</h2>
           <h3>Personal Data (or Data)</h3>
           <p>
@@ -599,7 +603,7 @@ class Legal extends React.Component<{}, {}> {
             This privacy policy relates solely to this Application, if not
             stated otherwise within this document.
           </p>
-          <span className='target-fix' id='Owner_and_Data_Controller' />
+          <span className={styles.target_fix} id='Owner_and_Data_Controller' />
           <h2>IX. Owner and Data Controller</h2>
           <p>Yancey Inc.</p>
           <p>

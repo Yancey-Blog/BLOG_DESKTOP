@@ -136,7 +136,7 @@ $slider_height: 25.8rem;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   height: $slider_height;
-  .artist_item {
+  @at-root .artist_item {
     &::before {
       outline-color: $gray_outline;
     }

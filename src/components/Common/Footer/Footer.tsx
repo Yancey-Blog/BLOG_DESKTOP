@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import styles from './Footer.module.scss';
-import routePath from '@constant/routePath';
-import { svgSprite, socialMedia } from '@constant/constant';
+import routePath from '@constants/routePath';
+import { svgSprite, socialMedia } from '@constants/constants';
 
 const copyright = {
   about: {

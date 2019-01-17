@@ -3,8 +3,8 @@ import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import styles from './Apps.module.scss';
-import routePath from '../../constant/routePath';
-import {domain} from '../../constant/constant';
+import routePath from '@constants/routePath';
+import { domain } from '@constants/constants';
 
 class Apps extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -36,8 +36,9 @@ class Apps extends React.Component<{}, {}> {
             </Link>
           </div>
           <p className={styles.mobile_download_url}>
-            Visit <Link to={routePath.apps}>{`${domain}${routePath.apps}`}</Link> on your
-            mobile phone to install.
+            Visit{' '}
+            <Link to={routePath.apps}>{`${domain}${routePath.apps}`}</Link> on
+            your mobile phone to install.
           </p>
         </section>
         <section className={cs(styles.platform, styles.desktop_wrapper)}>
@@ -55,7 +56,9 @@ class Apps extends React.Component<{}, {}> {
           </button>
           <p className={styles.not_mac}>NOT ON A MAC?</p>
           <p className={styles.window_download_url}>
-            <Link to={routePath.home}>Download for Windows 8 and higher (64-bit)</Link>
+            <Link to={routePath.home}>
+              Download for Windows 8 and higher (64-bit)
+            </Link>
           </p>
         </section>
         <section className={styles.overlay}>

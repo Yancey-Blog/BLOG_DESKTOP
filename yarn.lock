@@ -491,9 +491,9 @@
     "@babel/helper-get-function-arity" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-transform-react-constant-elements@7.0.0", "@babel/plugin-transform-react-constant-elements@^7.0.0":
+"@babel/plugin-transform-react-constants-elements@7.0.0", "@babel/plugin-transform-react-constants-elements@^7.0.0":
   version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-constant-elements/-/plugin-transform-react-constant-elements-7.0.0.tgz#ab413e33e9c46a766f5326014bcbf9e2b34ef7a4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-constants-elements/-/plugin-transform-react-constants-elements-7.0.0.tgz#ab413e33e9c46a766f5326014bcbf9e2b34ef7a4"
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -719,7 +719,7 @@
   resolved "https://registry.yarnpkg.com/@svgr/webpack/-/webpack-2.4.1.tgz#68bc581ecb4c09fadeb7936bd1afaceb9da960d2"
   dependencies:
     "@babel/core" "^7.0.1"
-    "@babel/plugin-transform-react-constant-elements" "^7.0.0"
+    "@babel/plugin-transform-react-constants-elements" "^7.0.0"
     "@babel/preset-env" "^7.0.0"
     "@babel/preset-react" "^7.0.0"
     "@svgr/core" "^2.4.1"
@@ -1518,7 +1518,7 @@ babel-preset-react-app@^6.1.0:
     "@babel/plugin-transform-classes" "7.1.0"
     "@babel/plugin-transform-destructuring" "7.0.0"
     "@babel/plugin-transform-flow-strip-types" "7.0.0"
-    "@babel/plugin-transform-react-constant-elements" "7.0.0"
+    "@babel/plugin-transform-react-constants-elements" "7.0.0"
     "@babel/plugin-transform-react-display-name" "7.0.0"
     "@babel/plugin-transform-runtime" "7.1.0"
     "@babel/preset-env" "7.1.0"

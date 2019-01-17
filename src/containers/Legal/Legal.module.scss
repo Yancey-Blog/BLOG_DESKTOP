@@ -6,11 +6,19 @@
   background-size: cover;
 }
 
+.target_fix {
+  display: block;
+  height: 3.5rem;
+  margin-top: -3.5rem;
+  visibility: hidden;
+}
+
 .privacy_policy_container {
-  margin: 3rem 20% 2rem;
+  margin: 3rem auto 2rem;
+  width: 40rem;
   font-family: Roboto, sans-serif;
   color: #2c2e2f;
-  .anchor {
+  @at-root .anchor {
     margin-left: 0;
     margin-bottom: 3rem;
     li {
