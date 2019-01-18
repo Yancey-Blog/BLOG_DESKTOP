@@ -2,7 +2,7 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import styles from './Tag.module.scss';
-import routePath from '../../../constant/routePath';
+import routePath from '@constants/routePath';
 import { IArticleProps } from '../../../types/article';
 
 @inject('articleStore')

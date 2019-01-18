@@ -24,7 +24,7 @@
       will-change: transform;
       z-index: -1;
     }
-    
+
 
     &::after {
       content: '';
@@ -81,7 +81,7 @@
     }
   }
 
-  @at-root .social_media_container {
+  .social_media_container {
     position: relative;
     z-index: 1;
     max-width: 27rem;
@@ -92,13 +92,22 @@
     top: 39%;
 
     .social_media_motto {
+      position: relative;
       font-weight: 700;
       font-size: .8rem;
       color: #eaeadf;
       display: flex;
       justify-content: center;
       margin-bottom: 1.2rem;
-      max-height: .9rem;
+
+      .motto_content {
+        display: block;
+        width: 24rem;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
 
       .left_quote,
       .right_quote {
@@ -107,7 +116,7 @@
         height: .9rem;
         fill: #fff;
         fill-opacity: .6;
-        top: 1px;
+        top: 0;
       }
 
       .left_quote {
@@ -115,8 +124,8 @@
       }
 
       .right_quote {
-        margin-right: 0;
         margin-left: .4rem;
+        margin-right: 0;
       }
     }
 
@@ -233,7 +242,7 @@
         box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
         border-radius: 10px;
 
-        .new_release_content {
+        @at-root .new_release_content {
           position: relative;
           width: 13rem;
           height: 8rem;
@@ -306,7 +315,7 @@
     }
   }
 
-  .show_more_btn_wrapper {
+  @at-root .show_more_btn_wrapper {
     text-align: center;
     margin-top: 4rem;
 

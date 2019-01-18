@@ -9,7 +9,7 @@ import {
 
 import {
   webpSuffix
-} from '../constant/constant';
+} from '../constants/constants';
 
 import {
   IProject,

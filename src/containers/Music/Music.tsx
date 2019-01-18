@@ -5,9 +5,9 @@ import cs from 'classnames';
 import Helmet from 'react-helmet';
 import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
-import { webpSuffix, musicBg } from '../../constant/constant';
-import { formatJSONDate } from '../../tools/tools';
-import routePath from '../../constant/routePath';
+import { webpSuffix, musicBg } from '@constants/constants';
+import { formatJSONDate } from '@tools/tools';
+import routePath from '@constants/routePath';
 import {
   IMusicProps,
   ILiveTours,

@@ -7,13 +7,13 @@ import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_US';
 import 'rc-pagination/assets/index.css';
 import styles from './Blog.module.scss';
-import svgIcons from '../../assets/images/yancey-official-blog-svg-icons.svg'
-import {blogBg, webpSuffix, svgSprite} from '../../constant/constant';
-import routePath from '../../constant/routePath';
+import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg'
+import {blogBg, webpSuffix, svgSprite} from '@constants/constants';
+import routePath from '@constants/routePath';
+import BlogSummary from '@components/Post/PostSummary/PostSummary';
+import Tag from '@components/Post/Tag/Tag';
+import LinkCard from '@components/Post/LinkCard/LinkCard';
 import { IArticleProps } from '../../types/article';
-import BlogSummary from '../../components/Post/PostSummary/PostSummary';
-import Tag from '../../components/Post/Tag/Tag';
-import LinkCard from '../../components/Post/LinkCard/LinkCard';
 
 @inject('articleStore')
 @observer
@@ -38,22 +38,11 @@ class Blog extends React.Component<IArticleProps, {}> {
     articleStore!.getHots();
   }
 
-  public componentWillReceiveProps(nextProps) {
-    const { articleStore, location } = this.props;
-    if (nextProps.location.pathname !== location.pathname) {
-      if (document.location.pathname.split('/')[1] === 't') {
-        articleStore!.getPostsByTag();
-      } else if (document.location.pathname.split('/')[1] === 'blog') {
-        articleStore!.getPostsByPage();
-      }
-    }
-  }
-
   public render() {
     const { articleStore } = this.props;
     const isWebp = window.localStorage.isWebp === 'true';
     return (
-      <main className='blog_wrapper'>
+      <main>
       <Helmet>
         <title>
           Blog | Yancey Inc.

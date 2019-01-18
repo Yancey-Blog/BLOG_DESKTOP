@@ -10,6 +10,7 @@ export const blogBg = `${aliOSS}/static/blog_page_header.jpg`;
 export const archiveBg = `${aliOSS}/static/archive_page_header.jpg`;
 export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
 export const avatar = `${aliOSS}/static/logo_avatar.jpg`;
+export const legalBg = `${aliOSS}/static/legal_page_header.jpg`;
 
 export const GA = 'UA-114532340-1';
 

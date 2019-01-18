@@ -7,7 +7,7 @@
   width: 72rem;
   height: 100%;
   text-align: center;
-  .platform {
+  @at-root .platform {
     padding: 3.7rem 0 6.6rem;
     .platform_title {
       margin-bottom: .35rem;
@@ -30,7 +30,7 @@
   }
   .mobile_wrapper {
     background-color: #EDF8F5;
-    .phone_list {
+    @at-root .phone_list {
       display: flex;
       justify-content: space-around;
       width: 18rem;
@@ -56,8 +56,8 @@
         background-image: url($andriod);
       }
       .mobile_iOS {
-        width: 5.7rem;
-        background-image: url($iOS);
+        width: 6rem;
+        background-image: url($_iOS);
       }
     }
     .mobile_download_url {
@@ -68,13 +68,13 @@
       line-height: 1.6;
     }
   }
-  .desktop_wrapper {
+  @at-root .desktop_wrapper {
     background-color: #FAF7EB;
     .desktop_mac {
       margin: 3.8rem auto 1rem;
       width: 20.61rem;
       height: 12rem;
-      background: url($mac) no-repeat center top;
+      background: url($_mac) no-repeat center top;
       background-size: cover;
     }
     .mac_version_support {
@@ -114,7 +114,7 @@
       font-size: .85rem;
     }
   }
-  .overlay {
+  @at-root .overlay {
     position: fixed;
     top: 0;
     right: 0;

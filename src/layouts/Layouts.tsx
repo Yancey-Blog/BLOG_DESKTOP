@@ -4,14 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import history from '../history';
 import ReactGA from 'react-ga';
 import Loadable from 'react-loadable';
-import { checkWebp } from '../tools/tools';
-import { GA } from '../constant/constant';
-import routePath from '../constant/routePath';
-import Home from '../containers/Home/Home';
-import Player from '../components/Widget/Player/Player';
-import ScrollToTop from '../components/Widget/ScrollToTop/ScrollToTop';
-import Header from '../components/Common/Header/Header';
-import Footer from '../components/Common/Footer/Footer';
+import { checkWebp } from '@tools/tools';
+import { GA } from '@constants/constants';
+import routePath from '@constants/routePath';
+import Player from '@components/Widget/Player/Player';
+import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
+import Header from '@components/Common/Header/Header';
+import Footer from '@components/Common/Footer/Footer';
 import { ILayoutsProps } from '../types/layout';
 
 const Loadings = () => (
@@ -19,6 +18,11 @@ const Loadings = () => (
     <div className='loading_item' />
   </div>
 );
+
+const Home = Loadable({
+  loader: () => import('../containers/Home/Home'),
+  loading: Loadings,
+});
 
 const Blog = Loadable({
   loader: () => import('../containers/Blog/Blog'),
@@ -77,7 +81,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
   }
 
   public componentDidMount() {
-    const {layoutsStore} = this.props;
+    const { layoutsStore } = this.props;
     layoutsStore!.getPlayerData();
     layoutsStore!.getGlobalStatus();
     this.devToolsWarning();
@@ -119,33 +123,33 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
       filter: 'grayscale(100%)',
     };
     return (
-          <div
-            className='Layouts'
-            style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}
-          >
-            <Header />
-            <Switch>
-              <Route path={routePath.home} exact component={Home} />
-              <Route path={routePath.legal} component={Legal} />
-              <Route path={routePath.blog} component={Blog} />
-              <Route path={`${routePath.tag}:id`} component={Blog} />
-              <Route path={routePath.search} component={Blog} />
-              <Route
-                path={`${routePath.blogDetail}:id`}
-                component={BlogDetail}
-              />
-              <Route path={routePath.archive} component={Archive} />
-              <Route path={routePath.apps} component={Apps} />
-              <Route path={routePath.cv} component={CV} />
-              <Route path={routePath.music} component={Music} />
-              <Route path={routePath.about} component={About} />
-              <Route path={routePath.notFound} component={NotFound} />
-              <Route component={NotFound} />
-            </Switch>
-            <ScrollToTop />
-            <Player />
-            <Footer />
-          </div>
+      <div style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}>
+        <Header />
+        <Switch>
+          <Route path={routePath.home} exact component={Home} />
+          <Route path={routePath.legal} component={Legal} />
+          <Route
+            path={routePath.blog}
+            render={props => <Blog {...props} key={location.pathname} />}
+          />
+          <Route
+            path={`${routePath.tag}:id`}
+            render={props => <Blog {...props} key={location.pathname} />}
+          />
+          <Route path={routePath.search} component={Blog} />
+          <Route path={`${routePath.blogDetail}:id`} component={BlogDetail} />
+          <Route path={routePath.archive} component={Archive} />
+          <Route path={routePath.apps} component={Apps} />
+          <Route path={routePath.cv} component={CV} />
+          <Route path={routePath.music} component={Music} />
+          <Route path={routePath.about} component={About} />
+          <Route path={routePath.notFound} component={NotFound} />
+          <Route component={NotFound} />
+        </Switch>
+        <ScrollToTop />
+        <Player />
+        <Footer />
+      </div>
     );
   }
 }

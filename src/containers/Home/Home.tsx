@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
-import { socialMedia, webpSuffix } from '../../constant/constant';
-import routePath from '../../constant/routePath';
-import svgIcons from '../../assets/images/yancey-official-blog-svg-icons.svg';
+import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
+import routePath from '@constants/routePath';
+import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import PostSummary from '@components/Post/PostSummary/PostSummary';
 import styles from './Home.module.scss';
 import { IHomeProps } from '../../types/home';
-import PostSummary from '../../components/Post/PostSummary/PostSummary';
 
 @inject('homeStore')
 @inject('articleStore')
@@ -48,11 +48,11 @@ class Home extends React.Component<IHomeProps, {}> {
             <div className={styles.up_triangle} />
             <p className={cs(styles.social_media_motto, 'no-user-select')}>
               <svg className={cs(styles.icon, styles.left_quote)}>
-                <use xlinkHref={`${svgIcons}#left-quote`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.leftQuote}`} />
               </svg>
-              {homeStore!.motto}
+              <span className={styles.motto_content}>{homeStore!.motto}</span>
               <svg className={cs(styles.icon, styles.right_quote)}>
-                <use xlinkHref={`${svgIcons}#right-quote`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.rightQuote}`} />
               </svg>
             </p>
             <ul className={styles.social_media_list}>
@@ -61,7 +61,7 @@ class Home extends React.Component<IHomeProps, {}> {
                 onClick={() => homeStore!.getCoverData('prev')}
               >
                 <svg className={styles.arrow}>
-                  <use xlinkHref={`${svgIcons}#left-arrow`} />
+                  <use xlinkHref={`${svgIcons}${svgSprite.leftArrow}`} />
                 </svg>
               </li>
               {Object.keys(socialMedia).map(key => (
@@ -90,7 +90,7 @@ class Home extends React.Component<IHomeProps, {}> {
                 onClick={() => homeStore!.getCoverData('next')}
               >
                 <svg className={styles.arrow}>
-                  <use xlinkHref={`${svgIcons}#right-arrow`} />
+                  <use xlinkHref={`${svgIcons}${svgSprite.rightArrow}`} />
                 </svg>
               </li>
             </ul>
@@ -101,17 +101,15 @@ class Home extends React.Component<IHomeProps, {}> {
           {/* announcement */}
           <article className={styles.announcement_wrapper}>
             <svg className={styles.icon}>
-              <use xlinkHref={`${svgIcons}#megaphone`} />
+              <use xlinkHref={`${svgIcons}${svgSprite.megaphone}`} />
             </svg>
-            <span>
-              {homeStore!.announcement}
-            </span>
+            <span>{homeStore!.announcement}</span>
           </article>
           {/* projects */}
           <article className={styles.new_release_wrapper}>
             <h2 className={styles.new_release_tips}>
               <svg className={styles.icon}>
-                <use xlinkHref={`${svgIcons}#flame`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.fire}`} />
               </svg>
               New Release!
             </h2>
@@ -140,7 +138,7 @@ class Home extends React.Component<IHomeProps, {}> {
           <article className={styles.blog_summary_wrapper}>
             <h2 className={styles.blog_summary_tips}>
               <svg className={styles.icon}>
-                <use xlinkHref={`${svgIcons}#new`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.new}`} />
               </svg>
               The Latest!
             </h2>

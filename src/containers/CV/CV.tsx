@@ -3,8 +3,8 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import Helmet from 'react-helmet';
 import styles from './CV.module.scss';
-import svgIcons from '../../assets/images/yancey-official-blog-svg-icons.svg';
-import { socialMedia } from '../../constant/constant';
+import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import { socialMedia, svgSprite } from '@constants/constants';
 import { ICVProps, IWorkExperience, IProgramExperience } from '../../types/cv';
 
 @inject('cvStore')
@@ -89,7 +89,7 @@ class CV extends React.Component<ICVProps, {}> {
         <section className={styles.cv_detail_container}>
           <div className={styles.cv_detail_item}>
             <svg className={styles.item_icon}>
-              <use xlinkHref={`${svgIcons}#history`} />
+              <use xlinkHref={`${svgIcons}${svgSprite.history}`} />
             </svg>
             <span className={styles.item_name}>Work Experience</span>
           </div>
@@ -116,7 +116,7 @@ class CV extends React.Component<ICVProps, {}> {
           ))}
           <div className={styles.cv_detail_item}>
             <svg className={styles.item_icon}>
-              <use xlinkHref={`${svgIcons}#code`} />
+              <use xlinkHref={`${svgIcons}${svgSprite.code2}`} />
             </svg>
             <span className={styles.item_name}>Program Experience</span>
           </div>
@@ -144,7 +144,7 @@ class CV extends React.Component<ICVProps, {}> {
           ))}
           <div className={styles.cv_detail_item}>
             <svg className={styles.item_icon}>
-              <use xlinkHref={`${svgIcons}#mortarboard`} />
+              <use xlinkHref={`${svgIcons}${svgSprite.mortarBoard}`} />
             </svg>
             <span className={styles.item_name}>Education</span>
           </div>

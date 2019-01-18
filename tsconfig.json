@@ -7,6 +7,13 @@
       "es6",
       "dom"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@constants/*": ["./src/constants/*"],
+      "@types/*": ["./src/types/*"],
+      "@components/*": ["./src/components/*"],
+      "@tools/*": ["./src/tools/*"],
+    },
     "sourceMap": true,
     "allowJs": true,
     "jsx": "preserve",
@@ -27,7 +34,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
   },
   "exclude": [
     "node_modules",

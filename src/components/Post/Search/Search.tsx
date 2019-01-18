@@ -3,13 +3,9 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import _ from 'lodash';
 import styles from './Search.module.scss';
-import svgIcons from '../../../assets/images/yancey-official-blog-svg-icons.svg';
-import { webpSuffix, miku } from '../../../constant/constant';
-import { ArticleStoreType } from '../../../types/article';
-
-interface IArticleProps {
-  articleStore?: ArticleStoreType;
-}
+import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import { webpSuffix, miku, svgSprite } from '@constants/constants';
+import { IArticleProps } from '../../../types/article';
 
 @inject('articleStore')
 @observer
@@ -30,12 +26,12 @@ class Search extends React.Component<IArticleProps, {}> {
               className={cs(styles.header_icon, styles.icon_close)}
               onClick={() => articleStore!.toggleShowSearch()}
             >
-              <use xlinkHref={`${svgIcons}#close`} />
+              <use xlinkHref={`${svgIcons}${svgSprite.close}`} />
             </svg>
             <div className={styles.search_cell}>
               <p className={styles.search_title}>find something?</p>
               <svg className={styles.search_icon}>
-                <use xlinkHref={`${svgIcons}#magnifying-glass`} />
+                <use xlinkHref={`${svgIcons}${svgSprite.search2}`} />
               </svg>
               <label htmlFor='search'>
                 <input

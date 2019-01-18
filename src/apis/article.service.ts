@@ -17,7 +17,7 @@ import {
 
 import {
   ipify
-} from '../constant/constant';
+} from '../constants/constants';
 
 
 class ArticleService {

@@ -14,7 +14,7 @@
     fill: #B5B5B5;
     cursor: pointer;
   }
-  .search_cell {
+  @at-root .search_cell {
     position: relative;
     width: 30rem;
     margin: 0 auto;
