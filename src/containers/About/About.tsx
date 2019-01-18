@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import Swiper from 'swiper/dist/js/swiper.min';
 import 'swiper/dist/css/swiper.min.css';
 import './About.scss';
-import { formatJSONDate } from '../../tools/tools';
+import { formatJSONDate } from '@tools/tools';
 import { IAbout, IAboutProps } from '../../types/about';
 
 @inject('aboutStore')
@@ -56,11 +56,11 @@ class About extends React.Component<IAboutProps, {}> {
   public render() {
     const { aboutStore } = this.props;
     return (
-      <main className='about-wrapper'>
+      <main>
         <Helmet>
           <title>About | Yancey Inc.</title>
         </Helmet>
-        <div className='container'>
+        <div className='about-container'>
           <div className='timeline'>
             <div className='swiper-container'>
               <div className='swiper-wrapper'>

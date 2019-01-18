@@ -81,7 +81,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
   }
 
   public componentDidMount() {
-    const {layoutsStore} = this.props;
+    const { layoutsStore } = this.props;
     layoutsStore!.getPlayerData();
     layoutsStore!.getGlobalStatus();
     this.devToolsWarning();
@@ -123,32 +123,33 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
       filter: 'grayscale(100%)',
     };
     return (
-          <div
-            style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}
-          >
-            <Header />
-            <Switch>
-              <Route path={routePath.home} exact component={Home} />
-              <Route path={routePath.legal} component={Legal} />
-              <Route path={routePath.blog} component={Blog} />
-              <Route path={`${routePath.tag}:id`} component={Blog} />
-              <Route path={routePath.search} component={Blog} />
-              <Route
-                path={`${routePath.blogDetail}:id`}
-                component={BlogDetail}
-              />
-              <Route path={routePath.archive} component={Archive} />
-              <Route path={routePath.apps} component={Apps} />
-              <Route path={routePath.cv} component={CV} />
-              <Route path={routePath.music} component={Music} />
-              <Route path={routePath.about} component={About} />
-              <Route path={routePath.notFound} component={NotFound} />
-              <Route component={NotFound} />
-            </Switch>
-            <ScrollToTop />
-            <Player />
-            <Footer />
-          </div>
+      <div style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}>
+        <Header />
+        <Switch>
+          <Route path={routePath.home} exact component={Home} />
+          <Route path={routePath.legal} component={Legal} />
+          <Route
+            path={routePath.blog}
+            render={props => <Blog {...props} key={location.pathname} />}
+          />
+          <Route
+            path={`${routePath.tag}:id`}
+            render={props => <Blog {...props} key={location.pathname} />}
+          />
+          <Route path={routePath.search} component={Blog} />
+          <Route path={`${routePath.blogDetail}:id`} component={BlogDetail} />
+          <Route path={routePath.archive} component={Archive} />
+          <Route path={routePath.apps} component={Apps} />
+          <Route path={routePath.cv} component={CV} />
+          <Route path={routePath.music} component={Music} />
+          <Route path={routePath.about} component={About} />
+          <Route path={routePath.notFound} component={NotFound} />
+          <Route component={NotFound} />
+        </Switch>
+        <ScrollToTop />
+        <Player />
+        <Footer />
+      </div>
     );
   }
 }
