@@ -12,7 +12,7 @@ import {
   IProgramExperience,
 } from '../types/cv';
 
-class HomeService {
+class CVService {
   public async getUserData(): Promise < AxiosResponse < IUser >> {
     return GET('/userInfo', null, '');
   }
@@ -27,6 +27,6 @@ class HomeService {
 }
 
 
-const homeService = new HomeService();
+const cvService = new CVService();
 
-export default homeService;
+export default cvService;
