@@ -78,6 +78,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
   }
   public componentWillMount() {
     window.localStorage.isWebp = checkWebp();
+    this.reactGA();
   }
 
   public componentDidMount() {
