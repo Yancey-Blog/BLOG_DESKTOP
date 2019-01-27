@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
-import history from '../history';
-import ReactGA from 'react-ga';
 import Loadable from 'react-loadable';
 import { checkWebp } from '@tools/tools';
-import { GA } from '@constants/constants';
 import routePath from '@constants/routePath';
 import Player from '@components/Widget/Player/Player';
 import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
@@ -78,7 +75,6 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
   }
   public componentWillMount() {
     window.localStorage.isWebp = checkWebp();
-    this.reactGA();
   }
 
   public componentDidMount() {
@@ -111,12 +107,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
     };
   }
 
-  public reactGA() {
-    ReactGA.initialize(GA);
-    history.listen(() => {
-      ReactGA.pageview(window.location.pathname + window.location.search);
-    });
-  }
+
 
   public render() {
     const { layoutsStore } = this.props;
