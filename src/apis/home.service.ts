@@ -14,19 +14,19 @@ import {
 } from '../types/home';
 
 class HomeService {
-  public async getAnnouncementData(): Promise < AxiosResponse < IAnnouncement >> {
+  public async getAnnouncementData(): Promise<AxiosResponse<IAnnouncement>> {
     return GET('/latestAnnouncements', null, '');
   }
 
-  public async getMottoData(): Promise < AxiosResponse < IMotto >> {
+  public async getMottoData(): Promise<AxiosResponse<IMotto>> {
     return GET('/latestMotto', null, '');
   }
 
-  public async getProjectData(): Promise < AxiosResponse < IProject[] >> {
+  public async getProjectData(): Promise<AxiosResponse<IProject[]>> {
     return GET('/latestThreeProjects', null, '');
   }
 
-  public async getCoverData(curId: string, position: string): Promise < AxiosResponse < ICover >> {
+  public async getCoverData(curId: string, position: string): Promise<AxiosResponse<ICover>> {
     return GET(`/covers/${curId}?position=${position}`, null, '');
   }
 }
