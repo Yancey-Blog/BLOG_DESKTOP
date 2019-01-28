@@ -1,9 +1,9 @@
 import { 
-  GET
+  GET,
 } from '../tools/axios';
 
 import {
-  AxiosResponse
+  AxiosResponse,
 } from 'axios';
 
 import {
