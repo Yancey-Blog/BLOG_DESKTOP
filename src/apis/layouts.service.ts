@@ -12,11 +12,11 @@ import {
 } from '../types/layout';
 
 class LayoutsService {
-  public async getGlobalStatus(): Promise < AxiosResponse < IGlobalStatus >> {
+  public async getGlobalStatus(): Promise<AxiosResponse<IGlobalStatus>> {
     return GET(`/globalStatus`, null, '');
   }
 
-  public async getPlayerData(): Promise < AxiosResponse < IPlayer[] >> {
+  public async getPlayerData(): Promise<AxiosResponse<IPlayer[]>> {
     return GET(`/litePlayers`, null, '');
   }
 }

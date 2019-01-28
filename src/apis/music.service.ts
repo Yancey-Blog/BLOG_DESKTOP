@@ -13,15 +13,15 @@ import {
 } from '../types/music';
 
 class MusicService {
-  public async getLiveTours(): Promise < AxiosResponse < ILiveTours[] >> {
+  public async getLiveTours(): Promise<AxiosResponse<ILiveTours[]>> {
     return GET(`/liveTours`, null, '');
   }
 
-  public async getFeaturedRecords(): Promise < AxiosResponse < IFeaturedRecords[] >> {
+  public async getFeaturedRecords(): Promise<AxiosResponse<IFeaturedRecords[]>> {
     return GET(`/latestFourFeaturedRecords`, null, '');
   }
 
-  public async getYanceyMusic(): Promise < AxiosResponse < IYanceyMusic[] >> {
+  public async getYanceyMusic(): Promise<AxiosResponse<IYanceyMusic[]>> {
     return GET(`/yanceyMusic`, null, '');
   }
 }
