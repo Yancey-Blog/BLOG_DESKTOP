@@ -8,13 +8,10 @@ import Player from '@components/Widget/Player/Player';
 import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
 import Header from '@components/Common/Header/Header';
 import Footer from '@components/Common/Footer/Footer';
+import Loading from '@components/Common/Loading/Loading';
 import { ILayoutsProps } from '../types/layout';
 
-const Loadings = () => (
-  <div className='loading_wrapper'>
-    <div className='loading_item' />
-  </div>
-);
+const Loadings = () => <Loading />;
 
 const Home = Loadable({
   loader: () => import('../containers/Home/Home'),
@@ -107,37 +104,41 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
     };
   }
 
-
-
   public render() {
     const { layoutsStore } = this.props;
     const grayStyle = {
       filter: 'grayscale(100%)',
     };
+
+    const mainWrapper = {
+      minHeight: '100vh',
+    }
     return (
       <div style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}>
         <Header />
-        <Switch>
-          <Route path={routePath.home} exact component={Home} />
-          <Route path={routePath.legal} component={Legal} />
-          <Route
-            path={routePath.blog}
-            render={props => <Blog {...props} key={location.pathname} />}
-          />
-          <Route
-            path={`${routePath.tag}:id`}
-            render={props => <Blog {...props} key={location.pathname} />}
-          />
-          <Route path={routePath.search} component={Blog} />
-          <Route path={`${routePath.blogDetail}:id`} component={BlogDetail} />
-          <Route path={routePath.archive} component={Archive} />
-          <Route path={routePath.apps} component={Apps} />
-          <Route path={routePath.cv} component={CV} />
-          <Route path={routePath.music} component={Music} />
-          <Route path={routePath.about} component={About} />
-          <Route path={routePath.notFound} component={NotFound} />
-          <Route component={NotFound} />
-        </Switch>
+        <div style={mainWrapper}>
+          <Switch>
+            <Route path={routePath.home} exact component={Home} />
+            <Route path={routePath.legal} component={Legal} />
+            <Route
+              path={routePath.blog}
+              render={props => <Blog {...props} key={location.pathname} />}
+            />
+            <Route
+              path={`${routePath.tag}:id`}
+              render={props => <Blog {...props} key={location.pathname} />}
+            />
+            <Route path={routePath.search} component={Blog} />
+            <Route path={`${routePath.blogDetail}:id`} component={BlogDetail} />
+            <Route path={routePath.archive} component={Archive} />
+            <Route path={routePath.apps} component={Apps} />
+            <Route path={routePath.cv} component={CV} />
+            <Route path={routePath.music} component={Music} />
+            <Route path={routePath.about} component={About} />
+            <Route path={routePath.notFound} component={NotFound} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
         <ScrollToTop />
         <Player />
         <Footer />
