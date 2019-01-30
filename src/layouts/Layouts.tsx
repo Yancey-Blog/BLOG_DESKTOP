@@ -129,7 +129,10 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
               render={props => <Blog {...props} key={location.pathname} />}
             />
             <Route path={routePath.search} component={Blog} />
-            <Route path={`${routePath.blogDetail}:id`} component={BlogDetail} />
+            <Route
+              path={`${routePath.blogDetail}:id`}
+              render={props => <BlogDetail {...props} key={location.pathname} />}
+            />
             <Route path={routePath.archive} component={Archive} />
             <Route path={routePath.apps} component={Apps} />
             <Route path={routePath.cv} component={CV} />

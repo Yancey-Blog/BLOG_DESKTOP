@@ -12,7 +12,8 @@ import cs from 'classnames';
 import './BlogDetail.scss';
 import Like from '@components/Post/Like/Like';
 import { initLivere, formatJSONDate } from '@tools/tools';
-import { webpSuffix, avatar, byNcSa } from '@constants/constants';
+import { webpSuffix, avatar, byNcSa, livere } from '@constants/constants';
+import routePath from '@constants/routePath';
 import { ArticleStoreType } from '../../types/article';
 
 interface IArticleProps {
@@ -21,10 +22,7 @@ interface IArticleProps {
 
 @inject('articleStore')
 @observer
-class BlogDetail extends React.Component<
-  IArticleProps & RouteComponentProps<any>,
-  {}
-> {
+class BlogDetail extends React.Component<IArticleProps & RouteComponentProps<any>,{}> {
   constructor(props: IArticleProps & RouteComponentProps<any>) {
     super(props);
     this.state = {};
@@ -35,18 +33,9 @@ class BlogDetail extends React.Component<
   }
 
   public async componentDidMount() {
-    const { articleStore } = this.props;
-    await articleStore!.getPostById(
-      window.location.pathname.split('/').slice(-1)[0],
-    );
-    await articleStore!.increasePV(
-      window.location.pathname.split('/').slice(-1)[0],
-    );
-    await articleStore!.getIp();
-    await articleStore!.getLikes(
-      window.location.pathname.split('/').slice(-1)[0],
-      articleStore!.curIp,
-    );
+    const { articleStore, match } = this.props;
+    const curId = match.params.id;
+    await articleStore!.getPostById(curId);
     this.hljsInit();
     this.addLineNumbers();
     this.getCodeLanguage();
@@ -56,33 +45,10 @@ class BlogDetail extends React.Component<
     this.initBaguetteBox();
     this.tocbotInit();
     this.fixToc();
+    await articleStore!.getIp();
+    articleStore!.getLikes(curId, articleStore!.curIp,);
+    articleStore!.increasePV(curId);
     initLivere();
-  }
-
-  public async componentWillReceiveProps(nextProps: any) {
-    const { articleStore, match } = this.props;
-    if (nextProps.match.params.id !== match.params.id) {
-      await articleStore!.getPostById(
-        window.location.pathname.split('/').slice(-1)[0],
-      );
-      await articleStore!.increasePV(
-        window.location.pathname.split('/').slice(-1)[0],
-      );
-      await articleStore!.getIp();
-      await articleStore!.getLikes(
-        window.location.pathname.split('/').slice(-1)[0],
-        articleStore!.curIp,
-      );
-      this.hljsInit();
-      this.addLineNumbers();
-      this.getCodeLanguage();
-      this.showImageAlt();
-      this.codeBlockChange();
-      this.wrapImg();
-      this.initBaguetteBox();
-      this.tocbotInit();
-      this.fixToc();
-    }
   }
 
   public getCodeLanguage() {
@@ -302,7 +268,7 @@ class BlogDetail extends React.Component<
             '{}' ? null : (
               <Link
                 className='prev_next'
-                to={`/p/${articleStore!.detail.previousArticle.id}`}
+                to={`${routePath.blogDetail}${articleStore!.detail.previousArticle.id}`}
               >
                 <div
                   className={cs('prev_next_container', 'prev')}
@@ -330,7 +296,7 @@ class BlogDetail extends React.Component<
             '{}' ? null : (
               <Link
                 className='prev_next'
-                to={`/p/${articleStore!.detail.nextArticle.id}`}
+                to={`${routePath.blogDetail}${articleStore!.detail.nextArticle.id}`}
               >
                 <div
                   className={cs('prev_next_container', 'next')}
@@ -361,7 +327,7 @@ class BlogDetail extends React.Component<
             <div
               id='lv-container'
               data-id='city'
-              data-uid='MTAyMC8zOTU5NC8xNjEyMQ=='
+              data-uid={livere}
             />
           </section>
         </div>
