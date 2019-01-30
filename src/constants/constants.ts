@@ -19,6 +19,8 @@ export const ipify = 'https://api.ipify.org/';
 
 export const byNcSa = 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en';
 
+export const livere = 'MTAyMC8zOTU5NC8xNjEyMQ==';
+
 export const svgSprite = {
   telegram: '#telegram',
   github: '#github',
