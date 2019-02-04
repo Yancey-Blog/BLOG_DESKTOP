@@ -16,51 +16,61 @@ const Loadings = () => <Loading />;
 const Home = Loadable({
   loader: () => import('../containers/Home/Home'),
   loading: Loadings,
+  delay: 100,
 });
 
 const Blog = Loadable({
   loader: () => import('../containers/Blog/Blog'),
   loading: Loadings,
+  delay: 100,
 });
 
 const BlogDetail = Loadable({
   loader: () => import('../containers/BlogDetail/BlogDetail'),
   loading: Loadings,
+  delay: 100,
 });
 
 const Archive = Loadable({
   loader: () => import('../containers/Archive/Archive'),
   loading: Loadings,
+  delay: 100,
 });
 
 const Legal = Loadable({
   loader: () => import('../containers/Legal/Legal'),
   loading: Loadings,
+  delay: 100,
 });
 
 const Apps = Loadable({
   loader: () => import('../containers/Apps/Apps'),
   loading: Loadings,
+  delay: 100,
 });
 
 const CV = Loadable({
   loader: () => import('../containers/CV/CV'),
   loading: Loadings,
+  delay: 100,
 });
 
 const Music = Loadable({
   loader: () => import('../containers/Music/Music'),
   loading: Loadings,
+  delay: 100,
 });
 
 const About = Loadable({
   loader: () => import('../containers/About/About'),
   loading: Loadings,
+  delay: 100,
 });
 
 const NotFound = Loadable({
   loader: () => import('../containers/NotFound/NotFound'),
   loading: Loadings,
+  delay: 100,
 });
 
 @inject('layoutsStore')
@@ -107,7 +117,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
   public render() {
     const { layoutsStore } = this.props;
     const grayStyle = {
-      filter: 'grayscale(100%)',
+      filter: 'grayscale(50%)',
     };
 
     const mainWrapper = {
