@@ -20,6 +20,7 @@ class App extends React.Component<{}, {}> {
 
   public reactGA() {
     ReactGA.initialize(GA);
+    ReactGA.pageview(window.location.pathname + window.location.search);
     history.listen(() => {
       ReactGA.pageview(window.location.pathname + window.location.search);
     });
