@@ -2,7 +2,7 @@ import {
   ArticleStoreType
 } from './article';
 
-interface IHomeStore {
+export interface IHomeStore {
   announcement: string;
   motto: string;
   projects: IProject[];

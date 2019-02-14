@@ -82,13 +82,13 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
   }
   public componentWillMount() {
     window.localStorage.isWebp = checkWebp();
+    this.devToolsWarning();
   }
 
   public componentDidMount() {
     const { layoutsStore } = this.props;
     layoutsStore!.getPlayerData();
     layoutsStore!.getGlobalStatus();
-    this.devToolsWarning();
   }
 
   public devToolsWarning() {
