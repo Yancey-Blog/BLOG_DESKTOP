@@ -15,11 +15,7 @@ class Archive extends React.Component<IArticleProps, {}> {
     super(props);
     this.state = {};
   }
-
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
+  
   public componentDidMount() {
     const { articleStore } = this.props;
     articleStore!.getArchives();

@@ -7,6 +7,7 @@ import history from './history';
 import { GA } from '@constants/constants';
 import '@assets/styles/global.scss';
 import Layouts from './layouts/Layouts';
+import AutoBackToTop from '@components/Common/AutoBackToTop/AutoBackToTop';
 
 class App extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -30,11 +31,13 @@ class App extends React.Component<{}, {}> {
     return (
       <Provider {...stores}>
         <Router history={history}>
-          <div className='App'>
-            <Switch>
-              <Layouts />
-            </Switch>
-          </div>
+          <AutoBackToTop>
+            <div className='App'>
+              <Switch>
+                <Layouts />
+              </Switch>
+            </div>
+          </AutoBackToTop>
         </Router>
       </Provider>
     );
