@@ -25,10 +25,6 @@ class Music extends React.Component<IMusicProps, {}> {
     this.state = {};
   }
 
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
   public componentDidMount() {
     const { musicStore, articleStore } = this.props;
     musicStore!.getLiveTours();

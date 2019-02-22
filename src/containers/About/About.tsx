@@ -15,10 +15,6 @@ class About extends React.Component<IAboutProps, {}> {
     this.state = {};
   }
 
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
   public async componentDidMount() {
     const { aboutStore } = this.props;
     await aboutStore.getAboutData();

@@ -15,10 +15,6 @@ class CV extends React.Component<ICVProps, {}> {
     this.state = {};
   }
 
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
   public componentDidMount() {
     const { cvStore } = this.props;
     cvStore.getUserData();
