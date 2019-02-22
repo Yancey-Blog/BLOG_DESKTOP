@@ -23,10 +23,6 @@ class Blog extends React.Component<IArticleProps, {}> {
     this.state = {};
   }
 
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
   public componentDidMount() {
     const { articleStore } = this.props;
     if (document.location.pathname.split('/')[1] === 't') {

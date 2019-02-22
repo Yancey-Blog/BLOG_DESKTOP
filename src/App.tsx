@@ -4,9 +4,11 @@ import { Provider } from 'mobx-react';
 import stores from './stores/index';
 import ReactGA from 'react-ga';
 import history from './history';
+import { checkWebp } from '@tools/tools';
 import { GA } from '@constants/constants';
 import '@assets/styles/global.scss';
 import Layouts from './layouts/Layouts';
+import AutoBackToTop from '@components/Common/AutoBackToTop/AutoBackToTop';
 
 class App extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -15,7 +17,9 @@ class App extends React.Component<{}, {}> {
   }
 
   public componentWillMount() {
+    window.localStorage.isWebp = checkWebp();
     this.reactGA();
+    this.devToolsWarning();
   }
 
   public reactGA() {
@@ -26,15 +30,38 @@ class App extends React.Component<{}, {}> {
     });
   }
 
+  public devToolsWarning() {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.console || 'console' in window) {
+        // tslint:disable-next-line:no-console
+        console.log(`
+      
+         █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+       ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+       ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+       ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+       ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+        ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+        ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+        ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+                 ░     ░ ░      ░  ░
+                       ░
+      `);
+      }
+    });
+  }
+
   public render() {
     return (
       <Provider {...stores}>
         <Router history={history}>
-          <div className='App'>
-            <Switch>
-              <Layouts />
-            </Switch>
-          </div>
+          <AutoBackToTop>
+            <div className='App'>
+              <Switch>
+                <Layouts />
+              </Switch>
+            </div>
+          </AutoBackToTop>
         </Router>
       </Provider>
     );

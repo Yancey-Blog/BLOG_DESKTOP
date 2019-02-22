@@ -18,18 +18,6 @@ class PostSummary extends React.Component<IArticleProps, {}> {
     this.state = {};
   }
 
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
-  public componentDidMount() {
-    // todo
-  }
-
-  public componentWillUnmount() {
-    // todo
-  }
-
   public render() {
     const { articleStore } = this.props;
     const isWebp = window.localStorage.isWebp === 'true';

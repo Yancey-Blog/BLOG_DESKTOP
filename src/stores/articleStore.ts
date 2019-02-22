@@ -121,7 +121,6 @@ class ArticleStore {
       runInAction(() => {
         this.posts = res.data;
         this.total = parseInt(res.headers.amount, 10);
-        window.scrollTo(0, 0);
         this.curPage = 1;
       });
     } catch (e) {
@@ -188,7 +187,6 @@ class ArticleStore {
 
   public getPostById = async (id: string) => {
     history.push(`/p/${id}`);
-    window.scrollTo(0, 0);
     try {
       const res = await articleService.getPostById(id);
       runInAction(() => {

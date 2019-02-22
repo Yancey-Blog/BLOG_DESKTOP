@@ -28,10 +28,6 @@ class BlogDetail extends React.Component<IArticleProps & RouteComponentProps<any
     this.state = {};
   }
 
-  public componentWillMount() {
-    window.scrollTo(0, 0);
-  }
-
   public async componentDidMount() {
     const { articleStore, match } = this.props;
     const curId = match.params.id;
