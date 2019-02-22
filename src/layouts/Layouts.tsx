@@ -11,65 +11,71 @@ import Footer from '@components/Common/Footer/Footer';
 import Loading from '@components/Common/Loading/Loading';
 import { ILayoutsProps } from '../types/layout';
 
-const Loadings = () => <Loading />;
+const loading = (props) => {
+  if (props.pastDelay) {
+    return (<Loading />);
+  } else {
+    return null;
+  }
+};
 
 const Home = Loadable({
   loader: () => import('../containers/Home/Home'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const Blog = Loadable({
   loader: () => import('../containers/Blog/Blog'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const BlogDetail = Loadable({
   loader: () => import('../containers/BlogDetail/BlogDetail'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const Archive = Loadable({
   loader: () => import('../containers/Archive/Archive'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const Legal = Loadable({
   loader: () => import('../containers/Legal/Legal'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const Apps = Loadable({
   loader: () => import('../containers/Apps/Apps'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const CV = Loadable({
   loader: () => import('../containers/CV/CV'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const Music = Loadable({
   loader: () => import('../containers/Music/Music'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const About = Loadable({
   loader: () => import('../containers/About/About'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
 const NotFound = Loadable({
   loader: () => import('../containers/NotFound/NotFound'),
-  loading: Loadings,
+  loading,
   delay: 100,
 });
 
@@ -122,7 +128,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
 
     const mainWrapper = {
       minHeight: '100vh',
-    }
+    };
     return (
       <div style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}>
         <Header />
@@ -141,7 +147,9 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
             <Route path={routePath.search} component={Blog} />
             <Route
               path={`${routePath.blogDetail}:id`}
-              render={props => <BlogDetail {...props} key={location.pathname} />}
+              render={props => (
+                <BlogDetail {...props} key={location.pathname} />
+              )}
             />
             <Route path={routePath.archive} component={Archive} />
             <Route path={routePath.apps} component={Apps} />
