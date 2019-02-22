@@ -2,7 +2,6 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import { checkWebp } from '@tools/tools';
 import routePath from '@constants/routePath';
 import Player from '@components/Widget/Player/Player';
 import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
@@ -11,9 +10,9 @@ import Footer from '@components/Common/Footer/Footer';
 import Loading from '@components/Common/Loading/Loading';
 import { ILayoutsProps } from '../types/layout';
 
-const loading = (props) => {
+const loading = props => {
   if (props.pastDelay) {
-    return (<Loading />);
+    return <Loading />;
   } else {
     return null;
   }
@@ -86,38 +85,11 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
     super(props);
     this.state = {};
   }
-  public componentWillMount() {
-    window.localStorage.isWebp = checkWebp();
-    this.devToolsWarning();
-  }
-
+  
   public componentDidMount() {
     const { layoutsStore } = this.props;
     layoutsStore!.getPlayerData();
     layoutsStore!.getGlobalStatus();
-  }
-
-  public devToolsWarning() {
-    const re = /x/;
-    // tslint:disable-next-line:no-console
-    console.log(re);
-    re.toString = () => {
-      // tslint:disable-next-line:no-console
-      console.log(`
-      
-         █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
-       ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
-       ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
-       ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
-       ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
-        ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
-        ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
-        ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
-                 ░     ░ ░      ░  ░
-                       ░
-      `);
-      return '';
-    };
   }
 
   public render() {
