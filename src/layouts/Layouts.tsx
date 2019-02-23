@@ -21,61 +21,61 @@ const loading = props => {
 const Home = Loadable({
   loader: () => import('../containers/Home/Home'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const Blog = Loadable({
   loader: () => import('../containers/Blog/Blog'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const BlogDetail = Loadable({
   loader: () => import('../containers/BlogDetail/BlogDetail'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const Archive = Loadable({
   loader: () => import('../containers/Archive/Archive'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const Legal = Loadable({
   loader: () => import('../containers/Legal/Legal'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const Apps = Loadable({
   loader: () => import('../containers/Apps/Apps'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const CV = Loadable({
   loader: () => import('../containers/CV/CV'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const Music = Loadable({
   loader: () => import('../containers/Music/Music'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const About = Loadable({
   loader: () => import('../containers/About/About'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 const NotFound = Loadable({
   loader: () => import('../containers/NotFound/NotFound'),
   loading,
-  delay: 100,
+  delay: 50,
 });
 
 @inject('layoutsStore')
