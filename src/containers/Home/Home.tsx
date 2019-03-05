@@ -18,7 +18,7 @@ class Home extends React.Component<IHomeProps, {}> {
     super(props);
     this.state = {};
   }
-  
+
   public componentDidMount() {
     const { homeStore, articleStore } = this.props;
     homeStore!.getCoverData();

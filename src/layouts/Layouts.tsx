@@ -2,6 +2,8 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import styles from './Layouts.module.scss';
+import history from '../history';
 import routePath from '@constants/routePath';
 import Player from '@components/Widget/Player/Player';
 import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
@@ -78,6 +80,11 @@ const NotFound = Loadable({
   delay: 50,
 });
 
+// 后期跳转监听
+history.listen((location, action) => {
+  window.localStorage.curPath = location.pathname;
+});
+
 @inject('layoutsStore')
 @observer
 class Layouts extends React.Component<ILayoutsProps, {}> {
@@ -85,26 +92,36 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
     super(props);
     this.state = {};
   }
-  
+
+  // 页面初始化监听
+  public componentWillMount() {
+    window.localStorage.curPath = history.location.pathname;
+  }
+
   public componentDidMount() {
     const { layoutsStore } = this.props;
     layoutsStore!.getPlayerData();
     layoutsStore!.getGlobalStatus();
   }
 
+  public componentWillUpdate() {
+    const { layoutsStore } = this.props;
+    layoutsStore!.getLocalPath();
+  }
+
   public render() {
     const { layoutsStore } = this.props;
+
     const grayStyle = {
       filter: 'grayscale(50%)',
     };
-
-    const mainWrapper = {
-      minHeight: '100vh',
-    };
     return (
-      <div style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}>
+      <div
+        className={layoutsStore!.isHomePage ? styles.layout : ''}
+        style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}
+      >
         <Header />
-        <div style={mainWrapper}>
+        <div className={styles.main_wrapper}>
           <Switch>
             <Route path={routePath.home} exact component={Home} />
             <Route path={routePath.legal} component={Legal} />

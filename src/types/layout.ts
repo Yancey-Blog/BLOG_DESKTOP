@@ -1,8 +1,10 @@
 interface LayoutsStoreType {
   players: IPlayer[];
   globalStatus: IGlobalStatus;
+  isHomePage: boolean;
   getPlayerData: () => void;
   getGlobalStatus: () => void;
+  getLocalPath: () => void;
 }
 
 export interface ILayoutsProps {
