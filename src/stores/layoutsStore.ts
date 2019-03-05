@@ -21,6 +21,7 @@ class LayoutsStore {
     __v: 0,
     _id: '',
   };
+  @observable public isHomePage = true;
 
   constructor() {
     this.players = [];
@@ -28,7 +29,8 @@ class LayoutsStore {
       full_site_gray: false,
       __v: 0,
       _id: '',
-    }
+    };
+    this.isHomePage = true;
   }
 
   public getPlayerData = async () => {
@@ -69,6 +71,10 @@ class LayoutsStore {
       // todo
     }
   };
+
+  public getLocalPath = () => {
+    this.isHomePage = window.localStorage.curPath === '/';
+  }
 
 }
 

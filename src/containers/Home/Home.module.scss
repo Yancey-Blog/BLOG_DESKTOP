@@ -7,24 +7,12 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
     opacity: 0;
     transition: 1s opacity linear;
-
-    &::before {
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-size: cover;
-      content: '';
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      will-change: transform;
-      z-index: -1;
-    }
-
 
     &::after {
       content: '';
@@ -34,6 +22,7 @@
       right: 0;
       bottom: 0;
       left: 0;
+      height: 100vh;
       will-change: transform;
     }
   }
@@ -218,7 +207,6 @@
   .content {
     margin: 0 auto;
     padding: 3rem 26% 1rem;
-    background: #fff;
 
     @at-root .announcement_wrapper {
       width: 40rem;

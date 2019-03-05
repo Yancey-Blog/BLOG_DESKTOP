@@ -65,21 +65,18 @@ class HomeStore {
     }
   };
 
-  public loadBgImg = () => {
+  public loadBgImg = (imageUrl) => {
     const isWebp = window.localStorage.isWebp === 'true';
+    const backgroundDOM = document.getElementById('background');
     const background = new Image();
-    background.src = isWebp ? `${this.coverUrl}${webpSuffix}` : this.coverUrl;
+    background.src = isWebp ? `${imageUrl}${webpSuffix}` : imageUrl;
     // tslint:disable-next-line:only-arrow-functions
     background.onload = function () {
-      const loadbackground = document.getElementById('background');
-      if (loadbackground) {
-        const styleSheet = document.styleSheets.item(0);
-        (styleSheet as CSSStyleSheet).insertRule(`#background::before{background-image: url(${background.src})}`, (styleSheet as CSSStyleSheet).cssRules.length);
-        loadbackground.style.opacity = '1';
+      if (backgroundDOM) {
+        backgroundDOM.style.cssText = `background-image: url(${background.src}); opacity: 1`
       }
-
-    };
-  };
+    }
+  }
 
   public getCoverData = async (position: string) => {
     let curId = window.localStorage.cover_id;
@@ -93,7 +90,7 @@ class HomeStore {
         window.localStorage.setItem('cover_id', res.data._id);
       });
       if (this.coverUrl) {
-        this.loadBgImg();
+        this.loadBgImg(this.coverUrl);
       }
     } catch (e) {
       // todo
