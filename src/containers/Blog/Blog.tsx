@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
+import history from '../../history';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import cs from 'classnames';
@@ -25,9 +26,9 @@ class Blog extends React.Component<IArticleProps, {}> {
 
   public componentDidMount() {
     const { articleStore } = this.props;
-    if (document.location.pathname.split('/')[1] === 't') {
+    if (history.location.pathname.includes('t')) {
       articleStore!.getPostsByTag();
-    } else if (document.location.pathname.split('/')[1] === 'blog') {
+    } else if (history.location.pathname.includes('blog')) {
       articleStore!.getPostsByPage();
     }
     articleStore!.getAllTags();
@@ -64,7 +65,7 @@ class Blog extends React.Component<IArticleProps, {}> {
             ) : (
               <BlogSummary />
             )}
-            {document.location.pathname.split('/')[1] === 'blog' ? (
+            {history.location.pathname.includes('blog') ? (
               <Pagination
                 showSizeChanger
                 showQuickJumper={{
