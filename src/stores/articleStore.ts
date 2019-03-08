@@ -109,6 +109,10 @@ class ArticleStore {
   @action public onPageChange = (current: number) => {
     this.curPage = current;
     this.getPostsByPage();
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   @computed get curTag() {
