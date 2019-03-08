@@ -121,7 +121,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
         style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}
       >
         <Header />
-        <div className={styles.main_wrapper}>
+        <div className={styles.main_contents}>
           <Switch>
             <Route path={routePath.home} exact component={Home} />
             <Route path={routePath.legal} component={Legal} />
