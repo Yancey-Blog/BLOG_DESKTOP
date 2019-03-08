@@ -34,6 +34,10 @@ body {
 
 .App {
   overflow: hidden;
+
+  main {
+    min-height: 100vh;
+  }
 }
 
 ::-webkit-scrollbar {
