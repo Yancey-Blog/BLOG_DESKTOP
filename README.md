@@ -1,5 +1,7 @@
 # [Blog2.0 FE](https://wwww.yanceyleo.com/)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5b925ed8c8c64f379dea6f8b685a731b)](https://app.codacy.com/app/YanceyOfficial/BLOG_FE?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/BLOG_FE&utm_campaign=Badge_Grade_Dashboard)
+
 ## Introduction
 
 这是我写的第二个博客网站。第一个是在今年(2018年)3月份完成的，用的Bootstrap + Django. 至于为什么写第二版，无非是看到别人的博客太好看了😂。

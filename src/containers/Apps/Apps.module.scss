@@ -57,7 +57,7 @@
       }
       .mobile_iOS {
         width: 6rem;
-        background-image: url($_iOS);
+        background-image: url($iOS);
       }
     }
     .mobile_download_url {
@@ -74,7 +74,7 @@
       margin: 3.8rem auto 1rem;
       width: 20.61rem;
       height: 12rem;
-      background: url($_mac) no-repeat center top;
+      background: url($mac) no-repeat center top;
       background-size: cover;
     }
     .mac_version_support {
