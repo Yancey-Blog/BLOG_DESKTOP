@@ -10,6 +10,7 @@ import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
 import Header from '@components/Common/Header/Header';
 import Footer from '@components/Common/Footer/Footer';
 import Loading from '@components/Common/Loading/Loading';
+import NotFound from '../containers/NotFound/NotFound';
 import { ILayoutsProps } from '../types/layout';
 
 const loading = props => {
@@ -70,12 +71,6 @@ const Music = Loadable({
 
 const About = Loadable({
   loader: () => import('../containers/About/About'),
-  loading,
-  delay: 50,
-});
-
-const NotFound = Loadable({
-  loader: () => import('../containers/NotFound/NotFound'),
   loading,
   delay: 50,
 });
