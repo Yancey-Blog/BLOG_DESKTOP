@@ -68,6 +68,7 @@ class Archive extends React.Component<IArticleProps, {}> {
             >
               Fold
             </button>
+            <p className={styles.total_count}>Total: {articleStore!.totalArticlesCount}</p>
           </div>
           {Object.keys(articleStore!.archives).map(year => (
             <section className={styles.archive_list_wrapper} key={year}>
