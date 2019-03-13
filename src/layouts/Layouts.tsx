@@ -2,6 +2,8 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './Layouts.module.scss';
 import history from '../history';
 import routePath from '@constants/routePath';
@@ -147,6 +149,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
         <ScrollToTop />
         <Player />
         <Footer />
+        <ToastContainer />
       </div>
     );
   }

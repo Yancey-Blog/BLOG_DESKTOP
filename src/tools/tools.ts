@@ -1,5 +1,9 @@
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+import {
+  toast
+} from 'react-toastify';
+
 // 2018-11-11T07:53:15.403Z => 2018-11-11 15:53:15
 export const formatJSONDate = (jsonDate: string): string => {
   return new Date(+new Date(new Date(jsonDate).toJSON()) + 8 * 3600 * 1000).toISOString()
@@ -83,4 +87,14 @@ export const initLivere = () => {
 
     (e.parentNode as HTMLDivElement).insertBefore(j, e);
   }(document, 'script'));
+}
+
+export const setToast = (text: string) => {
+  return toast.error(`💔 ${text}`, {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    className: 'toasting'
+  });
 }
