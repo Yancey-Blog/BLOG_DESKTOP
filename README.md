@@ -130,13 +130,13 @@ Todos:
 - Work experience
 - Program experience
 
-### About
+### About Page
 
 ![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
 
 Display the development history of the blog.
         
-## Released Log
+## Change Logs
 
 - 2018-10-14 Website online
 - 2018-12-30 Remove dependencies on jQuery and optimize performance
