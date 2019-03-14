@@ -22,6 +22,7 @@ $text: #504e4e;
     height: 22rem;
     background: no-repeat 10% 60%;
     background-size: cover;
+
     span {
       font-size: 3rem;
       background: -webkit-gradient(linear, right top, left top, color-stop(33%, #c4987a), color-stop(73%, #ffd5bf));
@@ -43,9 +44,17 @@ $text: #504e4e;
 }
 
 .fold_unfold_wrapper {
+  position: relative;
   display: flex;
   width: 8rem;
   margin: 2rem 32rem 0;
+
+  .total_count {
+    position: absolute;
+    top: .4rem;
+    left: -4rem;
+  }
+
   .btn {
     padding: 0 1rem;
     height: 1.8rem;
@@ -55,33 +64,39 @@ $text: #504e4e;
     border: none;
     cursor: pointer;
   }
+
   .left_btn {
     background: $btn_gray;
     color: rgba(#000, .6);
     border-top-left-radius: .2rem;
     border-bottom-left-radius: .2rem;
     transition: all .2s linear;
+
     &:hover {
       color: rgba(#000, .8);
       background: $btn_gray_hover;
       transition: all .2s linear;
     }
   }
+
   .right_btn {
     background: $btn_green;
     color: $white;
     border-top-right-radius: .2rem;
     border-bottom-right-radius: .2rem;
     transition: all .2s linear;
+
     &:hover {
       background: $btn_green_hover;
       transition: all .2s linear;
     }
   }
+
   .or {
     position: relative;
     width: .2rem;
     height: 1.8rem;
+
     &::before {
       position: absolute;
       text-align: center;
@@ -118,6 +133,7 @@ $text: #504e4e;
 .year_list_wrapper {
   position: relative;
   padding: .5rem 0;
+
   &::after {
     position: absolute;
     content: '';
@@ -128,10 +144,12 @@ $text: #504e4e;
     background: $axis;
     z-index: -1;
   }
+
   .month {
     position: relative;
     display: block;
     line-height: 1.8;
+
     &::after {
       position: absolute;
       content: '';
@@ -144,6 +162,7 @@ $text: #504e4e;
       box-shadow: 1px 1px 1px #bbb;
       z-index: 0;
     }
+
     &::before {
       position: absolute;
       content: '';
@@ -168,13 +187,14 @@ $text: #504e4e;
   label {
     cursor: s-resize;
   }
+
   input {
     position: absolute;
     opacity: 0;
     z-index: -1;
   }
 
-  input:checked ~ .day_list_container {
+  input:checked~.day_list_container {
     max-height: 20rem;
     will-change: transform;
     transition: all 1s linear;
@@ -183,6 +203,7 @@ $text: #504e4e;
   @at-root .day_item {
     position: relative;
     line-height: 2;
+
     &::after {
       position: absolute;
       content: '';
@@ -195,6 +216,7 @@ $text: #504e4e;
       box-shadow: 1px 1px 1px #bbb;
       z-index: 0;
     }
+
     &::before {
       position: absolute;
       content: '';
@@ -206,16 +228,19 @@ $text: #504e4e;
       border-radius: 50%;
       z-index: 1;
     }
+
     .day {
       color: $circle;
       display: inline-block;
       width: 1.2rem;
       margin-right: .5rem;
     }
+
     a {
       font-size: .75rem;
       color: $text;
       transition: all 200ms linear;
+
       &:hover {
         color: $orange;
         transition: all 200ms linear;

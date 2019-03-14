@@ -4,6 +4,10 @@ import {
 } from 'mobx';
 
 import {
+  setToast
+} from '@tools/tools';
+
+import {
   homeService
 } from '../apis/index.service';
 
@@ -35,9 +39,7 @@ class HomeStore {
         this.announcement = res.data.content;
       });
     } catch (e) {
-      // todo
-    } finally {
-      // todo
+      setToast('获取 Announcement 失败')
     }
   }
 

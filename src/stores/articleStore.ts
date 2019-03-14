@@ -30,6 +30,7 @@ class ArticleStore {
   @observable public likeNum: number = 0;
   @observable public isLiked: boolean = false;
   @observable public curIp: string = '';
+  @observable public totalArticlesCount: number = 0;
   @observable public detail: IDetail = {
     curArticle: {
       _id: '',
@@ -60,6 +61,7 @@ class ArticleStore {
     this.hots = [];
     this.tags = [];
     this.archives = [];
+    this.totalArticlesCount = 0;
     this.curPage = 1;
     this.total = 0;
     this.showSearch = false;
@@ -183,6 +185,7 @@ class ArticleStore {
       const res = await articleService.getArchives();
       runInAction(() => {
         this.archives = res.data.sort(sortBy('_id', 'year'));
+        this.archives.forEach((value: any) => value.data.forEach((value: any) => this.totalArticlesCount += value.data.length))
       });
     } catch (e) {
       // todo

@@ -9,6 +9,7 @@ export interface ArticleStoreType {
   isLiked: boolean;
   likeNum: number;
   curIp: string;
+  totalArticlesCount: number;
   detail: IDetail;
   toggleShowSearch: () => void;
   onPageChange: () => void;
