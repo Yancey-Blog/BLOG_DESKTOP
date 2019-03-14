@@ -149,4 +149,4 @@ Display the development history of the blog.
 
 ## License
 
-BLOG FE for PC is [MIT licensed](https://opensource.org/licenses/MIT).
+BLOG FE is [MIT licensed](https://opensource.org/licenses/MIT).
