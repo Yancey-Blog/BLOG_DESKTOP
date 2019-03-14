@@ -163,6 +163,6 @@ About页面也是从后端取出来的，用来记录Blog发展的大事记（�
 
 ## License
 
-BLOG FE for PC is [MIT licensed](https://opensource.org/licenses/MIT).
+BLOG FE is [MIT licensed](https://opensource.org/licenses/MIT).
 
 
