@@ -6,36 +6,39 @@
 [![Node](https://img.shields.io/badge/node-%3E%3D8.0.0-green.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/Yancey-Blog/BLOG_FE/pulls)
 
-English | [中国語](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README.md)
+ 中文 | [English](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README.md)
 
 ## Introduction
 
-This is the second blog website I wrote, The first version was released in March 2018 which wrote by Django and Bootstarp. With the booming of SPA, I decided to write a react version and add some new features. After about two months of design and coding, the second version was released.
+这是我写的第二个博客网站。第一个是在今年(2018年)3月份完成的，用的Bootstrap + Django. 至于为什么写第二版，无非是看到别人的博客太好看了😂。
 
-Mainwhile, I alse wrote a [CMS](https://github.com/Yancey-Blog/BLOG_CMS/) to manage and operate the data. You can click the link to try and use.
+2.0的数据还在迁移中...因此下面的图各种demo1 demo2...
 
-Now, I am writing the [mobile side pages](https://github.com/Yancey-Blog/BLOG_WAP/), coming soon~
+2.0版本是一个前后端分离的项目，这次除了前端和后端，还专门写了一个[后台管理系统](https://github.com/Yancey-Blog/BLOG_CMS/blob/master/README.md)。其中:
 
-## Technology Stack
+- 前端主要技术栈是react + react-router-4 + mobx;
+- 管理后台用的是react + react-router-4 + mobx + Google reCAPTCHA + Ant Design;
+- 后端则是Express + Mongo + JWT + Ali OSS + Google reCAPTCHA + request promise.
 
-- BLOG_FE_FOR_PC: react + react-router-4 + mobx + TypeScript;
-- CMS: react + react-router-4 + mobx + Google reCAPTCHA + Ant Design;
-- BE Express + Mongo + JWT + Ali OSS + Google reCAPTCHA
+全端用到了Airbnb的eslint，前端还用到了CSS Module、Webp、SVG Sprite等等一些好玩的技术，下面具体介绍
+一下整个前端。
 
-I alse used CSS Module、Webp、SVG Sprite and so on...
+因为刚毕业不久，工作时间也不多，感觉做的项目还稍显稚嫩，因此决定开源出来接受大佬们的意见。
 
-## Page
+## Detail
 
-### Global
+### Global Component
 
-I wrote an api in backend named `globalConfig`, On some special days of mourning, The root node will add `filter: grayscale(100%);`.
+全局无非就是标配的header、footer、滚动进度指示条、当然还有一个音乐播放器的组件。
+
+此外，我还后端写了一个`glonalConfig`的接口，暂时只想到一个功能，就是控制前端的`filter: grayscale(100%); `属性，用在一些哀悼日时，后台会开启这个按钮。
 
 ### Home Page
 
 ![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_20)
 ![Home](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
 
-The home page contains five parts：
+主页分为5个部分：
 
 - Background
 - Motto
@@ -45,23 +48,33 @@ The home page contains five parts：
 
 #### Background
 
-The first time you visited my website, you will see the latest background, meanwhile, the id of this background will saved in localStorge. You can switch background by clicking the `left arrow` or `right arrow`. So, when open the website again, you will see the current background usless clear cache or I delete/hide the background in CMS.
+先说背景图，后台存有多张背景图，因此通过左右按钮可以切换背景图。并且当前那张背景图的id会存储到localStorage，因此只要不清掉localStorage，下次打开还是当前那张背景图。
+
+当然如果localStorage没有相关id或者这张图片被我在后台删除了，将会返回最新发布的图片。
+
+其实后台我还设置了图片的显隐按钮，当某张图片的id在localStorage，但被我在后台隐藏了，同样将会返回最新发布的图片。
 
 #### Motto
 
-My motto.
+Motto部分对应上面第一张图这个部分。
+
+    死は生の対極としてではなく、その一部として存在している
+   
+同样是请求后端接口，取得最新的那条Motto 
+
+*ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）*
 
 #### Announcement
 
-I always publish new information in the component.
+和Motto部分同理，用途是发布一些最新消息。
 
 #### The Latest 3 Projects
 
-Display the latest 3 open source projects of mine, click on any one to jump to the corresponding GitHub page
+这个是用来展示我最新的三个开源项目，url会连接到相应的GitHub.
 
 #### The Latest 10 Articles
 
-Display the latest 10 articles summary, which is include release date, title, PV, likes, tag, summary and so on, click one to jump to the article detail page.
+整个博客的核心部分之一，在首页会显示最新10篇文章的摘要模块，上面显示发布时间、title、PV量、点赞量、Tags、summary、show more，点击图片、标题或者show more都可以进入到文章细节页。
 
 ### Blog Page
 
@@ -132,22 +145,24 @@ Display the latest 10 articles summary, which is include release date, title, PV
 
 ### CV Page
 
-My resume.
+这里就不放图了，简历分三部分，都是从后端取出来的：
 
-- My basic information
-- Work experience
-- Program experience
+- 基本信息
+- 工作经历
+- 项目经历
 
 ### About
 
 ![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
 
-Display the development history of the blog. 
+About页面也是从后端取出来的，用来记录Blog发展的大事记（估计就是Bug修改历程 噗x）。
 
 ### Privacy Policy
 
 有个网站可以生成隐私政策，虽然没什么卵用，但既然想做这个Blog，那就把它完善好。排版的话借鉴了Paypal隐私政策的样式。
 
-## Released Log
+## License
+
+BLOG FE for PC is [MIT licensed](https://opensource.org/licenses/MIT).
 
 
