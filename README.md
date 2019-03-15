@@ -5,8 +5,9 @@
 [![Version](https://img.shields.io/badge/version-2.1.1-blue.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![Node](https://img.shields.io/badge/node-%3E%3D8.0.0-green.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/Yancey-Blog/BLOG_FE/pulls)
+[![Build Status](https://travis-ci.org/Yancey-Blog/BLOG_FE.svg?branch=master)](https://travis-ci.org/Yancey-Blog/BLOG_FE)
 
-English | [中国語](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README_ZH.md)
+English | [中文](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README_ZH.md)
 
 ## Introduction
 
