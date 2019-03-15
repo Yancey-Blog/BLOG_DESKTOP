@@ -9,7 +9,7 @@
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
+    "babel-jest": "^24.5.0",
     "babel-loader": "8.0.4",
     "babel-plugin-named-asset-import": "^0.2.3",
     "babel-preset-react-app": "^6.1.0",
@@ -34,7 +34,7 @@
     "highlight.js": "^9.13.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
-    "jest": "23.6.0",
+    "jest": "^24.5.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
     "lazysizes": "^4.1.5",
@@ -81,7 +81,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -93,8 +93,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "@types/classnames": "^2.2.6",
-    "@types/jest": "^23.3.10",
+    "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.10",
     "@types/react": "^16.7.9",
@@ -106,7 +108,9 @@
     "@types/react-loadable": "^5.4.3",
     "@types/react-router-dom": "^4.3.1",
     "@types/swiper": "^4.4.1",
+    "react-test-renderer": "^16.8.4",
     "sass-resources-loader": "^2.0.0",
+    "ts-jest": "^24.0.0",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.1"
   },
@@ -126,7 +130,8 @@
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      ".+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      ".+\\.tsx?$": "<rootDir>/node_modules/ts-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
@@ -153,7 +158,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "@babel/preset-env",
+      "@babel/preset-react"
     ]
   }
 }
