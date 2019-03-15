@@ -5,8 +5,9 @@
 [![Version](https://img.shields.io/badge/version-2.1.1-blue.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![Node](https://img.shields.io/badge/node-%3E%3D8.0.0-green.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/Yancey-Blog/BLOG_FE/pulls)
+[![Build Status](https://travis-ci.org/Yancey-Blog/BLOG_FE.svg?branch=master)](https://travis-ci.org/Yancey-Blog/BLOG_FE)
 
-English | [中国語](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README_ZH.md)
+English | [中文](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README_ZH.md)
 
 ## Introduction
 
@@ -25,10 +26,6 @@ Now, I am writing the [mobile side pages](https://github.com/Yancey-Blog/BLOG_WA
 I alse used CSS Module、Webp、SVG Sprite and so on...
 
 ## Page
-
-### Global
-
-I wrote an api in backend named `globalConfig`, On some special days of mourning, The root node will add `filter: grayscale(100%);`.
 
 ### Home Page
 
@@ -130,16 +127,16 @@ Todos:
 - Work experience
 - Program experience
 
-### About
+### About Page
 
 ![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
 
 Display the development history of the blog.
         
-## Released Log
+## Change Logs
 
 - 2018-10-14 Website online
-- 2018-12-14 Remove dependencies on jQuery and optimize performance
+- 2018-12-30 Remove dependencies on jQuery and optimize performance
 - 2019-01-14 Refactor by TypeScript
 
 ## TODO
