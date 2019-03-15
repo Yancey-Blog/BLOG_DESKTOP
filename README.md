@@ -27,10 +27,6 @@ I alse used CSS Module、Webp、SVG Sprite and so on...
 
 ## Page
 
-### Global
-
-I wrote an api in backend named `globalConfig`, On some special days of mourning, The root node will add `filter: grayscale(100%);`.
-
 ### Home Page
 
 ![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_20)
