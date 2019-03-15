@@ -94,7 +94,6 @@
   ],
   "devDependencies": {
     "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
     "@types/classnames": "^2.2.6",
     "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.119",
@@ -159,7 +158,7 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "react-app"
     ]
   }
 }
