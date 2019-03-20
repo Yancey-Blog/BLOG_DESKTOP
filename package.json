@@ -1,7 +1,8 @@
 {
-  "name": "blog-wap",
-  "version": "0.1.0",
+  "name": "blog-fe-pc",
+  "version": "2.1.1",
   "private": true,
+  "homepage": "https://github.com/Yancey-Blog/BLOG_FE#readme",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
