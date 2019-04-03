@@ -38,10 +38,11 @@ class BlogDetail extends React.Component<
     await articleStore!.getPostById(curId);
     this.hljsInit();
     this.addLineNumbers();
+    this.deleteEmptyTag();
+    this.tocbotInit();
     this.showImageAlt();
     this.wrapImg();
     this.initBaguetteBox();
-    this.tocbotInit();
     this.fixToc();
     await articleStore!.getIp();
     articleStore!.getLikes(curId, articleStore!.curIp);
@@ -121,6 +122,15 @@ class BlogDetail extends React.Component<
     const codeBlock = document.querySelectorAll('pre code');
     for (let i = 0, l = codeBlock.length; i < l; i += 1) {
       hljs.highlightBlock(codeBlock[i]);
+    }
+  }
+
+  public deleteEmptyTag() {
+    const ul = document.getElementsByClassName('rounded-list') as any;
+    for (let i = 0, l = ul.length; i < l; i += 1) {
+      if (ul[i].lastChild.innerHTML.trim() === '') {
+        ul[i].removeChild(ul[i].lastChild);
+      }
     }
   }
 
