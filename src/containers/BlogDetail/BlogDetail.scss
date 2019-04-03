@@ -207,7 +207,7 @@
 
   h2 {
     margin-top: 1.75rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding-bottom: .6rem;
     border-bottom: 1px solid #ececec;
 
@@ -282,7 +282,7 @@
 
 
   strong {
-    color: #333;
+    color: #2c3e50;
   }
 
   ol,
@@ -358,6 +358,38 @@
     animation: 1s swing;
   }
 
+  @keyframes elastic {
+    0% {
+      transform: scale(0);
+    }
+
+    55% {
+      transform: scale(1);
+    }
+
+    70% {
+      transform: scale(.98);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes swing {
+    20% {
+      transform: rotate(7deg);
+    }
+
+    60% {
+      transform: rotate(-7deg);
+    }
+
+    100% {
+      transform: rotate(0);
+    }
+  }
+
   .img-group {
     text-align: center;
     margin-bottom: 3rem;
@@ -374,6 +406,11 @@
     color: #333;
     font-size: .7rem;
     border-bottom: 1px dashed #d9d9d9;
+  }
+
+  ::selection {
+    background: #ffafa7;
+    color: #fff;
   }
 
   -webkit-overflow-scrolling: touch;
