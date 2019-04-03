@@ -358,38 +358,6 @@
     animation: 1s swing;
   }
 
-  @keyframes elastic {
-    0% {
-      transform: scale(0);
-    }
-
-    55% {
-      transform: scale(1);
-    }
-
-    70% {
-      transform: scale(.98);
-    }
-
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes swing {
-    20% {
-      transform: rotate(7deg);
-    }
-
-    60% {
-      transform: rotate(-7deg);
-    }
-
-    100% {
-      transform: rotate(0);
-    }
-  }
-
   .img-group {
     text-align: center;
     margin-bottom: 3rem;
