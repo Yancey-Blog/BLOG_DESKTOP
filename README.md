@@ -138,6 +138,7 @@ Display the development history of the blog.
 - 2018-10-14 Website online
 - 2018-12-30 Remove dependencies on jQuery and optimize performance
 - 2019-01-14 Refactor by TypeScript
+- 2019-04-03 Add skeleton for blog detail page
 
 ## TODO
 
