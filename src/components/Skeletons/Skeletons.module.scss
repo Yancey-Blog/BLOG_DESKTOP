@@ -1,0 +1,31 @@
+.skeleton_wrapper {
+  width: 40rem;
+  padding-top: 2rem;
+  margin: 0 auto;
+
+  .meta {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  .pv {
+    margin: 0 .5rem;
+  }
+
+  .tag {
+    margin: .5rem;
+  }
+
+  .blockquote {
+    margin: 1rem 0;
+  }
+
+  .split {
+    margin-top: .3rem;
+    margin-bottom: .8rem;
+  }
+
+  .paragh {
+    margin-bottom: .3rem;
+  }
+}

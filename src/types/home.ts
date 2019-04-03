@@ -1,22 +1,20 @@
-import {
-  ArticleStoreType
-} from './article';
+import { ArticleStoreType } from './article';
 
 export interface IHomeStore {
   announcement: string;
   motto: string;
   projects: IProject[];
   coverUrl: string;
-  getAnnouncementData: () => void;
-  getMottoData: () => void;
-  getProjectData: () => void;
+  getAnnouncement: () => void;
+  getMotto: () => void;
+  getProject: () => void;
   loadBgImg: () => void;
-  getCoverData: (position ? : string) => void;
+  getCover: (position?: string) => void;
 }
 
 export interface IHomeProps {
-  homeStore ? : IHomeStore;
-  articleStore ? : ArticleStoreType;
+  homeStore?: IHomeStore;
+  articleStore?: ArticleStoreType;
 }
 
 export interface IAnnouncement {

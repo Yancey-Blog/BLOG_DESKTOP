@@ -16,7 +16,7 @@ import {
 } from '../constants/constants';
 
 import {
-  IProject,
+  IProject
 } from '../types/home';
 
 class HomeStore {
@@ -25,68 +25,62 @@ class HomeStore {
   @observable public projects: IProject[] = [];
   @observable public coverUrl: string = '';
 
-  constructor() {
-    this.announcement = '';
-    this.motto = '';
-    this.projects = [];
-    this.coverUrl = '';
-  }
+  constructor() {}
 
-  public getAnnouncementData = async () => {
+  public getAnnouncement = async () => {
     try {
-      const res = await homeService.getAnnouncementData();
+      const res = await homeService.getAnnouncement();
       runInAction(() => {
         this.announcement = res.data.content;
       });
     } catch (e) {
-      setToast('获取 Announcement 失败')
+      setToast('获取 Announcement 失败');
     }
-  }
+  };
 
-  public getMottoData = async () => {
+  public getMotto = async () => {
     try {
-      const res = await homeService.getMottoData();
+      const res = await homeService.getMotto();
       runInAction(() => {
         this.motto = res.data.content;
       });
     } catch (e) {
-      // todo
-    } finally {
-      // todo
+      setToast('获取 Motto 失败');
     }
-  }
+  };
 
-  public getProjectData = async () => {
+  public getProject = async () => {
     try {
-      const res = await homeService.getProjectData();
+      const res = await homeService.getProject();
       runInAction(() => {
         this.projects = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取 Projects 失败');
     }
   };
 
-  public loadBgImg = (imageUrl) => {
+  public loadBgImg = (imageUrl: string) => {
     const isWebp = window.localStorage.isWebp === 'true';
     const backgroundDOM = document.getElementById('background');
     const background = new Image();
     background.src = isWebp ? `${imageUrl}${webpSuffix}` : imageUrl;
-    // tslint:disable-next-line:only-arrow-functions
-    background.onload = function () {
+    background.onload = () => {
       if (backgroundDOM) {
-        backgroundDOM.style.cssText = `background-image: url(${background.src}); opacity: 1`
+        backgroundDOM.style.cssText = `background-image: url(${
+          background.src
+        }); opacity: 1`;
       }
-    }
-  }
+    };
+  };
 
-  public getCoverData = async (position: string) => {
+  public getCover = async (position: string) => {
     let curId = window.localStorage.cover_id;
     if (!curId) {
       curId = 0;
     }
     try {
-      const res = await homeService.getCoverData(curId, position);
+      const res = await homeService.getCover(curId, position);
       runInAction(() => {
         this.coverUrl = res.data.url;
         window.localStorage.setItem('cover_id', res.data._id);
@@ -95,10 +89,9 @@ class HomeStore {
         this.loadBgImg(this.coverUrl);
       }
     } catch (e) {
-      // todo
+      setToast('获取 Cover 失败');
     }
   };
-
 }
 
 const homeStore = new HomeStore();

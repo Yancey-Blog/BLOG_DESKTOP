@@ -1,36 +1,29 @@
-import {
-  GET,
-} from '../tools/axios';
+import { GET } from '../tools/axios';
 
-import {
-  AxiosResponse
-} from 'axios';
+import { AxiosResponse } from 'axios';
 
-import {
-  IAnnouncement,
-  IMotto,
-  IProject,
-  ICover,
-} from '../types/home';
+import { IAnnouncement, IMotto, IProject, ICover } from '../types/home';
 
 class HomeService {
-  public async getAnnouncementData(): Promise<AxiosResponse<IAnnouncement>> {
+  public async getAnnouncement(): Promise<AxiosResponse<IAnnouncement>> {
     return GET('/latestAnnouncements', null, '');
   }
 
-  public async getMottoData(): Promise<AxiosResponse<IMotto>> {
+  public async getMotto(): Promise<AxiosResponse<IMotto>> {
     return GET('/latestMotto', null, '');
   }
 
-  public async getProjectData(): Promise<AxiosResponse<IProject[]>> {
+  public async getProject(): Promise<AxiosResponse<IProject[]>> {
     return GET('/latestThreeProjects', null, '');
   }
 
-  public async getCoverData(curId: string, position: string): Promise<AxiosResponse<ICover>> {
+  public async getCover(
+    curId: string,
+    position: string,
+  ): Promise<AxiosResponse<ICover>> {
     return GET(`/covers/${curId}?position=${position}`, null, '');
   }
 }
-
 
 const homeService = new HomeService();
 

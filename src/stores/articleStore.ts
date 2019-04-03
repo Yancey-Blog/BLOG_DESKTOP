@@ -31,6 +31,7 @@ class ArticleStore {
   @observable public isLiked: boolean = false;
   @observable public curIp: string = '';
   @observable public totalArticlesCount: number = 0;
+  @observable public loading: boolean = false;
   @observable public detail: IDetail = {
     curArticle: {
       _id: '',
@@ -56,43 +57,7 @@ class ArticleStore {
     },
   };
 
-  constructor() {
-    this.posts = [];
-    this.hots = [];
-    this.tags = [];
-    this.archives = [];
-    this.totalArticlesCount = 0;
-    this.curPage = 1;
-    this.total = 0;
-    this.showSearch = false;
-    this.likeNum = 0;
-    this.isLiked = false;
-    this.curIp = '';
-    this.detail = {
-      curArticle: {
-        _id: '',
-        header_cover: '',
-        title: '',
-        summary: '',
-        content: '',
-        publish_date: '',
-        last_modified_date: '',
-        tags: [],
-        like_count: [],
-        pv_count: 0,
-      },
-      nextArticle: {
-        id: '',
-        header_cover: '',
-        title: '',
-      },
-      previousArticle: {
-        id: '',
-        header_cover: '',
-        title: '',
-      },
-    };
-  }
+  constructor() {}
 
   @action public toggleShowSearch = () => {
     this.showSearch = !this.showSearch;
@@ -193,6 +158,7 @@ class ArticleStore {
   };
 
   public getPostById = async (id: string) => {
+    this.loading = true;
     history.push(`/p/${id}`);
     try {
       const res = await articleService.getPostById(id);
@@ -201,6 +167,8 @@ class ArticleStore {
       });
     } catch (e) {
       history.push('/404');
+    } finally {
+      this.loading = false;
     }
   };
 
