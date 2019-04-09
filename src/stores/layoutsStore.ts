@@ -27,16 +27,6 @@ class LayoutsStore {
   };
   @observable public isHomePage = true;
 
-  constructor() {
-    this.players = [];
-    this.globalStatus = {
-      full_site_gray: false,
-      __v: 0,
-      _id: '',
-    };
-    this.isHomePage = true;
-  }
-
   public getPlayerData = async () => {
     try {
       const res = await layoutsService.getPlayerData();
