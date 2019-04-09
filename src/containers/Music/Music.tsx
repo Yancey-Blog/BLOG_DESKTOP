@@ -61,7 +61,7 @@ class Music extends React.Component<IMusicProps, {}> {
               transitionMode='fade'
               wrapAround
             >
-              {musicStore!.liveToursData.map((liveTour: ILiveTours) => (
+              {musicStore!.liveTours.map((liveTour: ILiveTours) => (
                 <div
                   className={cs(
                     styles.post_container,
@@ -132,7 +132,7 @@ class Music extends React.Component<IMusicProps, {}> {
           <section className={styles.featured_records_container}>
             <h1 className={styles.column_title}>FEATURED RECORDS</h1>
             <ul className={styles.featured_records_list}>
-              {musicStore!.featuredRecordsData.map((item: IFeaturedRecords) => (
+              {musicStore!.featuredRecords.map((item: IFeaturedRecords) => (
                 <li className={styles.featured_record_item} key={item._id}>
                   <figure
                     className={styles.record_cover}
@@ -171,7 +171,7 @@ class Music extends React.Component<IMusicProps, {}> {
         <section className={styles.yancey_music_container}>
           <h1 className={styles.column_title}>YANCEY MUSIC</h1>
           <ul className={cs(styles.artists_list, styles.yancey_music_list)}>
-            {musicStore!.yanceyMusicData.map((item: IYanceyMusic) => (
+            {musicStore!.yanceyMusic.map((item: IYanceyMusic) => (
               <li
                 className={cs(styles.post_container, styles.artist_item)}
                 key={item._id}

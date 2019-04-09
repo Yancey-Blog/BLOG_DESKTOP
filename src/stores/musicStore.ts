@@ -8,32 +8,28 @@ import {
 } from '../apis/index.service';
 
 import {
+  setToast
+} from '@tools/tools';
+
+import {
   ILiveTours,
   IFeaturedRecords,
   IYanceyMusic,
 } from '../types/music';
 
 class MusicStore {
-  @observable public liveToursData: ILiveTours[] = [];
-  @observable public featuredRecordsData: IFeaturedRecords[] = [];
-  @observable public yanceyMusicData: IYanceyMusic[] = [];
-
-  constructor() {
-    this.liveToursData = [];
-    this.featuredRecordsData = [];
-    this.yanceyMusicData = [];
-  }
+  @observable public liveTours: ILiveTours[] = [];
+  @observable public featuredRecords: IFeaturedRecords[] = [];
+  @observable public yanceyMusic: IYanceyMusic[] = [];
 
   public getLiveTours = async () => {
     try {
       const res = await musicService.getLiveTours();
       runInAction(() => {
-        this.liveToursData = res.data;
+        this.liveTours = res.data;
       });
     } catch (error) {
-      // todo
-    } finally {
-      // todo
+      setToast('获取演唱会高清图失败');
     }
   }
 
@@ -41,12 +37,10 @@ class MusicStore {
     try {
       const res = await musicService.getFeaturedRecords();
       runInAction(() => {
-        this.featuredRecordsData = res.data;
+        this.featuredRecords = res.data;
       });
     } catch (error) {
-      // todo
-    } finally {
-      // todo
+      setToast('获取精选唱片失败');
     }
   }
 
@@ -54,12 +48,10 @@ class MusicStore {
     try {
       const res = await musicService.getYanceyMusic();
       runInAction(() => {
-        this.yanceyMusicData = res.data;
+        this.yanceyMusic = res.data;
       });
     } catch (error) {
-      // todo
-    } finally {
-      // todo
+      setToast('获取我的作品失败');
     }
   }
 

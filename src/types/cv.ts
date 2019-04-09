@@ -2,9 +2,9 @@ export interface CVStoreType {
   user: IUser;
   workExperience: IWorkExperience[];
   programExperience: IProgramExperience[];
-  getUserData: () => void;
-  getWorkExperienceData: () => void;
-  getProgramExperienceData: () => void;
+  getUser: () => void;
+  getWorkExperience: () => void;
+  getProgramExperience: () => void;
 }
 
 export interface ICVProps {
@@ -17,8 +17,8 @@ export interface IUser {
   position: string;
   self_introduction: string;
   user_name: string;
-  __v?: number;
-  _id?: string;
+  __v ? : number;
+  _id ? : string;
 }
 
 export interface IWorkExperience {

@@ -16,8 +16,9 @@ import {
 import history from '../history';
 
 import {
-  sortBy
-} from '../tools/tools';
+  sortBy, setToast,
+} from '@tools/tools';
+
 
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
@@ -57,8 +58,6 @@ class ArticleStore {
     },
   };
 
-  constructor() {}
-
   @action public toggleShowSearch = () => {
     this.showSearch = !this.showSearch;
   };
@@ -75,6 +74,8 @@ class ArticleStore {
 
   @action public onPageChange = (current: number) => {
     this.curPage = current;
+    history.push(`/blog?page=${current}`);
+    console.log(history)
     this.getPostsByPage();
     window.scroll({
       top: 0,
@@ -82,8 +83,8 @@ class ArticleStore {
     });
   };
 
-  @computed get curTag() {
-    return document.location.pathname.split('/').slice(-1)[0];
+  @computed get curTagName() {
+    return history.location.pathname.split('/').slice(-1)[0];
   }
 
   public getPostsByPage = async () => {
@@ -95,9 +96,7 @@ class ArticleStore {
         this.curPage = 1;
       });
     } catch (e) {
-      // todo
-    } finally {
-      // todo
+      setToast(`获取第 ${this.curPage} 页失败`);
     }
   };
 
@@ -108,7 +107,7 @@ class ArticleStore {
         this.posts = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('检索失败');
     }
   };
 
@@ -119,18 +118,18 @@ class ArticleStore {
         this.tags = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取标签失败');
     }
   };
 
-  public getPostsByTag = async (tag = this.curTag) => {
+  public getPostsByTag = async (tag = this.curTagName) => {
     try {
       const res = await articleService.getPostsByTag(tag);
       runInAction(() => {
         this.posts = res.data;
       });
     } catch (e) {
-      // todo  
+      setToast('无法获取此标签下的文章');
     }
   };
 
@@ -141,7 +140,7 @@ class ArticleStore {
         this.hots = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取 PV 失败');
     }
   };
 
@@ -153,7 +152,7 @@ class ArticleStore {
         this.archives.forEach((value: any) => value.data.forEach((value: any) => this.totalArticlesCount += value.data.length))
       });
     } catch (e) {
-      // todo
+      setToast('获取归档失败');
     }
   };
 
@@ -166,6 +165,7 @@ class ArticleStore {
         this.detail = res.data;
       });
     } catch (e) {
+      setToast('获取文章失败');
       history.push('/404');
     } finally {
       this.loading = false;
@@ -179,7 +179,7 @@ class ArticleStore {
         this.likeNum = res.data.like_number;
       });
     } catch (e) {
-      // todo
+      setToast('点赞失败');
     }
   };
 
@@ -190,7 +190,7 @@ class ArticleStore {
         this.isLiked = res.data.liked;
       });
     } catch (e) {
-      // todo
+      setToast('获取点赞信息失败');
     }
   };
 
@@ -201,7 +201,7 @@ class ArticleStore {
         this.curIp = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('无法获取你的IP');
     }
   };
 
@@ -209,7 +209,7 @@ class ArticleStore {
     try {
       await articleService.increasePV(id);
     } catch (e) {
-      // todo
+      setToast('增加 PV 失败');
     }
   };
 }

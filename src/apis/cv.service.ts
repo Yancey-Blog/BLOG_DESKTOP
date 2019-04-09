@@ -13,15 +13,15 @@ import {
 } from '../types/cv';
 
 class CVService {
-  public async getUserData(): Promise<AxiosResponse<IUser>> {
+  public async getUser(): Promise < AxiosResponse < IUser >> {
     return GET('/userInfo', null, '');
   }
 
-  public async getWorkExperienceData(): Promise<AxiosResponse<IWorkExperience[]>> {
+  public async getWorkExperience(): Promise < AxiosResponse < IWorkExperience[] >> {
     return GET('/workExperience', null, '');
   }
 
-  public async getProgramExperienceData(): Promise<AxiosResponse<IProgramExperience[]>> {
+  public async getProgramExperience(): Promise < AxiosResponse < IProgramExperience[] >> {
     return GET('/programExperience', null, '');
   }
 }

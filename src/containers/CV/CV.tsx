@@ -17,9 +17,9 @@ class CV extends React.Component<ICVProps, {}> {
 
   public componentDidMount() {
     const { cvStore } = this.props;
-    cvStore.getUserData();
-    cvStore.getWorkExperienceData();
-    cvStore.getProgramExperienceData();
+    cvStore.getUser();
+    cvStore.getWorkExperience();
+    cvStore.getProgramExperience();
   }
 
   public render() {

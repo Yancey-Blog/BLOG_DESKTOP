@@ -25,8 +25,6 @@ class HomeStore {
   @observable public projects: IProject[] = [];
   @observable public coverUrl: string = '';
 
-  constructor() {}
-
   public getAnnouncement = async () => {
     try {
       const res = await homeService.getAnnouncement();

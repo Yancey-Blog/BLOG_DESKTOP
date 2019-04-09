@@ -17,7 +17,7 @@ class About extends React.Component<IAboutProps, {}> {
 
   public async componentDidMount() {
     const { aboutStore } = this.props;
-    await aboutStore.getAboutData();
+    await aboutStore.getAbouts();
     this.handleSwiper();
   }
 

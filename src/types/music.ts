@@ -3,9 +3,9 @@ import {
 } from './article';
 
 interface MusicStoreType {
-  liveToursData: ILiveTours[];
-  featuredRecordsData: IFeaturedRecords[];
-  yanceyMusicData: IYanceyMusic[];
+  liveTours: ILiveTours[];
+  featuredRecords: IFeaturedRecords[];
+  yanceyMusic: IYanceyMusic[];
   getLiveTours: () => void;
   getFeaturedRecords: () => void;
   getYanceyMusic: () => void;
