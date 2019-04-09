@@ -15,6 +15,8 @@ import {
 
 import history from '../history';
 
+import routePath from '@constants/routePath';
+
 import {
   sortBy, setToast,
 } from '@tools/tools';
@@ -66,7 +68,7 @@ class ArticleStore {
     const event = e || window.event;
     const key = event.which || event.keyCode || event.charCode;
     if (key === 13) {
-      history.push(`/search?q=${event.target.value}`);
+      history.push(`${routePath.search}?q=${event.target.value}`);
       this.getPostsByTitle(event.target.value);
       this.showSearch = false;
     }
@@ -74,7 +76,7 @@ class ArticleStore {
 
   @action public onPageChange = (current: number) => {
     this.curPage = current;
-    history.push(`/blog?page=${current}`);
+    history.push(`${routePath.blog}?page=${current}`);
     console.log(history)
     this.getPostsByPage();
     window.scroll({
@@ -83,7 +85,7 @@ class ArticleStore {
     });
   };
 
-  @computed get curTagName() {
+  @computed get curPath() {
     return history.location.pathname.split('/').slice(-1)[0];
   }
 
@@ -122,7 +124,7 @@ class ArticleStore {
     }
   };
 
-  public getPostsByTag = async (tag = this.curTagName) => {
+  public getPostsByTag = async (tag = this.curPath) => {
     try {
       const res = await articleService.getPostsByTag(tag);
       runInAction(() => {
@@ -158,7 +160,7 @@ class ArticleStore {
 
   public getPostById = async (id: string) => {
     this.loading = true;
-    history.push(`/p/${id}`);
+    history.push(`${routePath.blogDetail}${id}`);
     try {
       const res = await articleService.getPostById(id);
       runInAction(() => {
@@ -166,7 +168,7 @@ class ArticleStore {
       });
     } catch (e) {
       setToast('获取文章失败');
-      history.push('/404');
+      history.push(routePath.notFound);
     } finally {
       this.loading = false;
     }
@@ -174,7 +176,7 @@ class ArticleStore {
 
   public handleLikes = async () => {
     try {
-      const res = await articleService.handleLikes(window.location.pathname.split('/').slice(-1)[0], this.curIp);
+      const res = await articleService.handleLikes(this.curPath, this.curIp);
       runInAction(() => {
         this.likeNum = res.data.like_number;
       });
