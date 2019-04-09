@@ -97,7 +97,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
 
   public componentDidMount() {
     const { layoutsStore } = this.props;
-    layoutsStore!.getPlayerData();
+    layoutsStore!.getPlayers();
     layoutsStore!.getGlobalStatus();
   }
 

@@ -27,9 +27,9 @@ class LayoutsStore {
   };
   @observable public isHomePage = true;
 
-  public getPlayerData = async () => {
+  public getPlayers = async () => {
     try {
-      const res = await layoutsService.getPlayerData();
+      const res = await layoutsService.getPlayers();
       runInAction(() => {
         res.data.map(item => {
           this.players.push({

@@ -16,7 +16,7 @@ class LayoutsService {
     return GET(`/globalStatus`, null, '');
   }
 
-  public async getPlayerData(): Promise<AxiosResponse<IPlayer[]>> {
+  public async getPlayers(): Promise<AxiosResponse<IPlayer[]>> {
     return GET(`/litePlayers`, null, '');
   }
 }
