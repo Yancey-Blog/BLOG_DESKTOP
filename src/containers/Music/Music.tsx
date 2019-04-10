@@ -25,6 +25,11 @@ class Music extends React.Component<IMusicProps, {}> {
     this.state = {};
   }
 
+  public componentWillMount() {
+    const { articleStore } = this.props;
+    articleStore!.posts = [];
+  }
+
   public componentDidMount() {
     const { musicStore, articleStore } = this.props;
     musicStore!.getLiveTours();

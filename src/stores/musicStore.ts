@@ -29,7 +29,7 @@ class MusicStore {
         this.liveTours = res.data;
       });
     } catch (error) {
-      setToast('获取演唱会高清图失败');
+      setToast('获取演唱会现场图失败');
     }
   }
 
