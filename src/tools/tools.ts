@@ -92,7 +92,7 @@ export const initLivere = () => {
 export const setToast = (text: string) => {
   return toast.error(`💔 ${text}`, {
     position: "top-center",
-    autoClose: 300000,
+    autoClose: 3000,
     hideProgressBar: true,
     closeOnClick: true,
     className: 'toasting'
