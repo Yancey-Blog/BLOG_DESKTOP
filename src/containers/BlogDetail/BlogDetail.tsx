@@ -23,10 +23,7 @@ interface IArticleProps {
 
 @inject('articleStore')
 @observer
-class BlogDetail extends React.Component<
-  IArticleProps & RouteComponentProps<any>,
-  {}
-> {
+class BlogDetail extends React.Component<IArticleProps & RouteComponentProps<any>, {}> {
   constructor(props: IArticleProps & RouteComponentProps<any>) {
     super(props);
     this.state = {};
@@ -36,14 +33,15 @@ class BlogDetail extends React.Component<
     const { articleStore, match } = this.props;
     const curId = match.params.id;
     await articleStore!.getPostById(curId);
+    this.tocbotInit();
+    this.fixToc();
     this.hljsInit();
     this.addLineNumbers();
     this.deleteEmptyTag();
-    this.tocbotInit();
     this.showImageAlt();
     this.wrapImg();
     this.initBaguetteBox();
-    this.fixToc();
+
     await articleStore!.getIp();
     articleStore!.getLikes(curId, articleStore!.curIp);
     articleStore!.increasePV(curId);

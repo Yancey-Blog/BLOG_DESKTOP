@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import Helmet from 'react-helmet';
 import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
 import { webpSuffix, musicBg } from '@constants/constants';
 import { formatJSONDate } from '@tools/tools';
-import routePath from '@constants/routePath';
+import Card from '@components/Music/Card';
 import {
   IMusicProps,
   ILiveTours,
@@ -39,7 +38,11 @@ class Music extends React.Component<IMusicProps, {}> {
   }
 
   public render() {
-    const { musicStore, articleStore } = this.props;
+    const {
+      musicStore: { liveTours, featuredRecords, yanceyMusic },
+      articleStore: { posts },
+    } = this.props;
+
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
@@ -54,19 +57,19 @@ class Music extends React.Component<IMusicProps, {}> {
             })`,
           }}
         >
-          <h1>ミュージック</h1>
+          <h2>ミュージック</h2>
           <p>夢を歌おう~</p>
         </figure>
         <div className={styles.live_tours_artists_wrapper}>
           <section className={styles.live_tour_container}>
-            <h1 className={styles.column_title}>LIVE TOURS</h1>
+            <h2 className={styles.column_title}>LIVE TOURS</h2>
             <Carousel
               autoplay
               autoplayInterval={2000}
               transitionMode='fade'
               wrapAround
             >
-              {musicStore!.liveTours.map((liveTour: ILiveTours) => (
+              {liveTours.map((liveTour: ILiveTours) => (
                 <div
                   className={cs(
                     styles.post_container,
@@ -98,46 +101,26 @@ class Music extends React.Component<IMusicProps, {}> {
             </Carousel>
           </section>
           <section>
-            <h1 className={styles.column_title}>MUSIC NOTES</h1>
-            <ul className={cs(styles.artists_list)}>
-              {articleStore!.posts.map((item: IArticleDetail) => (
-                <li
-                  className={cs(styles.post_container, styles.artist_item)}
+            <h2 className={styles.column_title}>MUSIC NOTES</h2>
+            <div className={cs(styles.artists_list)}>
+              {posts.map((item: IArticleDetail) => (
+                <Card
+                  type='note'
                   key={item._id}
-                >
-                  <img
-                    src={
-                      isWebp
-                        ? `${item.header_cover}${webpSuffix}`
-                        : item.header_cover
-                    }
-                    alt={item.title}
-                  />
-                  <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                    <time className={styles.meta_date}>
-                      {formatJSONDate(item.publish_date).slice(0, 10)}
-                    </time>
-                    <p className={cs(styles.meta_title, styles.artist_title)}>
-                      {item.summary}
-                    </p>
-                    <hr className={styles.music_split} />
-                    <Link
-                      to={`${routePath.blogDetail}${item._id}`}
-                      className={styles.music_btn}
-                    >
-                      READ MORE
-                    </Link>
-                  </div>
-                </li>
+                  url={item._id}
+                  title={item.summary}
+                  date={item.publish_date}
+                  cover={item.header_cover}
+                />
               ))}
-            </ul>
+            </div>
           </section>
         </div>
         <div className={styles.featured_records_wrapper}>
           <section className={styles.featured_records_container}>
-            <h1 className={styles.column_title}>FEATURED RECORDS</h1>
+            <h2 className={styles.column_title}>FEATURED RECORDS</h2>
             <ul className={styles.featured_records_list}>
-              {musicStore!.featuredRecords.map((item: IFeaturedRecords) => (
+              {featuredRecords.map((item: IFeaturedRecords) => (
                 <li className={styles.featured_record_item} key={item._id}>
                   <figure
                     className={styles.record_cover}
@@ -174,37 +157,19 @@ class Music extends React.Component<IMusicProps, {}> {
           </section>
         </div>
         <section className={styles.yancey_music_container}>
-          <h1 className={styles.column_title}>YANCEY MUSIC</h1>
-          <ul className={cs(styles.artists_list, styles.yancey_music_list)}>
-            {musicStore!.yanceyMusic.map((item: IYanceyMusic) => (
-              <li
-                className={cs(styles.post_container, styles.artist_item)}
+          <h2 className={styles.column_title}>YANCEY MUSIC</h2>
+          <div className={cs(styles.artists_list, styles.yancey_music_list)}>
+            {yanceyMusic.map((item: IYanceyMusic) => (
+              <Card
+                type='yanceyMusic'
                 key={item._id}
-              >
-                <img
-                  src={isWebp ? `${item.cover}${webpSuffix}` : item.cover}
-                  alt={item.title}
-                />
-                <div className={cs(styles.meta_intro, styles.artist_intro)}>
-                  <time className={styles.meta_date}>
-                    {formatJSONDate(item.release_date).split(' ')[0]}
-                  </time>
-                  <p className={cs(styles.meta_title, styles.artist_title)}>
-                    {item.title}
-                  </p>
-                  <hr className={styles.music_split} />
-                  <a
-                    href={item.soundCloud_url}
-                    className={styles.music_btn}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    LISTEN
-                  </a>
-                </div>
-              </li>
+                url={item.soundCloud_url}
+                title={item.title}
+                date={item.release_date}
+                cover={item.cover}
+              />
             ))}
-          </ul>
+          </div>
         </section>
       </main>
     );
