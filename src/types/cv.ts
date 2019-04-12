@@ -17,8 +17,8 @@ export interface IUser {
   position: string;
   self_introduction: string;
   user_name: string;
-  __v ? : number;
-  _id ? : string;
+  __v?: number;
+  _id?: string;
 }
 
 export interface IWorkExperience {
@@ -38,4 +38,14 @@ export interface IProgramExperience {
   program_url: string;
   __v: number;
   _id: string;
+}
+
+export interface ICardProps {
+  type: string;
+  name: string;
+  position: string;
+  inService: string[];
+  programLink: string;
+  detail: string;
+  techStack: string[];
 }
