@@ -1,6 +1,5 @@
-// import createHistory from 'history/createBrowserHistory';
+import history from 'history';
 
-// tslint:disable-next-line:no-var-requires
-const createHistory = require('history').createBrowserHistory;
+const createHistory = history.createBrowserHistory;
 
 export default createHistory();
