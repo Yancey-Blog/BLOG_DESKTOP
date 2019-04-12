@@ -97,6 +97,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.3.4",
     "@types/classnames": "^2.2.6",
+    "@types/highlight.js": "^9.12.3",
     "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.10",
