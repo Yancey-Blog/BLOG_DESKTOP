@@ -1,19 +1,17 @@
-import {
-  ArticleStoreType
-} from './article';
+import { ArticleStoreType } from './article';
 
 interface MusicStoreType {
-  liveToursData: ILiveTours[];
-  featuredRecordsData: IFeaturedRecords[];
-  yanceyMusicData: IYanceyMusic[];
+  liveTours: ILiveTours[];
+  featuredRecords: IFeaturedRecords[];
+  yanceyMusic: IYanceyMusic[];
   getLiveTours: () => void;
   getFeaturedRecords: () => void;
   getYanceyMusic: () => void;
 }
 
 export interface IMusicProps {
-  musicStore ? : MusicStoreType;
-  articleStore ? : ArticleStoreType;
+  musicStore: MusicStoreType;
+  articleStore: ArticleStoreType;
 }
 
 export interface ILiveTours {
@@ -41,4 +39,12 @@ export interface IYanceyMusic {
   release_date: string;
   __v: number;
   _id: string;
+}
+
+export interface ICardProps {
+  type: string;
+  url: string;
+  title: string;
+  date: string;
+  cover: string;
 }

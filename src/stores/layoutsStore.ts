@@ -14,6 +14,10 @@ import {
 
 import APlayer from 'aplayer';
 
+import {
+  setToast
+} from '@tools/tools';
+
 class LayoutsStore {
   @observable public players: IAPlayer[] = [];
   @observable public globalStatus: IGlobalStatus = {
@@ -23,19 +27,9 @@ class LayoutsStore {
   };
   @observable public isHomePage = true;
 
-  constructor() {
-    this.players = [];
-    this.globalStatus = {
-      full_site_gray: false,
-      __v: 0,
-      _id: '',
-    };
-    this.isHomePage = true;
-  }
-
-  public getPlayerData = async () => {
+  public getPlayers = async () => {
     try {
-      const res = await layoutsService.getPlayerData();
+      const res = await layoutsService.getPlayers();
       runInAction(() => {
         res.data.map(item => {
           this.players.push({
@@ -55,9 +49,7 @@ class LayoutsStore {
         ap.lrc.show();
       });
     } catch (error) {
-      // todo
-    } finally {
-      // todo
+      setToast('获取播放器失败');
     }
   }
 
@@ -68,14 +60,13 @@ class LayoutsStore {
         this.globalStatus = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取全局状态失败');
     }
   };
 
   public getLocalPath = () => {
     this.isHomePage = window.localStorage.curPath === '/';
   }
-
 }
 
 const layoutsStore = new LayoutsStore();

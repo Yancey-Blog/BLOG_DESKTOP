@@ -1,4 +1,4 @@
-import { 
+import {
   GET,
 } from '../tools/axios';
 
@@ -11,7 +11,7 @@ import {
 } from '../types/about';
 
 class AboutService {
-  public async getAboutData(): Promise<AxiosResponse<IAbout[]>> {
+  public async getAbouts(): Promise < AxiosResponse < IAbout[] >> {
     return GET('/abouts', null, '');
   }
 }

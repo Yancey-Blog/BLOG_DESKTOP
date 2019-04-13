@@ -11,6 +11,10 @@ import {
   IProgramExperience,
 } from '../types/cv';
 
+import {
+  setToast
+} from '@tools/tools';
+
 class CVStore {
   @observable public user: IUser = {
     avatar: '',
@@ -22,48 +26,36 @@ class CVStore {
   @observable public workExperience: IWorkExperience[] = [];
   @observable public programExperience: IProgramExperience[] = [];
 
-  constructor() {
-    this.user = {
-      avatar: '',
-      city: '',
-      position: '',
-      self_introduction: '',
-      user_name: '',
-    };
-    this.workExperience = [];
-    this.programExperience = [];
-  }
-
-  public getUserData = async () => {
+  public getUser = async () => {
     try {
-      const res = await cvService.getUserData();
+      const res = await cvService.getUser();
       runInAction(() => {
         this.user = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取个人信息失败');
     }
   };
 
-  public getWorkExperienceData = async () => {
+  public getWorkExperience = async () => {
     try {
-      const res = await cvService.getWorkExperienceData();
+      const res = await cvService.getWorkExperience();
       runInAction(() => {
         this.workExperience = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取工作经历失败');
     }
   };
 
-  public getProgramExperienceData = async () => {
+  public getProgramExperience = async () => {
     try {
-      const res = await cvService.getProgramExperienceData();
+      const res = await cvService.getProgramExperience();
       runInAction(() => {
         this.programExperience = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取项目经历失败');
     }
   };
 }

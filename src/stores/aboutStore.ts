@@ -9,21 +9,21 @@ import {
   IAbout,
 } from '../types/about';
 
+import {
+  setToast
+} from '@tools/tools';
+
 class AboutStore {
   @observable public abouts: IAbout[] = [];
 
-  constructor() {
-    this.abouts = [];
-  }
-
-  public getAboutData = async () => {
+  public getAbouts = async () => {
     try {
-      const res = await aboutService.getAboutData();
+      const res = await aboutService.getAbouts();
       runInAction(() => {
         this.abouts = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取关于失败');
     }
   };
 }

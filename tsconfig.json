@@ -36,6 +36,9 @@
     "noEmit": true,
     "experimentalDecorators": true,
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
     "build",
@@ -45,8 +48,5 @@
     "jest",
     "src/setupTests.ts",
     "config"
-  ],
-  "include": [
-    "src"
   ]
 }

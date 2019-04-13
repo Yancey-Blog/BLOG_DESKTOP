@@ -58,12 +58,12 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 // common function to get style loaders
 const getStyleLoaders = (cssOptions, preProcessor) => {
-  const loaders = [
-    {
+  const loaders = [{
       loader: MiniCssExtractPlugin.loader,
-      options: Object.assign(
-        {},
-        shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
+      options: Object.assign({},
+        shouldUseRelativeAssetPaths ? {
+          publicPath: '../../'
+        } : undefined
       ),
     },
     {
@@ -128,8 +128,8 @@ module.exports = {
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
-        .relative(paths.appSrc, info.absoluteResourcePath)
-        .replace(/\\/g, '/'),
+      .relative(paths.appSrc, info.absoluteResourcePath)
+      .replace(/\\/g, '/'),
   },
   optimization: {
     minimizer: [
@@ -178,16 +178,16 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
           parser: safePostCssParser,
-          map: shouldUseSourceMap
-            ? {
-                // `inline: false` forces the sourcemap to be output into a
-                // separate file
-                inline: false,
-                // `annotation: true` appends the sourceMappingURL to the end of
-                // the css file, helping the browser find the sourcemap
-                annotation: true,
-              }
-            : false,
+          map: shouldUseSourceMap ?
+            {
+              // `inline: false` forces the sourcemap to be output into a
+              // separate file
+              inline: false,
+              // `annotation: true` appends the sourceMappingURL to the end of
+              // the css file, helping the browser find the sourcemap
+              annotation: true,
+            } :
+            false,
         },
       }),
     ],
@@ -253,23 +253,25 @@ module.exports = {
     strictExportPresence: true,
     rules: [
       // Disable require.ensure as it's not a standard language feature.
-      { parser: { requireEnsure: false } },
+      {
+        parser: {
+          requireEnsure: false
+        }
+      },
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|mjs|jsx)$/,
         enforce: 'pre',
-        use: [
-          {
-            options: {
-              formatter: require.resolve('react-dev-utils/eslintFormatter'),
-              eslintPath: require.resolve('eslint'),
-              
-            },
-            loader: require.resolve('eslint-loader'),
+        use: [{
+          options: {
+            formatter: require.resolve('react-dev-utils/eslintFormatter'),
+            eslintPath: require.resolve('eslint'),
+
           },
-        ],
+          loader: require.resolve('eslint-loader'),
+        }, ],
         include: paths.appSrc,
       },
       {
@@ -298,7 +300,7 @@ module.exports = {
               customize: require.resolve(
                 'babel-preset-react-app/webpack-overrides'
               ),
-              
+
               plugins: [
                 [
                   require.resolve('babel-plugin-named-asset-import'),
@@ -330,13 +332,15 @@ module.exports = {
               presets: [
                 [
                   require.resolve('babel-preset-react-app/dependencies'),
-                  { helpers: true },
+                  {
+                    helpers: true
+                  },
                 ],
               ],
               cacheDirectory: true,
               // Save disk space when time isn't as important
               cacheCompression: true,
-              
+
               // If an error happens in a package, it's possible to be
               // because it was compiled. Thus, we don't want the browser
               // debugger to show the original code. Instead, the code
@@ -390,28 +394,28 @@ module.exports = {
             // ),
 
             use: [{
-              loader: require.resolve('style-loader'),
-            },
-            {
-              loader: require.resolve('css-loader'),
-              options: {
-                importLoaders: 2,
+                loader: require.resolve('style-loader'),
               },
-            },
-            {
-              loader: require.resolve('sass-loader'),
-            },
-            {
-              loader: require.resolve('sass-resources-loader'),
-              options: {
-                resources: [
-                  path.resolve(__dirname, '../src/assets/styles/_variables.scss'),
-                  path.resolve(__dirname, '../src/assets/styles/_functions.scss'),
-                  path.resolve(__dirname, '../src/assets/styles/_mixins.scss'),
-                ],
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 2,
+                },
+              },
+              {
+                loader: require.resolve('sass-loader'),
+              },
+              {
+                loader: require.resolve('sass-resources-loader'),
+                options: {
+                  resources: [
+                    path.resolve(__dirname, '../src/assets/styles/_variables.scss'),
+                    path.resolve(__dirname, '../src/assets/styles/_functions.scss'),
+                    path.resolve(__dirname, '../src/assets/styles/_mixins.scss'),
+                  ],
+                }
               }
-            }
-          ],
+            ],
 
             // Don't consider CSS imports dead code even if the
             // containing package claims to have no side effects.
@@ -434,31 +438,31 @@ module.exports = {
             // ),
 
             use: [{
-              loader: require.resolve('style-loader'),
-            },
-            {
-              loader: require.resolve('css-loader'),
-              options: {
-                importLoaders: 2,
-                modules: true,
-                // getLocalIdent: getCSSModuleLocalIdent,
-                localIdentName: "[hash:base64:5]"  
+                loader: require.resolve('style-loader'),
               },
-            },
-            {
-              loader: require.resolve('sass-loader'),
-            },
-            {
-              loader: require.resolve('sass-resources-loader'),
-              options: {
-                resources: [
-                  path.resolve(__dirname, '../src/assets/styles/_variables.scss'),
-                  path.resolve(__dirname, '../src/assets/styles/_functions.scss'),
-                  path.resolve(__dirname, '../src/assets/styles/_mixins.scss'),
-                ],
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 2,
+                  modules: true,
+                  // getLocalIdent: getCSSModuleLocalIdent,
+                  localIdentName: "[hash:base64:5]"
+                },
+              },
+              {
+                loader: require.resolve('sass-loader'),
+              },
+              {
+                loader: require.resolve('sass-resources-loader'),
+                options: {
+                  resources: [
+                    path.resolve(__dirname, '../src/assets/styles/_variables.scss'),
+                    path.resolve(__dirname, '../src/assets/styles/_functions.scss'),
+                    path.resolve(__dirname, '../src/assets/styles/_mixins.scss'),
+                  ],
+                }
               }
-            }
-          ],
+            ],
 
           },
           // "file" loader makes sure assets end up in the `build` folder.
@@ -503,7 +507,7 @@ module.exports = {
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.
     shouldInlineRuntimeChunk &&
-      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -554,33 +558,33 @@ module.exports = {
     }),
     // TypeScript type checking
     fs.existsSync(paths.appTsConfig) &&
-      new ForkTsCheckerWebpackPlugin({
-        typescript: resolve.sync('typescript', {
-          basedir: paths.appNodeModules,
-        }),
-        async: false,
-        checkSyntacticErrors: true,
-        tsconfig: paths.appTsConfig,
-        compilerOptions: {
-          module: 'esnext',
-          moduleResolution: 'node',
-          resolveJsonModule: true,
-          isolatedModules: true,
-          noEmit: true,
-          jsx: 'preserve',
-        },
-        reportFiles: [
-          '**',
-          '!**/*.json',
-          '!**/__tests__/**',
-          '!**/?(*.)(spec|test).*',
-          '!src/setupProxy.js',
-          '!src/setupTests.*',
-        ],
-        watch: paths.appSrc,
-        silent: true,
-        formatter: typescriptFormatter,
+    new ForkTsCheckerWebpackPlugin({
+      typescript: resolve.sync('typescript', {
+        basedir: paths.appNodeModules,
       }),
+      async: false,
+      checkSyntacticErrors: true,
+      tsconfig: paths.appTsConfig,
+      compilerOptions: {
+        module: 'esnext',
+        moduleResolution: 'node',
+        resolveJsonModule: true,
+        isolatedModules: true,
+        noEmit: true,
+        jsx: 'preserve',
+      },
+      reportFiles: [
+        '**',
+        '!**/*.json',
+        '!**/__tests__/**',
+        '!**/?(*.)(spec|test).*',
+        '!src/setupProxy.js',
+        '!src/setupTests.*',
+      ],
+      watch: paths.appSrc,
+      silent: true,
+      formatter: typescriptFormatter,
+    }),
   ].filter(Boolean),
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

@@ -157,10 +157,6 @@ Motto部分对应上面第一张图这个部分。
 
 About页面也是从后端取出来的，用来记录Blog发展的大事记（估计就是Bug修改历程 噗x）。
 
-### Privacy Policy
-
-有个网站可以生成隐私政策，虽然没什么卵用，但既然想做这个Blog，那就把它完善好。排版的话借鉴了Paypal隐私政策的样式。
-
 ## License
 
 BLOG FE is [MIT licensed](https://opensource.org/licenses/MIT).

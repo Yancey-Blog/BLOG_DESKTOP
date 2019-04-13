@@ -113,7 +113,7 @@ export const socialMedia = {
     icon: '#wechat',
   },
   email: {
-    url: 'mailto:team@yanceyleo.com',
+    url: 'mailto:yanceyofficial@gmail.com',
     icon: '#mail',
   },
 };

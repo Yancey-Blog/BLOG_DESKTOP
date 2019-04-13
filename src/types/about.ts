@@ -1,6 +1,6 @@
 export interface AboutStoreType {
   abouts: IAbout[];
-  getAboutData: () => void;
+  getAbouts: () => void;
 }
 
 export interface IAboutProps {

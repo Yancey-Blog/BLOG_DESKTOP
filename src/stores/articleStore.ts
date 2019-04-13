@@ -15,9 +15,12 @@ import {
 
 import history from '../history';
 
+import routePath from '@constants/routePath';
+
 import {
-  sortBy
-} from '../tools/tools';
+  sortBy, setToast,
+} from '@tools/tools';
+
 
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
@@ -31,6 +34,7 @@ class ArticleStore {
   @observable public isLiked: boolean = false;
   @observable public curIp: string = '';
   @observable public totalArticlesCount: number = 0;
+  @observable public loading: boolean = false;
   @observable public detail: IDetail = {
     curArticle: {
       _id: '',
@@ -56,44 +60,6 @@ class ArticleStore {
     },
   };
 
-  constructor() {
-    this.posts = [];
-    this.hots = [];
-    this.tags = [];
-    this.archives = [];
-    this.totalArticlesCount = 0;
-    this.curPage = 1;
-    this.total = 0;
-    this.showSearch = false;
-    this.likeNum = 0;
-    this.isLiked = false;
-    this.curIp = '';
-    this.detail = {
-      curArticle: {
-        _id: '',
-        header_cover: '',
-        title: '',
-        summary: '',
-        content: '',
-        publish_date: '',
-        last_modified_date: '',
-        tags: [],
-        like_count: [],
-        pv_count: 0,
-      },
-      nextArticle: {
-        id: '',
-        header_cover: '',
-        title: '',
-      },
-      previousArticle: {
-        id: '',
-        header_cover: '',
-        title: '',
-      },
-    };
-  }
-
   @action public toggleShowSearch = () => {
     this.showSearch = !this.showSearch;
   };
@@ -102,7 +68,7 @@ class ArticleStore {
     const event = e || window.event;
     const key = event.which || event.keyCode || event.charCode;
     if (key === 13) {
-      history.push(`/search?q=${event.target.value}`);
+      history.push(`${routePath.search}?q=${event.target.value}`);
       this.getPostsByTitle(event.target.value);
       this.showSearch = false;
     }
@@ -110,6 +76,8 @@ class ArticleStore {
 
   @action public onPageChange = (current: number) => {
     this.curPage = current;
+    history.push(`${routePath.blog}?page=${current}`);
+    console.log(history)
     this.getPostsByPage();
     window.scroll({
       top: 0,
@@ -117,8 +85,8 @@ class ArticleStore {
     });
   };
 
-  @computed get curTag() {
-    return document.location.pathname.split('/').slice(-1)[0];
+  @computed get curPath() {
+    return history.location.pathname.split('/').slice(-1)[0];
   }
 
   public getPostsByPage = async () => {
@@ -130,9 +98,7 @@ class ArticleStore {
         this.curPage = 1;
       });
     } catch (e) {
-      // todo
-    } finally {
-      // todo
+      setToast(`获取第 ${this.curPage} 页失败`);
     }
   };
 
@@ -143,7 +109,7 @@ class ArticleStore {
         this.posts = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('检索失败');
     }
   };
 
@@ -154,18 +120,18 @@ class ArticleStore {
         this.tags = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取标签失败');
     }
   };
 
-  public getPostsByTag = async (tag = this.curTag) => {
+  public getPostsByTag = async (tag = this.curPath) => {
     try {
       const res = await articleService.getPostsByTag(tag);
       runInAction(() => {
         this.posts = res.data;
       });
     } catch (e) {
-      // todo  
+      setToast('无法获取此标签下的文章');
     }
   };
 
@@ -176,7 +142,7 @@ class ArticleStore {
         this.hots = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('获取 PV 失败');
     }
   };
 
@@ -188,30 +154,34 @@ class ArticleStore {
         this.archives.forEach((value: any) => value.data.forEach((value: any) => this.totalArticlesCount += value.data.length))
       });
     } catch (e) {
-      // todo
+      setToast('获取归档失败');
     }
   };
 
   public getPostById = async (id: string) => {
-    history.push(`/p/${id}`);
+    this.loading = true;
+    history.push(`${routePath.blogDetail}${id}`);
     try {
       const res = await articleService.getPostById(id);
       runInAction(() => {
         this.detail = res.data;
       });
     } catch (e) {
-      history.push('/404');
+      setToast('获取文章失败');
+      history.push(routePath.notFound);
+    } finally {
+      this.loading = false;
     }
   };
 
   public handleLikes = async () => {
     try {
-      const res = await articleService.handleLikes(window.location.pathname.split('/').slice(-1)[0], this.curIp);
+      const res = await articleService.handleLikes(this.curPath, this.curIp);
       runInAction(() => {
         this.likeNum = res.data.like_number;
       });
     } catch (e) {
-      // todo
+      setToast('点赞失败');
     }
   };
 
@@ -222,7 +192,7 @@ class ArticleStore {
         this.isLiked = res.data.liked;
       });
     } catch (e) {
-      // todo
+      setToast('获取点赞信息失败');
     }
   };
 
@@ -233,7 +203,7 @@ class ArticleStore {
         this.curIp = res.data;
       });
     } catch (e) {
-      // todo
+      setToast('无法获取你的IP');
     }
   };
 
@@ -241,7 +211,7 @@ class ArticleStore {
     try {
       await articleService.increasePV(id);
     } catch (e) {
-      // todo
+      setToast('增加 PV 失败');
     }
   };
 }

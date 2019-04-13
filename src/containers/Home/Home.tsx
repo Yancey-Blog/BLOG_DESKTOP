@@ -21,10 +21,10 @@ class Home extends React.Component<IHomeProps, {}> {
 
   public componentDidMount() {
     const { homeStore, articleStore } = this.props;
-    homeStore!.getCoverData();
-    homeStore!.getMottoData();
-    homeStore!.getProjectData();
-    homeStore!.getAnnouncementData();
+    homeStore!.getCover();
+    homeStore!.getMotto();
+    homeStore!.getProject();
+    homeStore!.getAnnouncement();
     articleStore!.getPostsByPage();
   }
 
@@ -54,7 +54,7 @@ class Home extends React.Component<IHomeProps, {}> {
             <ul className={styles.social_media_list}>
               <li
                 className={styles.social_media_item}
-                onClick={() => homeStore!.getCoverData('prev')}
+                onClick={() => homeStore!.getCover('prev')}
               >
                 <svg className={styles.arrow}>
                   <use xlinkHref={`${svgIcons}${svgSprite.leftArrow}`} />
@@ -83,7 +83,7 @@ class Home extends React.Component<IHomeProps, {}> {
               ))}
               <li
                 className={styles.social_media_item}
-                onClick={() => homeStore!.getCoverData('next')}
+                onClick={() => homeStore!.getCover('next')}
               >
                 <svg className={styles.arrow}>
                   <use xlinkHref={`${svgIcons}${svgSprite.rightArrow}`} />
