@@ -2,18 +2,24 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import Helmet from 'react-helmet';
 import { Link, RouteComponentProps } from 'react-router-dom';
+import cs from 'classnames';
+import _ from 'lodash';
+
 import tocbot from 'tocbot';
 import hljs from 'highlight.js';
-import { TwitterIcon, TwitterShareButton } from 'react-share';
 import baguetteBox from 'baguettebox.js';
+import { TwitterIcon, TwitterShareButton } from 'react-share';
+
 import 'baguettebox.js/dist/baguetteBox.min.css';
 import 'tocbot/dist/tocbot.css';
-import cs from 'classnames';
 import './BlogDetail.scss';
+
 import Like from '@components/Post/Like/Like';
+import Skeletons from '@components/Skeletons/Skeletons';
+
 import { initLivere, formatJSONDate } from '@tools/tools';
 import { webpSuffix, byNcSa, livere } from '@constants/constants';
-import Skeletons from '@components/Skeletons/Skeletons';
+
 import routePath from '@constants/routePath';
 import { ArticleStoreType } from '../../types/article';
 
@@ -36,14 +42,14 @@ class BlogDetail extends React.Component<
     const { articleStore, match } = this.props;
     const curId = match.params.id;
     await articleStore!.getPostById(curId);
+    this.tocbotInit();
+    this.fixToc();
     this.hljsInit();
     this.addLineNumbers();
     this.deleteEmptyTag();
-    this.tocbotInit();
     this.showImageAlt();
     this.wrapImg();
     this.initBaguetteBox();
-    this.fixToc();
     await articleStore!.getIp();
     articleStore!.getLikes(curId, articleStore!.curIp);
     articleStore!.increasePV(curId);
@@ -80,15 +86,19 @@ class BlogDetail extends React.Component<
 
   public fixToc() {
     const menu = document.querySelector('.menu');
-    window.addEventListener('scroll', () => {
-      const tops =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      if (tops < 580) {
-        (menu as HTMLElement).style.top = `${512 - tops}px`;
-      } else {
-        (menu as HTMLElement).style.top = '4rem';
-      }
-    });
+
+    window.addEventListener(
+      'scroll',
+      _.throttle(() => {
+        const tops =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        if (tops < 440) {
+          (menu as HTMLElement).style.top = `${512 - tops}px`;
+        } else {
+          (menu as HTMLElement).style.top = '4rem';
+        }
+      }, 10),
+    );
   }
 
   public showImageAlt() {

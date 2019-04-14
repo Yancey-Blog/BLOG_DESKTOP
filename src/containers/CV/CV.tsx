@@ -4,8 +4,10 @@ import cs from 'classnames';
 import Helmet from 'react-helmet';
 import styles from './CV.module.scss';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import { socialMedia, svgSprite } from '@constants/constants';
+import { socialMedia, svgSprite, webpSuffix } from '@constants/constants';
 import { ICVProps, IWorkExperience, IProgramExperience } from '../../types/cv';
+
+import Card from '@components/CV/Card';
 
 @inject('cvStore')
 @observer
@@ -23,7 +25,10 @@ class CV extends React.Component<ICVProps, {}> {
   }
 
   public render() {
-    const { cvStore } = this.props;
+    const {
+      cvStore: { user, workExperience, programExperience },
+    } = this.props;
+    const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={styles.cv_wrapper}>
         <Helmet>
@@ -32,19 +37,21 @@ class CV extends React.Component<ICVProps, {}> {
         <section className={styles.cv_basic_container}>
           <figure
             className={styles.avatar}
-            style={{ backgroundImage: `url(${cvStore!.user.avatar})` }}
+            style={{
+              backgroundImage: `url(${
+                isWebp ? `${user.avatar}${webpSuffix}` : user.avatar
+              })`,
+            }}
           />
           <div className={styles.cv_basic}>
-            <p className={cs(styles.identity, styles.name)}>
-              {cvStore!.user.user_name}
-            </p>
+            <p className={cs(styles.identity, styles.name)}>{user.user_name}</p>
             <p className={styles.identity}>
               <span>Gender: </span>
               Man
             </p>
             <p className={styles.identity}>
               <span>City: </span>
-              {cvStore!.user.city}
+              {user.city}
             </p>
             <p className={styles.identity}>
               <span>Age: </span>
@@ -77,7 +84,7 @@ class CV extends React.Component<ICVProps, {}> {
             </p>
             <div className={styles.self_introduction}>
               <p className={styles.self_introduction_content}>
-                {cvStore!.user.self_introduction}
+                {user.self_introduction}
               </p>
             </div>
           </div>
@@ -89,26 +96,17 @@ class CV extends React.Component<ICVProps, {}> {
             </svg>
             <span className={styles.item_name}>Work Experience</span>
           </div>
-          {cvStore!.workExperience.map((item: IWorkExperience) => (
-            <div className={styles.detail_wrapper} key={item._id}>
-              <div className={styles.summary}>
-                <div>
-                  <p className={styles.company_name}>{item.enterprise_name}</p>
-                  <p className={styles.position}>{item.position}</p>
-                  <p className={styles.work_range}>
-                    {item.in_service[0]} ~ {item.in_service[1]}
-                  </p>
-                </div>
-              </div>
-              <div className={styles.work_content}>
-                <p className={styles.work_content_detail}>
-                  {item.work_content}
-                </p>
-                <p className={styles.technology_stack}>
-                  Tech: {item.work_technology_stack.toString()}
-                </p>
-              </div>
-            </div>
+          {workExperience.map((item: IWorkExperience) => (
+            <Card
+              key={item._id}
+              type='workExperience'
+              name={item.enterprise_name}
+              position={item.position}
+              inService={item.in_service}
+              programLink=''
+              detail={item.work_content}
+              techStack={item.work_technology_stack}
+            />
           ))}
           <div className={styles.cv_detail_item}>
             <svg className={styles.item_icon}>
@@ -116,44 +114,19 @@ class CV extends React.Component<ICVProps, {}> {
             </svg>
             <span className={styles.item_name}>Program Experience</span>
           </div>
-          {cvStore!.programExperience.map((item: IProgramExperience) => (
-            <div className={styles.detail_wrapper} key={item._id}>
-              <div className={styles.summary}>
-                <figure className={styles.logo} />
-                <div>
-                  <p className={styles.company_name}>
-                    <a href={item.program_url} className={styles.program_name}>
-                      {item.program_name}
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div className={styles.work_content}>
-                <p className={styles.work_content_detail}>
-                  {item.program_content}
-                </p>
-                <p className={styles.technology_stack}>
-                  Tech: {item.program_technology_stack.toString()}
-                </p>
-              </div>
-            </div>
+          {programExperience.map((item: IProgramExperience) => (
+            <Card
+              key={item._id}
+              type='programExperience'
+              name={item.program_name}
+              position=''
+              inService={[]}
+              programLink={item.program_url}
+              detail={item.program_content}
+              techStack={item.program_technology_stack}
+            />
           ))}
-          <div className={styles.cv_detail_item}>
-            <svg className={styles.item_icon}>
-              <use xlinkHref={`${svgIcons}${svgSprite.mortarBoard}`} />
-            </svg>
-            <span className={styles.item_name}>Education</span>
-          </div>
-          <div className={styles.detail_wrapper}>
-            <div className={cs(styles.summary)}>
-              <div>
-                <p className={styles.position}>
-                  Institute of Disaster Prevention Science and Technology
-                </p>
-                <p className={styles.work_range}>Sep 2014 to Jun 2018</p>
-              </div>
-            </div>
-          </div>
+
         </section>
       </main>
     );

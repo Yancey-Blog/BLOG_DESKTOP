@@ -1,0 +1,99 @@
+$pink: #d62b6b;
+$gray: #4a4a4a;
+$gray_outline: #bebebe;
+$white: #fff;
+$aoi: #35c0c0;
+
+.post_container {
+  position: relative;
+  height: 12.4rem;
+  &::before {
+    content: '';
+    position: absolute;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    top: 2px;
+    left: 2px;
+    outline: 2px dashed $gray_outline;
+  }
+  img {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    position: relative;
+    top: 1px;
+    left: 1px;
+    object-fit: cover;
+  }
+}
+
+.artist_item {
+  &::before {
+    outline-color: $gray_outline;
+  }
+  &:hover::before {
+    outline: none;
+    transition: all 200ms linear;
+  }
+  &:hover .artist_intro {
+    top: 0;
+    border: 2px solid $aoi;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.5);
+    transition: all 200ms linear;
+  }
+  .artist_intro {
+    top: 50%;
+    will-change: transform;
+    transition: all 200ms linear;
+    .artist_title {
+      font-size: 0.8rem;
+      padding-bottom: 1rem;
+      max-height: 3rem;
+      overflow: hidden;
+    }
+  }
+}
+
+.meta_intro {
+  position: absolute;
+  padding: 1rem 1.5rem;
+  left: 1px;
+  bottom: 1px;
+  width: calc(100% - 2px);
+  background: hsla(0, 0%, 100%, 0.9);
+  overflow: hidden;
+}
+
+.meta_date {
+  color: $pink;
+  display: block;
+  font-size: 0.6rem;
+}
+
+.meta_title {
+  color: $gray;
+  margin-right: 1.5rem;
+  padding: 0.75rem 0 1.5rem;
+}
+
+.music_split {
+  border: 0;
+  border-top: 1px solid $pink;
+  margin-top: 0.4rem;
+  margin-bottom: 1.6rem;
+  margin-left: 0;
+  width: 3rem;
+}
+
+.music_btn {
+  border: 1px solid $aoi;
+  border-radius: 2rem;
+  color: $aoi;
+  padding: 0.35rem 1.4rem;
+  font-size: 0.75rem;
+  transition: all 200ms linear;
+  &:hover {
+    background: $aoi;
+    color: $white;
+    transition: all 200ms linear;
+  }
+}

@@ -50,7 +50,9 @@ class About extends React.Component<IAboutProps, {}> {
   }
 
   public render() {
-    const { aboutStore } = this.props;
+    const {
+      aboutStore: { abouts },
+    } = this.props;
     return (
       <main>
         <Helmet>
@@ -60,7 +62,7 @@ class About extends React.Component<IAboutProps, {}> {
           <div className='timeline'>
             <div className='swiper-container'>
               <div className='swiper-wrapper'>
-                {aboutStore!.abouts.map((item: IAbout) => (
+                {abouts.map((item: IAbout) => (
                   <div
                     className='swiper-slide'
                     key={item._id}

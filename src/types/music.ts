@@ -1,6 +1,4 @@
-import {
-  ArticleStoreType
-} from './article';
+import { ArticleStoreType } from './article';
 
 interface MusicStoreType {
   liveTours: ILiveTours[];
@@ -12,8 +10,8 @@ interface MusicStoreType {
 }
 
 export interface IMusicProps {
-  musicStore ? : MusicStoreType;
-  articleStore ? : ArticleStoreType;
+  musicStore: MusicStoreType;
+  articleStore: ArticleStoreType;
 }
 
 export interface ILiveTours {
@@ -41,4 +39,12 @@ export interface IYanceyMusic {
   release_date: string;
   __v: number;
   _id: string;
+}
+
+export interface ICardProps {
+  type: string;
+  url: string;
+  title: string;
+  date: string;
+  cover: string;
 }
