@@ -11,7 +11,7 @@ English | [中文](https://github.com/Yancey-Blog/BLOG_FE/blob/master/README_ZH.
 
 ## Introduction
 
-This is the second blog website I wrote, The first version was released in March 2018 which wrote by Django and Bootstarp. With the booming of SPA, I decided to write a react version and add some new features. After about two months of design and coding, the second version was released.
+This is the second blog website I wrote, The first version was released in March 2018 which wrote by Django and Bootstrap. With the booming of SPA, I decided to write a react version and add some new features. After about two months of design and coding, the second version was released.
 
 Mainwhile, I also wrote a [CMS](https://github.com/Yancey-Blog/BLOG_CMS/) to manage and operate the data. You can click the link to fork.
 
