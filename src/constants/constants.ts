@@ -11,7 +11,6 @@ export const archiveBg = `${aliOSS}/static/archive_page_header.jpg`;
 export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
 export const avatar = `${aliOSS}/static/logo_avatar.jpg`;
 export const legalBg = `${aliOSS}/static/legal_page_header.jpg`;
-export const loading = `${aliOSS}/sitelogo.svg`;
 
 export const GA = 'UA-114532340-1';
 
