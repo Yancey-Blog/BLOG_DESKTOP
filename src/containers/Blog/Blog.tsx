@@ -51,7 +51,7 @@ class Blog extends React.Component<IArticleProps, {}> {
             })`,
           }}
         >
-          <span>Code, Music and Life.</span>
+          <span>Tech, Music and Life.</span>
         </figure>
         <div className={styles.main_content}>
           <section>

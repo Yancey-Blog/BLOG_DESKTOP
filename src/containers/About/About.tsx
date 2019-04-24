@@ -5,6 +5,7 @@ import Swiper from 'swiper/dist/js/swiper.min';
 import 'swiper/dist/css/swiper.min.css';
 import './About.scss';
 import { formatJSONDate } from '@tools/tools';
+import { webpSuffix } from '@constants/constants';
 import { IAbout, IAboutProps } from '../../types/about';
 
 @inject('aboutStore')
@@ -53,6 +54,8 @@ class About extends React.Component<IAboutProps, {}> {
     const {
       aboutStore: { abouts },
     } = this.props;
+
+    const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main>
         <Helmet>
@@ -66,7 +69,11 @@ class About extends React.Component<IAboutProps, {}> {
                   <div
                     className='swiper-slide'
                     key={item._id}
-                    style={{ backgroundImage: `url(${item.cover})` }}
+                    style={{
+                      backgroundImage: `url(${
+                        isWebp ? `${item.cover}${webpSuffix}` : item.cover
+                      })`,
+                    }}
                     data-year={formatJSONDate(item.release_date).slice(0, 10)}
                   >
                     <div className='swiper-slide-content'>
