@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import Title from '@components/Common/Title/Title';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
 import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
@@ -33,9 +33,7 @@ class Home extends React.Component<IHomeProps, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={styles.yancey_blog_home}>
-        <Helmet>
-          <title>Yancey Official Blog | Yancey Inc.</title>
-        </Helmet>
+        <Title title='Yancey Official Blog' />
         <section id='background' className={styles.ad_wrapper}>
           <h1 className={styles.glitch} data-value='HI, YANCEY!'>
             HI, YANCEY!

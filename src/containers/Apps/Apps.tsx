@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
+import Title from '@components/Common/Title/Title';
 import styles from './Apps.module.scss';
 import routePath from '@constants/routePath';
 import { domain } from '@constants/constants';
@@ -15,9 +15,7 @@ class Apps extends React.Component<{}, {}> {
   public render() {
     return (
       <main className={cs(styles.apps_wrapper, 'no-user-select')}>
-        <Helmet>
-          <title>Apps | Yancey Inc.</title>
-        </Helmet>
+        <Title title='Apps' />
         <section className={cs(styles.platform, styles.mobile_wrapper)}>
           <h3 className={styles.platform_title}>
             DOWNLOAD YANCEY BLOG APP FOR
