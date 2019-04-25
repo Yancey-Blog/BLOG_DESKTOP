@@ -21,11 +21,7 @@ import { initLivere, formatJSONDate } from '@tools/tools';
 import { webpSuffix, byNcSa, livere } from '@constants/constants';
 
 import routePath from '@constants/routePath';
-import { ArticleStoreType } from '../../types/article';
-
-interface IArticleProps {
-  articleStore?: ArticleStoreType;
-}
+import { IArticleProps } from '../../types/article';
 
 @inject('articleStore')
 @observer
