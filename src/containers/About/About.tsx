@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import Helmet from 'react-helmet';
+import Title from '@components/Common/Title/Title';
 import Swiper from 'swiper/dist/js/swiper.min';
 import 'swiper/dist/css/swiper.min.css';
 import './About.scss';
@@ -58,9 +58,7 @@ class About extends React.Component<IAboutProps, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main>
-        <Helmet>
-          <title>About | Yancey Inc.</title>
-        </Helmet>
+        <Title title='About' />
         <div className='about-container'>
           <div className='timeline'>
             <div className='swiper-container'>

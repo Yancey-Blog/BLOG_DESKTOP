@@ -18,7 +18,7 @@ export interface ArticleStoreType {
   getPostsByPage: () => void;
   getPostsByTitle: (title: string) => void;
   getAllTags: () => void;
-  getPostsByTag: (tag ? : string) => void;
+  getPostsByTag: (tag?: string) => void;
   getHots: () => void;
   getArchives: () => void;
   getPostById: (id: string) => void;
@@ -29,8 +29,8 @@ export interface ArticleStoreType {
 }
 
 export interface IArticleProps {
-  articleStore ? : ArticleStoreType;
-  location ? : any;
+  articleStore?: ArticleStoreType;
+  location?: any;
 }
 
 export interface IArticleDetail {
@@ -48,12 +48,12 @@ export interface IArticleDetail {
 
 export interface IArchive {
   _id: {
-    year: number
+    year: number;
   };
   data: {
     month: number;
     data: IArchiveMonth[];
-  }
+  };
 }
 
 export interface IPrevNext {
