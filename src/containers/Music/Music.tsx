@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
-import Helmet from 'react-helmet';
+import Title from '@components/Common/Title/Title';
 import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
 import { webpSuffix, musicBg } from '@constants/constants';
@@ -46,9 +46,7 @@ class Music extends React.Component<IMusicProps, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={cs(styles.music_wrapper, 'no-user-select')}>
-        <Helmet>
-          <title>ミュージック | Yancey Inc.</title>
-        </Helmet>
+        <Title title='ミュージック' />
         <figure
           className={styles.bg_cover}
           style={{

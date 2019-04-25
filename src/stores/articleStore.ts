@@ -21,7 +21,6 @@ import {
   sortBy, setToast,
 } from '@tools/tools';
 
-
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
   @observable public hots: IArticleDetail[] = [];
@@ -77,7 +76,6 @@ class ArticleStore {
   @action public onPageChange = (current: number) => {
     this.curPage = current;
     history.push(`${routePath.blog}?page=${current}`);
-    console.log(history)
     this.getPostsByPage();
     window.scroll({
       top: 0,
@@ -151,7 +149,7 @@ class ArticleStore {
       const res = await articleService.getArchives();
       runInAction(() => {
         this.archives = res.data.sort(sortBy('_id', 'year'));
-        this.archives.forEach((value: any) => value.data.forEach((value: any) => this.totalArticlesCount += value.data.length))
+        this.archives.forEach((value: any) => value.data.forEach((val: any) => this.totalArticlesCount += val.data.length))
       });
     } catch (e) {
       setToast('获取归档失败');

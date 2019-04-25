@@ -143,7 +143,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
             <Route path={routePath.music} component={Music} />
             <Route path={routePath.about} component={About} />
             <Route path={routePath.notFound} component={NotFound} />
-            <Route path='*' component={NotFound} />
+            <Route component={NotFound} />
           </Switch>
         </div>
         <ScrollToTop />

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
+import Title from '@components/Common/Title/Title';
 import styles from './Legal.module.scss';
 import { webpSuffix, socialMedia, legalBg } from '@constants/constants';
 
@@ -13,9 +13,7 @@ class Legal extends React.Component<{}, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main>
-        <Helmet>
-          <title>Privacy Policy | Yancey Inc.</title>
-        </Helmet>
+        <Title title='Privacy Policy' />
         <figure
           className={styles.bg_img}
           style={{

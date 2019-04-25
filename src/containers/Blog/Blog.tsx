@@ -2,7 +2,6 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import history from '../../history';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet';
 import cs from 'classnames';
 import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_US';
@@ -14,6 +13,7 @@ import routePath from '@constants/routePath';
 import BlogSummary from '@components/Post/PostSummary/PostSummary';
 import Tag from '@components/Post/Tag/Tag';
 import LinkCard from '@components/Post/LinkCard/LinkCard';
+import Title from '@components/Common/Title/Title';
 import { IArticleProps } from '../../types/article';
 
 @inject('articleStore')
@@ -40,9 +40,7 @@ class Blog extends React.Component<IArticleProps, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main>
-        <Helmet>
-          <title>Blog | Yancey Inc.</title>
-        </Helmet>
+        <Title title='Blog' />
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
           style={{

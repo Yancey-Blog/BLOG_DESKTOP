@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import Title from '@components/Common/Title/Title';
 import cs from 'classnames';
 import styles from './Archive.module.scss';
 import { archiveBg, webpSuffix } from '@constants/constants';
@@ -15,7 +15,7 @@ class Archive extends React.Component<IArticleProps, {}> {
     super(props);
     this.state = {};
   }
-  
+
   public componentDidMount() {
     const { articleStore } = this.props;
     articleStore!.getArchives();
@@ -40,9 +40,7 @@ class Archive extends React.Component<IArticleProps, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={styles.archive_wrapper}>
-        <Helmet>
-          <title>Archive | Yancey Inc.</title>
-        </Helmet>
+        <Title title='Archive' />
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
           style={{
@@ -68,7 +66,9 @@ class Archive extends React.Component<IArticleProps, {}> {
             >
               Fold
             </button>
-            <p className={styles.total_count}>Total: {articleStore!.totalArticlesCount}</p>
+            <p className={styles.total_count}>
+              Total: {articleStore!.totalArticlesCount}
+            </p>
           </div>
           {Object.keys(articleStore!.archives).map(year => (
             <section className={styles.archive_list_wrapper} key={year}>
@@ -93,7 +93,8 @@ class Archive extends React.Component<IArticleProps, {}> {
                         )}
                         {'. '}(
                         {articleStore!.archives[year].data[month].data.length}{' '}
-                        {articleStore!.archives[year].data[month].data.length > 1
+                        {articleStore!.archives[year].data[month].data.length >
+                        1
                           ? 'articles'
                           : 'article'}
                         )

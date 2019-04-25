@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
-import Helmet from 'react-helmet';
+import Title from '@components/Common/Title/Title';
 import styles from './CV.module.scss';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import { socialMedia, svgSprite, webpSuffix } from '@constants/constants';
@@ -31,9 +31,7 @@ class CV extends React.Component<ICVProps, {}> {
     const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={styles.cv_wrapper}>
-        <Helmet>
-          <title>CV | Yancey Inc.</title>
-        </Helmet>
+        <Title title='CV' />
         <section className={styles.cv_basic_container}>
           <figure
             className={styles.avatar}
@@ -126,7 +124,6 @@ class CV extends React.Component<ICVProps, {}> {
               techStack={item.program_technology_stack}
             />
           ))}
-
         </section>
       </main>
     );
