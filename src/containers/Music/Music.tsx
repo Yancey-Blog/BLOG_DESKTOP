@@ -55,7 +55,7 @@ class Music extends React.Component<IMusicProps, {}> {
             })`,
           }}
         >
-          <h2>ミュージック</h2>
+          <h1>ミュージック</h1>
           <p>夢を歌おう~</p>
         </figure>
         <div className={styles.live_tours_artists_wrapper}>
