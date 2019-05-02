@@ -16,7 +16,7 @@
 
     &::after {
       content: '';
-      background: url("../../assets/images/dot.gif") 0 0 fixed;
+      background: url('../../assets/images/dot.gif') 0 0 fixed;
       position: absolute;
       top: 0;
       right: 0;
@@ -35,9 +35,10 @@
     user-select: none;
     top: 36%;
     transition: all 400ms ease;
-    max-width: 100%;
+    max-width: 27rem;
+    margin: 0 auto;
     text-align: center;
-    letter-spacing: .25rem;
+    letter-spacing: 0.25rem;
 
     &::before,
     &::after {
@@ -46,12 +47,12 @@
       top: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0);
-      clip: rect(0, 0, 0, 0)
+      clip: rect(0, 0, 0, 0);
     }
 
     &::before {
       left: -1px;
-      text-shadow: 1px 0 #ff3f1a
+      text-shadow: 1px 0 #ff3f1a;
     }
 
     &::after {
@@ -61,12 +62,12 @@
 
     &:hover::before {
       text-shadow: 4px 0 #ff3f1a;
-      animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
+      animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
     }
 
     &:hover::after {
       text-shadow: -5px 0 #00a7e0;
-      animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
+      animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
     }
   }
 
@@ -75,7 +76,7 @@
     z-index: 1;
     max-width: 27rem;
     margin: 0 auto;
-    background: rgba(#000, .5);
+    background: rgba(#000, 0.5);
     padding: 1rem;
     border-radius: 10px;
     top: 39%;
@@ -83,7 +84,7 @@
     .social_media_motto {
       position: relative;
       font-weight: 700;
-      font-size: .8rem;
+      font-size: 0.8rem;
       color: #eaeadf;
       display: flex;
       justify-content: center;
@@ -101,19 +102,19 @@
       .left_quote,
       .right_quote {
         position: relative;
-        width: .9rem;
-        height: .9rem;
+        width: 0.9rem;
+        height: 0.9rem;
         fill: #fff;
-        fill-opacity: .6;
+        fill-opacity: 0.6;
         top: 0;
       }
 
       .left_quote {
-        margin-right: .4rem;
+        margin-right: 0.4rem;
       }
 
       .right_quote {
-        margin-left: .4rem;
+        margin-left: 0.4rem;
         margin-right: 0;
       }
     }
@@ -139,13 +140,14 @@
 
       .wechat_qr_code {
         &::after {
-          background: rgba(0, 0, 0, .5) url($wechatQR) no-repeat center top;
+          background: rgba(0, 0, 0, 0.5) url($wechatQR) no-repeat center top;
         }
       }
 
       .twitter_qr_code {
         &::after {
-          background: rgba(0, 0, 0, .5) url('#{$twitterQR}') no-repeat center top;
+          background: rgba(0, 0, 0, 0.5) url('#{$twitterQR}') no-repeat center
+            top;
         }
       }
 
@@ -215,7 +217,7 @@
       color: #969696;
       padding: 1rem;
       border-radius: 10px;
-      font-size: .8rem;
+      font-size: 0.8rem;
       background: #fbfbfb;
     }
 
@@ -227,7 +229,7 @@
 
       .new_release {
         overflow: hidden;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
 
         @at-root .new_release_content {
@@ -265,9 +267,9 @@
             color: #fff;
             width: 100%;
             margin-top: 1.4rem;
-            padding: .5rem 0;
+            padding: 0.5rem 0;
             text-align: center;
-            font-size: .9rem;
+            font-size: 0.9rem;
             transition: all 400ms linear;
           }
 
@@ -279,7 +281,7 @@
             left: -50%;
             transform: translate3d(-50%, -50%, 0);
             color: #bbb;
-            font-size: .6rem;
+            font-size: 0.6rem;
             font-style: italic;
             letter-spacing: 1px;
             z-index: 2;
@@ -295,7 +297,7 @@
             bottom: 0;
             left: 0;
             margin: auto;
-            background: rgba(#000, .6);
+            background: rgba(#000, 0.6);
             transition: all 400ms linear;
           }
         }
@@ -309,19 +311,20 @@
 
     a {
       display: inline-block;
-      font-family: "Ubuntu", sans-serif;
-      padding: .5rem 2.75rem;
-      border: 2px solid #F12742;
+      font-family: 'Ubuntu', sans-serif;
+      padding: 0.5rem 2.75rem;
+      border: 2px solid #f12742;
       border-radius: 1.75rem;
-      color: #F12742;
+      color: #f12742;
       transition-property: transform, opacity, visibility;
       transition-duration: 0.25s, 0.15s, 0s;
-      transition-timing-function: cubic-bezier(0.31, 0.32, 0.38, 2), linear, linear;
+      transition-timing-function: cubic-bezier(0.31, 0.32, 0.38, 2), linear,
+        linear;
       transition-delay: 0s, 0s, 0.15s;
       transform: scale3d(1, 1, 1);
 
       &:hover {
-        box-shadow: 0 0 4px rgba(#F12742, .85);
+        box-shadow: 0 0 4px rgba(#f12742, 0.85);
         transform: scale3d(1.05, 1.05, 1);
       }
     }
@@ -330,9 +333,9 @@
   .blog_summary_tips,
   .new_release_tips {
     color: #666;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    padding-bottom: .4rem;
+    padding-bottom: 0.4rem;
     border-bottom: 1px dashed #ececec;
     width: 40rem;
     margin: 4rem auto 2rem;
@@ -341,7 +344,7 @@
   .icon {
     width: 1.2rem;
     height: 1.2rem;
-    margin-right: .6rem;
+    margin-right: 0.6rem;
     position: relative;
     top: 4px;
   }
@@ -371,23 +374,23 @@
 
 @keyframes glitch-loop-1 {
   0% {
-    clip: rect(36px, 9999px, 9px, 0)
+    clip: rect(36px, 9999px, 9px, 0);
   }
 
   25% {
-    clip: rect(25px, 9999px, 99px, 0)
+    clip: rect(25px, 9999px, 99px, 0);
   }
 
   50% {
-    clip: rect(50px, 9999px, 102px, 0)
+    clip: rect(50px, 9999px, 102px, 0);
   }
 
   75% {
-    clip: rect(30px, 9999px, 92px, 0)
+    clip: rect(30px, 9999px, 92px, 0);
   }
 
   100% {
-    clip: rect(91px, 9999px, 98px, 0)
+    clip: rect(91px, 9999px, 98px, 0);
   }
 }
 
@@ -395,30 +398,30 @@
   0% {
     top: -1px;
     left: 1px;
-    clip: rect(65px, 9999px, 119px, 0)
+    clip: rect(65px, 9999px, 119px, 0);
   }
 
   25% {
     top: -6px;
     left: 4px;
-    clip: rect(79px, 9999px, 19px, 0)
+    clip: rect(79px, 9999px, 19px, 0);
   }
 
   50% {
     top: -3px;
     left: 2px;
-    clip: rect(68px, 9999px, 11px, 0)
+    clip: rect(68px, 9999px, 11px, 0);
   }
 
   75% {
     top: 0;
     left: -4px;
-    clip: rect(95px, 9999px, 53px, 0)
+    clip: rect(95px, 9999px, 53px, 0);
   }
 
   100% {
     top: -1px;
     left: -1px;
-    clip: rect(31px, 9999px, 149px, 0)
+    clip: rect(31px, 9999px, 149px, 0);
   }
 }
