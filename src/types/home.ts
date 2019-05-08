@@ -1,22 +1,5 @@
 import { ArticleStoreType } from './article';
 
-export interface IHomeStore {
-  announcement: string;
-  motto: string;
-  projects: IProject[];
-  coverUrl: string;
-  getAnnouncement: () => void;
-  getMotto: () => void;
-  getProject: () => void;
-  loadBgImg: () => void;
-  getCover: (position?: string) => void;
-}
-
-export interface IHomeProps {
-  homeStore?: IHomeStore;
-  articleStore?: ArticleStoreType;
-}
-
 export interface IAnnouncement {
   __v: number;
   _id: string;
@@ -48,4 +31,21 @@ export interface ICover {
   url: string;
   __v: number;
   _id: string;
+}
+
+export interface IHomeStore {
+  announcement: string;
+  motto: string;
+  projects: IProject[];
+  coverUrl: string;
+  getAnnouncement: () => void;
+  getMotto: () => void;
+  getProject: () => void;
+  loadBgImg: () => void;
+  getCover: (position?: string) => void;
+}
+
+export interface IHomeProps {
+  homeStore?: IHomeStore;
+  articleStore?: ArticleStoreType;
 }

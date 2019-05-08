@@ -1,19 +1,5 @@
 import { ArticleStoreType } from './article';
 
-interface MusicStoreType {
-  liveTours: ILiveTours[];
-  featuredRecords: IFeaturedRecords[];
-  yanceyMusic: IYanceyMusic[];
-  getLiveTours: () => void;
-  getFeaturedRecords: () => void;
-  getYanceyMusic: () => void;
-}
-
-export interface IMusicProps {
-  musicStore: MusicStoreType;
-  articleStore: ArticleStoreType;
-}
-
 export interface ILiveTours {
   poster: string;
   title: string;
@@ -47,4 +33,18 @@ export interface ICardProps {
   title: string;
   date: string;
   cover: string;
+}
+
+interface MusicStoreType {
+  liveTours: ILiveTours[];
+  featuredRecords: IFeaturedRecords[];
+  yanceyMusic: IYanceyMusic[];
+  getLiveTours: () => void;
+  getFeaturedRecords: () => void;
+  getYanceyMusic: () => void;
+}
+
+export interface IMusicProps {
+  musicStore: MusicStoreType;
+  articleStore: ArticleStoreType;
 }

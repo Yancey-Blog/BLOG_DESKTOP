@@ -1,26 +1,3 @@
-export interface CVStoreType {
-  user: IUser;
-  workExperience: IWorkExperience[];
-  programExperience: IProgramExperience[];
-  getUser: () => void;
-  getWorkExperience: () => void;
-  getProgramExperience: () => void;
-}
-
-export interface ICVProps {
-  cvStore: CVStoreType;
-}
-
-export interface IUser {
-  avatar: string;
-  city: string;
-  position: string;
-  self_introduction: string;
-  user_name: string;
-  __v?: number;
-  _id?: string;
-}
-
 export interface IWorkExperience {
   enterprise_name: string;
   in_service: string[];
@@ -48,4 +25,26 @@ export interface ICardProps {
   programLink: string;
   detail: string;
   techStack: string[];
+}
+export interface CVStoreType {
+  user: IUser;
+  workExperience: IWorkExperience[];
+  programExperience: IProgramExperience[];
+  getUser: () => void;
+  getWorkExperience: () => void;
+  getProgramExperience: () => void;
+}
+
+export interface ICVProps {
+  cvStore: CVStoreType;
+}
+
+export interface IUser {
+  avatar: string;
+  city: string;
+  position: string;
+  self_introduction: string;
+  user_name: string;
+  __v?: number;
+  _id?: string;
 }
