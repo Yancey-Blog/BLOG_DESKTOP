@@ -15,7 +15,7 @@ import Loading from '@components/Common/Loading/Loading';
 import NotFound from '../containers/NotFound/NotFound';
 import { ILayoutsProps } from '../types/layout';
 
-const loading = props => {
+const loading = (props: any) => {
   if (props.pastDelay) {
     return <Loading />;
   } else {

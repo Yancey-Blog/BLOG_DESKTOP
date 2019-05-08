@@ -15,8 +15,6 @@ class Loading extends React.Component<{}, {}> {
       bottom: 0,
       left: 0,
       margin: 'auto',
-      width: 0,
-      height: 0,
       textAlign: 'center' as 'center',
       color: '#000000',
       opacity: 0.2,
