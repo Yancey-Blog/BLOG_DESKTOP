@@ -1,7 +1,6 @@
-import * as React from 'react';
+import React, {Component, Suspense, lazy} from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './Layouts.module.scss';
@@ -15,67 +14,15 @@ import Loading from '@components/Common/Loading/Loading';
 import NotFound from '../containers/NotFound/NotFound';
 import { ILayoutsProps } from '../types/layout';
 
-const loading = (props: any) => {
-  if (props.pastDelay) {
-    return <Loading />;
-  } else {
-    return null;
-  }
-};
-
-const Home = Loadable({
-  loader: () => import('../containers/Home/Home'),
-  loading,
-  delay: 50,
-});
-
-const Blog = Loadable({
-  loader: () => import('../containers/Blog/Blog'),
-  loading,
-  delay: 50,
-});
-
-const BlogDetail = Loadable({
-  loader: () => import('../containers/BlogDetail/BlogDetail'),
-  loading,
-  delay: 50,
-});
-
-const Archive = Loadable({
-  loader: () => import('../containers/Archive/Archive'),
-  loading,
-  delay: 50,
-});
-
-const Legal = Loadable({
-  loader: () => import('../containers/Legal/Legal'),
-  loading,
-  delay: 50,
-});
-
-const Apps = Loadable({
-  loader: () => import('../containers/Apps/Apps'),
-  loading,
-  delay: 50,
-});
-
-const CV = Loadable({
-  loader: () => import('../containers/CV/CV'),
-  loading,
-  delay: 50,
-});
-
-const Music = Loadable({
-  loader: () => import('../containers/Music/Music'),
-  loading,
-  delay: 50,
-});
-
-const About = Loadable({
-  loader: () => import('../containers/About/About'),
-  loading,
-  delay: 50,
-});
+const Home = lazy(() => import('../containers/Home/Home'));
+const Blog = lazy(() => import('../containers/Blog/Blog'));
+const BlogDetail = lazy(() => import('../containers/BlogDetail/BlogDetail'));
+const Archive = lazy(() => import('../containers/Archive/Archive'));
+const Legal = lazy(() => import('../containers/Legal/Legal'));
+const Apps = lazy(() => import('../containers/Apps/Apps'));
+const CV = lazy(() => import('../containers/CV/CV'));
+const Music = lazy(() => import('../containers/Music/Music'));
+const About = lazy(() => import('../containers/About/About'));
 
 // 后期跳转监听
 history.listen((location, action) => {
@@ -84,7 +31,7 @@ history.listen((location, action) => {
 
 @inject('layoutsStore')
 @observer
-class Layouts extends React.Component<ILayoutsProps, {}> {
+class Layouts extends Component<ILayoutsProps, {}> {
   constructor(props: ILayoutsProps) {
     super(props);
     this.state = {};
@@ -119,6 +66,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
       >
         <Header />
         <div className={styles.main_contents}>
+        <Suspense fallback={<Loading />}>
           <Switch>
             <Route path={routePath.home} exact component={Home} />
             <Route path={routePath.legal} component={Legal} />
@@ -145,6 +93,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
             <Route path={routePath.notFound} component={NotFound} />
             <Route component={NotFound} />
           </Switch>
+          </Suspense>
         </div>
         <ScrollToTop />
         <Player />
