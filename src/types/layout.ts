@@ -1,16 +1,3 @@
-interface LayoutsStoreType {
-  players: IPlayer[];
-  globalStatus: IGlobalStatus;
-  isHomePage: boolean;
-  getPlayers: () => void;
-  getGlobalStatus: () => void;
-  getLocalPath: () => void;
-}
-
-export interface ILayoutsProps {
-  layoutsStore ? : LayoutsStoreType;
-}
-
 export interface IPlayer {
   __v: number;
   _id: string;
@@ -35,4 +22,16 @@ export interface IGlobalStatus {
   full_site_gray: boolean;
   __v: number;
   _id: string;
+}
+interface LayoutsStoreType {
+  players: IPlayer[];
+  globalStatus: IGlobalStatus;
+  isHomePage: boolean;
+  getPlayers: () => void;
+  getGlobalStatus: () => void;
+  getLocalPath: () => void;
+}
+
+export interface ILayoutsProps {
+  layoutsStore?: LayoutsStoreType;
 }

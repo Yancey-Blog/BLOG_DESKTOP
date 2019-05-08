@@ -1,3 +1,24 @@
+export interface ILike {
+  like_number: number;
+  liked: boolean;
+}
+
+export interface IIncreasePV {
+  n: number;
+  nModified: number;
+  ok: number;
+}
+
+export interface IArchiveMonth {
+  day: number;
+  id: string;
+  pv_count: number;
+  title: string;
+}
+
+export interface IHeaderState {
+  isTop: boolean;
+}
 export interface ArticleStoreType {
   posts: IArticleDetail[];
   hots: IArticleDetail[];
@@ -62,30 +83,10 @@ export interface IPrevNext {
   title: string;
 }
 
-export interface IArchiveMonth {
-  day: number;
-  id: string;
-  pv_count: number;
-  title: string;
-}
-
 export interface IDetail {
   curArticle: IArticleDetail;
   nextArticle: IPrevNext;
   previousArticle: IPrevNext;
 }
 
-export interface ILike {
-  like_number: number;
-  liked: boolean;
-}
 
-export interface IIncreasePV {
-  n: number;
-  nModified: number;
-  ok: number;
-}
-
-export interface IHeaderState {
-  isTop: boolean;
-}
