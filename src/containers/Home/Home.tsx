@@ -25,7 +25,7 @@ class Home extends React.Component<IHomeProps, {}> {
     homeStore!.getMotto();
     homeStore!.getProject();
     homeStore!.getAnnouncement();
-    articleStore!.getPostsByPage();
+    articleStore!.getPostsByPage(1);
   }
 
   public render() {
@@ -139,7 +139,7 @@ class Home extends React.Component<IHomeProps, {}> {
             <PostSummary />
           </article>
           <article className={styles.show_more_btn_wrapper}>
-            <Link to={routePath.blog}>More</Link>
+            <Link to={`${routePath.blog}?page=1`}>More</Link>
           </article>
         </section>
       </main>

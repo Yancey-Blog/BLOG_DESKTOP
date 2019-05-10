@@ -24,7 +24,6 @@ export interface ArticleStoreType {
   hots: IArticleDetail[];
   tags: string[];
   archives: IArchive[];
-  curPage: number;
   total: number;
   showSearch: boolean;
   isLiked: boolean;
@@ -36,7 +35,7 @@ export interface ArticleStoreType {
   toggleShowSearch: () => void;
   onPageChange: () => void;
   onSearchChange: (e: any) => void;
-  getPostsByPage: () => void;
+  getPostsByPage: (page: number) => void;
   getPostsByTitle: (title: string) => void;
   getAllTags: () => void;
   getPostsByTag: (tag?: string) => void;

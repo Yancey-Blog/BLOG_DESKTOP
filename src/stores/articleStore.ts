@@ -26,7 +26,6 @@ class ArticleStore {
   @observable public hots: IArticleDetail[] = [];
   @observable public tags: string[] = [];
   @observable public archives: IArchive[] = [];
-  @observable public curPage: number = 1;
   @observable public total: number = 0;
   @observable public showSearch: boolean = false;
   @observable public likeNum: number = 0;
@@ -74,9 +73,8 @@ class ArticleStore {
   };
 
   @action public onPageChange = (current: number) => {
-    this.curPage = current;
     history.push(`${routePath.blog}?page=${current}`);
-    this.getPostsByPage();
+    this.getPostsByPage(current);
     window.scroll({
       top: 0,
       behavior: 'smooth'
@@ -87,16 +85,15 @@ class ArticleStore {
     return history.location.pathname.split('/').slice(-1)[0];
   }
 
-  public getPostsByPage = async () => {
+  public getPostsByPage = async (page: number) => {
     try {
-      const res = await articleService.getPostsByPage(this.curPage);
+      const res = await articleService.getPostsByPage(page);
       runInAction(() => {
         this.posts = res.data;
         this.total = parseInt(res.headers.amount, 10);
-        this.curPage = 1;
       });
     } catch (e) {
-      setToast(`获取第 ${this.curPage} 页失败`);
+      setToast(`获取第 ${page} 页失败`);
     }
   };
 

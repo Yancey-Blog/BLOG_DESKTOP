@@ -24,7 +24,6 @@ const CV = lazy(() => import('../containers/CV/CV'));
 const Music = lazy(() => import('../containers/Music/Music'));
 const About = lazy(() => import('../containers/About/About'));
 
-// 后期跳转监听
 history.listen((location, action) => {
   window.localStorage.curPath = location.pathname;
 });
