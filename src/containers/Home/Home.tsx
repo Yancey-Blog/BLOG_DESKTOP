@@ -139,7 +139,9 @@ class Home extends React.Component<IHomeProps, {}> {
             <PostSummary />
           </article>
           <article className={styles.show_more_btn_wrapper}>
-            <Link to={`${routePath.blog}?page=1`}>More</Link>
+            <Link to={{ pathname: routePath.blog, search: '?page=1' }}>
+              More
+            </Link>
           </article>
         </section>
       </main>

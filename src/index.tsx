@@ -2,8 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { unregister } from './registerServiceWorker';
-unregister();
+import * as serviceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -11,3 +10,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root') as HTMLElement,
 );
+
+serviceWorker.unregister();

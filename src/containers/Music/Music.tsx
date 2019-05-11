@@ -39,8 +39,8 @@ class Music extends React.Component<IMusicProps, {}> {
 
   public render() {
     const {
-      musicStore: { liveTours, featuredRecords, yanceyMusic },
-      articleStore: { posts },
+      musicStore,
+      articleStore,
     } = this.props;
 
     const isWebp = window.localStorage.isWebp === 'true';
@@ -67,7 +67,7 @@ class Music extends React.Component<IMusicProps, {}> {
               transitionMode='fade'
               wrapAround
             >
-              {liveTours.map((liveTour: ILiveTours) => (
+              {musicStore!.liveTours.map((liveTour: ILiveTours) => (
                 <div
                   className={cs(
                     styles.post_container,
@@ -101,7 +101,7 @@ class Music extends React.Component<IMusicProps, {}> {
           <section>
             <h2 className={styles.column_title}>MUSIC NOTES</h2>
             <div className={cs(styles.artists_list)}>
-              {posts.map((item: IArticleDetail) => (
+              {articleStore!.posts.map((item: IArticleDetail) => (
                 <Card
                   type='note'
                   key={item._id}
@@ -118,7 +118,7 @@ class Music extends React.Component<IMusicProps, {}> {
           <section className={styles.featured_records_container}>
             <h2 className={styles.column_title}>FEATURED RECORDS</h2>
             <ul className={styles.featured_records_list}>
-              {featuredRecords.map((item: IFeaturedRecords) => (
+              {musicStore!.featuredRecords.map((item: IFeaturedRecords) => (
                 <li className={styles.featured_record_item} key={item._id}>
                   <figure
                     className={styles.record_cover}
@@ -157,7 +157,7 @@ class Music extends React.Component<IMusicProps, {}> {
         <section className={styles.yancey_music_container}>
           <h2 className={styles.column_title}>YANCEY MUSIC</h2>
           <div className={cs(styles.artists_list, styles.yancey_music_list)}>
-            {yanceyMusic.map((item: IYanceyMusic) => (
+            {musicStore!.yanceyMusic.map((item: IYanceyMusic) => (
               <Card
                 type='yanceyMusic'
                 key={item._id}
