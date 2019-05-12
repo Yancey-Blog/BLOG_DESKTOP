@@ -36,7 +36,7 @@ export interface CVStoreType {
 }
 
 export interface ICVProps {
-  cvStore: CVStoreType;
+  cvStore?: CVStoreType;
 }
 
 export interface IUser {

@@ -19,14 +19,14 @@ class CV extends React.Component<ICVProps, {}> {
 
   public componentDidMount() {
     const { cvStore } = this.props;
-    cvStore.getUser();
-    cvStore.getWorkExperience();
-    cvStore.getProgramExperience();
+    cvStore!.getUser();
+    cvStore!.getWorkExperience();
+    cvStore!.getProgramExperience();
   }
 
   public render() {
     const {
-      cvStore: { user, workExperience, programExperience },
+      cvStore,
     } = this.props;
     const isWebp = window.localStorage.isWebp === 'true';
     return (
@@ -37,19 +37,19 @@ class CV extends React.Component<ICVProps, {}> {
             className={styles.avatar}
             style={{
               backgroundImage: `url(${
-                isWebp ? `${user.avatar}${webpSuffix}` : user.avatar
+                isWebp ? `${cvStore!.user.avatar}${webpSuffix}` : cvStore!.user.avatar
               })`,
             }}
           />
           <div className={styles.cv_basic}>
-            <p className={cs(styles.identity, styles.name)}>{user.user_name}</p>
+            <p className={cs(styles.identity, styles.name)}>{cvStore!.user.user_name}</p>
             <p className={styles.identity}>
               <span>Gender: </span>
               Man
             </p>
             <p className={styles.identity}>
               <span>City: </span>
-              {user.city}
+              {cvStore!.user.city}
             </p>
             <p className={styles.identity}>
               <span>Age: </span>
@@ -82,7 +82,7 @@ class CV extends React.Component<ICVProps, {}> {
             </p>
             <div className={styles.self_introduction}>
               <p className={styles.self_introduction_content}>
-                {user.self_introduction}
+                {cvStore!.user.self_introduction}
               </p>
             </div>
           </div>
@@ -94,14 +94,14 @@ class CV extends React.Component<ICVProps, {}> {
             </svg>
             <span className={styles.item_name}>Work Experience</span>
           </div>
-          {workExperience.map((item: IWorkExperience) => (
+          {cvStore!.workExperience.map((item: IWorkExperience) => (
             <Card
               key={item._id}
               type='workExperience'
               name={item.enterprise_name}
               position={item.position}
               inService={item.in_service}
-              programLink=''
+              programLink={''}
               detail={item.work_content}
               techStack={item.work_technology_stack}
             />
@@ -112,7 +112,7 @@ class CV extends React.Component<ICVProps, {}> {
             </svg>
             <span className={styles.item_name}>Program Experience</span>
           </div>
-          {programExperience.map((item: IProgramExperience) => (
+          {cvStore!.programExperience.map((item: IProgramExperience) => (
             <Card
               key={item._id}
               type='programExperience'

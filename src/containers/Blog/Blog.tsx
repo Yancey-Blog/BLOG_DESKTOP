@@ -29,7 +29,7 @@ class Blog extends React.Component<IArticleProps, {}> {
     if (history.location.pathname.includes('t')) {
       articleStore!.getPostsByTag();
     } else if (history.location.pathname.includes('blog')) {
-      articleStore!.getPostsByPage();
+      articleStore!.getPostsByPage(1);
     }
     articleStore!.getAllTags();
     articleStore!.getHots();
@@ -70,7 +70,7 @@ class Blog extends React.Component<IArticleProps, {}> {
                   goButton: <button>OK</button>,
                 }}
                 defaultPageSize={10}
-                defaultCurrent={articleStore!.curPage}
+                defaultCurrent={1}
                 onChange={articleStore!.onPageChange}
                 total={articleStore!.total}
                 locale={localeInfo}

@@ -45,6 +45,6 @@ interface MusicStoreType {
 }
 
 export interface IMusicProps {
-  musicStore: MusicStoreType;
-  articleStore: ArticleStoreType;
+  musicStore?: MusicStoreType;
+  articleStore?: ArticleStoreType;
 }

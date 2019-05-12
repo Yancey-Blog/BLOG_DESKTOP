@@ -33,12 +33,12 @@
     font-size: 4rem;
     z-index: 1;
     user-select: none;
-    top: 36%;
+    top: 32%;
     transition: all 400ms ease;
-    max-width: 27rem;
+    max-width: 28rem;
     margin: 0 auto;
     text-align: center;
-    letter-spacing: 0.25rem;
+    letter-spacing: 0.2rem;
 
     &::before,
     &::after {
@@ -79,7 +79,7 @@
     background: rgba(#000, 0.5);
     padding: 1rem;
     border-radius: 10px;
-    top: 39%;
+    top: 36%;
 
     .social_media_motto {
       position: relative;

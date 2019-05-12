@@ -1,8 +1,8 @@
 {
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "trailingComma": "all",
+  "semi": true,
   "bracketSpacing": true,
-  "proseWrap": "preserve",
-  "semi": true
+  "trailingComma": "all",
+  "proseWrap": "preserve"
 }

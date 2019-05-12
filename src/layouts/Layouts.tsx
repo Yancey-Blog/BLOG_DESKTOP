@@ -1,4 +1,4 @@
-import React, {Component, Suspense, lazy} from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -24,8 +24,7 @@ const CV = lazy(() => import('../containers/CV/CV'));
 const Music = lazy(() => import('../containers/Music/Music'));
 const About = lazy(() => import('../containers/About/About'));
 
-// 后期跳转监听
-history.listen((location, action) => {
+history.listen(location => {
   window.localStorage.curPath = location.pathname;
 });
 
@@ -66,33 +65,32 @@ class Layouts extends Component<ILayoutsProps, {}> {
       >
         <Header />
         <div className={styles.main_contents}>
-        <Suspense fallback={<Loading />}>
-          <Switch>
-            <Route path={routePath.home} exact component={Home} />
-            <Route path={routePath.legal} component={Legal} />
-            <Route
-              path={routePath.blog}
-              render={props => <Blog {...props} key={location.pathname} />}
-            />
-            <Route
-              path={`${routePath.tag}:id`}
-              render={props => <Blog {...props} key={location.pathname} />}
-            />
-            <Route path={routePath.search} component={Blog} />
-            <Route
-              path={`${routePath.blogDetail}:id`}
-              render={props => (
-                <BlogDetail {...props} key={location.pathname} />
-              )}
-            />
-            <Route path={routePath.archive} component={Archive} />
-            <Route path={routePath.apps} component={Apps} />
-            <Route path={routePath.cv} component={CV} />
-            <Route path={routePath.music} component={Music} />
-            <Route path={routePath.about} component={About} />
-            <Route path={routePath.notFound} component={NotFound} />
-            <Route component={NotFound} />
-          </Switch>
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route path={routePath.home} exact render={() => <Home />} />
+              <Route path={routePath.legal} render={() => <Legal />} />
+              <Route
+                path={routePath.blog}
+                render={props => <Blog {...props} key={location.pathname} />}
+              />
+              <Route
+                path={`${routePath.tag}:id`}
+                render={props => <Blog {...props} key={location.pathname} />}
+              />
+              <Route path={routePath.search} render={() => <Blog />} />
+              <Route
+                path={`${routePath.blogDetail}:id`}
+                render={props => (
+                  <BlogDetail {...props} key={location.pathname} />
+                )}
+              />
+              <Route path={routePath.archive} render={() => <Archive />} />
+              <Route path={routePath.apps} render={() => <Apps />} />
+              <Route path={routePath.cv} render={() => <CV />} />
+              <Route path={routePath.music} render={() => <Music />} />
+              <Route path={routePath.about} render={() => <About />} />
+              <Route render={() => <NotFound />} />
+            </Switch>
           </Suspense>
         </div>
         <ScrollToTop />
