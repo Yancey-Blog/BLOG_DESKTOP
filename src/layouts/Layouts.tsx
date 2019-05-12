@@ -1,6 +1,6 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { observer, inject } from 'mobx-react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './Layouts.module.scss';
@@ -66,35 +66,31 @@ class Layouts extends Component<ILayoutsProps, {}> {
         <Header />
         <div className={styles.main_contents}>
           <Suspense fallback={<Loading />}>
-            <Route path={routePath.home} exact render={() => <Home />} />
-            <Route path={routePath.legal} render={() => <Legal />} />
-            <Route
-              path={routePath.blog}
-              render={props => <Blog {...props} key={location.pathname} />}
-            />
-            <Route
-              path={`${routePath.tag}:id`}
-              render={props => <Blog {...props} key={location.pathname} />}
-            />
-            <Route path={routePath.search} render={() => <Blog />} />
-            <Route
-              path={`${routePath.blogDetail}:id`}
-              render={props => (
-                <BlogDetail {...props} key={location.pathname} />
-              )}
-            />
-            <Route path={routePath.archive} render={() => <Archive />} />
-            <Route path={routePath.apps} render={() => <Apps />} />
-            <Route path={routePath.cv} render={() => <CV />} />
-            <Route
-              path={routePath.music}
-              render={() => <Music />}
-            />
-            <Route
-              path={routePath.about}
-              render={() => <About />}
-            />
-            <Route render={() => <NotFound />} />
+            <Switch>
+              <Route path={routePath.home} exact render={() => <Home />} />
+              <Route path={routePath.legal} render={() => <Legal />} />
+              <Route
+                path={routePath.blog}
+                render={props => <Blog {...props} key={location.pathname} />}
+              />
+              <Route
+                path={`${routePath.tag}:id`}
+                render={props => <Blog {...props} key={location.pathname} />}
+              />
+              <Route path={routePath.search} render={() => <Blog />} />
+              <Route
+                path={`${routePath.blogDetail}:id`}
+                render={props => (
+                  <BlogDetail {...props} key={location.pathname} />
+                )}
+              />
+              <Route path={routePath.archive} render={() => <Archive />} />
+              <Route path={routePath.apps} render={() => <Apps />} />
+              <Route path={routePath.cv} render={() => <CV />} />
+              <Route path={routePath.music} render={() => <Music />} />
+              <Route path={routePath.about} render={() => <About />} />
+              <Route render={() => <NotFound />} />
+            </Switch>
           </Suspense>
         </div>
         <ScrollToTop />
