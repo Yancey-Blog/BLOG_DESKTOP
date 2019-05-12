@@ -94,7 +94,14 @@ class Header extends React.Component<IArticleProps, IHeaderState> {
           <ul>
             {Object.keys(headerList).map(key => (
               <li className={styles.yancey_nav_item} key={key}>
-                <Link to={headerList[key].url}>
+                <Link
+                  to={{
+                    pathname: headerList[key].url,
+                    search: `${
+                      headerList[key].url === routePath.blog ? '?page=1' : ''
+                    }`,
+                  }}
+                >
                   <svg
                     className={cs(styles.header_icon, styles[`icon_${key}`])}
                   >

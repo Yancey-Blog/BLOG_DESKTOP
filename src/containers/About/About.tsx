@@ -18,7 +18,7 @@ class About extends React.Component<IAboutProps, {}> {
 
   public async componentDidMount() {
     const { aboutStore } = this.props;
-    await aboutStore.getAbouts();
+    await aboutStore!.getAbouts();
     this.handleSwiper();
   }
 
@@ -51,9 +51,7 @@ class About extends React.Component<IAboutProps, {}> {
   }
 
   public render() {
-    const {
-      aboutStore: { abouts },
-    } = this.props;
+    const {aboutStore} = this.props;
 
     const isWebp = window.localStorage.isWebp === 'true';
     return (
@@ -63,7 +61,7 @@ class About extends React.Component<IAboutProps, {}> {
           <div className='timeline'>
             <div className='swiper-container'>
               <div className='swiper-wrapper'>
-                {abouts.map((item: IAbout) => (
+                {aboutStore!.abouts.map((item: IAbout) => (
                   <div
                     className='swiper-slide'
                     key={item._id}

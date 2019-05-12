@@ -3,16 +3,13 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "lib": ["es6", "dom"],
     "baseUrl": ".",
     "paths": {
       "@constants/*": ["./src/constants/*"],
       "@types/*": ["./src/types/*"],
       "@components/*": ["./src/components/*"],
-      "@tools/*": ["./src/tools/*"],
+      "@tools/*": ["./src/tools/*"]
     },
     "sourceMap": true,
     "allowJs": true,
@@ -34,15 +31,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": true
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "exclude": [
-    "node_modules",
     "build",
     "scripts",
+    "node_modules",
     "acceptance-tests",
     "webpack",
     "jest",

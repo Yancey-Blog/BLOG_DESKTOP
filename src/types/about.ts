@@ -12,5 +12,5 @@ export interface AboutStoreType {
 }
 
 export interface IAboutProps {
-  aboutStore: AboutStoreType;
+  aboutStore?: AboutStoreType;
 }

@@ -1,32 +1,18 @@
-import {
-  observable,
-  runInAction,
-  action,
-  computed,
-} from 'mobx';
-import {
-  articleService
-} from '../apis/index.service';
-import {
-  IArticleDetail,
-  IArchive,
-  IDetail,
-} from '../types/article';
+import { observable, runInAction, action, computed } from 'mobx';
+import { articleService } from '../apis/index.service';
+import { IArticleDetail, IArchive, IDetail } from '../types/article';
 
 import history from '../history';
 
 import routePath from '@constants/routePath';
 
-import {
-  sortBy, setToast,
-} from '@tools/tools';
+import { sortBy, setToast } from '@tools/tools';
 
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
   @observable public hots: IArticleDetail[] = [];
   @observable public tags: string[] = [];
   @observable public archives: IArchive[] = [];
-  @observable public curPage: number = 1;
   @observable public total: number = 0;
   @observable public showSearch: boolean = false;
   @observable public likeNum: number = 0;
@@ -67,36 +53,34 @@ class ArticleStore {
     const event = e || window.event;
     const key = event.which || event.keyCode || event.charCode;
     if (key === 13) {
-      history.push(`${routePath.search}?q=${event.target.value}`);
+      history.push({
+        pathname: routePath.search,
+        search: `?q=${event.target.value}`,
+      });
       this.getPostsByTitle(event.target.value);
       this.showSearch = false;
     }
   };
 
-  @action public onPageChange = (current: number) => {
-    this.curPage = current;
-    history.push(`${routePath.blog}?page=${current}`);
-    this.getPostsByPage();
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    });
+  @action public onPageChange = async (current: number) => {
+    history.push({ pathname: routePath.blog, search: `?page=${current}` });
+    await this.getPostsByPage(current);
+    window.scroll(0, 0);
   };
 
   @computed get curPath() {
-    return history.location.pathname.split('/').slice(-1)[0];
+    return history.location.pathname.slice(1);
   }
 
-  public getPostsByPage = async () => {
+  public getPostsByPage = async (page: number) => {
     try {
-      const res = await articleService.getPostsByPage(this.curPage);
+      const res = await articleService.getPostsByPage(page);
       runInAction(() => {
         this.posts = res.data;
         this.total = parseInt(res.headers.amount, 10);
-        this.curPage = 1;
       });
     } catch (e) {
-      setToast(`获取第 ${this.curPage} 页失败`);
+      setToast(`获取第 ${page} 页失败`);
     }
   };
 
@@ -149,7 +133,11 @@ class ArticleStore {
       const res = await articleService.getArchives();
       runInAction(() => {
         this.archives = res.data.sort(sortBy('_id', 'year'));
-        this.archives.forEach((value: any) => value.data.forEach((val: any) => this.totalArticlesCount += val.data.length))
+        this.archives.forEach((value: any) =>
+          value.data.forEach(
+            (val: any) => (this.totalArticlesCount += val.data.length),
+          ),
+        );
       });
     } catch (e) {
       setToast('获取归档失败');

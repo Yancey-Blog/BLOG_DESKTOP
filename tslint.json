@@ -10,8 +10,8 @@
     ]
   },
   "rules": {
-    "quotemark": [true, "single"],
     "indent": [true, "spaces", 2],
+    "quotemark": [true, "single"],
     "interface-name": false,
     "ordered-imports": false,
     "no-consecutive-blank-lines": false,

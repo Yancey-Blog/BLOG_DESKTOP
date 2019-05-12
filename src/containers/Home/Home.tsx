@@ -7,6 +7,7 @@ import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
 import routePath from '@constants/routePath';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import PostSummary from '@components/Post/PostSummary/PostSummary';
+import Bubble from '@components/Widget/Bubble/Bubble';
 import styles from './Home.module.scss';
 import { IHomeProps } from '../../types/home';
 
@@ -25,7 +26,7 @@ class Home extends React.Component<IHomeProps, {}> {
     homeStore!.getMotto();
     homeStore!.getProject();
     homeStore!.getAnnouncement();
-    articleStore!.getPostsByPage();
+    articleStore!.getPostsByPage(1);
   }
 
   public render() {
@@ -89,6 +90,7 @@ class Home extends React.Component<IHomeProps, {}> {
               </li>
             </ul>
           </div>
+          <Bubble />
         </section>
         {/* main */}
         <section className={styles.content}>
@@ -139,7 +141,9 @@ class Home extends React.Component<IHomeProps, {}> {
             <PostSummary />
           </article>
           <article className={styles.show_more_btn_wrapper}>
-            <Link to={routePath.blog}>More</Link>
+            <Link to={{ pathname: routePath.blog, search: '?page=1' }}>
+              More
+            </Link>
           </article>
         </section>
       </main>
