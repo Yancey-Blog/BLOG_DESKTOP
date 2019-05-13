@@ -29,7 +29,6 @@ I alse used CSS Module、Webp、SVG Sprite and so on...
 
 ### Home Page
 
-
 ![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20190513-120854%402x.jpg)
 ![Home](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
 
@@ -143,7 +142,7 @@ Display the development history of the blog.
 - 2019-04-03 Add skeleton for blog detail page.
 - 2019-05-08 Use React.lazy() replace react-loadable.
 - 2019-05-12 Add Canvas Bubble for Home Page.
-- 2019-05-13 Support skeleton for blog summary component.
+- 2019-05-13 Support skeleton for blog summary component and try a new lazyload component.
 
 ## TODO
 
