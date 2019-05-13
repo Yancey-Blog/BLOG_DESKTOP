@@ -2,12 +2,18 @@ import * as React from 'react';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
-import 'lazysizes';
+
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import styles from './PostSummary.module.scss';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import routePath from '@constants/routePath';
 import { formatJSONDate } from '@tools/tools';
-import { webpSuffix, thumbSuffix, svgSprite } from '@constants/constants';
+import { webpSuffix, svgSprite } from '@constants/constants';
 import Skeletons from '@components/Skeletons/BlogSummarySkeleton/Skeletons';
 import { IArticleDetail, IArticleProps } from '../../../types/article';
 
@@ -33,22 +39,23 @@ class PostSummary extends React.Component<IArticleProps, {}> {
               className={cs(
                 styles.blog_summary_content,
                 key % 2 === 0 ? styles.reverse : '',
-                'lazyload',
               )}
               key={post._id}
             >
               <div className={styles.blog_thumb_wrapper}>
                 <Link to={`${routePath.blogDetail}${post._id}`}>
                   <figure className={styles.blog_thumb}>
-                    <img
-                      className={cs('lazyload', 'lazyloads', styles.img)}
-                      src={`${post.header_cover}${thumbSuffix}`}
-                      data-src={
+                    <LazyLoadImage
+                      className={styles.img}
+                      alt={post.title}
+                      width='100%'
+                      height='100%'
+                      effect='blur'
+                      src={
                         isWebp
                           ? `${post.header_cover}${webpSuffix}`
                           : post.header_cover
                       }
-                      alt={post.title}
                     />
                   </figure>
                 </Link>
@@ -105,4 +112,4 @@ class PostSummary extends React.Component<IArticleProps, {}> {
   }
 }
 
-export default PostSummary;
+export default trackWindowScroll(PostSummary);
