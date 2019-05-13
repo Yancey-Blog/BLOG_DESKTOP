@@ -30,7 +30,8 @@ export interface ArticleStoreType {
   likeNum: number;
   curIp: string;
   totalArticlesCount: number;
-  loading: false;
+  isDetailLoading: false;
+  isSummaryLoading: false;
   detail: IDetail;
   toggleShowSearch: () => void;
   onPageChange: () => void;

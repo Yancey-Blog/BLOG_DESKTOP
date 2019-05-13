@@ -19,7 +19,8 @@ class ArticleStore {
   @observable public isLiked: boolean = false;
   @observable public curIp: string = '';
   @observable public totalArticlesCount: number = 0;
-  @observable public loading: boolean = false;
+  @observable public isDetailLoading: boolean = false;
+  @observable public isSummaryLoading: boolean = false;
   @observable public detail: IDetail = {
     curArticle: {
       _id: '',
@@ -73,6 +74,7 @@ class ArticleStore {
   }
 
   public getPostsByPage = async (page: number) => {
+    this.isSummaryLoading = true;
     try {
       const res = await articleService.getPostsByPage(page);
       runInAction(() => {
@@ -81,6 +83,8 @@ class ArticleStore {
       });
     } catch (e) {
       setToast(`获取第 ${page} 页失败`);
+    } finally {
+      this.isSummaryLoading = false;
     }
   };
 
@@ -145,7 +149,7 @@ class ArticleStore {
   };
 
   public getPostById = async (id: string) => {
-    this.loading = true;
+    this.isDetailLoading = true;
     history.push(`${routePath.blogDetail}${id}`);
     try {
       const res = await articleService.getPostById(id);
@@ -156,7 +160,7 @@ class ArticleStore {
       setToast('获取文章失败');
       history.push(routePath.notFound);
     } finally {
-      this.loading = false;
+      this.isDetailLoading = false;
     }
   };
 

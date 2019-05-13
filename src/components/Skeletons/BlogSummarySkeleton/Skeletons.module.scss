@@ -1,0 +1,32 @@
+.skeleton_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+  height: 15rem;
+  margin-bottom: 2rem;
+
+  .meta {
+    max-width: 18rem;
+    width: 18rem;
+    padding: 1rem 1.8rem;
+    .title {
+      margin: 1rem 0;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .summary {
+      margin-top: 0.6rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .img {
+    width: 24rem;
+  }
+}
