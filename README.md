@@ -29,7 +29,8 @@ I alse used CSS Module、Webp、SVG Sprite and so on...
 
 ### Home Page
 
-![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_20)
+
+![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20190513-120854%402x.jpg)
 ![Home](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
 
 The home page contains five parts：
