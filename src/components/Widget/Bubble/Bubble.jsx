@@ -48,6 +48,8 @@ class Bubble extends Component {
     this.speed = 0;
     this.circles = [];
 
+    this.animateHeader = true;
+
     this.canvasRef = React.createRef();
     this.ctx = null;
   }
@@ -55,6 +57,10 @@ class Bubble extends Component {
   componentDidMount() {
     this.initCanvas();
     this.addListeners();
+  }
+
+  componentWillUnmount() {
+    window.cancelAnimationFrame(this.animate);
   }
 
   initCanvas = () => {
@@ -95,13 +101,13 @@ class Bubble extends Component {
   };
 
   animate = () => {
-    if (this.state.animateHeader) {
+    if (this.animateHeader) {
       this.ctx.clearRect(0, 0, this.width, this.height);
       for (var i in this.circles) {
         this.circles[i].draw();
       }
     }
-    requestAnimationFrame(this.animate);
+    window.requestAnimationFrame(this.animate);
   };
 
   addListeners = () => {
@@ -109,13 +115,9 @@ class Bubble extends Component {
       'scroll',
       () => {
         if (document.body.scrollTop > this.height) {
-          this.setState({
-            animateHeader: false,
-          });
+          this.animateHeader = false;
         } else {
-          this.setState({
-            animateHeader: true,
-          });
+          this.animateHeader = true;
         }
       },
       false,
