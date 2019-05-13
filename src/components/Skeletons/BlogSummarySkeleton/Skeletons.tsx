@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Skeleton from 'react-loading-skeleton';
+import classnames from 'classnames';
 import styles from './Skeletons.module.scss';
 
 class Skeletons extends React.Component<{}, {}> {
@@ -11,7 +12,13 @@ class Skeletons extends React.Component<{}, {}> {
     return (
       <>
         {Array.from({ length: 10 }).map((v, k) => (
-          <div className={styles.skeleton_wrapper} key={k}>
+          <div
+            className={classnames(
+              styles.skeleton_wrapper,
+              k % 2 !== 0 ? styles.skeleton_wrapper_reverse : '',
+            )}
+            key={k}
+          >
             <div className={styles.meta}>
               <Skeleton width={'100%'} height={'12px'} />
               <div className={styles.title}>
