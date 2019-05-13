@@ -29,7 +29,6 @@ export interface ArticleStoreType {
   isLiked: boolean;
   likeNum: number;
   curIp: string;
-  totalArticlesCount: number;
   isDetailLoading: false;
   isSummaryLoading: false;
   detail: IDetail;

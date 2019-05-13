@@ -67,7 +67,7 @@ class Archive extends React.Component<IArticleProps, {}> {
               Fold
             </button>
             <p className={styles.total_count}>
-              Total: {articleStore!.totalArticlesCount}
+              Total: {articleStore!.total}
             </p>
           </div>
           {Object.keys(articleStore!.archives).map(year => (

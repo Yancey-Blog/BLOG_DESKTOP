@@ -8,9 +8,8 @@ import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import routePath from '@constants/routePath';
 import { formatJSONDate } from '@tools/tools';
 import { webpSuffix, thumbSuffix, svgSprite } from '@constants/constants';
-import { IArticleDetail, IArticleProps } from '../../../types/article';
-
 import Skeletons from '@components/Skeletons/BlogSummarySkeleton/Skeletons';
+import { IArticleDetail, IArticleProps } from '../../../types/article';
 
 @inject('articleStore')
 @observer

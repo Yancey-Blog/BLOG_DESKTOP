@@ -18,7 +18,6 @@ class ArticleStore {
   @observable public likeNum: number = 0;
   @observable public isLiked: boolean = false;
   @observable public curIp: string = '';
-  @observable public totalArticlesCount: number = 0;
   @observable public isDetailLoading: boolean = false;
   @observable public isSummaryLoading: boolean = false;
   @observable public detail: IDetail = {
@@ -137,11 +136,6 @@ class ArticleStore {
       const res = await articleService.getArchives();
       runInAction(() => {
         this.archives = res.data.sort(sortBy('_id', 'year'));
-        this.archives.forEach((value: any) =>
-          value.data.forEach(
-            (val: any) => (this.totalArticlesCount += val.data.length),
-          ),
-        );
       });
     } catch (e) {
       setToast('获取归档失败');
