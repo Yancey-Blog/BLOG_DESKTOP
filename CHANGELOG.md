@@ -1,3 +1,7 @@
+## 2.3.1 (2019-05-13)
+
+Support skeleton for blog summary component.
+
 ## 2.3.0 (2019-05-12)
 
 Add Canvas Bubble for Home Page.

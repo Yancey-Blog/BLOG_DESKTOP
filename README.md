@@ -142,6 +142,7 @@ Display the development history of the blog.
 - 2019-04-03 Add skeleton for blog detail page.
 - 2019-05-08 Use React.lazy() replace react-loadable.
 - 2019-05-12 Add Canvas Bubble for Home Page.
+- 2019-05-13 Support skeleton for blog summary component.
 
 ## TODO
 
