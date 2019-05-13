@@ -53,7 +53,8 @@ class Blog extends React.Component<IArticleProps, {}> {
         </figure>
         <div className={styles.main_content}>
           <section>
-            {articleStore!.posts.length === 0 ? (
+            {!articleStore!.isSummaryLoading &&
+            articleStore!.posts.length === 0 ? (
               <div>
                 <p className={styles.no_articles}>no articles!</p>
                 <Link to={routePath.blog} className={styles.back}>
@@ -63,6 +64,7 @@ class Blog extends React.Component<IArticleProps, {}> {
             ) : (
               <BlogSummary />
             )}
+            {/* <BlogSummary /> */}
             {history.location.pathname.includes('blog') ? (
               <Pagination
                 showSizeChanger

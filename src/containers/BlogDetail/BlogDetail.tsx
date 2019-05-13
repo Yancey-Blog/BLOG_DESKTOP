@@ -15,7 +15,7 @@ import 'tocbot/dist/tocbot.css';
 import './BlogDetail.scss';
 
 import Like from '@components/Post/Like/Like';
-import Skeletons from '@components/Skeletons/Skeletons';
+import Skeletons from '@components/Skeletons/BlogDetailSkeleton/Skeletons';
 
 import { initLivere, formatJSONDate } from '@tools/tools';
 import { webpSuffix, byNcSa, livere } from '@constants/constants';
@@ -157,7 +157,7 @@ class BlogDetail extends React.Component<
           }}
         />
 
-        {articleStore!.loading ? (
+        {articleStore!.isDetailLoading ? (
           <Skeletons />
         ) : (
           <>
