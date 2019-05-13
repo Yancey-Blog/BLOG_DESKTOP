@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 class Circle {
   constructor(radius, color, clearOffset, width, height, ctx, randomColor) {
@@ -108,7 +107,7 @@ class Bubble extends Component {
   addListeners = () => {
     window.addEventListener(
       'scroll',
-      _.throttle(() => {
+      () => {
         if (document.body.scrollTop > this.height) {
           this.setState({
             animateHeader: false,
@@ -118,17 +117,19 @@ class Bubble extends Component {
             animateHeader: true,
           });
         }
-      }, 150),
+      },
       false,
     );
     window.addEventListener(
       'resize',
-      _.throttle(() => {
+      () => {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
-        this.canvasRef.current.width = this.width;
-        this.canvasRef.current.height = this.height;
-      }, 150),
+        if (this.canvasRef.current) {
+          this.canvasRef.current.width = this.width;
+          this.canvasRef.current.height = this.height;
+        }
+      },
       false,
     );
   };
