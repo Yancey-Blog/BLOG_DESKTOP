@@ -9,9 +9,9 @@
   .meta {
     max-width: 18rem;
     width: 18rem;
-    padding: 1rem 1.8rem;
+    margin-right: 1.8rem;
     .title {
-      margin: 1rem 0;
+      margin: 0.75rem 0;
     }
 
     .info {
@@ -23,6 +23,7 @@
     .summary {
       margin-top: 0.6rem;
       margin-bottom: 1rem;
+      line-height: 1.4;
     }
   }
 
@@ -33,4 +34,9 @@
 
 .skeleton_wrapper_reverse {
   flex-direction: row-reverse;
+  text-align: right;
+  .meta {
+    margin-right: 0;
+    margin-left: 1.8rem;
+  }
 }
