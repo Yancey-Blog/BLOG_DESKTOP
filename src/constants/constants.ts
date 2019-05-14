@@ -1,9 +1,12 @@
-export const domain = 'https://www.yanceyleo.com';
+export const domain = 'https://yanceyleo.com';
+export const mDomain = 'https://m.yanceyleo.com';
+export const wwwDomain = 'https://www.yanceyleo.com';
 
 export const aliOSS = '//yancey-assets.oss-cn-beijing.aliyuncs.com';
 export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
-export const middleThumbSuffix = '?x-oss-process=image/resize,w_360/quality,Q_90';
+export const middleThumbSuffix =
+  '?x-oss-process=image/resize,w_360/quality,Q_90';
 
 export const miku = `${aliOSS}/miku.gif`;
 export const blogBg = `${aliOSS}/static/blog_page_header.jpg`;
@@ -11,13 +14,13 @@ export const archiveBg = `${aliOSS}/static/archive_page_header.jpg`;
 export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
 export const avatar = `${aliOSS}/static/logo_avatar.jpg`;
 export const legalBg = `${aliOSS}/static/legal_page_header.jpg`;
-export const loading = `${aliOSS}/sitelogo.svg`;
 
 export const GA = 'UA-114532340-1';
 
 export const ipify = 'https://api.ipify.org/';
 
-export const byNcSa = 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en';
+export const byNcSa =
+  'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en';
 
 export const livere = 'MTAyMC8zOTU5NC8xNjEyMQ==';
 
@@ -81,7 +84,7 @@ export const svgSprite = {
   planet: '#twitter-1',
   astronaut: '#astronaut',
   close: '#close',
-}
+};
 
 export const socialMedia = {
   github: {
