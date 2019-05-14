@@ -1,6 +1,6 @@
 ## 2.3.1 (2019-05-13)
 
-Support skeleton for blog summary component.
+Support skeleton for blog summary component and try a new lazyload component.
 
 ## 2.3.0 (2019-05-12)
 
