@@ -69,7 +69,7 @@ class ArticleStore {
   };
 
   @computed get curPath() {
-    return history.location.pathname.slice(1);
+    return history.location.pathname.split('/').slice(-1)[0];
   }
 
   public getPostsByPage = async (page: number) => {

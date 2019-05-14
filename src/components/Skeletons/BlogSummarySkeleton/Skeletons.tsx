@@ -20,7 +20,7 @@ class Skeletons extends React.Component<{}, {}> {
             key={k}
           >
             <div className={styles.meta}>
-              <Skeleton width={'100%'} height={'12px'} />
+              <Skeleton width={'60%'} height={'12px'} />
               <div className={styles.title}>
                 <Skeleton width={'100%'} height={'24px'} />
               </div>
@@ -30,12 +30,10 @@ class Skeletons extends React.Component<{}, {}> {
                 <Skeleton width={'2.7rem'} height={'12px'} />
               </div>
               <div className={styles.summary}>
-                <Skeleton width={'100%'} height={'15px'} />
-                <Skeleton width={'100%'} height={'15px'} />
-                <Skeleton width={'100%'} height={'15px'} />
-                <Skeleton width={'100%'} height={'15px'} />
+                <Skeleton count={4} width={'100%'} height={'15px'} />
+                <Skeleton width={'80%'} height={'15px'} />
               </div>
-              <Skeleton width={'1.4rem'} height={'12px'} />
+              <Skeleton width={'2rem'} height={'12px'} />
             </div>
             <div className={styles.img}>
               <Skeleton height={'15rem'} />

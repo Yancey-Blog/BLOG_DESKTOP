@@ -2,13 +2,11 @@ import * as React from 'react';
 import cs from 'classnames';
 import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
-
 import {
   LazyLoadImage,
   trackWindowScroll,
 } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
 import styles from './PostSummary.module.scss';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import routePath from '@constants/routePath';
