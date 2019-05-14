@@ -1,5 +1,5 @@
-$gary: #1abc9c;
-$gary_hover: #18937b;
+$gary: #42a6f8;
+$gary_hover: #1976d2;
 $txt: #fafafa;
 
 .tags li,
@@ -23,7 +23,7 @@ $txt: #fafafa;
 }
 
 .tags a::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -14px;
@@ -33,21 +33,23 @@ $txt: #fafafa;
 }
 
 .tags a::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 12px;
   left: 0;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: -1px -1px 1px 0 rgba(#000, .3);
+  background: $txt;
+  box-shadow: -1px -1px 1px 0 rgba($black, 0.3);
 }
 
 .tags a:hover {
   background: $gary_hover;
-  color: #fff;
+  color: $txt;
   transition: all 300ms linear;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .tags a:hover::before {
