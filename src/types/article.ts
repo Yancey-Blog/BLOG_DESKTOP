@@ -31,6 +31,7 @@ export interface ArticleStoreType {
   curIp: string;
   isDetailLoading: false;
   isSummaryLoading: false;
+  isLinkCardLoading: false;
   detail: IDetail;
   toggleShowSearch: () => void;
   onPageChange: () => void;
@@ -87,5 +88,3 @@ export interface IDetail {
   nextArticle: IPrevNext;
   previousArticle: IPrevNext;
 }
-
-
