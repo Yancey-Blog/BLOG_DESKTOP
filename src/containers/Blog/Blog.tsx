@@ -80,15 +80,6 @@ class Blog extends React.Component<IArticleProps, {}> {
             ) : null}
           </section>
           <aside className={styles.aside_wrapper}>
-            <section className={styles.tags_container}>
-              <h1 className={styles.aside_title}>
-                <svg className={styles.title_icon}>
-                  <use xlinkHref={`${svgIcons}${svgSprite.tag}`} />
-                </svg>
-                <span className={styles.title_name}>Tags</span>
-              </h1>
-              <Tag />
-            </section>
             <section>
               <h1 className={styles.aside_title}>
                 <svg className={styles.title_icon}>
@@ -97,6 +88,15 @@ class Blog extends React.Component<IArticleProps, {}> {
                 <span className={styles.title_name}>Top 7 Most Viewed</span>
               </h1>
               <LinkCard />
+            </section>
+            <section className={styles.tags_container}>
+              <h1 className={styles.aside_title}>
+                <svg className={styles.title_icon}>
+                  <use xlinkHref={`${svgIcons}${svgSprite.tag}`} />
+                </svg>
+                <span className={styles.title_name}>Tags</span>
+              </h1>
+              <Tag />
             </section>
           </aside>
         </div>
