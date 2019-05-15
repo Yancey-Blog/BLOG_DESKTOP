@@ -20,6 +20,7 @@ class ArticleStore {
   @observable public curIp: string = '';
   @observable public isDetailLoading: boolean = false;
   @observable public isSummaryLoading: boolean = false;
+  @observable public isLinkCardLoading: boolean = false;
   @observable public detail: IDetail = {
     curArticle: {
       _id: '',
@@ -88,6 +89,7 @@ class ArticleStore {
   };
 
   public getPostsByTitle = async (title: string) => {
+    this.isSummaryLoading = true;
     try {
       const res = await articleService.getPostsByTitle(title);
       runInAction(() => {
@@ -95,6 +97,8 @@ class ArticleStore {
       });
     } catch (e) {
       setToast('检索失败');
+    } finally {
+      this.isSummaryLoading = false;
     }
   };
 
@@ -110,6 +114,7 @@ class ArticleStore {
   };
 
   public getPostsByTag = async (tag = this.curPath) => {
+    this.isSummaryLoading = true;
     try {
       const res = await articleService.getPostsByTag(tag);
       runInAction(() => {
@@ -117,10 +122,13 @@ class ArticleStore {
       });
     } catch (e) {
       setToast('无法获取此标签下的文章');
+    } finally {
+      this.isSummaryLoading = false;
     }
   };
 
   public getHots = async () => {
+    this.isLinkCardLoading = true;
     try {
       const res = await articleService.getHots();
       runInAction(() => {
@@ -128,6 +136,8 @@ class ArticleStore {
       });
     } catch (e) {
       setToast('获取 PV 失败');
+    } finally {
+      this.isLinkCardLoading = false;
     }
   };
 
