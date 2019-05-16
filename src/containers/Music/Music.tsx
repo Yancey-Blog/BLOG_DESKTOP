@@ -1,51 +1,22 @@
 import * as React from 'react';
-import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import Title from '@components/Common/Title/Title';
-import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
 import { webpSuffix, musicBg } from '@constants/constants';
-import { formatJSONDate } from '@tools/tools';
-import Card from '@components/Music/Card';
-import {
-  IMusicProps,
-  ILiveTours,
-  IFeaturedRecords,
-  IYanceyMusic,
-} from '../../types/music';
-import { IArticleDetail } from '../../types/article';
+import LiveTour from './LiveTours';
+import FeaturedRecords from './FeaturedRecords';
+import YacneyMusic from './YanceyMusic';
+import MusicNotes from './MusicNotes';
 
-@inject('musicStore')
-@inject('articleStore')
-@observer
-class Music extends React.Component<IMusicProps, {}> {
-  constructor(props: IMusicProps) {
+class Music extends React.Component<{}, {}> {
+  constructor(props: {}) {
     super(props);
     this.state = {};
   }
-
-  public componentWillMount() {
-    const { articleStore } = this.props;
-    articleStore!.posts = [];
-  }
-
-  public componentDidMount() {
-    const { musicStore, articleStore } = this.props;
-    musicStore!.getLiveTours();
-    musicStore!.getFeaturedRecords();
-    musicStore!.getYanceyMusic();
-    articleStore!.getPostsByTag('Music');
-  }
-
   public render() {
-    const {
-      musicStore,
-      articleStore,
-    } = this.props;
-
     const isWebp = window.localStorage.isWebp === 'true';
     return (
-      <main className={cs(styles.music_wrapper, 'no-user-select')}>
+      <main className={styles.music_wrapper}>
         <Title title='ミュージック' />
         <figure
           className={styles.bg_cover}
@@ -61,112 +32,25 @@ class Music extends React.Component<IMusicProps, {}> {
         <div className={styles.live_tours_artists_wrapper}>
           <section className={styles.live_tour_container}>
             <h2 className={styles.column_title}>LIVE TOURS</h2>
-            <Carousel
-              autoplay
-              autoplayInterval={2000}
-              transitionMode='fade'
-              wrapAround
-            >
-              {musicStore!.liveTours.map((liveTour: ILiveTours) => (
-                <div
-                  className={cs(
-                    styles.post_container,
-                    styles.live_tours_container,
-                  )}
-                  key={liveTour._id}
-                >
-                  <img
-                    key={liveTour._id}
-                    src={
-                      isWebp
-                        ? `${liveTour.poster}${webpSuffix}`
-                        : liveTour.poster
-                    }
-                    alt={liveTour.title}
-                  />
-                  <div className={styles.meta_intro}>
-                    <time className={styles.meta_date}>
-                      {formatJSONDate(liveTour.upload_date).slice(0, 10)}
-                    </time>
-                    <p
-                      className={cs(styles.meta_title, styles.live_tour_title)}
-                    >
-                      {liveTour.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </Carousel>
+            <LiveTour />
           </section>
           <section>
             <h2 className={styles.column_title}>MUSIC NOTES</h2>
             <div className={cs(styles.artists_list)}>
-              {articleStore!.posts.map((item: IArticleDetail) => (
-                <Card
-                  type='note'
-                  key={item._id}
-                  url={item._id}
-                  title={item.summary}
-                  date={item.publish_date}
-                  cover={item.header_cover}
-                />
-              ))}
+              <MusicNotes />
             </div>
           </section>
         </div>
         <div className={styles.featured_records_wrapper}>
           <section className={styles.featured_records_container}>
             <h2 className={styles.column_title}>FEATURED RECORDS</h2>
-            <ul className={styles.featured_records_list}>
-              {musicStore!.featuredRecords.map((item: IFeaturedRecords) => (
-                <li className={styles.featured_record_item} key={item._id}>
-                  <figure
-                    className={styles.record_cover}
-                    style={{
-                      backgroundImage: `url(${
-                        isWebp ? `${item.cover}${webpSuffix}` : item.cover
-                      })`,
-                    }}
-                  />
-                  <div className={styles.record_intro}>
-                    <time className={styles.meta_date}>
-                      {formatJSONDate(item.release_date).split(' ')[0]}
-                    </time>
-                    <p className={cs(styles.record_title, styles.meta_title)}>
-                      {item.album_name}
-                      <br />
-                      <span className={styles.meta_title_artist}>
-                        {item.artist}
-                      </span>
-                    </p>
-                    <hr className={styles.music_split} />
-                    <a
-                      href={item.buy_url}
-                      className={styles.music_btn}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      BUY NOW
-                    </a>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <FeaturedRecords />
           </section>
         </div>
         <section className={styles.yancey_music_container}>
           <h2 className={styles.column_title}>YANCEY MUSIC</h2>
           <div className={cs(styles.artists_list, styles.yancey_music_list)}>
-            {musicStore!.yanceyMusic.map((item: IYanceyMusic) => (
-              <Card
-                type='yanceyMusic'
-                key={item._id}
-                url={item.soundCloud_url}
-                title={item.title}
-                date={item.release_date}
-                cover={item.cover}
-              />
-            ))}
+            <YacneyMusic />
           </div>
         </section>
       </main>

@@ -1,28 +1,20 @@
-import {
-  observable,
-  runInAction
-} from 'mobx';
+import { observable, runInAction } from 'mobx';
 
-import {
-  musicService,
-} from '../apis/index.service';
+import { musicService } from '../apis/index.service';
 
-import {
-  setToast
-} from '@tools/tools';
+import { setToast } from '@tools/tools';
 
-import {
-  ILiveTours,
-  IFeaturedRecords,
-  IYanceyMusic,
-} from '../types/music';
+import { ILiveTours, IFeaturedRecords, IYanceyMusic } from '../types/music';
 
 class MusicStore {
   @observable public liveTours: ILiveTours[] = [];
   @observable public featuredRecords: IFeaturedRecords[] = [];
   @observable public yanceyMusic: IYanceyMusic[] = [];
+  @observable public isLiveToursLoading = false;
+  @observable public isMusicNotesLoading = false;
 
   public getLiveTours = async () => {
+    this.isLiveToursLoading = true;
     try {
       const res = await musicService.getLiveTours();
       runInAction(() => {
@@ -30,8 +22,10 @@ class MusicStore {
       });
     } catch (error) {
       setToast('获取演唱会现场图失败');
+    } finally{
+      this.isLiveToursLoading = false;
     }
-  }
+  };
 
   public getFeaturedRecords = async () => {
     try {
@@ -42,7 +36,7 @@ class MusicStore {
     } catch (error) {
       setToast('获取精选唱片失败');
     }
-  }
+  };
 
   public getYanceyMusic = async () => {
     try {
@@ -53,8 +47,7 @@ class MusicStore {
     } catch (error) {
       setToast('获取我的作品失败');
     }
-  }
-
+  };
 }
 
 const musicStore = new MusicStore();
