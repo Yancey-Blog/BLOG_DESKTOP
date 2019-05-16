@@ -1,0 +1,12 @@
+.skeleton_wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+  margin: 0 auto 1rem;
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
