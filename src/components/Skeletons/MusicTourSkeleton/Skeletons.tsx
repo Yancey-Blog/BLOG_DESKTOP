@@ -1,20 +1,19 @@
 import * as React from 'react';
 import Skeleton from 'react-loading-skeleton';
-import styles from './Skeletons.module.scss';
+// import styles from './Skeletons.module.scss';
 
 class Skeletons extends React.Component<any> {
   public render() {
+    const styles = {
+      margin: '1rem 0',
+    };
     return (
       <>
-        {Array.from({ length: 7 }).map((v, k) => (
-          <div className={styles.skeleton_wrapper} key={k}>
-            <span className={styles.meta}>
-              <Skeleton width={'8rem'} />
-              <Skeleton width={'14rem'} />
-            </span>
-            <Skeleton width={'4.2rem'} height={'4.2rem'} />
-          </div>
-        ))}
+        <Skeleton width={'100%'} height={'19.5rem'} />
+        <div style={styles}>
+          <Skeleton width={'6rem'} height={'12px'} />
+        </div>
+        <Skeleton width={'18rem'} height={'24px'} />
       </>
     );
   }

@@ -6,6 +6,7 @@ import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
 import { webpSuffix, musicBg } from '@constants/constants';
 import { formatJSONDate } from '@tools/tools';
+import Skeleton from '@components/Skeletons/MusicTourSkeleton/Skeletons';
 import Card from '@components/Music/Card';
 import {
   IMusicProps,
@@ -38,10 +39,7 @@ class Music extends React.Component<IMusicProps, {}> {
   }
 
   public render() {
-    const {
-      musicStore,
-      articleStore,
-    } = this.props;
+    const { musicStore, articleStore } = this.props;
 
     const isWebp = window.localStorage.isWebp === 'true';
     return (
@@ -61,42 +59,49 @@ class Music extends React.Component<IMusicProps, {}> {
         <div className={styles.live_tours_artists_wrapper}>
           <section className={styles.live_tour_container}>
             <h2 className={styles.column_title}>LIVE TOURS</h2>
-            <Carousel
-              autoplay
-              autoplayInterval={2000}
-              transitionMode='fade'
-              wrapAround
-            >
-              {musicStore!.liveTours.map((liveTour: ILiveTours) => (
-                <div
-                  className={cs(
-                    styles.post_container,
-                    styles.live_tours_container,
-                  )}
-                  key={liveTour._id}
-                >
-                  <img
+            {musicStore!.isLiveToursLoading ? (
+              <Skeleton />
+            ) : (
+              <Carousel
+                autoplay
+                autoplayInterval={2000}
+                transitionMode='fade'
+                wrapAround
+              >
+                {musicStore!.liveTours.map((liveTour: ILiveTours) => (
+                  <div
+                    className={cs(
+                      styles.post_container,
+                      styles.live_tours_container,
+                    )}
                     key={liveTour._id}
-                    src={
-                      isWebp
-                        ? `${liveTour.poster}${webpSuffix}`
-                        : liveTour.poster
-                    }
-                    alt={liveTour.title}
-                  />
-                  <div className={styles.meta_intro}>
-                    <time className={styles.meta_date}>
-                      {formatJSONDate(liveTour.upload_date).slice(0, 10)}
-                    </time>
-                    <p
-                      className={cs(styles.meta_title, styles.live_tour_title)}
-                    >
-                      {liveTour.title}
-                    </p>
+                  >
+                    <img
+                      key={liveTour._id}
+                      src={
+                        isWebp
+                          ? `${liveTour.poster}${webpSuffix}`
+                          : liveTour.poster
+                      }
+                      alt={liveTour.title}
+                    />
+                    <div className={styles.meta_intro}>
+                      <time className={styles.meta_date}>
+                        {formatJSONDate(liveTour.upload_date).slice(0, 10)}
+                      </time>
+                      <p
+                        className={cs(
+                          styles.meta_title,
+                          styles.live_tour_title,
+                        )}
+                      >
+                        {liveTour.title}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Carousel>
+                ))}
+              </Carousel>
+            )}
           </section>
           <section>
             <h2 className={styles.column_title}>MUSIC NOTES</h2>
