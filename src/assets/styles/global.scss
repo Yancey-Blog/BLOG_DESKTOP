@@ -35,12 +35,12 @@ body {
   cursor: url('../images/normal.cur'), auto;
 }
 
-.App {
-  overflow: hidden;
+.full_site_gray {
+  filter: grayscale(50%);
+}
 
-  main {
-    min-height: 100vh;
-  }
+.content {
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {

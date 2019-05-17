@@ -25,7 +25,6 @@ class LayoutsStore {
     __v: 0,
     _id: '',
   };
-  @observable public isHomePage = true;
 
   public getPlayers = async () => {
     try {
@@ -63,10 +62,6 @@ class LayoutsStore {
       setToast('获取全局状态失败');
     }
   };
-
-  public getLocalPath = () => {
-    this.isHomePage = window.localStorage.curPath === '/';
-  }
 }
 
 const layoutsStore = new LayoutsStore();
