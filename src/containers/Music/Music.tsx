@@ -14,7 +14,7 @@ class Music extends React.Component<{}, {}> {
     this.state = {};
   }
   public render() {
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className={styles.music_wrapper}>
         <Title title='ミュージック' />

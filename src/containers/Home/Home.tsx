@@ -31,7 +31,7 @@ class Home extends React.Component<IHomeProps, {}> {
 
   public render() {
     const { homeStore } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className={styles.yancey_blog_home}>
         <Title title='Yancey Official Blog' />

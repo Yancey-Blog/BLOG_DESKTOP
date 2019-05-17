@@ -17,7 +17,7 @@ class Search extends React.Component<IArticleProps, {}> {
 
   public render() {
     const { articleStore } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <span>
         {articleStore!.showSearch ? (

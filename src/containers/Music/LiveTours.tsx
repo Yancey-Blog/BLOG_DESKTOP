@@ -5,7 +5,7 @@ import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
 import { webpSuffix } from '@constants/constants';
 import { formatJSONDate } from '@tools/tools';
-import Skeleton from '@components/Skeletons/MusicTourSkeleton/Skeletons';
+import Skeleton from '@components/Skeletons/LiveTourSkeleton/Skeletons';
 import { IMusicProps, ILiveTours } from '../../types/music';
 
 @inject('musicStore')
@@ -24,7 +24,7 @@ class LiveTour extends React.Component<IMusicProps, {}> {
   public render() {
     const { musicStore } = this.props;
 
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <>
         {musicStore!.isLiveToursLoading ? (

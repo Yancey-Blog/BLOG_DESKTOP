@@ -40,6 +40,8 @@ interface MusicStoreType {
   featuredRecords: IFeaturedRecords[];
   yanceyMusic: IYanceyMusic[];
   isLiveToursLoading: boolean;
+  isYanceyMusicLoading: boolean;
+  isFeaturedRecordLoading: boolean;
   getLiveTours: () => void;
   getFeaturedRecords: () => void;
   getYanceyMusic: () => void;

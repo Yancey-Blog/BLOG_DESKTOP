@@ -16,7 +16,7 @@ class Card extends React.Component<ICardProps, {}> {
   public render() {
     const { type, url, title, date, cover } = this.props;
 
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <div className={cs(styles.post_container, styles.artist_item)}>
         <img src={isWebp ? `${cover}${webpSuffix}` : cover} alt={title} />
