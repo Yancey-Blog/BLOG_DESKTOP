@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Skeleton from 'react-loading-skeleton';
-// import styles from './Skeletons.module.scss';
 
 class Skeletons extends React.Component<any> {
   public render() {

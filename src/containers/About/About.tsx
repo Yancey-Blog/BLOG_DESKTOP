@@ -51,9 +51,9 @@ class About extends React.Component<IAboutProps, {}> {
   }
 
   public render() {
-    const {aboutStore} = this.props;
+    const { aboutStore } = this.props;
 
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main>
         <Title title='About' />

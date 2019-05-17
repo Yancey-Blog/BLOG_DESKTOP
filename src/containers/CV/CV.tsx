@@ -25,10 +25,8 @@ class CV extends React.Component<ICVProps, {}> {
   }
 
   public render() {
-    const {
-      cvStore,
-    } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    const { cvStore } = this.props;
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className={styles.cv_wrapper}>
         <Title title='CV' />
@@ -37,12 +35,16 @@ class CV extends React.Component<ICVProps, {}> {
             className={styles.avatar}
             style={{
               backgroundImage: `url(${
-                isWebp ? `${cvStore!.user.avatar}${webpSuffix}` : cvStore!.user.avatar
+                isWebp
+                  ? `${cvStore!.user.avatar}${webpSuffix}`
+                  : cvStore!.user.avatar
               })`,
             }}
           />
           <div className={styles.cv_basic}>
-            <p className={cs(styles.identity, styles.name)}>{cvStore!.user.user_name}</p>
+            <p className={cs(styles.identity, styles.name)}>
+              {cvStore!.user.user_name}
+            </p>
             <p className={styles.identity}>
               <span>Gender: </span>
               Man

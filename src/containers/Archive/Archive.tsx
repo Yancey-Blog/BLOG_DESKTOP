@@ -37,7 +37,7 @@ class Archive extends React.Component<IArticleProps, {}> {
 
   public render() {
     const { articleStore } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className={styles.archive_wrapper}>
         <Title title='Archive' />
@@ -66,9 +66,7 @@ class Archive extends React.Component<IArticleProps, {}> {
             >
               Fold
             </button>
-            <p className={styles.total_count}>
-              Total: {articleStore!.total}
-            </p>
+            <p className={styles.total_count}>Total: {articleStore!.total}</p>
           </div>
           {Object.keys(articleStore!.archives).map(year => (
             <section className={styles.archive_list_wrapper} key={year}>

@@ -11,7 +11,7 @@ class MusicStore {
   @observable public featuredRecords: IFeaturedRecords[] = [];
   @observable public yanceyMusic: IYanceyMusic[] = [];
   @observable public isLiveToursLoading = false;
-  @observable public isMusicNotesLoading = false;
+  @observable public isYanceyMusicLoading = false;
 
   public getLiveTours = async () => {
     this.isLiveToursLoading = true;
@@ -22,7 +22,7 @@ class MusicStore {
       });
     } catch (error) {
       setToast('获取演唱会现场图失败');
-    } finally{
+    } finally {
       this.isLiveToursLoading = false;
     }
   };
@@ -39,6 +39,7 @@ class MusicStore {
   };
 
   public getYanceyMusic = async () => {
+    this.isYanceyMusicLoading = true;
     try {
       const res = await musicService.getYanceyMusic();
       runInAction(() => {
@@ -46,6 +47,8 @@ class MusicStore {
       });
     } catch (error) {
       setToast('获取我的作品失败');
+    } finally {
+      this.isYanceyMusicLoading = false;
     }
   };
 }

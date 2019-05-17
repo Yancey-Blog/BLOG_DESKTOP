@@ -17,7 +17,7 @@ class App extends React.Component<{}, {}> {
   }
 
   public componentWillMount() {
-    window.localStorage.isWebp = checkWebp();
+    window.localStorage.setItem('isWebp', checkWebp().toString());
     this.reactGA();
     devToolsWarning();
   }

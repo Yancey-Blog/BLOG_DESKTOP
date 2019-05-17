@@ -22,7 +22,7 @@ class FeaturedRecords extends React.Component<IMusicProps, {}> {
   public render() {
     const { musicStore } = this.props;
 
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <ul className={styles.featured_records_list}>
         {musicStore!.featuredRecords.map((item: IFeaturedRecords) => (

@@ -142,7 +142,7 @@ class BlogDetail extends React.Component<
 
   public render() {
     const { articleStore } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className='article_detail_wrapper'>
         <Title title={articleStore!.detail.curArticle.title} />
