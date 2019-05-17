@@ -12,6 +12,7 @@ class MusicStore {
   @observable public yanceyMusic: IYanceyMusic[] = [];
   @observable public isLiveToursLoading = false;
   @observable public isYanceyMusicLoading = false;
+  @observable public isFeaturedRecordLoading = false;
 
   public getLiveTours = async () => {
     this.isLiveToursLoading = true;
@@ -28,6 +29,7 @@ class MusicStore {
   };
 
   public getFeaturedRecords = async () => {
+    this.isFeaturedRecordLoading = true;
     try {
       const res = await musicService.getFeaturedRecords();
       runInAction(() => {
@@ -35,6 +37,8 @@ class MusicStore {
       });
     } catch (error) {
       setToast('获取精选唱片失败');
+    } finally {
+      this.isFeaturedRecordLoading = false;
     }
   };
 
