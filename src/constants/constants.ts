@@ -2,6 +2,11 @@ export const domain = 'https://yanceyleo.com';
 export const mDomain = 'https://m.yanceyleo.com';
 export const wwwDomain = 'https://www.yanceyleo.com';
 
+export const api = {
+  prod: 'https://api.yanceyleo.com/api',
+  dev: '127.0.0.1:3001/api',
+};
+
 export const aliOSS = '//yancey-assets.oss-cn-beijing.aliyuncs.com';
 export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
