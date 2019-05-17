@@ -1,11 +1,13 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { observer, inject } from 'mobx-react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import classnames from 'classnames';
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './Layouts.module.scss';
+import '@assets/styles/global.scss';
 import history from '../history';
 import routePath from '@constants/routePath';
+import AutoBackToTop from '@components/Common/AutoBackToTop/AutoBackToTop';
 import Player from '@components/Widget/Player/Player';
 import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
 import Header from '@components/Common/Header/Header';
@@ -13,6 +15,10 @@ import Footer from '@components/Common/Footer/Footer';
 import Loading from '@components/Common/Loading/Loading';
 import NotFound from '../containers/NotFound/NotFound';
 import { ILayoutsProps } from '../types/layout';
+
+import { checkWebp, devToolsWarning } from '@tools/tools';
+import { GA } from '@constants/constants';
+import ReactGA from 'react-ga';
 
 const Home = lazy(() => import('../containers/Home/Home'));
 const Blog = lazy(() => import('../containers/Blog/Blog'));
@@ -39,6 +45,9 @@ class Layouts extends Component<ILayoutsProps, {}> {
   // 页面初始化监听
   public componentWillMount() {
     window.localStorage.curPath = history.location.pathname;
+    window.localStorage.setItem('isWebp', checkWebp().toString());
+    this.reactGA();
+    devToolsWarning();
   }
 
   public componentDidMount() {
@@ -47,57 +56,58 @@ class Layouts extends Component<ILayoutsProps, {}> {
     layoutsStore!.getGlobalStatus();
   }
 
-  public componentWillUpdate() {
-    const { layoutsStore } = this.props;
-    layoutsStore!.getLocalPath();
+  public reactGA() {
+    ReactGA.initialize(GA);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    history.listen(() => {
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    });
   }
 
   public render() {
     const { layoutsStore } = this.props;
+    const isGray = layoutsStore!.globalStatus.full_site_gray;
 
-    const grayStyle = {
-      filter: 'grayscale(50%)',
-    };
     return (
-      <div
-        className={layoutsStore!.isHomePage ? styles.layout : ''}
-        style={layoutsStore!.globalStatus.full_site_gray ? grayStyle : {}}
-      >
-        <Header />
-        <div className={styles.main_contents}>
-          <Suspense fallback={<Loading />}>
-            <Switch>
-              <Route path={routePath.home} exact render={() => <Home />} />
-              <Route path={routePath.legal} render={() => <Legal />} />
-              <Route
-                path={routePath.blog}
-                render={props => <Blog {...props} key={location.pathname} />}
-              />
-              <Route
-                path={`${routePath.tag}:id`}
-                render={props => <Blog {...props} key={location.pathname} />}
-              />
-              <Route path={routePath.search} render={() => <Blog />} />
-              <Route
-                path={`${routePath.blogDetail}:id`}
-                render={props => (
-                  <BlogDetail {...props} key={location.pathname} />
-                )}
-              />
-              <Route path={routePath.archive} render={() => <Archive />} />
-              <Route path={routePath.apps} render={() => <Apps />} />
-              <Route path={routePath.cv} render={() => <CV />} />
-              <Route path={routePath.music} render={() => <Music />} />
-              <Route path={routePath.about} render={() => <About />} />
-              <Route render={() => <NotFound />} />
-            </Switch>
-          </Suspense>
-        </div>
-        <ScrollToTop />
-        <Player />
-        <Footer />
-        <ToastContainer />
-      </div>
+      <Router history={history}>
+        <AutoBackToTop>
+          <div className={classnames(isGray ? 'full_site_gray' : '', 'content')}>
+            <Header />
+            <Suspense fallback={<Loading />}>
+              <Switch>
+                <Route path={routePath.home} exact render={() => <Home />} />
+                <Route path={routePath.legal} render={() => <Legal />} />
+                <Route
+                  path={routePath.blog}
+                  render={props => <Blog {...props} key={location.pathname} />}
+                />
+                <Route
+                  path={`${routePath.tag}:id`}
+                  render={props => <Blog {...props} key={location.pathname} />}
+                />
+                <Route path={routePath.search} render={() => <Blog />} />
+                <Route
+                  path={`${routePath.blogDetail}:id`}
+                  render={props => (
+                    <BlogDetail {...props} key={location.pathname} />
+                  )}
+                />
+                <Route path={routePath.archive} render={() => <Archive />} />
+                <Route path={routePath.apps} render={() => <Apps />} />
+                <Route path={routePath.cv} render={() => <CV />} />
+                <Route path={routePath.music} render={() => <Music />} />
+                <Route path={routePath.about} render={() => <About />} />
+                <Route path={routePath.notFound} render={() => <NotFound />} />
+                <Route render={() => <NotFound />} />
+              </Switch>
+            </Suspense>
+          </div>
+          <ScrollToTop />
+          <Player />
+          <Footer />
+          <ToastContainer />
+        </AutoBackToTop>
+      </Router>
     );
   }
 }
