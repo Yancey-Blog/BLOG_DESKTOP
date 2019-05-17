@@ -10,7 +10,7 @@ class Legal extends React.Component<{}, {}> {
   }
 
   public render() {
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main>
         <Title title='Privacy Policy' />

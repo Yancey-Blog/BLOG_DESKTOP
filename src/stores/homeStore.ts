@@ -1,23 +1,12 @@
-import {
-  observable,
-  runInAction
-} from 'mobx';
+import { observable, runInAction } from 'mobx';
 
-import {
-  setToast
-} from '@tools/tools';
+import { setToast } from '@tools/tools';
 
-import {
-  homeService
-} from '../apis/index.service';
+import { homeService } from '../apis/index.service';
 
-import {
-  webpSuffix
-} from '../constants/constants';
+import { webpSuffix } from '../constants/constants';
 
-import {
-  IProject
-} from '../types/home';
+import { IProject } from '../types/home';
 
 class HomeStore {
   @observable public announcement: string = '';
@@ -59,7 +48,7 @@ class HomeStore {
   };
 
   public loadBgImg = (imageUrl: string) => {
-    const isWebp = window.localStorage.isWebp === 'true';
+    const isWebp = window.localStorage.getItem('isWebp') === 'true';
     const backgroundDOM = document.getElementById('background');
     const background = new Image();
     background.src = isWebp ? `${imageUrl}${webpSuffix}` : imageUrl;
