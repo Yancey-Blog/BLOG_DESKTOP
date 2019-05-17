@@ -1,7 +1,8 @@
 .yancey_common_footer {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   padding: 1.8rem 0;
-  letter-spacing: .025rem;
+  letter-spacing: 0.025rem;
+  background: #fff;
 
   .footer_container {
     margin: 0 auto;
@@ -9,17 +10,17 @@
   }
 
   @at-root .creator {
-    margin-bottom: .3rem;
-    font-size: .75rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.75rem;
     font-weight: bold;
     color: #2c2e2f;
 
     .icon_heart {
-      width: .9rem;
-      height: .9rem;
+      width: 0.9rem;
+      height: 0.9rem;
       position: relative;
-      top: .2rem;
-      margin: 0 .2rem;
+      top: 0.2rem;
+      margin: 0 0.2rem;
       animation: pluse 1500ms infinite linear;
     }
   }
@@ -27,7 +28,12 @@
   .dot_split {
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, #b7bcbf 50%, rgba(255, 255, 255, 0) 40%) repeat-x top;
+    background: linear-gradient(
+        to right,
+        #b7bcbf 50%,
+        rgba(255, 255, 255, 0) 40%
+      )
+      repeat-x top;
     background-size: 3px 1px;
     margin: 0;
     padding: 0;
@@ -40,17 +46,17 @@
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
-    font-size: .65rem;
+    font-size: 0.65rem;
     color: #6c7378;
 
     .copyright {
-      text-shadow: 0 0 1px rgba(0, 0, 0, .1);
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     }
 
     @at-root .copyright_item {
       display: inline-block;
-      margin-left: .4rem;
-      padding-right: .4rem;
+      margin-left: 0.4rem;
+      padding-right: 0.4rem;
       border-right: 1px solid #d9d9d9;
 
       &:last-child {
