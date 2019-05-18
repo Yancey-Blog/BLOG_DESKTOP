@@ -36,11 +36,7 @@ body {
 }
 
 .full_site_gray {
-  filter: grayscale(50%);
-}
-
-.content {
-  min-height: 100vh;
+  filter: grayscale(100%);
 }
 
 ::-webkit-scrollbar {
