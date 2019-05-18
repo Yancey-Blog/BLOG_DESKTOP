@@ -1,6 +1,6 @@
 {
   "name": "blog-fe-pc",
-  "version": "4.3.0",
+  "version": "3.0.1",
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -83,7 +83,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "analyz": "webpack-bundle-analyzer --port 8888 ./build/stats.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -171,6 +172,8 @@
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.2"
   }
 }

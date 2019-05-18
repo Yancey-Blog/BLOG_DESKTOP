@@ -29,7 +29,7 @@ class CV extends React.Component<ICVProps, {}> {
     const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className={styles.cv_wrapper}>
-        <Title title="CV" />
+        <Title title='CV' />
         <section className={styles.cv_basic_container}>
           <figure
             className={styles.avatar}
@@ -38,7 +38,7 @@ class CV extends React.Component<ICVProps, {}> {
                 isWebp
                   ? `${cvStore!.user.avatar}${webpSuffix}`
                   : cvStore!.user.avatar
-              })`
+              })`,
             }}
           />
           <div className={styles.cv_basic}>
@@ -70,8 +70,8 @@ class CV extends React.Component<ICVProps, {}> {
               <span>GitHub: </span>
               <a
                 href={socialMedia.github.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 YanceyOfficial
               </a>
@@ -99,7 +99,7 @@ class CV extends React.Component<ICVProps, {}> {
           {cvStore!.workExperience.map((item: IWorkExperience) => (
             <Card
               key={item._id}
-              type="workExperience"
+              type='workExperience'
               name={item.enterprise_name}
               position={item.position}
               inService={item.in_service}
@@ -117,9 +117,9 @@ class CV extends React.Component<ICVProps, {}> {
           {cvStore!.programExperience.map((item: IProgramExperience) => (
             <Card
               key={item._id}
-              type="programExperience"
+              type='programExperience'
               name={item.program_name}
-              position=""
+              position=''
               inService={[]}
               programLink={item.program_url}
               detail={item.program_content}

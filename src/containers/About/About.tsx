@@ -6,7 +6,7 @@ import 'swiper/dist/css/swiper.min.css';
 import './About.scss';
 import { formatJSONDate } from 'tools/tools';
 import { webpSuffix } from 'constants/constants';
-import { IAbout, IAboutProps } from '../../types/about';
+import { IAbout, IAboutProps } from 'types/about';
 
 @inject('aboutStore')
 @observer
@@ -34,17 +34,17 @@ class About extends React.Component<IAboutProps, {}> {
         renderBullet(index: any, className: any) {
           const year = document.querySelectorAll('.swiper-slide')[index].getAttribute('data-year');
           return `<span class="${className}">${year}</span>`;
-        }
+        },
       },
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        prevEl: '.swiper-button-prev',
       },
       breakpoints: {
         768: {
-          direction: 'horizontal'
-        }
-      }
+          direction: 'horizontal',
+        },
+      },
     });
   }
 
@@ -54,35 +54,35 @@ class About extends React.Component<IAboutProps, {}> {
     const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main>
-        <Title title="About" />
-        <div className="about-container">
-          <div className="timeline">
-            <div className="swiper-container">
-              <div className="swiper-wrapper">
+        <Title title='About' />
+        <div className='about-container'>
+          <div className='timeline'>
+            <div className='swiper-container'>
+              <div className='swiper-wrapper'>
                 {aboutStore!.abouts.map((item: IAbout) => (
                   <div
-                    className="swiper-slide"
+                    className='swiper-slide'
                     key={item._id}
                     style={{
                       backgroundImage: `url(${
                         isWebp ? `${item.cover}${webpSuffix}` : item.cover
-                      })`
+                      })`,
                     }}
                     data-year={formatJSONDate(item.release_date).slice(0, 10)}
                   >
-                    <div className="swiper-slide-content">
-                      <span className="timeline-year">
+                    <div className='swiper-slide-content'>
+                      <span className='timeline-year'>
                         {formatJSONDate(item.release_date).slice(0, 10)}
                       </span>
-                      <h4 className="timeline-title">{item.title}</h4>
-                      <p className="timeline-text">{item.introduction}</p>
+                      <h4 className='timeline-title'>{item.title}</h4>
+                      <p className='timeline-text'>{item.introduction}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="swiper-button-prev" />
-              <div className="swiper-button-next" />
-              <div className="swiper-pagination" />
+              <div className='swiper-button-prev' />
+              <div className='swiper-button-next' />
+              <div className='swiper-pagination' />
             </div>
           </div>
         </div>
