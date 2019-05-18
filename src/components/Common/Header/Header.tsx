@@ -4,10 +4,10 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import _ from 'lodash';
 import Search from 'components/Post/Search/Search';
-import styles from './Header.module.scss';
 import routePath from 'constants/routePath';
 import { svgSprite } from 'constants/constants';
 import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
+import styles from './Header.module.scss';
 import { IArticleProps, IHeaderState } from '../../../types/article';
 
 const headerList = {
