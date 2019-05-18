@@ -54,9 +54,12 @@ class HomeStore {
     background.src = isWebp ? `${imageUrl}${webpSuffix}` : imageUrl;
     background.onload = () => {
       if (backgroundDOM) {
-        backgroundDOM.style.cssText = `background-image: url(${
-          background.src
-        }); opacity: 1`;
+        backgroundDOM.style.cssText = 'opacity: 1';
+        (document.styleSheets[0] as any).deleteRule(0);
+        (document.styleSheets[0] as any).insertRule(
+          `#background::before { background-image: url(${background.src}) }`,
+          0,
+        );
       }
     };
   };
