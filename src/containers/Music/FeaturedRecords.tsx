@@ -2,9 +2,9 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import styles from './Music.module.scss';
-import { webpSuffix } from '@constants/constants';
-import Skeleton from '@components/Skeletons/FeaturedRecordSkeleton/Skeletons';
-import { formatJSONDate } from '@tools/tools';
+import { webpSuffix } from 'constants/constants';
+import Skeleton from 'components/Skeletons/FeaturedRecordSkeleton/Skeletons';
+import { formatJSONDate } from 'tools/tools';
 import { IMusicProps, IFeaturedRecords } from '../../types/music';
 
 @inject('musicStore')
@@ -36,7 +36,7 @@ class FeaturedRecords extends React.Component<IMusicProps, {}> {
                 style={{
                   backgroundImage: `url(${
                     isWebp ? `${item.cover}${webpSuffix}` : item.cover
-                  })`,
+                  })`
                 }}
               />
               <div className={styles.record_intro}>
@@ -54,8 +54,8 @@ class FeaturedRecords extends React.Component<IMusicProps, {}> {
                 <a
                   href={item.buy_url}
                   className={styles.music_btn}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   BUY NOW
                 </a>

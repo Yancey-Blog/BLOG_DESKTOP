@@ -3,9 +3,9 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import Carousel from 'nuka-carousel';
 import styles from './Music.module.scss';
-import { webpSuffix } from '@constants/constants';
-import { formatJSONDate } from '@tools/tools';
-import Skeleton from '@components/Skeletons/LiveTourSkeleton/Skeletons';
+import { webpSuffix } from 'constants/constants';
+import { formatJSONDate } from 'tools/tools';
+import Skeleton from 'components/Skeletons/LiveTourSkeleton/Skeletons';
 import { IMusicProps, ILiveTours } from '../../types/music';
 
 @inject('musicStore')
@@ -33,14 +33,14 @@ class LiveTour extends React.Component<IMusicProps, {}> {
           <Carousel
             autoplay
             autoplayInterval={2000}
-            transitionMode='fade'
+            transitionMode="fade"
             wrapAround
           >
             {musicStore!.liveTours.map((liveTour: ILiveTours) => (
               <div
                 className={cs(
                   styles.post_container,
-                  styles.live_tours_container,
+                  styles.live_tours_container
                 )}
                 key={liveTour._id}
               >

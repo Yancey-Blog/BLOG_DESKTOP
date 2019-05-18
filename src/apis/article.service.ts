@@ -1,7 +1,7 @@
 import {
   GET,
   PUT,
-} from '../tools/axios';
+} from 'tools/axios';
 
 import {
   AxiosResponse
@@ -13,11 +13,11 @@ import {
   IDetail,
   ILike,
   IIncreasePV,
-} from '../types/article';
+} from 'types/article';
 
 import {
   ipify
-} from '../constants/constants';
+} from 'constants/constants';
 
 
 class ArticleService {

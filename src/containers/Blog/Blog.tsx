@@ -7,13 +7,13 @@ import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_US';
 import 'rc-pagination/assets/index.css';
 import styles from './Blog.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import { blogBg, webpSuffix, svgSprite } from '@constants/constants';
-import routePath from '@constants/routePath';
-import BlogSummary from '@components/Post/PostSummary/PostSummary';
-import Tag from '@components/Post/Tag/Tag';
-import LinkCard from '@components/Post/LinkCard/LinkCard';
-import Title from '@components/Common/Title/Title';
+import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
+import { blogBg, webpSuffix, svgSprite } from 'constants/constants';
+import routePath from 'constants/routePath';
+import BlogSummary from 'components/Post/PostSummary/PostSummary';
+import Tag from 'components/Post/Tag/Tag';
+import LinkCard from 'components/Post/LinkCard/LinkCard';
+import Title from 'components/Common/Title/Title';
 import { IArticleProps } from '../../types/article';
 
 @inject('articleStore')
@@ -40,13 +40,13 @@ class Blog extends React.Component<IArticleProps, {}> {
     const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main>
-        <Title title='Blog' />
+        <Title title="Blog" />
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
           style={{
             backgroundImage: `url(${
               isWebp ? `${blogBg}${webpSuffix}` : blogBg
-            })`,
+            })`
           }}
         >
           <span>Tech, Music and Life.</span>
@@ -69,7 +69,7 @@ class Blog extends React.Component<IArticleProps, {}> {
               <Pagination
                 showSizeChanger
                 showQuickJumper={{
-                  goButton: <button>OK</button>,
+                  goButton: <button>OK</button>
                 }}
                 defaultPageSize={10}
                 defaultCurrent={1}

@@ -1,22 +1,12 @@
-import {
-  observable,
-  runInAction
-} from 'mobx';
+import { observable, runInAction } from 'mobx';
 
-import {
-  layoutsService
-} from '../apis/index.service';
+import { layoutsService } from '../apis/index.service';
 
-import {
-  IAPlayer,
-  IGlobalStatus,
-} from '../types/layout';
+import { IAPlayer, IGlobalStatus } from '../types/layout';
 
 import APlayer from 'aplayer';
 
-import {
-  setToast
-} from '@tools/tools';
+import { setToast } from 'tools/tools';
 
 class LayoutsStore {
   @observable public players: IAPlayer[] = [];
@@ -30,15 +20,13 @@ class LayoutsStore {
     try {
       const res = await layoutsService.getPlayers();
       runInAction(() => {
-        res.data.map(item => {
-          this.players.push({
-            name: item.title,
-            artist: item.artist,
-            url: item.music_file_url,
-            cover: item.cover,
-            lrc: item.lrc,
-          })
-        })
+        this.players = res.data.map(item => ({
+          name: item.title,
+          artist: item.artist,
+          url: item.music_file_url,
+          cover: item.cover,
+          lrc: item.lrc,
+        }));
         const ap = new APlayer({
           container: document.querySelector('#player'),
           fixed: true,
@@ -50,7 +38,7 @@ class LayoutsStore {
     } catch (error) {
       setToast('获取播放器失败');
     }
-  }
+  };
 
   public getGlobalStatus = async () => {
     try {

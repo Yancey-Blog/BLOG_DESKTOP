@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import styles from './Apps.module.scss';
-import routePath from '@constants/routePath';
-import { domain } from '@constants/constants';
+import routePath from 'constants/routePath';
+import { domain } from 'constants/constants';
 
 class Apps extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -15,7 +15,7 @@ class Apps extends React.Component<{}, {}> {
   public render() {
     return (
       <main className={cs(styles.apps_wrapper, 'no-user-select')}>
-        <Title title='Apps' />
+        <Title title="Apps" />
         <section className={cs(styles.platform, styles.mobile_wrapper)}>
           <h3 className={styles.platform_title}>
             DOWNLOAD YANCEY BLOG APP FOR
@@ -49,7 +49,7 @@ class Apps extends React.Component<{}, {}> {
             Mac OS X 10.9 and higher. By clicking the Download button, you agree
             to our <Link to={routePath.legal}>Terms & Privacy Policy.</Link>
           </p>
-          <button className={styles.download_btn} type='button'>
+          <button className={styles.download_btn} type="button">
             <Link to={routePath.home}>DOWNLOAD FOR MAC OS X</Link>
           </button>
           <p className={styles.not_mac}>NOT ON A MAC?</p>
@@ -67,7 +67,7 @@ class Apps extends React.Component<{}, {}> {
               <br />
               Please check back at a later time.
             </p>
-            <button type='button'>
+            <button type="button">
               <Link to={routePath.home}>Go Home</Link>
             </button>
           </div>

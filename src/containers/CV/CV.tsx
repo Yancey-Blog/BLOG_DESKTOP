@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import styles from './CV.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import { socialMedia, svgSprite, webpSuffix } from '@constants/constants';
+import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
+import { socialMedia, svgSprite, webpSuffix } from 'constants/constants';
 import { ICVProps, IWorkExperience, IProgramExperience } from '../../types/cv';
 
-import Card from '@components/CV/Card';
+import Card from 'components/CV/Card';
 
 @inject('cvStore')
 @observer

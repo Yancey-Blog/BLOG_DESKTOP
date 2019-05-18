@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import Swiper from 'swiper/dist/js/swiper.min';
 import 'swiper/dist/css/swiper.min.css';
 import './About.scss';
-import { formatJSONDate } from '@tools/tools';
-import { webpSuffix } from '@constants/constants';
-import { IAbout, IAboutProps } from '../../types/about';
+import { formatJSONDate } from 'tools/tools';
+import { webpSuffix } from 'constants/constants';
+import { IAbout, IAboutProps } from 'types/about';
 
 @inject('aboutStore')
 @observer
@@ -32,9 +32,7 @@ class About extends React.Component<IAboutProps, {}> {
         el: '.swiper-pagination',
         clickable: true,
         renderBullet(index: any, className: any) {
-          const year = document
-            .querySelectorAll('.swiper-slide')
-            [index].getAttribute('data-year');
+          const year = document.querySelectorAll('.swiper-slide')[index].getAttribute('data-year');
           return `<span class="${className}">${year}</span>`;
         },
       },

@@ -1,23 +1,23 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
 import styles from './Footer.module.scss';
-import routePath from '@constants/routePath';
-import { svgSprite, socialMedia } from '@constants/constants';
+import routePath from 'constants/routePath';
+import { svgSprite, socialMedia } from 'constants/constants';
 
 const copyright = {
   about: {
     url: routePath.about,
-    name: 'About',
+    name: 'About'
   },
   privacyPolicy: {
     url: routePath.legal,
-    name: 'Privacy Policy',
+    name: 'Privacy Policy'
   },
   apps: {
     url: routePath.apps,
-    name: 'Apps',
-  },
+    name: 'Apps'
+  }
 };
 
 class Footer extends React.Component<{}, {}> {

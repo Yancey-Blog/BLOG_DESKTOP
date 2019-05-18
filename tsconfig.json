@@ -1,47 +1,30 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
-    "module": "esnext",
+    "experimentalDecorators": true,
     "target": "es5",
-    "lib": ["es6", "dom"],
-    "baseUrl": ".",
-    "paths": {
-      "@constants/*": ["./src/constants/*"],
-      "@types/*": ["./src/types/*"],
-      "@components/*": ["./src/components/*"],
-      "@tools/*": ["./src/tools/*"]
-    },
-    "sourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": "src",
     "allowJs": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": false,
-    "noImplicitAny": false,
-    "importHelpers": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "experimentalDecorators": true
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "jsx": "preserve"
   },
-  "include": ["src"],
-  "exclude": [
-    "build",
-    "scripts",
-    "node_modules",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "config"
-  ],
+  "include": [
+    "src"
+  ]
 }

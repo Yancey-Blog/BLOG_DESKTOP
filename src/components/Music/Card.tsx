@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import cs from 'classnames';
 import styles from './Card.module.scss';
-import { webpSuffix } from '@constants/constants';
-import { formatJSONDate } from '@tools/tools';
-import routePath from '@constants/routePath';
+import { webpSuffix } from 'constants/constants';
+import { formatJSONDate } from 'tools/tools';
+import routePath from 'constants/routePath';
 import { ICardProps } from '../../types/music';
 
 class Card extends React.Component<ICardProps, {}> {
@@ -37,8 +37,8 @@ class Card extends React.Component<ICardProps, {}> {
             <a
               href={url}
               className={styles.music_btn}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
             >
               LISTEN
             </a>
