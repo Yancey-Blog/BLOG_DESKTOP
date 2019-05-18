@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
-import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
-import routePath from '@constants/routePath';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import PostSummary from '@components/Post/PostSummary/PostSummary';
-import Bubble from '@components/Widget/Bubble/Bubble';
+import { socialMedia, webpSuffix, svgSprite } from 'constants/constants';
+import routePath from 'constants/routePath';
+import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
+import PostSummary from 'components/Post/PostSummary/PostSummary';
+import Bubble from 'components/Widget/Bubble/Bubble';
 import styles from './Home.module.scss';
 import { IHomeProps } from '../../types/home';
 

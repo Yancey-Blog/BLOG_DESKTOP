@@ -4,9 +4,9 @@ import { IArticleDetail, IArchive, IDetail } from '../types/article';
 
 import history from '../history';
 
-import routePath from '@constants/routePath';
+import routePath from 'constants/routePath';
 
-import { sortBy, setToast } from '@tools/tools';
+import { sortBy, setToast } from 'tools/tools';
 
 class ArticleStore {
   @observable public posts: IArticleDetail[] = [];
@@ -32,18 +32,18 @@ class ArticleStore {
       last_modified_date: '',
       tags: [],
       like_count: [],
-      pv_count: 0,
+      pv_count: 0
     },
     nextArticle: {
       id: '',
       header_cover: '',
-      title: '',
+      title: ''
     },
     previousArticle: {
       id: '',
       header_cover: '',
-      title: '',
-    },
+      title: ''
+    }
   };
 
   @action public toggleShowSearch = () => {
@@ -56,7 +56,7 @@ class ArticleStore {
     if (key === 13) {
       history.push({
         pathname: routePath.search,
-        search: `?q=${event.target.value}`,
+        search: `?q=${event.target.value}`
       });
       this.getPostsByTitle(event.target.value);
       this.showSearch = false;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cs from 'classnames';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import styles from './Music.module.scss';
-import { webpSuffix, musicBg } from '@constants/constants';
+import { webpSuffix, musicBg } from 'constants/constants';
 import LiveTour from './LiveTours';
 import FeaturedRecords from './FeaturedRecords';
 import YacneyMusic from './YanceyMusic';

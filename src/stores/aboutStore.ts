@@ -1,17 +1,8 @@
-import {
-  observable,
-  runInAction,
-} from 'mobx';
-import {
-  aboutService,
-} from '../apis/index.service';
-import {
-  IAbout,
-} from '../types/about';
+import { observable, runInAction } from 'mobx';
+import { aboutService } from '../apis/index.service';
+import { IAbout } from '../types/about';
 
-import {
-  setToast
-} from '@tools/tools';
+import { setToast } from 'tools/tools';
 
 class AboutStore {
   @observable public abouts: IAbout[] = [];

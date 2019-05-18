@@ -1,19 +1,8 @@
-import {
-  observable,
-  runInAction,
-} from 'mobx';
-import {
-  cvService,
-} from '../apis/index.service';
-import {
-  IUser,
-  IWorkExperience,
-  IProgramExperience,
-} from '../types/cv';
+import { observable, runInAction } from 'mobx';
+import { cvService } from '../apis/index.service';
+import { IUser, IWorkExperience, IProgramExperience } from '../types/cv';
 
-import {
-  setToast
-} from '@tools/tools';
+import { setToast } from 'tools/tools';
 
 class CVStore {
   @observable public user: IUser = {
@@ -21,7 +10,7 @@ class CVStore {
     city: '',
     position: '',
     self_introduction: '',
-    user_name: '',
+    user_name: ''
   };
   @observable public workExperience: IWorkExperience[] = [];
   @observable public programExperience: IProgramExperience[] = [];

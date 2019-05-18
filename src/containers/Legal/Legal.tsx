@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import styles from './Legal.module.scss';
-import { webpSuffix, socialMedia, legalBg } from '@constants/constants';
+import { webpSuffix, socialMedia, legalBg } from 'constants/constants';
 
 class Legal extends React.Component<{}, {}> {
   constructor(props: {}) {

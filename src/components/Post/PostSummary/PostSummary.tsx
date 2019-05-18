@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import {
   LazyLoadImage,
-  trackWindowScroll,
+  trackWindowScroll
 } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import styles from './PostSummary.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import routePath from '@constants/routePath';
-import { formatJSONDate } from '@tools/tools';
-import { webpSuffix, svgSprite } from '@constants/constants';
-import Skeletons from '@components/Skeletons/BlogSummarySkeleton/Skeletons';
+import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
+import routePath from 'constants/routePath';
+import { formatJSONDate } from 'tools/tools';
+import { webpSuffix, svgSprite } from 'constants/constants';
+import Skeletons from 'components/Skeletons/BlogSummarySkeleton/Skeletons';
 import { IArticleDetail, IArticleProps } from '../../../types/article';
 
 @inject('articleStore')
@@ -36,7 +36,7 @@ class PostSummary extends React.Component<IArticleProps, {}> {
             <article
               className={cs(
                 styles.blog_summary_content,
-                key % 2 === 0 ? styles.reverse : '',
+                key % 2 === 0 ? styles.reverse : ''
               )}
               key={post._id}
             >
@@ -46,9 +46,9 @@ class PostSummary extends React.Component<IArticleProps, {}> {
                     <LazyLoadImage
                       className={styles.img}
                       alt={post.title}
-                      width='100%'
-                      height='100%'
-                      effect='blur'
+                      width="100%"
+                      height="100%"
+                      effect="blur"
                       src={
                         isWebp
                           ? `${post.header_cover}${webpSuffix}`
