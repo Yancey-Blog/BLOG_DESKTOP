@@ -9,11 +9,8 @@ $bg: 'http://yancey-assets.oss-cn-beijing.aliyuncs.com/medium-athah-anime-creatu
     position: relative;
     width: 100vw;
     height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
-    // background-repeat: no-repeat;
-    // background-position: center top;
-    // background-size: cover;
-    // background-attachment: fixed;
     opacity: 0;
     transition: 1s opacity linear;
 
@@ -222,6 +219,7 @@ $bg: 'http://yancey-assets.oss-cn-beijing.aliyuncs.com/medium-athah-anime-creatu
   }
 
   .content {
+    min-height: 100vh;
     margin: 0 auto;
     padding: 3rem 0 1rem;
     background: #fff;

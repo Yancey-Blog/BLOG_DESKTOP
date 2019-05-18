@@ -424,18 +424,11 @@ module.exports = function(webpackEnv) {
             {
               test: sassRegex,
               exclude: sassModuleRegex,
-              // use: getStyleLoaders(
-              //   {
-              //     importLoaders: 2,
-              //     sourceMap: isEnvProduction && shouldUseSourceMap,
-              //   },
-              //   'sass-loader'
-              // ),
-              // // Don't consider CSS imports dead code even if the
-              // // containing package claims to have no side effects.
-              // // Remove this when webpack adds a warning or an error for this.
-              // // See https://github.com/webpack/webpack/issues/6571
-              // sideEffects: true,
+              // Don't consider CSS imports dead code even if the
+              // containing package claims to have no side effects.
+              // Remove this when webpack adds a warning or an error for this.
+              // See https://github.com/webpack/webpack/issues/6571
+              sideEffects: true,
               use: [
                 {
                   loader: require.resolve('style-loader'),
@@ -475,15 +468,6 @@ module.exports = function(webpackEnv) {
             // using the extension .module.scss or .module.sass
             {
               test: sassModuleRegex,
-              // use: getStyleLoaders(
-              //   {
-              //     importLoaders: 2,
-              //     sourceMap: isEnvProduction && shouldUseSourceMap,
-              //     modules: true,
-              //     getLocalIdent: getCSSModuleLocalIdent
-              //   },
-              //   'sass-loader'
-              // )
               use: [
                 {
                   loader: require.resolve('style-loader'),
@@ -492,8 +476,9 @@ module.exports = function(webpackEnv) {
                   loader: require.resolve('css-loader'),
                   options: {
                     importLoaders: 2,
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
                     modules: true,
-                    getLocalIdent: getCSSModuleLocalIdent,
+                    localIdentName: isEnvProduction ? "[hash:base64:5]" : "[name]_[local]__[hash:base64:5]"
                   },
                 },
                 {
