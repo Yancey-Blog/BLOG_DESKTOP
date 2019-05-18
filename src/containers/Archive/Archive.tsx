@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import cs from 'classnames';
 import styles from './Archive.module.scss';
-import { archiveBg, webpSuffix } from '@constants/constants';
-import { monthToEN } from '@tools/tools';
+import { archiveBg, webpSuffix } from 'constants/constants';
+import { monthToEN } from 'tools/tools';
 import { IArticleProps } from '../../types/article';
 
 @inject('articleStore')
@@ -40,13 +40,13 @@ class Archive extends React.Component<IArticleProps, {}> {
     const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className={styles.archive_wrapper}>
-        <Title title='Archive' />
+        <Title title="Archive" />
         <figure
           className={cs(styles.bg_header, 'no-user-select')}
           style={{
             backgroundImage: `url(${
               isWebp ? `${archiveBg}${webpSuffix}` : archiveBg
-            })`,
+            })`
           }}
         >
           <span>Archive</span>
@@ -87,7 +87,7 @@ class Archive extends React.Component<IArticleProps, {}> {
                     <label htmlFor={`tab_${year}_${month}`}>
                       <span className={styles.month}>
                         {monthToEN(
-                          articleStore!.archives[year].data[month].month,
+                          articleStore!.archives[year].data[month].month
                         )}
                         {'. '}(
                         {articleStore!.archives[year].data[month].data.length}{' '}
@@ -100,7 +100,7 @@ class Archive extends React.Component<IArticleProps, {}> {
                     </label>
                     <ul className={styles.day_list_container}>
                       {Object.keys(
-                        articleStore!.archives[year].data[month].data,
+                        articleStore!.archives[year].data[month].data
                       ).map(day => (
                         <li className={styles.day_item} key={day}>
                           <span className={styles.day}>

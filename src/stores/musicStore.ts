@@ -2,7 +2,7 @@ import { observable, runInAction } from 'mobx';
 
 import { musicService } from '../apis/index.service';
 
-import { setToast } from '@tools/tools';
+import { setToast } from 'tools/tools';
 
 import { ILiveTours, IFeaturedRecords, IYanceyMusic } from '../types/music';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import Card from '@components/Music/Card';
-import Skeleton from '@components/Skeletons/YanceyMusicSkeleton/Skeletons';
+import Card from 'components/Music/Card';
+import Skeleton from 'components/Skeletons/YanceyMusicSkeleton/Skeletons';
 import { IMusicProps } from '../../types/music';
 import { IArticleDetail } from '../../types/article';
 
@@ -32,7 +32,7 @@ class MusicNotes extends React.Component<IMusicProps, {}> {
         ) : (
           articleStore!.posts.map((item: IArticleDetail) => (
             <Card
-              type='note'
+              type="note"
               key={item._id}
               url={item._id}
               title={item.summary}

@@ -1,18 +1,25 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
-import _ from 'lodash';
 import styles from './Search.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import { webpSuffix, miku, svgSprite } from '@constants/constants';
+import svgIcons from 'assets/images/yancey-official-blog-svg-icons.svg';
+import { webpSuffix, miku, svgSprite } from 'constants/constants';
 import { IArticleProps } from '../../../types/article';
 
 @inject('articleStore')
 @observer
 class Search extends React.Component<IArticleProps, {}> {
+  private inputRef: React.RefObject<HTMLInputElement>;
   constructor(props: IArticleProps) {
     super(props);
     this.state = {};
+    this.inputRef = React.createRef<HTMLInputElement>();
+  }
+
+  public componentDidUpdate() {
+    if (this.inputRef.current) {
+      this.inputRef.current.focus();
+    }
   }
 
   public render() {
@@ -35,6 +42,7 @@ class Search extends React.Component<IArticleProps, {}> {
               </svg>
               <label htmlFor='search'>
                 <input
+                  ref={this.inputRef}
                   type='text'
                   id='search'
                   placeholder='Search'

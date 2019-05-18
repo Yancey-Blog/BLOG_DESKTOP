@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Title from '@components/Common/Title/Title';
+import Title from 'components/Common/Title/Title';
 import history from '../../history';
 import styles from './NotFound.module.scss';
-import routePath from '@constants/routePath';
+import routePath from 'constants/routePath';
 
 class NotFound extends React.Component<{}, {}> {
   constructor(props: {}) {
@@ -17,7 +17,7 @@ class NotFound extends React.Component<{}, {}> {
   public render() {
     return (
       <main className={styles.not_found_wrapper}>
-        <Title title='404' />
+        <Title title="404" />
         <div className={styles.unicorn} />
         <div className={styles.not_found_container}>
           <div className={styles.four_oh_four}>

@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 const months = [
   'January',
   'February',
@@ -10,10 +12,8 @@ const months = [
   'September',
   'October',
   'November',
-  'December',
+  'December'
 ];
-
-import { toast } from 'react-toastify';
 
 // 2018-11-11T07:53:15.403Z => 2018-11-11 15:53:15
 export const formatJSONDate = (jsonDate: string): string => {
@@ -44,7 +44,7 @@ export const monthToEN = (monthNum: number) => {
     'Sep',
     'Oct',
     'Nov',
-    'Dec',
+    'Dec'
   ];
   return monthList[monthNum - 1];
 };
@@ -130,7 +130,7 @@ export const setToast = (text: string) => {
     autoClose: 3000,
     hideProgressBar: true,
     closeOnClick: true,
-    className: 'toasting',
+    className: 'toasting'
   });
 };
 

@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5b925ed8c8c64f379dea6f8b685a731b)](https://app.codacy.com/app/YanceyOfficial/BLOG_FE?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/BLOG_FE&utm_campaign=Badge_Grade_Dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-2.4.1-blue.svg)](https://github.com/Yancey-Blog/BLOG_FE)
+[![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![Node](https://img.shields.io/badge/node-%3E%3D8.0.0-green.svg)](https://github.com/Yancey-Blog/BLOG_FE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/Yancey-Blog/BLOG_FE/pulls)
 [![Build Status](https://travis-ci.org/Yancey-Blog/BLOG_FE.svg?branch=master)](https://travis-ci.org/Yancey-Blog/BLOG_FE)
@@ -143,6 +143,7 @@ Display the development history of the blog.
 - 2019-05-08 Use React.lazy() replace react-loadable.
 - 2019-05-12 Add Canvas Bubble for Home Page.
 - 2019-05-13 Support skeleton for blog summary component and try a new lazyload component.
+- 2019-05-18 Migrate whole project from CRA v2 to CRA v3.
 
 ## TODO
 

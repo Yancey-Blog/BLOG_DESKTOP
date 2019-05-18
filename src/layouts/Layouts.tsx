@@ -5,20 +5,20 @@ import classnames from 'classnames';
 import { ToastContainer } from 'react-toastify';
 import ReactGA from 'react-ga';
 
-import '@assets/styles/global.scss';
+import 'assets/styles/global.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 import history from '../history';
-import routePath from '@constants/routePath';
-import { checkWebp, devToolsWarning } from '@tools/tools';
-import { GA } from '@constants/constants';
+import routePath from 'constants/routePath';
+import { checkWebp, devToolsWarning } from 'tools/tools';
+import { GA } from 'constants/constants';
 
-import AutoBackToTop from '@components/Common/AutoBackToTop/AutoBackToTop';
-import Player from '@components/Widget/Player/Player';
-import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
-import Header from '@components/Common/Header/Header';
-import Footer from '@components/Common/Footer/Footer';
-import Loading from '@components/Common/Loading/Loading';
+import AutoBackToTop from 'components/Common/AutoBackToTop/AutoBackToTop';
+import Player from 'components/Widget/Player/Player';
+import ScrollToTop from 'components/Widget/ScrollToTop/ScrollToTop';
+import Header from 'components/Common/Header/Header';
+import Footer from 'components/Common/Footer/Footer';
+import Loading from 'components/Common/Loading/Loading';
 import NotFound from '../containers/NotFound/NotFound';
 
 import { ILayoutsProps } from '../types/layout';
@@ -79,17 +79,21 @@ class Layouts extends Component<ILayoutsProps, {}> {
                 <Route path={routePath.legal} render={() => <Legal />} />
                 <Route
                   path={routePath.blog}
-                  render={props => <Blog {...props} key={location.pathname} />}
+                  render={props => (
+                    <Blog {...props} key={window.location.pathname} />
+                  )}
                 />
                 <Route
                   path={`${routePath.tag}:id`}
-                  render={props => <Blog {...props} key={location.pathname} />}
+                  render={props => (
+                    <Blog {...props} key={window.location.pathname} />
+                  )}
                 />
                 <Route path={routePath.search} render={() => <Blog />} />
                 <Route
                   path={`${routePath.blogDetail}:id`}
                   render={props => (
-                    <BlogDetail {...props} key={location.pathname} />
+                    <BlogDetail {...props} key={window.location.pathname} />
                   )}
                 />
                 <Route path={routePath.archive} render={() => <Archive />} />

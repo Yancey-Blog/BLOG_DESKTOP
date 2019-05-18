@@ -1,6 +1,6 @@
 import {
   GET,
-} from '../tools/axios';
+} from 'tools/axios';
 
 import {
   AxiosResponse,
@@ -8,7 +8,7 @@ import {
 
 import {
   IAbout,
-} from '../types/about';
+} from 'types/about';
 
 class AboutService {
   public async getAbouts(): Promise < AxiosResponse < IAbout[] >> {

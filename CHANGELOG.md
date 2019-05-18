@@ -1,3 +1,7 @@
+## 3.0.1 (2019-05-18)
+
+Migrate whole project from CRA v2 to CRA v3. The CRA v3 supports [Absolute Imports](https://facebook.github.io/create-react-app/docs/importing-a-component#absolute-imports) excellently, next we will optimize the relevant codes.
+
 ## 2.3.1 (2019-05-13)
 
 Support skeleton for blog summary component and try a new lazyload component.

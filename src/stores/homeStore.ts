@@ -1,6 +1,6 @@
 import { observable, runInAction } from 'mobx';
 
-import { setToast } from '@tools/tools';
+import { setToast } from 'tools/tools';
 
 import { homeService } from '../apis/index.service';
 
@@ -58,7 +58,7 @@ class HomeStore {
         (document.styleSheets[0] as any).deleteRule(0);
         (document.styleSheets[0] as any).insertRule(
           `#background::before { background-image: url(${background.src}) }`,
-          0,
+          0
         );
       }
     };

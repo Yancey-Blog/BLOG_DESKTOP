@@ -2,10 +2,10 @@ import * as React from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import styles from './LinkCard.module.scss';
-import { middleThumbSuffix } from '@constants/constants';
-import Skeleton from '@components/Skeletons/LinkCardSkeleton/Skeletons';
-import routePath from '@constants/routePath';
-import { domain } from '@constants/constants';
+import { middleThumbSuffix } from 'constants/constants';
+import Skeleton from 'components/Skeletons/LinkCardSkeleton/Skeletons';
+import routePath from 'constants/routePath';
+import { domain } from 'constants/constants';
 import { IArticleProps, IArticleDetail } from '../../../types/article';
 
 @inject('articleStore')
@@ -32,7 +32,7 @@ class LinkCard extends React.Component<IArticleProps, {}> {
                     style={{
                       backgroundImage: `url(${
                         item.header_cover
-                      }${middleThumbSuffix})`,
+                      }${middleThumbSuffix})`
                     }}
                   />
                   <span className={styles.card_content}>
