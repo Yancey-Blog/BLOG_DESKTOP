@@ -159,6 +159,7 @@ class ArticleStore {
       const res = await articleService.getPostById(id);
       runInAction(() => {
         this.detail = res.data;
+        this.likeNum = this.detail.curArticle.like_count.length;
       });
     } catch (e) {
       setToast('获取文章失败');
@@ -173,6 +174,7 @@ class ArticleStore {
       const res = await articleService.handleLikes(this.curPath, this.curIp);
       runInAction(() => {
         this.likeNum = res.data.like_number;
+        this.isLiked = true;
       });
     } catch (e) {
       setToast('点赞失败');

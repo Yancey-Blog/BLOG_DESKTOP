@@ -18,7 +18,8 @@ class Like extends React.Component<IArticleProps, {}> {
         <input
           id='toggle-heart'
           type='checkbox'
-          defaultChecked={articleStore!.isLiked}
+          disabled={articleStore!.isLiked}
+          checked={articleStore!.isLiked}
           onChange={articleStore!.handleLikes}
         />
         <label htmlFor='toggle-heart'>❤</label>
