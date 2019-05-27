@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import Title from '@components/Common/Title/Title';
 import { Link, RouteComponentProps } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import cs from 'classnames';
 import _ from 'lodash';
 
@@ -145,7 +145,25 @@ class BlogDetail extends React.Component<
     const isWebp = window.localStorage.getItem('isWebp') === 'true';
     return (
       <main className='article_detail_wrapper'>
-        <Title title={articleStore!.detail.curArticle.title} />
+        <Helmet>
+          <title>{articleStore!.detail.curArticle.title}</title>
+          <meta name='twitter:card' content='summary_large_image' />
+          <meta name='twitter:site' content='@YanceyOfficial' />
+          <meta name='twitter:creator' content='@YanceyOfficial' />
+          <meta
+            name='twitter:title'
+            content={articleStore!.detail.curArticle.title}
+          />
+          <meta
+            name='twitter:description'
+            content={articleStore!.detail.curArticle.summary}
+          />
+          <meta
+            name='twitter:image'
+            content={`https:${articleStore!.detail.curArticle.header_cover}`}
+          />
+        </Helmet>
+
         <section
           className='article_meta_wrapper'
           style={{
