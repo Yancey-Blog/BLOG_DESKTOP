@@ -151,17 +151,18 @@ class BlogDetail extends React.Component<
           <meta name='twitter:site' content='@YanceyOfficial' />
           <meta name='twitter:creator' content='@YanceyOfficial' />
           <meta
-            name='twitter:title'
+            name='og:title'
             content={articleStore!.detail.curArticle.title}
           />
           <meta
-            name='twitter:description'
+            name='og:description'
             content={articleStore!.detail.curArticle.summary}
           />
           <meta
-            name='twitter:image'
+            name='og:image'
             content={`https:${articleStore!.detail.curArticle.header_cover}`}
           />
+          <meta name='og:url' content={location.href} />
         </Helmet>
 
         <section
