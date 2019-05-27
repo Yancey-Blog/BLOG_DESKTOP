@@ -5,6 +5,11 @@ import { Provider } from 'mobx-react';
 import Layouts from './layouts/Layouts';
 import stores from './stores/index';
 import * as serviceWorker from './registerServiceWorker';
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: 'https://2998f0f7a05044969a7859a2596e6977@sentry.io/1468725',
+});
 
 ReactDOM.render(
   <Provider {...stores}>
