@@ -79,7 +79,6 @@ class ArticleStore {
       const res = await articleService.getPostsByPage(page);
       runInAction(() => {
         this.posts = res.data;
-        this.total = parseInt(res.headers.amount, 10);
       });
     } catch (e) {
       setToast(`获取第 ${page} 页失败`);
@@ -146,6 +145,11 @@ class ArticleStore {
       const res = await articleService.getArchives();
       runInAction(() => {
         this.archives = res.data.sort(sortBy('_id', 'year'));
+        this.total = this.archives
+          .map(v =>
+            (v.data as any).reduce((a: any, v: any) => a + v.data.length, 0),
+          )
+          .reduce((a, v) => a + v);
       });
     } catch (e) {
       setToast('获取归档失败');
