@@ -79,6 +79,7 @@ class ArticleStore {
       const res = await articleService.getPostsByPage(page);
       runInAction(() => {
         this.posts = res.data;
+        this.total = parseInt(res.headers.amount, 10);
       });
     } catch (e) {
       setToast(`获取第 ${page} 页失败`);
