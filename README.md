@@ -74,8 +74,6 @@ In addition, you can see a search button in the rightmost position of `header` c
 
 ![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
 
-关于 Blog Detail 页面其实有很多地方，一张图放不下：
-
 - Collect people views counts.
 
 - Display the article cover, title, publish date(show the lastest update date when you are moving in the text.)
