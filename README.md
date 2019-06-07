@@ -1,4 +1,4 @@
-# [Blog FE for PC](https://wwww.yanceyleo.com/)
+# [Blog FE for PC](https://www.yanceyleo.com/)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5b925ed8c8c64f379dea6f8b685a731b)](https://app.codacy.com/app/YanceyOfficial/BLOG_FE?utm_source=github.com&utm_medium=referral&utm_content=Yancey-Blog/BLOG_FE&utm_campaign=Badge_Grade_Dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -73,8 +73,6 @@ In addition, you can see a search button in the rightmost position of `header` c
 ### Blog Detail Page
 
 ![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
-
-关于 Blog Detail 页面其实有很多地方，一张图放不下：
 
 - Collect people views counts.
 
