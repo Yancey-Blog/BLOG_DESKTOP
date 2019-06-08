@@ -1,5 +1,3 @@
-$bg: 'http://yancey-assets.oss-cn-beijing.aliyuncs.com/medium-athah-anime-creature-13-19-inches-wall-poster-matte-original-imaf9k8f2kf62shz.jpeg.jpg?x-oss-process=image/format,webp';
-
 .yancey_blog_home {
   position: relative;
   color: #666;
@@ -10,27 +8,12 @@ $bg: 'http://yancey-assets.oss-cn-beijing.aliyuncs.com/medium-athah-anime-creatu
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    // background-repeat: no-repeat;
-    // background-position: center top;
-    // background-size: cover;
-    // background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
     opacity: 0;
     transition: 1s opacity linear;
-
-    &::before {
-      position: fixed;
-      content: '';
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      // background-image: url($bg);
-      background-size: cover;
-      will-change: transform;
-      z-index: -1;
-    }
 
     &::after {
       position: absolute;
@@ -43,16 +26,23 @@ $bg: 'http://yancey-assets.oss-cn-beijing.aliyuncs.com/medium-athah-anime-creatu
     }
   }
 
+  .home_slogon {
+    position: absolute;
+    top: 19rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
   @at-root .glitch {
     position: relative;
     color: #fff;
     font-size: 4rem;
     z-index: 1;
     user-select: none;
-    top: 32%;
     transition: all 400ms ease;
     max-width: 28rem;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
     text-align: center;
     letter-spacing: 0.2rem;
 
@@ -95,7 +85,6 @@ $bg: 'http://yancey-assets.oss-cn-beijing.aliyuncs.com/medium-athah-anime-creatu
     background: rgba(#000, 0.5);
     padding: 1rem;
     border-radius: 10px;
-    top: 36%;
 
     .social_media_motto {
       position: relative;

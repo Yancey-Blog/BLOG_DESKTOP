@@ -7,7 +7,7 @@ import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
 import routePath from '@constants/routePath';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import PostSummary from '@components/Post/PostSummary/PostSummary';
-import Bubble from '@components/Widget/Bubble/Bubble';
+// import Bubble from '@components/Widget/Bubble/Bubble';
 import styles from './Home.module.scss';
 import { IHomeProps } from '../../types/home';
 
@@ -35,7 +35,8 @@ class Home extends React.Component<IHomeProps, {}> {
     return (
       <main className={styles.yancey_blog_home}>
         <Title title='Yancey Official Blog' />
-        <section id='background' className={styles.ad_wrapper}>
+        <section id='background' className={styles.ad_wrapper} />
+        <div className={styles.home_slogon}>
           <h1 className={styles.glitch} data-value='HI, YANCEY!'>
             HI, YANCEY!
           </h1>
@@ -90,8 +91,8 @@ class Home extends React.Component<IHomeProps, {}> {
               </li>
             </ul>
           </div>
-          <Bubble />
-        </section>
+          {/* <Bubble /> */}
+        </div>
         {/* main */}
         <section className={styles.content}>
           {/* announcement */}
