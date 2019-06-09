@@ -119,8 +119,9 @@ export const initLivere = () => {
     j = d.createElement(s);
     j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
     j.async = true;
-
-    (e.parentNode as HTMLDivElement).insertBefore(j, e);
+    if (e.parentNode) {
+      (e.parentNode as HTMLDivElement).insertBefore(j, e);
+    }
   })(document, 'script');
 };
 
