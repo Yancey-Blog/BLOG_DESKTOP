@@ -1,26 +1,18 @@
-import {
-  GET,
-} from '../tools/axios';
+import { GET } from '../tools/axios';
 
-import {
-  AxiosResponse
-} from 'axios';
+import { AxiosResponse } from 'axios';
 
-import {
-  IPlayer,
-  IGlobalStatus,
-} from '../types/layout';
+import { IPlayer, IGlobalStatus } from '../types/layout';
 
 class LayoutsService {
-  public async getGlobalStatus(): Promise<AxiosResponse<IGlobalStatus>> {
+  public getGlobalStatus(): Promise<AxiosResponse<IGlobalStatus>> {
     return GET(`/globalStatus`, null, '');
   }
 
-  public async getPlayers(): Promise<AxiosResponse<IPlayer[]>> {
+  public getPlayers(): Promise<AxiosResponse<IPlayer[]>> {
     return GET(`/litePlayers`, null, '');
   }
 }
-
 
 const layoutsService = new LayoutsService();
 

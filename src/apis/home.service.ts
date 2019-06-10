@@ -5,19 +5,19 @@ import { AxiosResponse } from 'axios';
 import { IAnnouncement, IMotto, IProject, ICover } from '../types/home';
 
 class HomeService {
-  public async getAnnouncement(): Promise<AxiosResponse<IAnnouncement>> {
+  public getAnnouncement(): Promise<AxiosResponse<IAnnouncement>> {
     return GET('/latestAnnouncements', null, '');
   }
 
-  public async getMotto(): Promise<AxiosResponse<IMotto>> {
+  public getMotto(): Promise<AxiosResponse<IMotto>> {
     return GET('/latestMotto', null, '');
   }
 
-  public async getProject(): Promise<AxiosResponse<IProject[]>> {
+  public getProject(): Promise<AxiosResponse<IProject[]>> {
     return GET('/latestThreeProjects', null, '');
   }
 
-  public async getCover(
+  public getCover(
     curId: string,
     position: string,
   ): Promise<AxiosResponse<ICover>> {
