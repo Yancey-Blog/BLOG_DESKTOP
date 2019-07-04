@@ -15,15 +15,15 @@
     opacity: 0;
     transition: 1s opacity linear;
 
-    &::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: url('../../assets/images/dot.gif') 0 0 fixed;
-    }
+    // &::after {
+    //   position: absolute;
+    //   content: '';
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   background: url('../../assets/images/dot.gif') 0 0 fixed;
+    // }
   }
 
   .home_slogon {

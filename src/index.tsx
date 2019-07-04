@@ -11,6 +11,8 @@ Sentry.init({
   dsn: 'https://2998f0f7a05044969a7859a2596e6977@sentry.io/1468725',
 });
 
+Sentry.captureException
+
 ReactDOM.render(
   <Provider {...stores}>
     <BrowserRouter>

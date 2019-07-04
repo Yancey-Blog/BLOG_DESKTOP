@@ -7,7 +7,6 @@ import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
 import routePath from '@constants/routePath';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
 import PostSummary from '@components/Post/PostSummary/PostSummary';
-// import Bubble from '@components/Widget/Bubble/Bubble';
 import styles from './Home.module.scss';
 import { IHomeProps } from '../../types/home';
 
@@ -91,7 +90,6 @@ class Home extends React.Component<IHomeProps, {}> {
               </li>
             </ul>
           </div>
-          {/* <Bubble /> */}
         </div>
         {/* main */}
         <section className={styles.content}>
