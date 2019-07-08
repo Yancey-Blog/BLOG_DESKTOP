@@ -122,6 +122,12 @@ a {
   display: none;
 }
 
+@media screen and (max-width: 2560px) {
+  html {
+    font-size: 22px;
+  }
+}
+
 @media screen and (max-width: 1920px) {
   html {
     font-size: 20px;
