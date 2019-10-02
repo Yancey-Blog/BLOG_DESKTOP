@@ -8,6 +8,7 @@ import styles from './Header.module.scss';
 import routePath from '@constants/routePath';
 import { svgSprite } from '@constants/constants';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import { noop } from '@tools/tools';
 import { IArticleProps, IHeaderState } from '../../../types/article';
 
 const headerList = {
@@ -51,7 +52,11 @@ class Header extends React.Component<IArticleProps, IHeaderState> {
     this.switchNavbarBackgroundColor();
   }
 
-  public switchNavbarBackgroundColor = () => {
+  public componentWillUnmount() {
+    window.removeEventListener('scroll', noop);
+  }
+
+  public switchNavbarBackgroundColor() {
     const top = document.documentElement.scrollTop || document.body.scrollTop;
     if (!top) {
       this.setState({
@@ -74,7 +79,7 @@ class Header extends React.Component<IArticleProps, IHeaderState> {
         }
       }, 150),
     );
-  };
+  }
 
   public render() {
     const { isTop } = this.state;

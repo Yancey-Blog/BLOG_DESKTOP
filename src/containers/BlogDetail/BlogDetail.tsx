@@ -17,7 +17,7 @@ import './BlogDetail.scss';
 import Like from '@components/Post/Like/Like';
 import Skeletons from '@components/Skeletons/BlogDetailSkeleton/Skeletons';
 
-import { initLivere, formatJSONDate } from '@tools/tools';
+import { initLivere, formatJSONDate, noop } from '@tools/tools';
 import { webpSuffix, byNcSa, livere } from '@constants/constants';
 
 import routePath from '@constants/routePath';
@@ -140,6 +140,10 @@ class BlogDetail extends React.Component<
     }
   }
 
+  public componentWillUnmount() {
+    window.removeEventListener('scroll', noop);
+  }
+
   public render() {
     const { articleStore } = this.props;
     const isWebp = window.localStorage.getItem('isWebp') === 'true';
@@ -151,18 +155,22 @@ class BlogDetail extends React.Component<
           <meta name='twitter:site' content='@YanceyOfficial' />
           <meta name='twitter:creator' content='@YanceyOfficial' />
           <meta
-            name='og:title'
+            name='twitter:title'
             content={articleStore!.detail.curArticle.title}
           />
           <meta
-            name='og:description'
+            name='twitter:description'
             content={articleStore!.detail.curArticle.summary}
           />
           <meta
-            name='og:image'
+            name='twitter:image'
             content={`https:${articleStore!.detail.curArticle.header_cover}`}
           />
-          <meta name='og:url' content={location.href} />
+          <meta
+            name='twitter:image:alt'
+            content={articleStore!.detail.curArticle.title}
+          />
+          <meta name='twitter:url' content={location.href} />
         </Helmet>
 
         <section

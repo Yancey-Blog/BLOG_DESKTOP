@@ -1,5 +1,6 @@
 import * as React from 'react';
 import _ from 'lodash';
+import { noop } from '@tools/tools';
 import styles from './ScrollToTop.module.scss';
 
 class ScrollToTop extends React.Component<{}, {}> {
@@ -49,6 +50,10 @@ class ScrollToTop extends React.Component<{}, {}> {
       );
     }
   };
+
+  public componentWillUnmount() {
+    window.removeEventListener('scroll', noop);
+  }
 
   public render() {
     return (
