@@ -36,14 +36,12 @@ class Layouts extends Component<ILayoutsProps, {}> {
     window.localStorage.setItem('isWebp', checkWebp().toString());
     this.reactGA();
     devToolsWarning();
-    hotjar.initialize('1514017', '');
   }
 
   public componentDidMount() {
     const { layoutsStore } = this.props;
     layoutsStore!.getPlayers();
     layoutsStore!.getGlobalStatus();
-
   }
 
   public reactGA() {
@@ -52,6 +50,7 @@ class Layouts extends Component<ILayoutsProps, {}> {
     history.listen(() => {
       ReactGA.pageview(window.location.pathname + window.location.search);
     });
+    hotjar.initialize('1514017', '');
   }
 
   public render() {
