@@ -46,11 +46,13 @@ class Layouts extends Component<ILayoutsProps, {}> {
 
   public reactGA() {
     ReactGA.initialize(GA);
+    hotjar.initialize('1514017', '');
     ReactGA.pageview(window.location.pathname + window.location.search);
     history.listen(() => {
       ReactGA.pageview(window.location.pathname + window.location.search);
+      hotjar.initialize('1514017', '');
     });
-    hotjar.initialize('1514017', '');
+  
   }
 
   public render() {
