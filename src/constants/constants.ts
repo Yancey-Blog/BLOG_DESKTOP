@@ -19,6 +19,7 @@ export const archiveBg = `${aliOSS}/NZqlumt.jpg`;
 export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
 export const avatar = `${aliOSS}/static/logo_avatar.jpg`;
 export const legalBg = `${aliOSS}/static/legal_page_header.jpg`;
+export const cup = `${aliOSS}/drink.hash-d2bcd7.png`;
 
 export const GA = 'UA-114532340-1';
 

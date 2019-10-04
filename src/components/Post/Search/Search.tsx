@@ -4,7 +4,7 @@ import cs from 'classnames';
 import _ from 'lodash';
 import styles from './Search.module.scss';
 import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import { webpSuffix, miku, svgSprite } from '@constants/constants';
+import { webpSuffix, svgSprite, cup } from '@constants/constants';
 import { IArticleProps } from '../../../types/article';
 
 @inject('articleStore')
@@ -46,7 +46,7 @@ class Search extends React.Component<IArticleProps, {}> {
               className={styles.miku_chan}
               style={{
                 backgroundImage: `url(${
-                  isWebp ? `${miku}${webpSuffix}` : miku
+                  isWebp ? `${cup}${webpSuffix}` : cup
                 })`,
               }}
             />

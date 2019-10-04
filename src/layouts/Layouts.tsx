@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import history from '../history';
 import { checkWebp, devToolsWarning } from '@tools/tools';
 import { GA } from '@constants/constants';
+import { hotjar } from 'react-hotjar';
 
 import AutoBackToTop from '@components/Common/AutoBackToTop/AutoBackToTop';
 import Player from '@components/Widget/Player/Player';
@@ -35,12 +36,14 @@ class Layouts extends Component<ILayoutsProps, {}> {
     window.localStorage.setItem('isWebp', checkWebp().toString());
     this.reactGA();
     devToolsWarning();
+    hotjar.initialize('1514017', '');
   }
 
   public componentDidMount() {
     const { layoutsStore } = this.props;
     layoutsStore!.getPlayers();
     layoutsStore!.getGlobalStatus();
+
   }
 
   public reactGA() {
