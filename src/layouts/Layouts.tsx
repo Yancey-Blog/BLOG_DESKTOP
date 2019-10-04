@@ -11,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import history from '../history';
 import { checkWebp, devToolsWarning } from '@tools/tools';
 import { GA } from '@constants/constants';
-import { hotjar } from 'react-hotjar';
 
 import AutoBackToTop from '@components/Common/AutoBackToTop/AutoBackToTop';
 import Player from '@components/Widget/Player/Player';
@@ -46,11 +45,9 @@ class Layouts extends Component<ILayoutsProps, {}> {
 
   public reactGA() {
     ReactGA.initialize(GA);
-    hotjar.initialize('1514017', '');
     ReactGA.pageview(window.location.pathname + window.location.search);
     history.listen(() => {
       ReactGA.pageview(window.location.pathname + window.location.search);
-      hotjar.initialize('1514017', '');
     });
   
   }
