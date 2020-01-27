@@ -49,7 +49,6 @@ class Layouts extends Component<ILayoutsProps, {}> {
     history.listen(() => {
       ReactGA.pageview(window.location.pathname + window.location.search);
     });
-  
   }
 
   public render() {
@@ -57,20 +56,18 @@ class Layouts extends Component<ILayoutsProps, {}> {
     const isGray = layoutsStore!.globalStatus.full_site_gray;
 
     return (
-      <Router history={history}>
-        <AutoBackToTop>
-          <div
-            className={classnames(isGray ? 'full_site_gray' : '', 'content')}
-          >
+      <div className={classnames(isGray && 'full_site_gray', 'content')}>
+        <Router history={history}>
+          <AutoBackToTop>
             <Header />
             <Routers />
-          </div>
-          <ScrollToTop />
-          <Player />
-          <Footer />
-          <ToastContainer />
-        </AutoBackToTop>
-      </Router>
+            <ScrollToTop />
+            <Player />
+            <Footer />
+            <ToastContainer />
+          </AutoBackToTop>
+        </Router>
+      </div>
     );
   }
 }
