@@ -36,8 +36,8 @@ class Home extends React.Component<IHomeProps, {}> {
         <Title title='Yancey Official Blog' />
         <section id='background' className={styles.ad_wrapper} />
         <div className={styles.home_slogon}>
-          <h1 className={styles.glitch} data-value='HI, YANCEY!'>
-            HI, YANCEY!
+          <h1 className={styles.glitch} data-value='RIP MAMBA'>
+            RIP MAMBA
           </h1>
           <div className={styles.social_media_container}>
             <div className={styles.up_triangle} />
