@@ -60,7 +60,7 @@ class Layouts extends Component<ILayoutsProps, {}> {
         <Router history={history}>
           <AutoBackToTop>
             <Header />
-            <div style={{ height: '100vh' }}>
+            <div style={{ minHeight: '100vh' }}>
               <Routers />
             </div>
             <ScrollToTop />
