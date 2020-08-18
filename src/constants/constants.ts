@@ -7,6 +7,8 @@ export const api = {
   dev: '127.0.0.1:3001/api',
 };
 
+export const sentryDNS = 'https://2998f0f7a05044969a7859a2596e6977@sentry.io/1468725';
+
 export const aliOSS = '//yancey-assets.oss-cn-beijing.aliyuncs.com';
 export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
