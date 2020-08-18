@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/browser';
+import { sentryDNS } from '@constants/constants';
 
 Sentry.init({
-  dsn: 'https://2998f0f7a05044969a7859a2596e6977@sentry.io/1468725',
+  dsn: sentryDNS,
 });
 
 interface IErrorMonitorState {
@@ -18,7 +19,7 @@ class ErrorMonitor extends React.Component<{}, IErrorMonitorState> {
 
   public componentDidCatch(error, errorInfo) {
     this.setState({ error });
-    Sentry.withScope(scope => {
+    Sentry.withScope((scope) => {
       scope.setExtras(errorInfo);
       const eventId = Sentry.captureException(error);
       this.setState({ eventId });

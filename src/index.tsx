@@ -1,16 +1,19 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
+import * as Sentry from '@sentry/browser';
 import Layouts from './layouts/Layouts';
 import stores from './stores/index';
 import * as serviceWorker from './registerServiceWorker';
-import * as Sentry from '@sentry/browser';
+import { sentryDNS } from '@constants/constants';
 
-Sentry.init({
-  dsn: 'https://2998f0f7a05044969a7859a2596e6977@sentry.io/1468725',
-});
+if (process.env.NODE_ENV === 'production') {
+  Sentry.init({
+    dsn: sentryDNS,
+  });
 
-Sentry.captureException;
+  Sentry.captureException;
+}
 
 ReactDOM.render(
   <Provider {...stores}>
