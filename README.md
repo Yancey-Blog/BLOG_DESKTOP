@@ -29,8 +29,8 @@ I alse used CSS Module、Webp、SVG Sprite and so on...
 
 ### Home Page
 
-![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20190513-120854%402x.jpg)
-![Home](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
+![Cover](https://static.yancey.app/Jietu20190513-120854%402x.jpg)
+![Home](https://static.yancey.app/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
 
 The home page contains five parts：
 
@@ -62,17 +62,17 @@ Display the latest 10 articles summary, which is include release date, title, PV
 
 ### Blog Page
 
-![Blog](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-181438@2x.jpg?x-oss-process=image/quality,Q_60)
+![Blog](https://static.yancey.app/Jietu20181017-181438@2x.jpg?x-oss-process=image/quality,Q_60)
 
 The left part is a pageable summary list; The right part includes two parts: `tags list` and `top 7 most viewed`
 
 In addition, you can see a search button in the rightmost position of `header` component. Yep,a lovely Hatsune Miku will appear.
 
-![Blog](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-181947.jpg?x-oss-process=image/quality,Q_60)
+![Blog](https://static.yancey.app/Jietu20181017-181947.jpg?x-oss-process=image/quality,Q_60)
 
 ### Blog Detail Page
 
-![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
+![Blog Detail](https://static.yancey.app/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
 
 - Collect people views counts.
 
@@ -91,7 +91,7 @@ In addition, you can see a search button in the rightmost position of `header` c
 
 ### Archive Page
 
-![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-183530@2x.jpg?x-oss-process=image/quality,Q_60)
+![Blog Detail](https://static.yancey.app/Jietu20181017-183530@2x.jpg?x-oss-process=image/quality,Q_60)
 
 - Click on the circle to show the current month's articles.
 
@@ -101,9 +101,9 @@ In addition, you can see a search button in the rightmost position of `header` c
 
 ### Music Page
 
-![Music-1](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184221%402x.jpg?x-oss-process=image/quality,Q_60)
+![Music-1](https://static.yancey.app/Jietu20181017-184221%402x.jpg?x-oss-process=image/quality,Q_60)
 
-![Music-2](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184130@2x.jpg?x-oss-process=image/quality,Q_10)
+![Music-2](https://static.yancey.app/Jietu20181017-184130@2x.jpg?x-oss-process=image/quality,Q_10)
 
 - The Lives image
 - Music notes
@@ -112,7 +112,7 @@ In addition, you can see a search button in the rightmost position of `header` c
 
 ### Apps Page
 
-![Apps](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185001@2x.jpg?x-oss-process=image/quality,Q_60)
+![Apps](https://static.yancey.app/Jietu20181017-185001@2x.jpg?x-oss-process=image/quality,Q_60)
 
 Todos:
 
@@ -128,7 +128,7 @@ Todos:
 
 ### About Page
 
-![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
+![About](https://static.yancey.app/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
 
 Display the development history of the blog.
 
