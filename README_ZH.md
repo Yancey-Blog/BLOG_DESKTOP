@@ -35,8 +35,8 @@
 
 ### Home Page
 
-![Cover](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_20)
-![Home](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
+![Cover](https://static.yancey.app/Jietu20181017-174103%402x.jpg?x-oss-process=image/quality,Q_20)
+![Home](https://static.yancey.app/Jietu20181017-174609@2x.jpg?x-oss-process=image/quality,Q_60)
 
 主页分为 5 个部分：
 
@@ -78,19 +78,19 @@ _ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）
 
 ### Blog Page
 
-![Blog](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-181438@2x.jpg?x-oss-process=image/quality,Q_60)
+![Blog](https://static.yancey.app/Jietu20181017-181438@2x.jpg?x-oss-process=image/quality,Q_60)
 
 左边是最新的十篇 summary, 而下面是后端分页的分页器；右边上面是文章的标签集合，下面是 7 篇最高 PV 的文章（设计大家都懂，知乎的设计）。
 
 此外，其实在 header 的右上角还有一个*搜索*按钮，点进去是这个样子：
 
-![Blog](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-181947.jpg?x-oss-process=image/quality,Q_60)
+![Blog](https://static.yancey.app/Jietu20181017-181947.jpg?x-oss-process=image/quality,Q_60)
 
 没错，可爱的初音ミク, 通过在搜索框输入，模糊匹配文章名。当然这里没有第一版好，第一版用了 whoosh + jieba 搜索引擎，效果理论上要比这版好一些。
 
 ### Blog Detail Page
 
-![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
+![Blog Detail](https://static.yancey.app/Jietu20181017-182519@2x.jpg?x-oss-process=image/quality,Q_20)
 
 关于 Blog Detail 页面其实有很多地方，一张图放不下：
 
@@ -113,7 +113,7 @@ _ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）
 
 ### Archive Page
 
-![Blog Detail](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-183530@2x.jpg?x-oss-process=image/quality,Q_60)
+![Blog Detail](https://static.yancey.app/Jietu20181017-183530@2x.jpg?x-oss-process=image/quality,Q_60)
 
 这个部分显示归档，话说毕竟好久不写后端了，写聚合分组 SQL 那一块的时候确实花了些时间。
 
@@ -123,9 +123,9 @@ _ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）
 
 我的业余爱好是做音乐，因此 Blog 也不会少了 Music 模块。
 
-![Music-1](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184221%402x.jpg?x-oss-process=image/quality,Q_60)
+![Music-1](https://static.yancey.app/Jietu20181017-184221%402x.jpg?x-oss-process=image/quality,Q_60)
 
-![Music-2](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-184130@2x.jpg?x-oss-process=image/quality,Q_10)
+![Music-2](https://static.yancey.app/Jietu20181017-184130@2x.jpg?x-oss-process=image/quality,Q_10)
 
 第一张图的左上角是我看过的 Live 的轮播图片，当然图片肯定都是在拍照时间拍的；
 
@@ -137,7 +137,7 @@ _ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）
 
 ### Apps Page
 
-![Apps](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185001@2x.jpg?x-oss-process=image/quality,Q_60)
+![Apps](https://static.yancey.app/Jietu20181017-185001@2x.jpg?x-oss-process=image/quality,Q_60)
 
 现在还没去做，后期会计划写 Wap 版（1.0 是用的响应式，这次想把 Wap 单独抽离出来）；用 NR 写 iOS 和 Andriod；用 Electron 写个 Mac 版，毕竟用着 Nav Bar 的 MBP, 还是想在这个地方做点儿好玩的事情出来。
 
@@ -151,7 +151,7 @@ _ps: 上面那句话来自「ノルウェイの森」（《挪威的森林》）
 
 ### About
 
-![About](https://yancey-assets.oss-cn-beijing.aliyuncs.com/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
+![About](https://static.yancey.app/Jietu20181017-185855@2x.jpg?x-oss-process=image/quality,Q_10)
 
 About 页面也是从后端取出来的，用来记录 Blog 发展的大事记（估计就是 Bug 修改历程 噗 x）。
 
